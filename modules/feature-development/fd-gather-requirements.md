@@ -8,7 +8,7 @@ Ideate a feature enhancement or addition, and work with Devin to gather requirem
 
 - **Repository:** Any repo in the org (participant's choice)
 - **Recommended:**
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — Simple domain, easy to ideate features
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Simple domain, easy to ideate features
   - [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com) — Rich domain with many extension points
 
 ## Task
@@ -17,13 +17,13 @@ Ideate a feature enhancement or addition to the current application's capabiliti
 
 ## Suggested Features to Explore
 
-- **client-timesheet-app:** Add invoice generation from time entries, add project/task hierarchy, add team views
+- **app_timesheet-client:** Add invoice generation from time entries, add project/task hierarchy, add team views
 - **cal.com:** Add a custom booking field type, add a webhook for no-shows, add a booking analytics dashboard
 - **Any repo:** Add internationalization (i18n), add dark mode, add an API rate limiter
 
 ## Sample Prompt
 
-> I want to add invoice generation to client-timesheet-app. Help me gather requirements: what data do we need, what's the UI flow, what APIs need to change, what new database tables are needed? Consider edge cases and constraints. Document the requirements as a GitHub Issue with acceptance criteria.
+> I want to add invoice generation to app_timesheet-client. Help me gather requirements: what data do we need, what's the UI flow, what APIs need to change, what new database tables are needed? Consider edge cases and constraints. Document the requirements as a GitHub Issue with acceptance criteria.
 
 ## What Participants Will Learn
 

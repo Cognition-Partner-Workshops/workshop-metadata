@@ -7,8 +7,9 @@ Challenges focused on requirements gathering, test-driven development, and bug f
 | D1 | [Gather Requirements](fd-gather-requirements.md) | Any | Beginner | 30 min |
 | D2 | [Test-Driven Development](fd-tdd.md) | Any | Intermediate | 60 min |
 | D3 | [Fix a Runtime Bug](fd-fix-runtime-bug.md) | cal.com | Intermediate | 45 min |
-| D4 | [Fix a UI Bug](fd-fix-ui-bug.md) | client-timesheet-app | Beginner–Intermediate | 30 min |
-| D5 | [Fix a Data Bug](fd-fix-data-bug.md) | client-timesheet-app | Intermediate | 45 min |
+| D4 | [Fix a UI Bug](fd-fix-ui-bug.md) | app_timesheet-client | Beginner–Intermediate | 30 min |
+| D5 | [Fix a Data Bug](fd-fix-data-bug.md) | app_timesheet-client | Intermediate | 45 min |
+| D6 | [New Feature Development](fd-new-feature.md) | app_timesheet-client, ts-java-spring-boot-realworld-example-app | Intermediate–Advanced | 60 min |
 
 ## When to Use This Category
 

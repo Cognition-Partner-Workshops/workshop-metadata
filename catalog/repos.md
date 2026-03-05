@@ -19,7 +19,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 
 | Cluster ID | Upstream Source | Repos | Reason |
 |-----------|----------------|-------|--------|
-| **C1** | `spring-boot-realworld-example-app` | `uc-framework-upgrade-monolith-to-microservices`, `uc-cve-remediation-regulatory-compliance`, `spring-boot-realworld-example-app` | Labs 2 and 3 both start from the same Spring Boot monolith but have different objectives (upgrade vs. CVE remediation). The original import is also retained. |
+| **C1** | `ts-java-spring-boot-realworld-example-app` | `uc-framework-upgrade-monolith-to-microservices`, `uc-cve-remediation-regulatory-compliance`, `ts-java-spring-boot-realworld-example-app` | Labs 2 and 3 both start from the same Spring Boot monolith but have different objectives (upgrade vs. CVE remediation). The original import is also retained (renamed from `spring-boot-realworld-example-app`). |
 | **C2** | `aws-mainframe-modernization-carddemo` | `uc-legacy-modernization-cobol-to-java`, `aws-mainframe-modernization-carddemo` | Lab 1 uses a dedicated copy. The original import is also retained. |
 | **C3** | Spring PetClinic ecosystem | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices` | Three repos for the same application (frontend, backend monolith, microservices variant). |
 
@@ -62,6 +62,18 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
 | **Challenges** | [sec-upgrade-dependencies](../modules/security/sec-upgrade-dependencies.md), [sec-remediate-vulnerabilities](../modules/security/sec-remediate-vulnerabilities.md), [sec-shift-left](../modules/security/sec-shift-left.md), [sec-antipatterns](../modules/security/sec-antipatterns.md) |
 
+### uc-data-source-migration-legacy-to-modern
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern |
+| **Description** | Spring Boot 3.2 / Java 17 loan management application reading from legacy CDW-style tables (all-VARCHAR, cryptic column names, denormalized). Includes modern target schema, column mappings, and 5 workshop migration tasks. |
+| **Tech Stack** | Java 17, Spring Boot 3.2, Spring Data JPA, H2 |
+| **License** | MIT |
+| **Default Branch** | `initial-code` |
+| **Cluster** | None (scaffolded from scratch) |
+| **Key Legacy Characteristics** | All-VARCHAR typing, cryptic column names (BORR_FST_NM, LN_CURR_BAL), denormalized, no FKs, code abbreviations (ACT/CLO/DFT) |
+| **Challenges** | [mm-data-source-migration](../modules/migration-modernization/mm-data-source-migration.md), [mm-legacy-modernization-combined](../modules/migration-modernization/mm-legacy-modernization-combined.md) |
+
 ### uc-dw-migration-teradata-to-snowflake
 | | |
 |---|---|
@@ -72,7 +84,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | None (scaffolded from scratch) |
 | **Key Teradata Features** | SET/MULTISET, PI/PPI, COMPRESS, CASESPECIFIC, QUALIFY, ZEROIFNULL, CSUM, MAVG, HASHROW, VOLATILE TABLE, MACRO |
-| **Challenges** | [mm-dw-migration-teradata](../modules/migration-modernization/mm-dw-migration-teradata.md) |
+| **Challenges** | [mm-dw-migration-teradata](../modules/migration-modernization/mm-dw-migration-teradata.md)
 
 ### uc-data-migration-sas-to-snowflake
 | | |
@@ -168,6 +180,17 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | Apache 2.0 |
 | **Challenges** | API documentation/testing demos |
 
+### ts-java-spring-boot-realworld-example-app
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app |
+| **Description** | Original import of RealWorld example Spring Boot app. Java 11, Spring Boot 2.6.3, Gradle. |
+| **Tech Stack** | Java 11, Spring Boot 2.6.3, Gradle, MyBatis, SQLite |
+| **License** | MIT |
+| **Renamed From** | `spring-boot-realworld-example-app` (applied `ts-java-` prefix to clarify tech stack) |
+| **Cluster** | C1 (upstream for Labs 2 and 3) |
+| **Challenges** | General Spring Boot demos, [fd-new-feature](../modules/feature-development/fd-new-feature.md) (prefer using the `uc-` copies for labs) |
+
 ---
 
 ## Application Repos (`app_`)
@@ -202,18 +225,19 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Cluster** | C3 (PetClinic ecosystem) |
 | **Challenges** | [mm-containerization](../modules/migration-modernization/mm-containerization.md) (reference architecture) |
 
+### app_timesheet-client
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_timesheet-client |
+| **Description** | Client timesheet and billable hours tracking application. React 19 + Node.js/Express + SQLite. Full CRUD, auth, reporting, CSV/PDF export. Multi-part app (backend + frontend + Docker). |
+| **Tech Stack** | React 19, TypeScript, Node.js, Express, SQLite, Material-UI, Vite |
+| **License** | — |
+| **Renamed From** | `client-timesheet-app` (applied `app_` prefix for multi-repo application) |
+| **Challenges** | [qe-linting](../modules/quality-engineering/qe-linting.md), [sec-upgrade-dependencies](../modules/security/sec-upgrade-dependencies.md), [fd-fix-ui-bug](../modules/feature-development/fd-fix-ui-bug.md), [fd-fix-data-bug](../modules/feature-development/fd-fix-data-bug.md), [fd-new-feature](../modules/feature-development/fd-new-feature.md), [da-cicd](../modules/devops-automation/da-cicd.md) |
+
 ---
 
 ## Non-Prefixed Repos
-
-### client-timesheet-app
-| | |
-|---|---|
-| **URL** | https://github.com/Cognition-Partner-Workshops/client-timesheet-app |
-| **Description** | Client timesheet and billable hours tracking application. React 19 + Node.js/Express + SQLite. Full CRUD, auth, reporting, CSV/PDF export. |
-| **Tech Stack** | React 19, TypeScript, Node.js, Express, SQLite, Material-UI, Vite |
-| **License** | — |
-| **Challenges** | [qe-linting](../modules/quality-engineering/qe-linting.md), [sec-upgrade-dependencies](../modules/security/sec-upgrade-dependencies.md), [fd-fix-ui-bug](../modules/feature-development/fd-fix-ui-bug.md), [fd-fix-data-bug](../modules/feature-development/fd-fix-data-bug.md), [da-cicd](../modules/devops-automation/da-cicd.md) |
 
 ### hosting-client-timesheet-app
 | | |
@@ -259,16 +283,6 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | React, Bootstrap 5, JavaScript |
 | **License** | MIT |
 | **Challenges** | [mm-framework-upgrade](../modules/migration-modernization/mm-framework-upgrade.md) (Bootstrap → Material UI) |
-
-### spring-boot-realworld-example-app
-| | |
-|---|---|
-| **URL** | https://github.com/Cognition-Partner-Workshops/spring-boot-realworld-example-app |
-| **Description** | Original import of RealWorld example Spring Boot app. Java 11, Spring Boot 2.6.3, Gradle. |
-| **Tech Stack** | Java 11, Spring Boot 2.6.3, Gradle, MyBatis, SQLite |
-| **License** | MIT |
-| **Cluster** | C1 (upstream for Labs 2 and 3) |
-| **Challenges** | General Spring Boot demos (prefer using the `uc-` copies for labs) |
 
 ### aws-mainframe-modernization-carddemo
 | | |

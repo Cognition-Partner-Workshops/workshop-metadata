@@ -8,8 +8,8 @@ Enhance documentation in a codebase so that code is more readable and maintainab
 
 - **Repository:** Any repo in the org (participant's choice)
 - **Recommended:**
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — Moderate codebase, mix of frontend/backend
-  - [spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/spring-boot-realworld-example-app) — Java codebase benefits from Javadoc
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Moderate codebase, mix of frontend/backend
+  - [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app) — Java codebase benefits from Javadoc
   - [uc-dw-migration-teradata-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake) — SQL files benefit from header comments
 
 ## Task

@@ -7,7 +7,7 @@ Define a CI flow where Devin can triage and resolve failed CI gates/checks for P
 ## Options
 
 - **Repository:** Any repo with CI configured
-- **Reference:** [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — Has `sonar-devin-fix.yml` as a working example of this pattern
+- **Reference:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Has `sonar-devin-fix.yml` as a working example of this pattern
 
 ## Task
 
@@ -39,7 +39,7 @@ Developer commits → CI runs → CI fails → Trigger Devin Session → Devin d
 
 ## Reference Implementation
 
-See `client-timesheet-app/.github/workflows/sonar-devin-fix.yml` for a working example that:
+See `app_timesheet-client/.github/workflows/sonar-devin-fix.yml` for a working example that:
 1. Runs SonarQube analysis on PRs
 2. If critical issues are found and the PR author is `bsmitches`, triggers a Devin session
 3. Devin receives the SonarQube findings and the branch name

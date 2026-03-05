@@ -9,7 +9,7 @@ Use a SAST tool to identify and remediate the most critical preexisting vulnerab
 - **Repository:** Any repo in the org (participant's choice)
 - **Recommended:**
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — Spring Boot 2.6.3 with known CVEs
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — Node.js with Trivy scanning already configured
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Node.js with Trivy scanning already configured
 
 ## Task
 

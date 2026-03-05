@@ -7,7 +7,7 @@ Experiment with Devin's capabilities for end-to-end testing against a locally ho
 ## Options
 
 - **Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
-- **Alternative:** [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) (simpler app, good for first-timers)
+- **Alternative:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) (simpler app, good for first-timers)
 
 ## Task
 
@@ -23,7 +23,7 @@ Experiment with Devin's capabilities for end-to-end testing on the locally hoste
 
 - **Runtime required:** The application must be running locally on Devin's machine or hosted externally
 - **cal.com:** `yarn dev` starts on port 3000
-- **client-timesheet-app:** Backend on port 3001, frontend on port 5173
+- **app_timesheet-client:** Backend on port 3001, frontend on port 5173
 
 ## What Participants Will Learn
 

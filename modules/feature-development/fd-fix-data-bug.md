@@ -2,11 +2,11 @@
 
 ## Challenge
 
-Fix a known data persistence bug in the client-timesheet-app.
+Fix a known data persistence bug in the app_timesheet-client.
 
 ## Repository
 
-- **Primary:** [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app)
+- **Primary:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
 
 ## Task
 
@@ -26,7 +26,7 @@ Clients do not persist when you log out and log back in with a different email. 
 
 ## Sample Prompt
 
-> There's a data bug in client-timesheet-app: clients created by one user are not visible to other users after logging out and back in with a different email. Clients should be shared across all users. Investigate the database schema and queries, find the root cause, and fix it. Make sure work entries still belong to individual users. Open a PR.
+> There's a data bug in app_timesheet-client: clients created by one user are not visible to other users after logging out and back in with a different email. Clients should be shared across all users. Investigate the database schema and queries, find the root cause, and fix it. Make sure work entries still belong to individual users. Open a PR.
 
 ## What Participants Will Learn
 

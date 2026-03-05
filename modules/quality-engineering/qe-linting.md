@@ -7,8 +7,8 @@ Resolve linting issues in a codebase using Devin.
 ## Options
 
 ### Option 1: JavaScript/TypeScript Linting
-- **Repository:** [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app)
-- **Task:** Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/client-timesheet-app/issues/3
+- **Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+- **Task:** Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/app_timesheet-client/issues/3
 
 ### Option 2: Terraform Formatting
 - **Repository:** [hosting-client-timesheet-app](https://github.com/Cognition-Partner-Workshops/hosting-client-timesheet-app)
@@ -16,7 +16,7 @@ Resolve linting issues in a codebase using Devin.
 
 ## Sample Prompt
 
-> Review the linting configuration in client-timesheet-app and fix all linting errors. Run the linter to verify all issues are resolved. Open a PR with the fixes.
+> Review the linting configuration in app_timesheet-client and fix all linting errors. Run the linter to verify all issues are resolved. Open a PR with the fixes.
 
 ## What Participants Will Learn
 

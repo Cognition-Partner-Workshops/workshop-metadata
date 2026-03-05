@@ -8,7 +8,7 @@ Refactor an application or its infrastructure to operate in a more cloud-native 
 
 - **Repository:** Any repo in the org (participant's choice)
 - **Recommended:**
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — SQLite → managed DB, single container → orchestrated
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — SQLite → managed DB, single container → orchestrated
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Add health checks, graceful shutdown, config externalization
   - [fineract](https://github.com/Cognition-Partner-Workshops/fineract) — Large Java app, many cloud-native improvement opportunities
 

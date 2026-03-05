@@ -57,14 +57,18 @@ workshop-metadata/
 │   │   ├── mm-api-consolidation.md
 │   │   ├── mm-cloud-native.md
 │   │   ├── mm-iac-translation.md
-│   │   └── mm-dw-migration-teradata.md
+│   │   ├── mm-dw-migration-teradata.md
+│   │   ├── mm-data-source-migration.md
+│   │   ├── mm-repetitive-upgrades.md
+│   │   └── mm-legacy-modernization-combined.md
 │   ├── feature-development/
 │   │   ├── README.md
 │   │   ├── fd-gather-requirements.md
 │   │   ├── fd-tdd.md
 │   │   ├── fd-fix-runtime-bug.md
 │   │   ├── fd-fix-ui-bug.md
-│   │   └── fd-fix-data-bug.md
+│   │   ├── fd-fix-data-bug.md
+│   │   └── fd-new-feature.md
 │   ├── devops-automation/
 │   │   ├── README.md
 │   │   ├── da-cicd.md
@@ -77,8 +81,10 @@ workshop-metadata/
 │   ├── README.md                          ← how to compose an event
 │   ├── _template/
 │   │   └── README.md                      ← blank event template
-│   └── 2026-03-09-oslo/
-│       └── README.md                      ← Oslo workshop (example event)
+│   ├── 2026-03-09-oslo/
+│   │   └── README.md                      ← Oslo workshop (example event)
+│   └── workshop-variant-1/
+│       └── README.md                      ← Mortgage lender use cases (4 UCs)
 └── shared/
     ├── repo-naming-convention.md
     ├── runtime-resources.md

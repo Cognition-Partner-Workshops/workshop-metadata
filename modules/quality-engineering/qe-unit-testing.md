@@ -8,8 +8,8 @@ Add or improve unit test coverage for a repository, create a test coverage repor
 
 - **Repository:** Any repo in the org (participant's choice)
 - **Recommended starting points:**
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — Jest tests exist in `backend/src/__tests__/`
-  - [spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/spring-boot-realworld-example-app) — JUnit tests exist
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Jest tests exist in `backend/src/__tests__/`
+  - [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app) — JUnit tests exist
   - [app_petclinic-backend](https://github.com/Cognition-Partner-Workshops/app_petclinic-backend) — Spring Boot test suite
 
 ## Task

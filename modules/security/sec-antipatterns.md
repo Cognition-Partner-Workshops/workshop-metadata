@@ -8,7 +8,7 @@ Discover security flaws or design antipatterns preexisting in application source
 
 - **Repository:** Any repo in the org (participant's choice)
 - **Recommended:**
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — email-only auth (no password), potential SQL injection paths
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — email-only auth (no password), potential SQL injection paths
   - [Online-Banking-System-using-Java](https://github.com/Cognition-Partner-Workshops/Online-Banking-System-using-Java) — likely has multiple security antipatterns
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — review for OWASP Top 10 issues
 

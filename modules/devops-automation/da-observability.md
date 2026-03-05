@@ -8,7 +8,7 @@ Improve logging or observability capabilities of a system to make it easier to f
 
 - **Repository:** Any repo in the org (participant's choice)
 - **Recommended:**
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — Simple app, easy to add structured logging
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Simple app, easy to add structured logging
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot with Actuator potential
   - [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com) — Complex app with many observability opportunities
 
@@ -25,7 +25,7 @@ Improve logging or observability capabilities so it's easier to find root causes
 
 ## Sample Prompt
 
-> Add structured JSON logging to client-timesheet-app: replace all console.log statements with Winston logger, add request/response logging middleware with correlation IDs, add a /metrics endpoint with basic request count and latency histograms. Open a PR.
+> Add structured JSON logging to app_timesheet-client: replace all console.log statements with Winston logger, add request/response logging middleware with correlation IDs, add a /metrics endpoint with basic request count and latency histograms. Open a PR.
 
 ## What Participants Will Learn
 

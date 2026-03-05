@@ -2,11 +2,11 @@
 
 ## Challenge
 
-Fix a known visual bug in the client-timesheet-app.
+Fix a known visual bug in the app_timesheet-client.
 
 ## Repository
 
-- **Primary:** [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app)
+- **Primary:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
 
 ## Task
 
@@ -28,7 +28,7 @@ The Client dropdown's label text has a strikethrough when you create an hour ent
 
 ## Sample Prompt
 
-> There's a UI bug in client-timesheet-app: on the /work-entries page, the Client dropdown label has a strikethrough. Investigate the CSS/styling causing this issue and fix it. Take a screenshot before and after the fix. Open a PR.
+> There's a UI bug in app_timesheet-client: on the /work-entries page, the Client dropdown label has a strikethrough. Investigate the CSS/styling causing this issue and fix it. Take a screenshot before and after the fix. Open a PR.
 
 ## What Participants Will Learn
 

@@ -10,7 +10,7 @@ Create or improve the CI/CD pipeline for an application or its infrastructure as
 - **Recommended:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Workflows were removed; needs CI from scratch
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — Workflows were removed; needs CI from scratch
-  - [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app) — Has existing CI; can be improved
+  - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Has existing CI; can be improved
 
 ## Task
 

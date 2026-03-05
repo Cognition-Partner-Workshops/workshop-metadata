@@ -33,9 +33,9 @@ cd ~/repos/cal.com && yarn dev
 # Access: http://localhost:3000
 ```
 
-### spring-boot-realworld-example-app (Labs 2 & 3)
+### ts-java-spring-boot-realworld-example-app (Labs 2 & 3)
 ```bash
-cd ~/repos/spring-boot-realworld-example-app
+cd ~/repos/ts-java-spring-boot-realworld-example-app
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH="$JAVA_HOME/bin:$PATH"
 ./gradlew bootRun

@@ -7,8 +7,8 @@ Upgrade outdated and vulnerable dependencies in a project.
 ## Options
 
 ### Option 1: Node.js Dependencies
-- **Repository:** [client-timesheet-app](https://github.com/Cognition-Partner-Workshops/client-timesheet-app)
-- **Task:** Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/client-timesheet-app/issues/2
+- **Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+- **Task:** Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/app_timesheet-client/issues/2
 
 ### Option 2: Java/Gradle Dependencies
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
