@@ -1,4 +1,4 @@
-# C1 — Legacy Modernisation: COBOL to Java
+# C1 — Legacy Modernization: COBOL to Java
 
 ## Challenge
 
@@ -6,7 +6,7 @@ Migrate a small COBOL batch program that reads fixed-width input records, applie
 
 ## Repository
 
-- **Primary:** [uc-legacy-modernisation-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernisation-cobol-to-java)
+- **Primary:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Source:** AWS Mainframe Modernization CardDemo (Apache 2.0)
 - **Contents:** 30+ COBOL programs (.cbl), JCL, DB2 integration, copybooks, VSAM file definitions
 
@@ -34,7 +34,7 @@ The repo contains programs of varying complexity:
 
 ## Sample Prompt
 
-> Analyze the COBOL program CBACT01C.cbl in uc-legacy-modernisation-cobol-to-java. Understand its business logic, data structures (copybooks), and I/O operations. Rewrite it as a Java 17+ application using modern idioms. Create JUnit tests that verify the Java version produces identical results to the COBOL version for a set of sample inputs. Open a PR with the Java code and tests.
+> Analyze the COBOL program CBACT01C.cbl in uc-legacy-modernization-cobol-to-java. Understand its business logic, data structures (copybooks), and I/O operations. Rewrite it as a Java 17+ application using modern idioms. Create JUnit tests that verify the Java version produces identical results to the COBOL version for a set of sample inputs. Open a PR with the Java code and tests.
 
 ## What Participants Will Learn
 

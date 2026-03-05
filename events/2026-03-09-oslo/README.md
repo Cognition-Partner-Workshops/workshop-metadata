@@ -15,9 +15,9 @@
 
 This event features 4 structured labs using purpose-built repositories:
 
-### Lab 1 — Legacy Modernisation: COBOL → Java (60 min)
+### Lab 1 — Legacy Modernization: COBOL → Java (60 min)
 - **Module:** [mm-cobol-to-java](../../modules/migration-modernization/mm-cobol-to-java.md)
-- **Repository:** [uc-legacy-modernisation-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernisation-cobol-to-java)
+- **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Objective:** Migrate a COBOL batch program that reads fixed-width input records, applies business rules, and produces a report file to Java 17+ while preserving behaviour with parity tests
 - **Target Outcomes:**
   - Java source code + tests with Maven build
@@ -64,7 +64,7 @@ Participants may also attempt any challenge from the full [module catalog](../..
 
 ## Repos Required on Devin's Machine
 
-- [x] uc-legacy-modernisation-cobol-to-java
+- [x] uc-legacy-modernization-cobol-to-java
 - [x] uc-framework-upgrade-monolith-to-microservices
 - [x] uc-cve-remediation-regulatory-compliance
 - [x] uc-dw-migration-teradata-to-snowflake

@@ -4,7 +4,7 @@ Challenges focused on language upgrades, framework migrations, architectural ref
 
 | ID | Challenge | Primary Repos | Difficulty | Time Est. |
 |----|-----------|---------------|-----------|-----------|
-| C1 | [COBOL to Java](mm-cobol-to-java.md) | uc-legacy-modernisation-cobol-to-java | Advanced | 90 min |
+| C1 | [COBOL to Java](mm-cobol-to-java.md) | uc-legacy-modernization-cobol-to-java | Advanced | 90 min |
 | C2 | [Framework Upgrade](mm-framework-upgrade.md) | uc-framework-upgrade-monolith-to-microservices, coreui-free-react-admin-template | Intermediate | 60 min |
 | C3 | [Containerization](mm-containerization.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate–Advanced | 60 min |
 | C4 | [API Consolidation](mm-api-consolidation.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 45 min |

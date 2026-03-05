@@ -20,17 +20,17 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | Cluster ID | Upstream Source | Repos | Reason |
 |-----------|----------------|-------|--------|
 | **C1** | `spring-boot-realworld-example-app` | `uc-framework-upgrade-monolith-to-microservices`, `uc-cve-remediation-regulatory-compliance`, `spring-boot-realworld-example-app` | Labs 2 and 3 both start from the same Spring Boot monolith but have different objectives (upgrade vs. CVE remediation). The original import is also retained. |
-| **C2** | `aws-mainframe-modernization-carddemo` | `uc-legacy-modernisation-cobol-to-java`, `aws-mainframe-modernization-carddemo` | Lab 1 uses a dedicated copy. The original import is also retained. |
+| **C2** | `aws-mainframe-modernization-carddemo` | `uc-legacy-modernization-cobol-to-java`, `aws-mainframe-modernization-carddemo` | Lab 1 uses a dedicated copy. The original import is also retained. |
 | **C3** | Spring PetClinic ecosystem | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices` | Three repos for the same application (frontend, backend monolith, microservices variant). |
 
 ---
 
 ## Use-Case Prefixed Repos (`uc-`)
 
-### uc-legacy-modernisation-cobol-to-java
+### uc-legacy-modernization-cobol-to-java
 | | |
 |---|---|
-| **URL** | https://github.com/Cognition-Partner-Workshops/uc-legacy-modernisation-cobol-to-java |
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java |
 | **Description** | COBOL mainframe credit card management application (CardDemo). Real COBOL batch programs, JCL, DB2 integration, copybooks. |
 | **Tech Stack** | COBOL, JCL, DB2, VSAM |
 | **License** | Apache 2.0 |

@@ -6,7 +6,7 @@ All repositories in the [Cognition-Partner-Workshops](https://github.com/Cogniti
 
 | Prefix | Meaning | When to Use | Examples |
 |--------|---------|------------|---------|
-| `uc-` | **Use Case** | Repo exists to support a specific technical use case (modernization, migration, quality engineering, etc.) | `uc-legacy-modernisation-cobol-to-java`, `uc-dw-migration-teradata-to-snowflake` |
+| `uc-` | **Use Case** | Repo exists to support a specific technical use case (modernization, migration, quality engineering, etc.) | `uc-legacy-modernization-cobol-to-java`, `uc-dw-migration-teradata-to-snowflake` |
 | `ts-` | **Technology Stack** | Repo exists to represent a specific language, cloud provider, or software product | `ts-angular-realworld-example-app`, `ts-sas-legacy-codebase` |
 | `i-` | **Industry Vertical** | Repo exists to represent an industry domain (healthcare, retail, banking, etc.) | `i-banking-loan-processing` |
 | `app_<appname>-` | **Application** | Multiple repos belong to the same application (note: underscore after `app`, not hyphen) | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices` |
