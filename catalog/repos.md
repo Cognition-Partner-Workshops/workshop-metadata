@@ -54,8 +54,8 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | | |
 |---|---|
 | **URL** | https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance |
-| **Description** | Same Spring Boot 2.6.3 monolith as Lab 2, but intended for security-focused exercises. Known vulnerable dependencies (Spring Boot 2.6.3 era). |
-| **Tech Stack** | Java 11, Spring Boot 2.6.3, Gradle, MyBatis, SQLite |
+| **Description** | Same Spring Boot 2.6.3 monolith as Lab 2, but intended for security-focused exercises. Known vulnerable dependencies (Spring Boot 2.6.3 era). Pre-configured with OWASP Dependency-Check and SonarQube Gradle plugins for local SAST scanning. |
+| **Tech Stack** | Java 11, Spring Boot 2.6.3, Gradle, MyBatis, SQLite, OWASP Dependency-Check, SonarQube |
 | **License** | MIT |
 | **Default Branch** | `initial-code` |
 | **Cluster** | C1 (from `spring-boot-realworld-example-app`) |
