@@ -11,6 +11,45 @@ Use local SAST tools to identify and remediate the most critical preexisting vul
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — Spring Boot 2.6.3 with known CVEs, **pre-configured with OWASP Dependency-Check and SonarQube Gradle plugins**
   - [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) — Node.js with Trivy scanning already configured
 
+## Known CVEs in uc-cve-remediation-regulatory-compliance
+
+The repo ships with Spring Boot 2.6.3 and several outdated dependencies. Here are the known high/critical CVEs participants will encounter when scanning:
+
+### Critical (CVSS 9.0+)
+
+| CVE | Dependency | Version | CVSS | Description |
+|-----|-----------|---------|------|-------------|
+| CVE-2022-22965 | Spring Framework | 5.3.15 | 9.8 | **Spring4Shell** — RCE via data binding on JDK 9+ (CISA KEV) |
+| CVE-2022-1471 | SnakeYAML | 1.29 | 9.8 | Unsafe deserialization via `Constructor` class — arbitrary code execution |
+| CVE-2022-22978 | Spring Security | 5.6.1 | 9.8 | Regex bypass in authorization rules — authentication bypass |
+| CVE-2022-31692 | Spring Security | 5.6.1 | 9.8 | Forward/include dispatch bypass — authorization bypass |
+| CVE-2023-32697 | sqlite-jdbc | 3.36.0.3 | 8.8 | RCE when JDBC URL is attacker-controlled |
+
+### High (CVSS 7.0–8.9)
+
+| CVE | Dependency | Version | CVSS | Description |
+|-----|-----------|---------|------|-------------|
+| CVE-2022-22968 | Spring Framework | 5.3.15 | 7.5 | Data binding pattern bypass |
+| CVE-2022-25857 | SnakeYAML | 1.29 | 7.5 | DoS via crafted YAML input |
+| CVE-2022-42003 | jackson-databind | 2.13.1 | 7.5 | Deserialization issue with UNWRAP_SINGLE_VALUE_ARRAYS |
+| CVE-2022-42004 | jackson-databind | 2.13.1 | 7.5 | Deserialization issue in BeanDeserializer |
+| CVE-2022-42252 | Tomcat Embed | 9.0.56 | 7.5 | HTTP request smuggling via invalid Content-Length |
+| CVE-2023-24998 | Tomcat Embed | 9.0.56 | 7.5 | DoS via file upload (Apache Commons FileUpload) |
+| CVE-2022-23181 | Tomcat Embed | 9.0.56 | 7.0 | TOCTOU race condition in FileStore session persistence |
+| CVE-2023-6378 | Logback | 1.2.10 | 7.5 | DoS via crafted serialized data |
+
+### Medium (CVSS 5.0–6.9)
+
+| CVE | Dependency | Version | CVSS | Description |
+|-----|-----------|---------|------|-------------|
+| CVE-2022-22950 | Spring Framework | 5.3.15 | 6.5 | DoS via SpEL expressions |
+| CVE-2022-38749 | SnakeYAML | 1.29 | 6.5 | Stack overflow DoS via crafted YAML |
+| CVE-2022-38751 | SnakeYAML | 1.29 | 6.5 | Stack overflow DoS via crafted YAML |
+| CVE-2022-38752 | SnakeYAML | 1.29 | 6.5 | Stack overflow DoS via crafted YAML |
+| CVE-2022-38750 | SnakeYAML | 1.29 | 5.5 | Stack overflow DoS via crafted YAML |
+
+> **Tip:** There are 18+ known CVEs in total. Focus on the CRITICAL and HIGH findings first — these are the ones that would fail a real compliance audit.
+
 ## Task
 
 Run local SAST tools to scan a repository for vulnerabilities, then remediate the most critical findings. The `uc-cve-remediation-regulatory-compliance` repo has two tools pre-configured — both run entirely on the participant's machine with no cloud or SaaS costs.

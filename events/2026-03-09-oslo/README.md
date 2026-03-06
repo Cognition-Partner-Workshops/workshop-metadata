@@ -16,7 +16,7 @@
 This event features 4 structured labs using purpose-built repositories:
 
 ### Lab 1 — Legacy Modernization: COBOL → Java (60 min)
-- **Module:** [mm-cobol-to-java](../../modules/migration-modernization/mm-cobol-to-java.md)
+- **Module:** [mm-cobol-to-java](../../modules/migration-modernization/mm-cobol-to-java.md#task)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Objective:** Explore a real COBOL mainframe application and use Devin to modernize part of it — you choose the scope, target, and approach
 
@@ -48,7 +48,7 @@ See the [full challenge details](../../modules/migration-modernization/mm-cobol-
   - Technical documentation, data dictionary, or migration plan for the repo
 
 ### Lab 2 — Framework Upgrade & Refactor: Monolith → Microservices (60 min)
-- **Module:** [mm-framework-upgrade](../../modules/migration-modernization/mm-framework-upgrade.md) + [mm-containerization](../../modules/migration-modernization/mm-containerization.md)
+- **Module:** [mm-framework-upgrade](../../modules/migration-modernization/mm-framework-upgrade.md#option-1-javaspring-boot-upgrade) + [mm-containerization](../../modules/migration-modernization/mm-containerization.md#task)
 - **Repository:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
 - **Objective:** Take an older Java monolith (Java 11 + Spring Boot 2.6.3) and modernize it — you choose whether to focus on the upgrade, the microservice extraction, or both
 
@@ -79,7 +79,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 - Try leaving both general comments and inline code comments to see how Devin handles each
 
-See the full challenge details for [framework upgrade](../../modules/migration-modernization/mm-framework-upgrade.md) and [containerization](../../modules/migration-modernization/mm-containerization.md) for more ideas.
+See the full challenge details for [framework upgrade options](../../modules/migration-modernization/mm-framework-upgrade.md#options) and [containerization approaches](../../modules/migration-modernization/mm-containerization.md#task) for more ideas.
 
 - **Target Outcomes (any of these count):**
   - Application builds and tests on Java 17+ / Spring Boot 3.x
@@ -89,26 +89,88 @@ See the full challenge details for [framework upgrade](../../modules/migration-m
   - PR with review comments and Devin's responses
 
 ### Lab 3 — CVE Remediations & Regulatory Code Standards (60 min)
-- **Module:** [sec-upgrade-dependencies](../../modules/security/sec-upgrade-dependencies.md) + [sec-remediate-vulnerabilities](../../modules/security/sec-remediate-vulnerabilities.md) + [sec-shift-left](../../modules/security/sec-shift-left.md)
+- **Module:** [sec-upgrade-dependencies](../../modules/security/sec-upgrade-dependencies.md#option-2-javagradle-dependencies) + [sec-remediate-vulnerabilities](../../modules/security/sec-remediate-vulnerabilities.md#step-by-step-using-uc-cve-remediation-regulatory-compliance) + [sec-shift-left](../../modules/security/sec-shift-left.md)
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
-- **Objective:** A service has accumulated vulnerable dependencies and inconsistent coding standards. Remediate high-priority vulnerabilities and add automated compliance checks aligned with regulatory expectations
-- **Target Outcomes:**
-  - SBOM generated (CycloneDX or SPDX) with dependency vulnerability scanning
-  - High/critical vulnerabilities patched or upgraded
-  - Secure coding checks added: format/lint + static analysis (SAST)
-  - CI gating: builds fail on policy violations
+- **Objective:** A Spring Boot 2.6.3 service has accumulated vulnerable dependencies (Spring4Shell, SnakeYAML RCE, SQLite JDBC RCE, and more). Scan, remediate, and add automated compliance checks
+
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+
+> Run `./gradlew dependencyCheckAnalyze` on uc-cve-remediation-regulatory-compliance to identify dependency CVEs. Remediate the top 5 most critical findings (CVSS >= 7.0) — start with Spring Boot 2.6.3, SnakeYAML 1.29, and sqlite-jdbc 3.36.0.3. Re-run the scan to verify the fixes. Create a `SECURITY_REMEDIATION.md` documenting the before/after results and open a PR.
+
+#### Step 2: Level Up with AskDevin
+
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What are the known CVEs in uc-cve-remediation-regulatory-compliance's dependencies? Which ones are CRITICAL severity?"*
+- *"What's the safest upgrade path for Spring Boot 2.6.3 — should we go to 2.7.x first or jump straight to 3.x?"*
+- Use the analysis to start a **second session** — try adding a GitHub Actions security scanning workflow, or upgrade Spring Boot to 3.x instead of just patching
+
+#### Step 3: Explore with DeepWiki
+
+Open the repo's **DeepWiki** page to understand the codebase architecture. Use what you learn to try different approaches:
+- Have Devin add **SBOM generation** (CycloneDX) to the build
+- Ask Devin to add a **GitHub Actions workflow** that runs Trivy or OWASP Dependency-Check on every PR
+- Try adding **SonarQube scanning** — the repo has a pre-configured `docker-compose.sonarqube.yml`
+- Ask Devin to add **pre-commit hooks** for secrets detection (gitleaks)
+
+#### Step 4: Review the PR and Give Feedback
+
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — did Devin upgrade the right dependencies? Are there any it missed?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"Can you also add a CI workflow that fails on CRITICAL CVEs?"* or *"The SnakeYAML version still has CVE-2022-1471 — please upgrade to 2.x"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+- Try leaving both general comments and inline code comments to see how Devin handles each
+
+See the full challenge details for [dependency upgrades](../../modules/security/sec-upgrade-dependencies.md#option-2-javagradle-dependencies), [vulnerability remediation](../../modules/security/sec-remediate-vulnerabilities.md), and [shift-left CI](../../modules/security/sec-shift-left.md) for more ideas.
+
+- **Target Outcomes (any of these count):**
+  - OWASP Dependency-Check report with high/critical CVEs remediated
+  - SBOM generated (CycloneDX or SPDX)
+  - Secure coding checks added: SAST via SonarQube or Trivy
+  - CI gating workflow: builds fail on policy violations
   - `SECURITY_REMEDIATION.md` with before/after evidence
+  - PR with review comments and Devin's responses
 
 ### Lab 4 — DW Migration: Teradata → Snowflake (60 min)
-- **Module:** [mm-dw-migration-teradata](../../modules/migration-modernization/mm-dw-migration-teradata.md)
+- **Module:** [mm-dw-migration-teradata](../../modules/migration-modernization/mm-dw-migration-teradata.md#task)
 - **Repository:** [uc-dw-migration-teradata-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake)
-- **Objective:** A Teradata-based data warehouse needs to be migrated to Snowflake. Use Devin to accelerate code conversion, build a migration runbook, and set up validation
-- **Target Outcomes:**
-  - Inventory of Teradata assets (tables, views, stored procedures, macros)
-  - Converted Snowflake DDL/DML for a selected subset
-  - `MIGRATION_RUNBOOK.md` with loading approach documented
-  - Validation tests: row counts, checksums, business-level reconciliations
+- **Objective:** A Teradata-based data warehouse needs to be migrated to Snowflake. Convert DDL/DML, build a migration runbook, and set up validation
+
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+
+> Analyze all Teradata DDL in uc-dw-migration-teradata-to-snowflake/ddl/. Convert every table and view to Snowflake-compatible SQL, handling all Teradata-specific features (SET/MULTISET, PRIMARY INDEX, PARTITION BY RANGE_N, COMPRESS, CASESPECIFIC, FORMAT, QUALIFY, CSUM, MAVG). Place converted files in a new snowflake/ directory mirroring the original structure. Create a MIGRATION_RUNBOOK.md documenting every translation decision. Open a PR.
+
+#### Step 2: Level Up with AskDevin
+
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What Teradata-specific features are used in uc-dw-migration-teradata-to-snowflake and what are the Snowflake equivalents?"*
+- *"What's the best approach for converting the BTEQ scripts in this repo to Snowflake-compatible SnowSQL or stored procedures?"*
+- Use the analysis to start a **second session** — try converting the stored procedures and macros, or generate a full asset inventory
+
+#### Step 3: Explore with DeepWiki
+
+Open the repo's **DeepWiki** page to browse the schema structure and SQL patterns. Use what you learn to try different approaches:
+- Have Devin convert the **stored procedures** (SCD Type 2, daily load, monthly snapshot) to Snowflake stored procedures
+- Ask Devin to convert the **BTEQ scripts** to SnowSQL or Snowflake Tasks
+- Try having Devin generate **validation queries** — Snowflake equivalents of the Teradata checksum queries in `data/validation/`
+- Ask Devin to produce a **complete asset inventory** with migration status for every object
+
+#### Step 4: Review the PR and Give Feedback
+
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — does the SQL translation look correct? Are there Teradata features Devin missed?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"The CSUM() function wasn't translated — please convert to SUM() OVER()"* or *"Can you also convert the macros in dml/macros/?"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+- Try leaving inline comments on specific SQL statements to see how Devin handles dialect-level corrections
+
+See the full challenge details in the [DW migration module](../../modules/migration-modernization/mm-dw-migration-teradata.md) for more ideas — the repo includes a complete [Teradata features reference](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake/blob/initial-code/docs/teradata_features_reference.md) with Snowflake equivalents.
+
+- **Target Outcomes (any of these count):**
+  - Converted Snowflake DDL/DML for tables and views
+  - Converted stored procedures or BTEQ scripts
+  - `MIGRATION_RUNBOOK.md` with translation decisions documented
+  - Validation queries: Snowflake equivalents of Teradata checksums
   - `SQL_TRANSLATION_NOTES.md` mapping Teradata→Snowflake differences
+  - PR with review comments and Devin's responses
 
 ## Additional Challenges
 
