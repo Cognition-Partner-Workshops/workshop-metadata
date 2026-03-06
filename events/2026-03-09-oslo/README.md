@@ -18,12 +18,34 @@ This event features 4 structured labs using purpose-built repositories:
 ### Lab 1 — Legacy Modernization: COBOL → Java (60 min)
 - **Module:** [mm-cobol-to-java](../../modules/migration-modernization/mm-cobol-to-java.md)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
-- **Objective:** Migrate a COBOL batch program that reads fixed-width input records, applies business rules, and produces a report file to Java 17+ while preserving behaviour with parity tests
-- **Target Outcomes:**
-  - Java source code + tests with Maven build
-  - Parity tests: Java output matches COBOL output for provided fixtures
+- **Objective:** Explore a real COBOL mainframe application and use Devin to modernize part of it — you choose the scope, target, and approach
+
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+
+> Analyze the COBOL program CBACT01C.cbl in uc-legacy-modernization-cobol-to-java. Understand its business logic, data structures (copybooks), and I/O operations. Rewrite it as a Java 17+ application using modern idioms. Create JUnit tests that verify the Java version produces identical results to the COBOL version for a set of sample inputs. Open a PR with the Java code and tests.
+
+#### Step 2: Level Up with AskDevin
+
+While Devin works on step 1, open **AskDevin** and try:
+- *"What are the most complex COBOL programs in uc-legacy-modernization-cobol-to-java and what do they do?"*
+- *"What would be the best Java architecture for migrating CBTRN01C.cbl? Consider Spring Boot, plain Java, or Kotlin."*
+- Use the refined understanding to start a **second session** with a more targeted prompt
+
+#### Step 3: Explore with DeepWiki
+
+Open the repo's **DeepWiki** page to browse the auto-generated architecture diagrams and module explanations. Use what you learn to try something different:
+- Pick a different COBOL program and compare how Devin handles it
+- Try migrating to a different target (Kotlin, Python, Spring Boot service)
+- Ask Devin to reverse-engineer business rules or generate a data dictionary
+- Run parallel sessions migrating the same program to two different targets
+
+See the [full challenge details](../../modules/migration-modernization/mm-cobol-to-java.md) for more ideas — there is no single right answer.
+
+- **Target Outcomes (any of these count):**
+  - Java/Kotlin/Python source code + tests with a working build
+  - Parity tests: modern output matches COBOL output for provided fixtures
   - `MIGRATION_NOTES.md` describing field mappings and decisions
-  - Clear separation: parsing, business rules, and output formatting
+  - Technical documentation, data dictionary, or migration plan for the repo
 
 ### Lab 2 — Framework Upgrade & Refactor: Monolith → Microservices (60 min)
 - **Module:** [mm-framework-upgrade](../../modules/migration-modernization/mm-framework-upgrade.md) + [mm-containerization](../../modules/migration-modernization/mm-containerization.md)
