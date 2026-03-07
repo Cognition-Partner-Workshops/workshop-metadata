@@ -13,15 +13,26 @@ Each repo entry includes:
 
 ---
 
-## Duplication Clusters
+## Repo Clusters & Upstream Sources
 
-Some repos are intentionally duplicated from the same upstream source so that different workshop labs get isolated starting points. This avoids branch confusion during live events.
+The full machine-readable mapping lives in [`upstream-map.yaml`](upstream-map.yaml). That file records every repo's upstream source, import method (`github-fork`, `clone-and-push`, or `original`), and cluster membership.
 
-| Cluster ID | Upstream Source | Repos | Reason |
-|-----------|----------------|-------|--------|
-| **C1** | `ts-java-spring-boot-realworld-example-app` | `uc-framework-upgrade-monolith-to-microservices`, `uc-cve-remediation-regulatory-compliance`, `ts-java-spring-boot-realworld-example-app` | Labs 2 and 3 both start from the same Spring Boot monolith but have different objectives (upgrade vs. CVE remediation). The original import is also retained (renamed from `spring-boot-realworld-example-app`). |
-| **C2** | `aws-mainframe-modernization-carddemo` | `uc-legacy-modernization-cobol-to-java`, `aws-mainframe-modernization-carddemo` | Lab 1 uses a dedicated copy. The original import is also retained. |
-| **C3** | Spring PetClinic ecosystem | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices` | Three repos for the same application (frontend, backend monolith, microservices variant). |
+Some repos are intentionally duplicated from the same upstream source so that different workshop labs get isolated starting points. This avoids branch confusion during live events. Others are grouped because they belong to the same application or project ecosystem.
+
+> **Why not mirrors?** We intentionally do NOT set up git mirrors between clustered repos. Each repo is meant to diverge from the upstream (and from each other) — mirrors would overwrite lab-specific changes. Instead, add an `upstream` remote when you need to compare: `git remote add upstream <url> && git fetch upstream`.
+
+| Cluster | Label | Upstream Source | Repos | Reason |
+|---------|-------|----------------|-------|--------|
+| **C1** | Spring Boot RealWorld | [`gothinkster/spring-boot-realworld-example-app`](https://github.com/gothinkster/spring-boot-realworld-example-app) | `ts-java-spring-boot-realworld-example-app`, `uc-framework-upgrade-monolith-to-microservices`, `uc-cve-remediation-regulatory-compliance` | Labs 2 and 3 start from the same Spring Boot 2.6.3 monolith but have different objectives (upgrade vs. CVE remediation). Original import retained with `ts-` prefix. |
+| **C2** | AWS CardDemo (COBOL) | [`aws-samples/aws-mainframe-modernization-carddemo`](https://github.com/aws-samples/aws-mainframe-modernization-carddemo) | `aws-mainframe-modernization-carddemo`, `uc-legacy-modernization-cobol-to-java` | Lab 1 uses a dedicated copy for COBOL-to-Java migration. Original fork retained. |
+| **C3** | Spring PetClinic | [`spring-projects/spring-petclinic`](https://github.com/spring-projects/spring-petclinic) (family) | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices` | Three repos for the same application ecosystem (Angular frontend, backend monolith, microservices variant). |
+| **C4** | Modular Monolith DDD | [`kgrzybek/modular-monolith-with-ddd`](https://github.com/kgrzybek/modular-monolith-with-ddd) | `dotnet-modular-monolith`, `dotnet-modular-monolith-fe-react` | Backend (.NET) + frontend (React) from the same upstream DDD project. |
+| **C5** | Cal.com ecosystem | [`calcom/cal.com`](https://github.com/calcom/cal.com) | `cal.com`, `cal.com-infra`, `cal.com-dataeng` | Main app (fork) plus infra and data-eng repos built around it. |
+| **C6** | EventFlow demo | *original* | `app_eventflow-order-service`, `app_eventflow-payment-service`, `app_eventflow-infra`, `app_eventflow-devin-integration` | Four-repo event-driven architecture demo (scaffolded from scratch). |
+| **C7** | Apache Fineract | [`apache/fineract`](https://github.com/apache/fineract) | `fineract`, `mifos-fineract-web-app` | Backend (Fineract) + frontend (Mifos web app) from the same banking platform. |
+| **C8** | Client Timesheet | *original* | `app_timesheet-client`, `hosting-client-timesheet-app` | The timesheet app and its Terraform hosting/infra repo. |
+| **C9** | AngularJS 1.x admins | *different upstreams* | `angular-1.x-bootstrap-admin-dashboard`, `angular-1.x-dashboard` | Two AngularJS 1.x admin dashboards for framework migration demos. |
+| **C10** | SAS to Snowflake | [`scottbass/SAS`](https://github.com/scottbass/SAS) | `ts-sas-legacy-codebase`, `uc-data-migration-sas-to-snowflake` | Legacy SAS source paired with Snowflake migration validation tooling. |
 
 ---
 
