@@ -7,11 +7,11 @@
 | **Date** | 2026-03-13 |
 | **Location** | Washington, DC |
 | **Host Organization** | *(customer)* |
-| **Focus** | Mortgage lending technology modernization |
+| **Focus** | Technology modernization |
 | **Duration** | ~4 hours (1 hour demo + 3 hours hands-on) |
 | **Facilitator** | Brian Smitches, brian.smitches@cognition.ai |
 | **Event Site** | https://partner-workshops.devinenterprise.com |
-| **Audience** | Banking/mortgage technology teams |
+| **Audience** | Technology teams |
 
 ## Structure
 
@@ -118,7 +118,7 @@ Participants may also attempt any challenge from the full [module catalog](../..
 
 ## Context
 
-- **Industry:** Mortgage lending / banking
+- **Industry:** Financial services
 - **Key Pain Points Addressed:**
   - Legacy mainframe applications needing modernization
   - Repetitive framework upgrades across many microservices

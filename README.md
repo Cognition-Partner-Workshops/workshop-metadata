@@ -86,7 +86,7 @@ workshop-metadata/
 │   ├── 2026-03-09-san-francisco/
 │   │   └── README.md                      ← SF workshop: Framework Upgrade + CVE Remediation
 │   ├── 2026-03-13-dc/
-│   │   └── README.md                      ← DC workshop: Mortgage lender use cases (4 UCs)
+│   │   └── README.md                      ← DC event (4 UCs)
 └── shared/
     ├── repo-naming-convention.md
     ├── runtime-resources.md
