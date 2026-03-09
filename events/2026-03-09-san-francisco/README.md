@@ -6,9 +6,6 @@
 |---|---|
 | **Date** | 2026-03-09 |
 | **Location** | San Francisco, CA |
-| **Host Organization** | *(customer)* |
-| **Duration** | TBD |
-| **Facilitator** | Brian Smitches, brian.smitches@cognition.ai |
 | **Event Site** | https://partner-workshops.devinenterprise.com |
 
 ## Featured Labs
