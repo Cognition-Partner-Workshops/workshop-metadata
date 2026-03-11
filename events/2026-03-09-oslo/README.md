@@ -16,7 +16,7 @@
 This event features 4 structured labs using purpose-built repositories:
 
 ### Lab 1 — Legacy Modernization: COBOL → Java (60 min)
-- **Module:** [mm-cobol-to-java](../../modules/migration-modernization/mm-cobol-to-java.md#task)
+- **Module:** [C1 — COBOL to Java](../../modules/migration-modernization/C1.md#uc-legacy-modernization-cobol-to-java)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Objective:** Explore a real COBOL mainframe application and use Devin to modernize part of it — you choose the scope, target, and approach
 
@@ -47,7 +47,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 - **Advanced: Try PR Review** — Open [this example PR review](https://partner-workshops.devinenterprise.com/review/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java/pull/1) to see Devin's **PR Review** feature in action — it provides an AI-powered summary and analysis of the changes. This is the most advanced way to review Devin's work.
 
-See the [full challenge details](../../modules/migration-modernization/mm-cobol-to-java.md) for more ideas — there is no single right answer.
+See the [full challenge details](../../modules/migration-modernization/C1.md) for more ideas — there is no single right answer.
 
 - **Target Outcomes (any of these count):**
   - Java/Kotlin/Python source code + tests with a working build
@@ -57,7 +57,7 @@ See the [full challenge details](../../modules/migration-modernization/mm-cobol-
   - PR with review comments and Devin's responses
 
 ### Lab 2 — Framework Upgrade & Refactor: Monolith → Microservices (60 min)
-- **Module:** [mm-framework-upgrade](../../modules/migration-modernization/mm-framework-upgrade.md#option-1-javaspring-boot-upgrade) + [mm-containerization](../../modules/migration-modernization/mm-containerization.md#task)
+- **Module:** [C2 — Framework Upgrade](../../modules/migration-modernization/C2.md#uc-framework-upgrade-monolith-to-microservices) + [C3 — Containerization](../../modules/migration-modernization/C3.md#uc-framework-upgrade-monolith-to-microservices)
 - **Repository:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
 - **Objective:** Take an older Java monolith (Java 11 + Spring Boot 2.6.3) and modernize it — you choose whether to focus on the upgrade, the microservice extraction, or both
 
@@ -88,7 +88,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 - Try leaving both general comments and inline code comments to see how Devin handles each
 
-See the full challenge details for [framework upgrade options](../../modules/migration-modernization/mm-framework-upgrade.md#options) and [containerization approaches](../../modules/migration-modernization/mm-containerization.md#task) for more ideas.
+See the full challenge details for [C2 — Framework Upgrade](../../modules/migration-modernization/C2.md) and [C3 — Containerization](../../modules/migration-modernization/C3.md) for more ideas.
 
 - **Target Outcomes (any of these count):**
   - Application builds and tests on Java 17+ / Spring Boot 3.x
@@ -98,10 +98,10 @@ See the full challenge details for [framework upgrade options](../../modules/mig
   - PR with review comments and Devin's responses
 
 ### Lab 3 — CVE Remediations & Regulatory Code Standards (60 min)
-- **Module:** [sec-upgrade-dependencies](../../modules/security/sec-upgrade-dependencies.md#option-2-javagradle-dependencies) + [sec-remediate-vulnerabilities](../../modules/security/sec-remediate-vulnerabilities.md#step-by-step-using-uc-cve-remediation-regulatory-compliance) + [sec-shift-left](../../modules/security/sec-shift-left.md)
+- **Module:** [B1 — Upgrade Dependencies](../../modules/security/B1.md#uc-cve-remediation-regulatory-compliance) + [B2 — Remediate Vulnerabilities](../../modules/security/B2.md#uc-cve-remediation-regulatory-compliance) + [B3 — Shift Left Security](../../modules/security/B3.md#uc-cve-remediation-regulatory-compliance)
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** A Spring Boot 2.6.3 service has accumulated vulnerable dependencies (Spring4Shell, SnakeYAML RCE, SQLite JDBC RCE, and more). Scan, remediate, and add automated compliance checks
-- **Known CVEs:** See the [full CVE findings report](../../modules/security/sec-remediate-vulnerabilities.md#known-cves-in-uc-cve-remediation-regulatory-compliance) for a breakdown of all 18+ known vulnerabilities by severity (5 Critical, 8 High, 5 Medium)
+- **Known CVEs:** See the [full CVE findings report](../../modules/security/B2.md#uc-cve-remediation-regulatory-compliance) for a breakdown of all 18+ known vulnerabilities by severity (5 Critical, 8 High, 5 Medium)
 
 #### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
@@ -130,7 +130,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 - Try leaving both general comments and inline code comments to see how Devin handles each
 
-See the full challenge details for [dependency upgrades](../../modules/security/sec-upgrade-dependencies.md#option-2-javagradle-dependencies), [vulnerability remediation](../../modules/security/sec-remediate-vulnerabilities.md), and [shift-left CI](../../modules/security/sec-shift-left.md) for more ideas.
+See the full challenge details for [B1 — Upgrade Dependencies](../../modules/security/B1.md), [B2 — Remediate Vulnerabilities](../../modules/security/B2.md), and [B3 — Shift Left Security](../../modules/security/B3.md) for more ideas.
 
 - **Target Outcomes (any of these count):**
   - OWASP Dependency-Check report with high/critical CVEs remediated
@@ -141,7 +141,7 @@ See the full challenge details for [dependency upgrades](../../modules/security/
   - PR with review comments and Devin's responses
 
 ### Lab 4 — DW Migration: Teradata → Snowflake (60 min)
-- **Module:** [mm-dw-migration-teradata](../../modules/migration-modernization/mm-dw-migration-teradata.md#task)
+- **Module:** [C7 — DW Migration: Teradata to Snowflake](../../modules/migration-modernization/C7.md#uc-dw-migration-teradata-to-snowflake)
 - **Repository:** [uc-dw-migration-teradata-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake)
 - **Objective:** A Teradata-based data warehouse needs to be migrated to Snowflake. Convert DDL/DML, build a migration runbook, and set up validation
 
@@ -172,7 +172,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 - Try leaving inline comments on specific SQL statements to see how Devin handles dialect-level corrections
 
-See the full challenge details in the [DW migration module](../../modules/migration-modernization/mm-dw-migration-teradata.md) for more ideas — the repo includes a complete [Teradata features reference](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake/blob/initial-code/docs/teradata_features_reference.md) with Snowflake equivalents.
+See the full challenge details in [C7 — DW Migration](../../modules/migration-modernization/C7.md) for more ideas — the repo includes a complete [Teradata features reference](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake/blob/initial-code/docs/teradata_features_reference.md) with Snowflake equivalents.
 
 - **Target Outcomes (any of these count):**
   - Converted Snowflake DDL/DML for tables and views

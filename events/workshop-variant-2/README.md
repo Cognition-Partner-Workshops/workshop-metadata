@@ -36,7 +36,7 @@ Two halves, each with 2 structured labs:
 ## Featured Labs
 
 ### Lab 1 — Linting & Unit Testing (45 min)
-- **Modules:** [A1 — Linting](../../modules/quality-engineering/qe-linting.md) + [A2 — Unit Testing](../../modules/quality-engineering/qe-unit-testing.md)
+- **Modules:** [A1 — Linting](../../modules/quality-engineering/A1.md) + [A2 — Unit Testing](../../modules/quality-engineering/A2.md)
 - **Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
 - **Objective:** Start by resolving linting issues (GitHub Issue #3), then improve unit test coverage and generate a coverage report
 - **Target Outcomes:**
@@ -46,7 +46,7 @@ Two halves, each with 2 structured labs:
   - PR with linting fixes and new tests
 
 ### Lab 2 — E2E Testing & Documentation (45 min)
-- **Modules:** [A3 — End-to-End Testing](../../modules/quality-engineering/qe-e2e-testing.md) + [A4 — Inline Documentation](../../modules/quality-engineering/qe-documentation.md)
+- **Modules:** [A3 — End-to-End Testing](../../modules/quality-engineering/A3.md) + [A4 — Inline Documentation](../../modules/quality-engineering/A4.md)
 - **Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
 - **Alternative E2E repo:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com) (for participants wanting a more complex target)
 - **Objective:** Write and run E2E tests against the locally running application, then improve inline documentation across the codebase
@@ -57,7 +57,7 @@ Two halves, each with 2 structured labs:
   - PR with tests and documentation
 
 ### Lab 3 — CVE Remediation with Local SAST Tools (60 min)
-- **Modules:** [B1 — Upgrade Dependencies](../../modules/security/sec-upgrade-dependencies.md) + [B2 — Remediate Vulnerabilities](../../modules/security/sec-remediate-vulnerabilities.md)
+- **Modules:** [B1 — Upgrade Dependencies](../../modules/security/B1.md) + [B2 — Remediate Vulnerabilities](../../modules/security/B2.md)
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** Use pre-configured local SAST tools to scan for vulnerabilities, remediate the most critical findings, and upgrade outdated dependencies
 - **Target Outcomes:**
@@ -75,7 +75,7 @@ Two halves, each with 2 structured labs:
 | [SonarQube Community Edition](https://www.sonarsource.com/open-source-editions/sonarqube-community-edition/) | Source code for vulnerabilities, code smells, bugs | `docker compose -f docker-compose.sonarqube.yml up -d` then `./gradlew sonar` |
 
 ### Lab 4 — Shift Left & Security Antipatterns (45 min)
-- **Modules:** [B3 — Shift Left](../../modules/security/sec-shift-left.md) + [B4 — Identify Antipatterns](../../modules/security/sec-antipatterns.md)
+- **Modules:** [B3 — Shift Left](../../modules/security/B3.md) + [B4 — Identify Antipatterns](../../modules/security/B4.md)
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) or [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
 - **Objective:** Add CI workflows that gate on security policy violations, then identify and fix security antipatterns in application code
 - **Target Outcomes:**
@@ -93,9 +93,9 @@ Participants who finish early may attempt any challenge from the full [module ca
 
 | Challenge | Module | Repo | Difficulty | Time |
 |-----------|--------|------|-----------|------|
-| New Feature Development | [D6](../../modules/feature-development/fd-new-feature.md) | app_timesheet-client | Intermediate | 60 min |
-| Fix UI Bug | [D4](../../modules/feature-development/fd-fix-ui-bug.md) | app_timesheet-client | Intermediate | 45 min |
-| CI/CD Pipeline | [E1](../../modules/devops-automation/da-cicd.md) | app_timesheet-client | Intermediate | 60 min |
+| New Feature Development | [D6](../../modules/feature-development/D6.md) | app_timesheet-client | Intermediate | 60 min |
+| Fix UI Bug | [D4](../../modules/feature-development/D4.md) | app_timesheet-client | Intermediate | 45 min |
+| CI/CD Pipeline | [E1](../../modules/devops-automation/E1.md) | app_timesheet-client | Intermediate | 60 min |
 
 ---
 

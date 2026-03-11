@@ -47,7 +47,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | Apache 2.0 |
 | **Default Branch** | `main` |
 | **Cluster** | C2 (from `aws-mainframe-modernization-carddemo`) |
-| **Challenges** | [mm-cobol-to-java](../modules/migration-modernization/mm-cobol-to-java.md) |
+| **Challenges** | [C1](../modules/migration-modernization/C1.md) |
 
 ### uc-framework-upgrade-monolith-to-microservices
 | | |
@@ -59,7 +59,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | C1 (from `spring-boot-realworld-example-app`) |
 | **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
-| **Challenges** | [mm-framework-upgrade](../modules/migration-modernization/mm-framework-upgrade.md), [mm-containerization](../modules/migration-modernization/mm-containerization.md), [mm-api-consolidation](../modules/migration-modernization/mm-api-consolidation.md) |
+| **Challenges** | [C2](../modules/migration-modernization/C2.md), [C3](../modules/migration-modernization/C3.md), [C4](../modules/migration-modernization/C4.md) |
 
 ### uc-cve-remediation-regulatory-compliance
 | | |
@@ -71,7 +71,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | C1 (from `spring-boot-realworld-example-app`) |
 | **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
-| **Challenges** | [sec-upgrade-dependencies](../modules/security/sec-upgrade-dependencies.md), [sec-remediate-vulnerabilities](../modules/security/sec-remediate-vulnerabilities.md), [sec-shift-left](../modules/security/sec-shift-left.md), [sec-antipatterns](../modules/security/sec-antipatterns.md) |
+| **Challenges** | [B1](../modules/security/B1.md), [B2](../modules/security/B2.md), [B3](../modules/security/B3.md), [B4](../modules/security/B4.md) |
 
 ### uc-data-source-migration-legacy-to-modern
 | | |
@@ -83,7 +83,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | None (scaffolded from scratch) |
 | **Key Legacy Characteristics** | All-VARCHAR typing, cryptic column names (BORR_FST_NM, LN_CURR_BAL), denormalized, no FKs, code abbreviations (ACT/CLO/DFT) |
-| **Challenges** | [mm-data-source-migration](../modules/migration-modernization/mm-data-source-migration.md), [mm-legacy-modernization-combined](../modules/migration-modernization/mm-legacy-modernization-combined.md) |
+| **Challenges** | [C8](../modules/migration-modernization/C8.md), [C10](../modules/migration-modernization/C10.md) |
 
 ### uc-dw-migration-teradata-to-snowflake
 | | |
@@ -95,7 +95,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | None (scaffolded from scratch) |
 | **Key Teradata Features** | SET/MULTISET, PI/PPI, COMPRESS, CASESPECIFIC, QUALIFY, ZEROIFNULL, CSUM, MAVG, HASHROW, VOLATILE TABLE, MACRO |
-| **Challenges** | [mm-dw-migration-teradata](../modules/migration-modernization/mm-dw-migration-teradata.md)
+| **Challenges** | [C7](../modules/migration-modernization/C7.md) |
 
 ### uc-data-migration-sas-to-snowflake
 | | |
@@ -140,7 +140,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Quality engineering and assurance use case repo. |
 | **Tech Stack** | — |
 | **License** | — |
-| **Challenges** | [qe-unit-testing](../modules/quality-engineering/qe-unit-testing.md), [qe-e2e-testing](../modules/quality-engineering/qe-e2e-testing.md) |
+| **Challenges** | [A2](../modules/quality-engineering/A2.md), [A3](../modules/quality-engineering/A3.md) |
 
 ---
 
@@ -153,7 +153,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Real-world application built with Angular. |
 | **Tech Stack** | Angular, TypeScript |
 | **License** | — |
-| **Challenges** | [mm-framework-upgrade](../modules/migration-modernization/mm-framework-upgrade.md) (alternative repo) |
+| **Challenges** | [C2](../modules/migration-modernization/C2.md), [C9](../modules/migration-modernization/C9.md) |
 
 ### ts-angular-springboot-jhipster-sample
 | | |
@@ -180,7 +180,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Sample framework based on Page Object Model, Selenium, TestNG using Java. |
 | **Tech Stack** | Java, Selenium, TestNG |
 | **License** | — |
-| **Challenges** | [qe-e2e-testing](../modules/quality-engineering/qe-e2e-testing.md) (alternative repo) |
+| **Challenges** | [A3](../modules/quality-engineering/A3.md) (alternative repo) |
 
 ### ts-swagger-petstore
 | | |
@@ -200,7 +200,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Renamed From** | `spring-boot-realworld-example-app` (applied `ts-java-` prefix to clarify tech stack) |
 | **Cluster** | C1 (upstream for Labs 2 and 3) |
-| **Challenges** | General Spring Boot demos, [fd-new-feature](../modules/feature-development/fd-new-feature.md) (prefer using the `uc-` copies for labs) |
+| **Challenges** | [A2](../modules/quality-engineering/A2.md), [A4](../modules/quality-engineering/A4.md), [E3](../modules/devops-automation/E3.md) (prefer using the `uc-` copies for labs) |
 
 ---
 
@@ -214,7 +214,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | Angular, TypeScript |
 | **License** | — |
 | **Cluster** | C3 (PetClinic ecosystem) |
-| **Challenges** | Full-stack demos, [mm-framework-upgrade](../modules/migration-modernization/mm-framework-upgrade.md) (alternative) |
+| **Challenges** | [C2](../modules/migration-modernization/C2.md), [C9](../modules/migration-modernization/C9.md) |
 
 ### app_petclinic-backend
 | | |
@@ -234,7 +234,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | Java, Spring Boot, Spring Cloud |
 | **License** | Apache 2.0 |
 | **Cluster** | C3 (PetClinic ecosystem) |
-| **Challenges** | [mm-containerization](../modules/migration-modernization/mm-containerization.md) (reference architecture) |
+| **Challenges** | [C3](../modules/migration-modernization/C3.md) |
 
 ### app_timesheet-client
 | | |
@@ -244,7 +244,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | React 19, TypeScript, Node.js, Express, SQLite, Material-UI, Vite |
 | **License** | — |
 | **Renamed From** | `client-timesheet-app` (applied `app_` prefix for multi-repo application) |
-| **Challenges** | [qe-linting](../modules/quality-engineering/qe-linting.md), [sec-upgrade-dependencies](../modules/security/sec-upgrade-dependencies.md), [fd-fix-ui-bug](../modules/feature-development/fd-fix-ui-bug.md), [fd-fix-data-bug](../modules/feature-development/fd-fix-data-bug.md), [fd-new-feature](../modules/feature-development/fd-new-feature.md), [da-cicd](../modules/devops-automation/da-cicd.md) |
+| **Challenges** | [A1](../modules/quality-engineering/A1.md), [B1](../modules/security/B1.md), [D4](../modules/feature-development/D4.md), [D5](../modules/feature-development/D5.md), [D6](../modules/feature-development/D6.md), [E1](../modules/devops-automation/E1.md) |
 
 ---
 
@@ -257,7 +257,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Infrastructure/hosting configuration for the client-timesheet-app. Terraform-based. |
 | **Tech Stack** | Terraform, AWS |
 | **License** | — |
-| **Challenges** | [qe-linting](../modules/quality-engineering/qe-linting.md) (terraform fmt), [mm-iac-translation](../modules/migration-modernization/mm-iac-translation.md) |
+| **Challenges** | [A1](../modules/quality-engineering/A1.md) (terraform fmt), [C6](../modules/migration-modernization/C6.md) |
 
 ### cal.com
 | | |
@@ -266,7 +266,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Open-source scheduling infrastructure. Monorepo with Next.js web app, NestJS API v2, Prisma, PostgreSQL. |
 | **Tech Stack** | TypeScript, Next.js, NestJS, Prisma, PostgreSQL, Turborepo |
 | **License** | AGPLv3 (open core) |
-| **Challenges** | [qe-e2e-testing](../modules/quality-engineering/qe-e2e-testing.md), [fd-fix-runtime-bug](../modules/feature-development/fd-fix-runtime-bug.md), [da-cicd](../modules/devops-automation/da-cicd.md) |
+| **Challenges** | [A3](../modules/quality-engineering/A3.md), [D3](../modules/feature-development/D3.md), [E1](../modules/devops-automation/E1.md) |
 
 ### cal.com-infra
 | | |
@@ -275,7 +275,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Infrastructure as code for cal.com deployment. |
 | **Tech Stack** | IaC |
 | **License** | — |
-| **Challenges** | [mm-iac-translation](../modules/migration-modernization/mm-iac-translation.md) |
+| **Challenges** | [C6](../modules/migration-modernization/C6.md) |
 
 ### cal.com-dataeng
 | | |
@@ -293,7 +293,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Open source admin template based on Bootstrap 5 and React.js. |
 | **Tech Stack** | React, Bootstrap 5, JavaScript |
 | **License** | MIT |
-| **Challenges** | [mm-framework-upgrade](../modules/migration-modernization/mm-framework-upgrade.md) (Bootstrap → Material UI) |
+| **Challenges** | [C2](../modules/migration-modernization/C2.md) (Bootstrap → Material UI) |
 
 ### aws-mainframe-modernization-carddemo
 | | |
@@ -321,7 +321,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Apache Fineract — open banking platform. |
 | **Tech Stack** | Java, Spring Boot |
 | **License** | Apache 2.0 |
-| **Challenges** | Banking domain demos, [mm-cloud-native](../modules/migration-modernization/mm-cloud-native.md) |
+| **Challenges** | Banking domain demos, [C5](../modules/migration-modernization/C5.md) |
 
 ### dotnet-modular-monolith / dotnet-modular-monolith-fe-react
 | | |
