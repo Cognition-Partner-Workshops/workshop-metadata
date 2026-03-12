@@ -59,7 +59,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | C1 (from `spring-boot-realworld-example-app`) |
 | **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
-| **Challenges** | [MM2](../modules/migration-modernization/MM2.md), [MM3](../modules/migration-modernization/MM3.md), [MM4](../modules/migration-modernization/MM4.md) |
+| **Challenges** | [MM2](../modules/migration-modernization/MM2.md), [MM3](../modules/migration-modernization/MM3.md), [MM4](../modules/migration-modernization/MM4.md), [MM11](../modules/migration-modernization/MM11.md) |
 
 ### uc-cve-remediation-regulatory-compliance
 | | |
@@ -71,7 +71,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | C1 (from `spring-boot-realworld-example-app`) |
 | **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
-| **Challenges** | [SEC1](../modules/security/SEC1.md), [SEC2](../modules/security/SEC2.md), [SEC3](../modules/security/SEC3.md), [SEC4](../modules/security/SEC4.md) |
+| **Challenges** | [SEC1](../modules/security/SEC1.md), [SEC2](../modules/security/SEC2.md), [SEC3](../modules/security/SEC3.md), [SEC4](../modules/security/SEC4.md), [SEC6](../modules/security/SEC6.md), [SEC7](../modules/security/SEC7.md), [MM11](../modules/migration-modernization/MM11.md) |
 
 ### uc-data-source-migration-legacy-to-modern
 | | |
@@ -244,7 +244,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | React 19, TypeScript, Node.js, Express, SQLite, Material-UI, Vite |
 | **License** | — |
 | **Renamed From** | `client-timesheet-app` (applied `app_` prefix for multi-repo application) |
-| **Challenges** | [QE1](../modules/quality-engineering/QE1.md), [SEC1](../modules/security/SEC1.md), [FD4](../modules/feature-development/FD4.md), [FD5](../modules/feature-development/FD5.md), [FD6](../modules/feature-development/FD6.md), [DA1](../modules/devops-automation/DA1.md) |
+| **Challenges** | [QE1](../modules/quality-engineering/QE1.md), [SEC1](../modules/security/SEC1.md), [SEC6](../modules/security/SEC6.md), [SEC7](../modules/security/SEC7.md), [FD4](../modules/feature-development/FD4.md), [FD5](../modules/feature-development/FD5.md), [FD6](../modules/feature-development/FD6.md), [DA1](../modules/devops-automation/DA1.md) |
 
 ---
 

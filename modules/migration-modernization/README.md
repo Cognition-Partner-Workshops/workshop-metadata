@@ -16,6 +16,7 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 | [MM8](MM8.md) | Data Source Migration: Legacy to Modern | Intermediate | 60 min |
 | [MM9](MM9.md) | Repetitive Framework Upgrades | Intermediate | 60 min |
 | [MM10](MM10.md) | Legacy Modernization Combined | Advanced | 60 min |
+| [MM11](MM11.md) | One-Shot Tech Debt Remediation | Advanced | 75 min |
 
 ## Repositories
 
@@ -28,7 +29,8 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 | ts-angular-realworld-example-app | [MM2](MM2.md#ts-angular-realworld-example-app), [MM9](MM9.md#ts-angular-realworld-example-app) |
 | uc-data-source-migration-legacy-to-modern | [MM8](MM8.md#uc-data-source-migration-legacy-to-modern), [MM10](MM10.md#uc-data-source-migration-legacy-to-modern) |
 | uc-dw-migration-teradata-to-snowflake | [MM7](MM7.md#uc-dw-migration-teradata-to-snowflake) |
-| uc-framework-upgrade-monolith-to-microservices | [MM2](MM2.md#uc-framework-upgrade-monolith-to-microservices), [MM3](MM3.md#uc-framework-upgrade-monolith-to-microservices), [MM4](MM4.md#uc-framework-upgrade-monolith-to-microservices), [MM5](MM5.md#uc-framework-upgrade-monolith-to-microservices), [MM9](MM9.md#uc-framework-upgrade-monolith-to-microservices), [MM10](MM10.md#uc-framework-upgrade-monolith-to-microservices) |
+| uc-cve-remediation-regulatory-compliance | [MM11](MM11.md#uc-cve-remediation-regulatory-compliance) |
+| uc-framework-upgrade-monolith-to-microservices | [MM2](MM2.md#uc-framework-upgrade-monolith-to-microservices), [MM3](MM3.md#uc-framework-upgrade-monolith-to-microservices), [MM4](MM4.md#uc-framework-upgrade-monolith-to-microservices), [MM5](MM5.md#uc-framework-upgrade-monolith-to-microservices), [MM9](MM9.md#uc-framework-upgrade-monolith-to-microservices), [MM10](MM10.md#uc-framework-upgrade-monolith-to-microservices), [MM11](MM11.md#uc-framework-upgrade-monolith-to-microservices) |
 | uc-legacy-modernization-cobol-to-java | [MM1](MM1.md#uc-legacy-modernization-cobol-to-java), [MM10](MM10.md#uc-legacy-modernization-cobol-to-java) |
 
 ## When to Use This Category
@@ -37,5 +39,7 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 - Workshops demonstrating Devin's ability to handle complex, multi-file refactoring
 - Full-day workshops where participants need substantial, meaty challenges
 - The `uc-` prefixed repos were specifically curated for these challenges
-- C9 is designed for repetitive upgrade scenarios across multiple services (parallel sessions)
-- C10 combines C1, C2/C3, and C8 into one end-to-end modernization narrative
+- MM9 is designed for repetitive upgrade scenarios across multiple services (parallel sessions)
+- MM10 combines MM1, MM2/MM3, and MM8 into one end-to-end modernization narrative
+- MM11 is an **enterprise demo module** — one-shot tech debt remediation with long-term reasoning and provable deliverables
+- See the [Enterprise Demo Track](../../events/enterprise-demo-track/README.md) for a lab sequence using SEC6 + SEC7 + MM11
