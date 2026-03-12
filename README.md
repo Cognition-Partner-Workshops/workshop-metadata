@@ -52,7 +52,9 @@ workshop-metadata/
 │   │   ├── SEC2.md                          ← Remediate Vulnerabilities
 │   │   ├── SEC3.md                          ← Shift Left Security
 │   │   ├── SEC4.md                          ← Identify Antipatterns
-│   │   └── SEC5.md                          ← Secrets Management & Detection
+│   │   ├── SEC5.md                          ← Secrets Management & Detection
+│   │   ├── SEC6.md                          ← Event-Driven SAST Remediation
+│   │   └── SEC7.md                          ← Mass Security Backlog Remediation
 │   ├── migration-modernization/
 │   │   ├── README.md
 │   │   ├── MM1.md                          ← COBOL to Java
@@ -64,7 +66,8 @@ workshop-metadata/
 │   │   ├── MM7.md                          ← DW Migration: Teradata to Snowflake
 │   │   ├── MM8.md                          ← Data Source Migration
 │   │   ├── MM9.md                          ← Repetitive Framework Upgrades
-│   │   └── MM10.md                         ← Legacy Modernization Combined
+│   │   ├── MM10.md                         ← Legacy Modernization Combined
+│   │   └── MM11.md                         ← One-Shot Tech Debt Remediation
 │   ├── feature-development/
 │   │   ├── README.md
 │   │   ├── FD1.md                          ← Gather Requirements
@@ -96,6 +99,8 @@ workshop-metadata/
 │   │   └── README.md                      ← SF workshop: Framework Upgrade + CVE Remediation
 │   ├── 2026-03-13-dc/
 │   │   └── README.md                      ← DC event (4 UCs)
+│   └── enterprise-demo-track/
+│       └── README.md                      ← Enterprise demo: SAST + Orchestration + One-Shot
 └── shared/
     ├── repo-naming-convention.md
     ├── runtime-resources.md
