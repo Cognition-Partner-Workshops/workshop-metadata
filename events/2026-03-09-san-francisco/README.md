@@ -13,7 +13,7 @@
 This event features 2 structured labs using purpose-built repositories:
 
 ### Lab 1 — Framework Upgrade & Refactor: Monolith → Microservices (60 min)
-- **Module:** [mm-framework-upgrade](../../modules/migration-modernization/mm-framework-upgrade.md#option-1-javaspring-boot-upgrade) + [mm-containerization](../../modules/migration-modernization/mm-containerization.md#task)
+- **Module:** [MM2 — Framework Upgrade](../../modules/migration-modernization/MM2.md#uc-framework-upgrade-monolith-to-microservices) + [MM3 — Containerization](../../modules/migration-modernization/MM3.md#uc-framework-upgrade-monolith-to-microservices)
 - **Repository:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
 - **Objective:** Take an older Java monolith (Java 11 + Spring Boot 2.6.3) and modernize it — you choose whether to focus on the upgrade, the microservice extraction, or both
 
@@ -44,7 +44,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 - Try leaving both general comments and inline code comments to see how Devin handles each
 
-See the full challenge details for [framework upgrade options](../../modules/migration-modernization/mm-framework-upgrade.md#options) and [containerization approaches](../../modules/migration-modernization/mm-containerization.md#task) for more ideas.
+See the full challenge details for [MM2 — Framework Upgrade](../../modules/migration-modernization/MM2.md) and [MM3 — Containerization](../../modules/migration-modernization/MM3.md) for more ideas.
 
 - **Target Outcomes (any of these count):**
   - Application builds and tests on Java 17+ / Spring Boot 3.x
@@ -54,10 +54,10 @@ See the full challenge details for [framework upgrade options](../../modules/mig
   - PR with review comments and Devin's responses
 
 ### Lab 2 — CVE Remediations & Regulatory Code Standards (60 min)
-- **Module:** [sec-upgrade-dependencies](../../modules/security/sec-upgrade-dependencies.md#option-2-javagradle-dependencies) + [sec-remediate-vulnerabilities](../../modules/security/sec-remediate-vulnerabilities.md#step-by-step-using-uc-cve-remediation-regulatory-compliance) + [sec-shift-left](../../modules/security/sec-shift-left.md)
+- **Module:** [SEC1 — Upgrade Dependencies](../../modules/security/SEC1.md#uc-cve-remediation-regulatory-compliance) + [SEC2 — Remediate Vulnerabilities](../../modules/security/SEC2.md#uc-cve-remediation-regulatory-compliance) + [SEC3 — Shift Left Security](../../modules/security/SEC3.md#uc-cve-remediation-regulatory-compliance)
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** A Spring Boot 2.6.3 service has accumulated vulnerable dependencies (Spring4Shell, SnakeYAML RCE, SQLite JDBC RCE, and more). Scan, remediate, and add automated compliance checks
-- **Known CVEs:** See the [full CVE findings report](../../modules/security/sec-remediate-vulnerabilities.md#known-cves-in-uc-cve-remediation-regulatory-compliance) for a breakdown of all 18+ known vulnerabilities by severity (5 Critical, 8 High, 5 Medium)
+- **Known CVEs:** See the [full CVE findings report](../../modules/security/SEC2.md#uc-cve-remediation-regulatory-compliance) for a breakdown of all 18+ known vulnerabilities by severity (5 Critical, 8 High, 5 Medium)
 
 #### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
@@ -86,7 +86,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 - Try leaving both general comments and inline code comments to see how Devin handles each
 
-See the full challenge details for [dependency upgrades](../../modules/security/sec-upgrade-dependencies.md#option-2-javagradle-dependencies), [vulnerability remediation](../../modules/security/sec-remediate-vulnerabilities.md), and [shift-left CI](../../modules/security/sec-shift-left.md) for more ideas.
+See the full challenge details for [SEC1 — Upgrade Dependencies](../../modules/security/SEC1.md), [SEC2 — Remediate Vulnerabilities](../../modules/security/SEC2.md), and [SEC3 — Shift Left Security](../../modules/security/SEC3.md) for more ideas.
 
 - **Target Outcomes (any of these count):**
   - OWASP Dependency-Check report with high/critical CVEs remediated

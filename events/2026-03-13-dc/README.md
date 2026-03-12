@@ -30,7 +30,7 @@ Demonstrate the full modernization journey: legacy code → modern tech stack, m
 
 | | |
 |---|---|
-| **Module** | [C10 — Legacy Modernization Combined](../../modules/migration-modernization/mm-legacy-modernization-combined.md) |
+| **Module** | [MM10 — Legacy Modernization Combined](../../modules/migration-modernization/MM10.md) |
 | **Repositories** | [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java), [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices), [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) |
 | **Demo Focus** | Show Devin rewriting legacy code to a new tech stack, breaking into microservices, and changing the data source from a legacy data warehouse (CDW-style, all-VARCHAR, denormalized) to a modern schema (normalized, proper types, FK constraints) based on documented data mappings |
 | **Key Artifacts** | Java code replacing COBOL, extracted microservice with OpenAPI, modern JPA entities, migration documentation |
@@ -42,7 +42,7 @@ Show how Devin handles the same upgrade pattern applied across multiple services
 
 | | |
 |---|---|
-| **Module** | [C9 — Repetitive Framework Upgrades](../../modules/migration-modernization/mm-repetitive-upgrades.md) |
+| **Module** | [MM9 — Repetitive Framework Upgrades](../../modules/migration-modernization/MM9.md) |
 | **Repositories** | [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) (Spring Boot 2→3), [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) or [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular) (Angular upgrade) |
 | **Demo Focus** | Run parallel Devin sessions — one upgrading Spring Boot, one upgrading Angular — to show how repetitive tasks scale |
 | **Key Artifacts** | Upgraded builds passing tests, documented breaking changes and resolutions |
@@ -54,7 +54,7 @@ A focused demo on the data source migration workflow: take an existing app conne
 
 | | |
 |---|---|
-| **Module** | [C8 — Data Source Migration](../../modules/migration-modernization/mm-data-source-migration.md) |
+| **Module** | [MM8 — Data Source Migration](../../modules/migration-modernization/MM8.md) |
 | **Repository** | [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) |
 | **Also relevant** | [uc-dw-migration-teradata-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake) (for SQL translation portion) |
 | **Demo Focus** | (1) Show Devin creating modern entities from the target schema, (2) writing a migration utility that transforms legacy data, (3) rewiring the application's service layer to point to the new data source |
@@ -67,7 +67,7 @@ If time allows, demonstrate Devin building a new feature from a requirements pro
 
 | | |
 |---|---|
-| **Module** | [D6 — New Feature Development](../../modules/feature-development/fd-new-feature.md) |
+| **Module** | [FD6 — New Feature Development](../../modules/feature-development/FD6.md) |
 | **Repository** | [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) or [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app) |
 | **Demo Focus** | Prompt engineering for CRUD feature development — show how specific requirements lead to better outputs |
 | **Key Artifacts** | New feature with backend + frontend + tests, PR with clean description |
@@ -83,12 +83,12 @@ After the demo, participants can work on any of the following challenges. They m
 
 | Use Case | Challenge | Module | Repo | Difficulty | Time |
 |----------|-----------|--------|------|-----------|------|
-| Modernization | COBOL → Java | [C1](../../modules/migration-modernization/mm-cobol-to-java.md) | uc-legacy-modernization-cobol-to-java | Advanced | 60 min |
-| Upgrades | Spring Boot 2→3 | [C9](../../modules/migration-modernization/mm-repetitive-upgrades.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 60 min |
-| Data Migration | Legacy → Modern Schema | [C8](../../modules/migration-modernization/mm-data-source-migration.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
-| Feature Dev | New CRUD Feature | [D6](../../modules/feature-development/fd-new-feature.md) | app_timesheet-client | Intermediate | 60 min |
-| Security | CVE Remediation | [B1-B4](../../modules/security/README.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
-| Quality | Unit Testing | [A2](../../modules/quality-engineering/qe-unit-testing.md) | Any | Beginner | 30 min |
+| Modernization | COBOL → Java | [MM1](../../modules/migration-modernization/MM1.md) | uc-legacy-modernization-cobol-to-java | Advanced | 60 min |
+| Upgrades | Spring Boot 2→3 | [MM9](../../modules/migration-modernization/MM9.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 60 min |
+| Data Migration | Legacy → Modern Schema | [MM8](../../modules/migration-modernization/MM8.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
+| Feature Dev | New CRUD Feature | [FD6](../../modules/feature-development/FD6.md) | app_timesheet-client | Intermediate | 60 min |
+| Security | CVE Remediation | [SEC1-SEC4](../../modules/security/README.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
+| Quality | Unit Testing | [QE2](../../modules/quality-engineering/QE2.md) | Any | Beginner | 30 min |
 
 ### Full Module Catalog
 

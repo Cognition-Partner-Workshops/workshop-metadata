@@ -38,43 +38,52 @@ workshop-metadata/
 │   └── repos.md                           ← master repo inventory + cross-refs
 ├── modules/                               ← challenge instructions by category
 │   ├── quality-engineering/
-│   │   ├── README.md                      ← category overview
-│   │   ├── qe-linting.md
-│   │   ├── qe-unit-testing.md
-│   │   ├── qe-e2e-testing.md
-│   │   └── qe-documentation.md
+│   │   ├── README.md                      ← category overview + repo navigation table
+│   │   ├── QE1.md                          ← Linting & Static Analysis
+│   │   ├── QE2.md                          ← Unit Testing
+│   │   ├── QE3.md                          ← End-to-End Testing
+│   │   ├── QE4.md                          ← Inline Documentation
+│   │   ├── QE5.md                          ← Code Review Automation
+│   │   ├── QE6.md                          ← Performance Testing
+│   │   └── QE7.md                          ← Accessibility Compliance
 │   ├── security/
 │   │   ├── README.md
-│   │   ├── sec-upgrade-dependencies.md
-│   │   ├── sec-remediate-vulnerabilities.md
-│   │   ├── sec-shift-left.md
-│   │   └── sec-antipatterns.md
+│   │   ├── SEC1.md                          ← Upgrade Dependencies
+│   │   ├── SEC2.md                          ← Remediate Vulnerabilities
+│   │   ├── SEC3.md                          ← Shift Left Security
+│   │   ├── SEC4.md                          ← Identify Antipatterns
+│   │   └── SEC5.md                          ← Secrets Management & Detection
 │   ├── migration-modernization/
 │   │   ├── README.md
-│   │   ├── mm-cobol-to-java.md
-│   │   ├── mm-framework-upgrade.md
-│   │   ├── mm-containerization.md
-│   │   ├── mm-api-consolidation.md
-│   │   ├── mm-cloud-native.md
-│   │   ├── mm-iac-translation.md
-│   │   ├── mm-dw-migration-teradata.md
-│   │   ├── mm-data-source-migration.md
-│   │   ├── mm-repetitive-upgrades.md
-│   │   └── mm-legacy-modernization-combined.md
+│   │   ├── MM1.md                          ← COBOL to Java
+│   │   ├── MM2.md                          ← Framework Upgrade
+│   │   ├── MM3.md                          ← Containerization
+│   │   ├── MM4.md                          ← API Consolidation
+│   │   ├── MM5.md                          ← Cloud Native Transformation
+│   │   ├── MM6.md                          ← IaC Translation
+│   │   ├── MM7.md                          ← DW Migration: Teradata to Snowflake
+│   │   ├── MM8.md                          ← Data Source Migration
+│   │   ├── MM9.md                          ← Repetitive Framework Upgrades
+│   │   └── MM10.md                         ← Legacy Modernization Combined
 │   ├── feature-development/
 │   │   ├── README.md
-│   │   ├── fd-gather-requirements.md
-│   │   ├── fd-tdd.md
-│   │   ├── fd-fix-runtime-bug.md
-│   │   ├── fd-fix-ui-bug.md
-│   │   ├── fd-fix-data-bug.md
-│   │   └── fd-new-feature.md
+│   │   ├── FD1.md                          ← Gather Requirements
+│   │   ├── FD2.md                          ← Test-Driven Development
+│   │   ├── FD3.md                          ← Fix Runtime Bug
+│   │   ├── FD4.md                          ← Fix UI Bug
+│   │   ├── FD5.md                          ← Fix Data Bug
+│   │   ├── FD6.md                          ← New Feature Development
+│   │   ├── FD7.md                          ← API Documentation
+│   │   └── FD8.md                          ← Database Schema Evolution
 │   ├── devops-automation/
 │   │   ├── README.md
-│   │   ├── da-cicd.md
-│   │   ├── da-observability.md
-│   │   ├── da-pr-review.md
-│   │   └── da-ci-failure-resolution.md
+│   │   ├── DA1.md                          ← CI/CD Pipeline
+│   │   ├── DA2.md                          ← Observability & Monitoring
+│   │   ├── DA3.md                          ← PR Review Automation
+│   │   ├── DA4.md                          ← CI Failure Resolution
+│   │   ├── DA5.md                          ← Release Management
+│   │   ├── DA6.md                          ← Incident Response & Triage
+│   │   └── DA7.md                          ← Configuration Management & Feature Flags
 │   └── devin-features/
 │       └── README.md                      ← Devin-specific activities checklist
 ├── events/
