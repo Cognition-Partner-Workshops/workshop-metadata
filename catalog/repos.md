@@ -47,7 +47,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | Apache 2.0 |
 | **Default Branch** | `main` |
 | **Cluster** | C2 (from `aws-mainframe-modernization-carddemo`) |
-| **Challenges** | [MM1](../modules/migration-modernization/MM1.md) |
+| **Challenges** | [MM1](../modules/migration-modernization/MM1.md), [MM12](../modules/migration-modernization/MM12.md), [MM13](../modules/migration-modernization/MM13.md), [MM14](../modules/migration-modernization/MM14.md) |
 
 ### uc-framework-upgrade-monolith-to-microservices
 | | |

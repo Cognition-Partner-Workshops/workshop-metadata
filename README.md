@@ -67,7 +67,10 @@ workshop-metadata/
 │   │   ├── MM8.md                          ← Data Source Migration
 │   │   ├── MM9.md                          ← Repetitive Framework Upgrades
 │   │   ├── MM10.md                         ← Legacy Modernization Combined
-│   │   └── MM11.md                         ← One-Shot Tech Debt Remediation
+│   │   ├── MM11.md                         ← One-Shot Tech Debt Remediation
+│   │   ├── MM12.md                         ← COBOL System Understanding & Reverse Engineering
+│   │   ├── MM13.md                         ← COBOL Migration Planning & Domain Decomposition
+│   │   └── MM14.md                         ← Migration Test Harness & Validation Strategy
 │   ├── feature-development/
 │   │   ├── README.md
 │   │   ├── FD1.md                          ← Gather Requirements
@@ -99,8 +102,12 @@ workshop-metadata/
 │   │   └── README.md                      ← SF workshop: Framework Upgrade + CVE Remediation
 │   ├── 2026-03-13-dc/
 │   │   └── README.md                      ← DC event (4 UCs)
-│   └── enterprise-demo-track/
-│       └── README.md                      ← Enterprise demo: SAST + Orchestration + One-Shot
+│   ├── cobol-modernization-arc/
+│   │   └── README.md                      ← COBOL Modernization: Understand → Plan → Safeguard → Execute
+│   ├── enterprise-demo-track/
+│   │   └── README.md                      ← Enterprise demo: SAST + Orchestration + One-Shot
+│   └── workshop-variant-2/
+│       └── README.md                      ← QE + Security Vulnerability Remediation
 └── shared/
     ├── repo-naming-convention.md
     ├── runtime-resources.md

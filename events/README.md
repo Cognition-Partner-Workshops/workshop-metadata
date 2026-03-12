@@ -22,6 +22,8 @@ events/
 │   └── README.md              ← SF workshop: Framework Upgrade + CVE Remediation
 ├── 2026-03-13-dc/
 │   └── README.md              ← DC event (demo + hands-on)
+├── cobol-modernization-arc/
+│   └── README.md              ← COBOL Modernization: Understand → Plan → Safeguard → Execute
 ├── workshop-variant-2/
 │   └── README.md              ← QE + Security Vulnerability Remediation
 └── YYYY-MM-DD-city-org/
@@ -48,3 +50,4 @@ events/
 | Architects | C (Migration) + E (DevOps) | C3 or C5 |
 | Mixed/General | A + B + C + D | A1 (warm-up) → B1 → C2 → D4 |
 | Executive/Demo | D4 + A1 + C2 | Quick wins with visible output |
+| Mainframe/COBOL | C (Migration: MM12→MM13→MM14→MM1) | MM12 (discovery) |
