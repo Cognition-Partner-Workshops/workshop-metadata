@@ -39,51 +39,51 @@ workshop-metadata/
 ├── modules/                               ← challenge instructions by category
 │   ├── quality-engineering/
 │   │   ├── README.md                      ← category overview + repo navigation table
-│   │   ├── A1.md                          ← Linting & Static Analysis
-│   │   ├── A2.md                          ← Unit Testing
-│   │   ├── A3.md                          ← End-to-End Testing
-│   │   ├── A4.md                          ← Inline Documentation
-│   │   ├── A5.md                          ← Code Review Automation
-│   │   ├── A6.md                          ← Performance Testing
-│   │   └── A7.md                          ← Accessibility Compliance
+│   │   ├── QE1.md                          ← Linting & Static Analysis
+│   │   ├── QE2.md                          ← Unit Testing
+│   │   ├── QE3.md                          ← End-to-End Testing
+│   │   ├── QE4.md                          ← Inline Documentation
+│   │   ├── QE5.md                          ← Code Review Automation
+│   │   ├── QE6.md                          ← Performance Testing
+│   │   └── QE7.md                          ← Accessibility Compliance
 │   ├── security/
 │   │   ├── README.md
-│   │   ├── B1.md                          ← Upgrade Dependencies
-│   │   ├── B2.md                          ← Remediate Vulnerabilities
-│   │   ├── B3.md                          ← Shift Left Security
-│   │   ├── B4.md                          ← Identify Antipatterns
-│   │   └── B5.md                          ← Secrets Management & Detection
+│   │   ├── SEC1.md                          ← Upgrade Dependencies
+│   │   ├── SEC2.md                          ← Remediate Vulnerabilities
+│   │   ├── SEC3.md                          ← Shift Left Security
+│   │   ├── SEC4.md                          ← Identify Antipatterns
+│   │   └── SEC5.md                          ← Secrets Management & Detection
 │   ├── migration-modernization/
 │   │   ├── README.md
-│   │   ├── C1.md                          ← COBOL to Java
-│   │   ├── C2.md                          ← Framework Upgrade
-│   │   ├── C3.md                          ← Containerization
-│   │   ├── C4.md                          ← API Consolidation
-│   │   ├── C5.md                          ← Cloud Native Transformation
-│   │   ├── C6.md                          ← IaC Translation
-│   │   ├── C7.md                          ← DW Migration: Teradata to Snowflake
-│   │   ├── C8.md                          ← Data Source Migration
-│   │   ├── C9.md                          ← Repetitive Framework Upgrades
-│   │   └── C10.md                         ← Legacy Modernization Combined
+│   │   ├── MM1.md                          ← COBOL to Java
+│   │   ├── MM2.md                          ← Framework Upgrade
+│   │   ├── MM3.md                          ← Containerization
+│   │   ├── MM4.md                          ← API Consolidation
+│   │   ├── MM5.md                          ← Cloud Native Transformation
+│   │   ├── MM6.md                          ← IaC Translation
+│   │   ├── MM7.md                          ← DW Migration: Teradata to Snowflake
+│   │   ├── MM8.md                          ← Data Source Migration
+│   │   ├── MM9.md                          ← Repetitive Framework Upgrades
+│   │   └── MM10.md                         ← Legacy Modernization Combined
 │   ├── feature-development/
 │   │   ├── README.md
-│   │   ├── D1.md                          ← Gather Requirements
-│   │   ├── D2.md                          ← Test-Driven Development
-│   │   ├── D3.md                          ← Fix Runtime Bug
-│   │   ├── D4.md                          ← Fix UI Bug
-│   │   ├── D5.md                          ← Fix Data Bug
-│   │   ├── D6.md                          ← New Feature Development
-│   │   ├── D7.md                          ← API Documentation
-│   │   └── D8.md                          ← Database Schema Evolution
+│   │   ├── FD1.md                          ← Gather Requirements
+│   │   ├── FD2.md                          ← Test-Driven Development
+│   │   ├── FD3.md                          ← Fix Runtime Bug
+│   │   ├── FD4.md                          ← Fix UI Bug
+│   │   ├── FD5.md                          ← Fix Data Bug
+│   │   ├── FD6.md                          ← New Feature Development
+│   │   ├── FD7.md                          ← API Documentation
+│   │   └── FD8.md                          ← Database Schema Evolution
 │   ├── devops-automation/
 │   │   ├── README.md
-│   │   ├── E1.md                          ← CI/CD Pipeline
-│   │   ├── E2.md                          ← Observability & Monitoring
-│   │   ├── E3.md                          ← PR Review Automation
-│   │   ├── E4.md                          ← CI Failure Resolution
-│   │   ├── E5.md                          ← Release Management
-│   │   ├── E6.md                          ← Incident Response & Triage
-│   │   └── E7.md                          ← Configuration Management & Feature Flags
+│   │   ├── DA1.md                          ← CI/CD Pipeline
+│   │   ├── DA2.md                          ← Observability & Monitoring
+│   │   ├── DA3.md                          ← PR Review Automation
+│   │   ├── DA4.md                          ← CI Failure Resolution
+│   │   ├── DA5.md                          ← Release Management
+│   │   ├── DA6.md                          ← Incident Response & Triage
+│   │   └── DA7.md                          ← Configuration Management & Feature Flags
 │   └── devin-features/
 │       └── README.md                      ← Devin-specific activities checklist
 ├── events/

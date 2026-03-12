@@ -6,21 +6,21 @@ Challenges focused on CI/CD, observability, PR review, failure resolution, relea
 
 | ID | Challenge | Difficulty | Time |
 |----|-----------|-----------|------|
-| [E1](E1.md) | CI/CD | Intermediate | 45 min |
-| [E2](E2.md) | Observability | Intermediate to Advanced | 60 min |
-| [E3](E3.md) | PR Review | Beginner to Intermediate | 30 min |
-| [E4](E4.md) | CI Failure Resolution | Intermediate | 45 min |
-| [E5](E5.md) | Release Management | Intermediate | 45 min |
-| [E6](E6.md) | Incident Response & Triage | Intermediate | 45 min |
-| [E7](E7.md) | Configuration Management & Feature Flags | Intermediate | 45 min |
+| [DA1](DA1.md) | CI/CD | Intermediate | 45 min |
+| [DA2](DA2.md) | Observability | Intermediate to Advanced | 60 min |
+| [DA3](DA3.md) | PR Review | Beginner to Intermediate | 30 min |
+| [DA4](DA4.md) | CI Failure Resolution | Intermediate | 45 min |
+| [DA5](DA5.md) | Release Management | Intermediate | 45 min |
+| [DA6](DA6.md) | Incident Response & Triage | Intermediate | 45 min |
+| [DA7](DA7.md) | Configuration Management & Feature Flags | Intermediate | 45 min |
 
 ## Repositories
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet-client | [E1](E1.md#app_timesheet-client), [E2](E2.md#app_timesheet-client), [E3](E3.md#app_timesheet-client), [E4](E4.md#app_timesheet-client), [E5](E5.md#app_timesheet-client), [E6](E6.md#app_timesheet-client), [E7](E7.md#app_timesheet-client) |
-| ts-java-spring-boot-realworld-example-app | [E3](E3.md#ts-java-spring-boot-realworld-example-app) |
-| uc-framework-upgrade-monolith-to-microservices | [E1](E1.md#uc-framework-upgrade-monolith-to-microservices), [E2](E2.md#uc-framework-upgrade-monolith-to-microservices), [E3](E3.md#uc-framework-upgrade-monolith-to-microservices), [E4](E4.md#uc-framework-upgrade-monolith-to-microservices), [E5](E5.md#uc-framework-upgrade-monolith-to-microservices), [E6](E6.md#uc-framework-upgrade-monolith-to-microservices), [E7](E7.md#uc-framework-upgrade-monolith-to-microservices) |
+| app_timesheet-client | [DA1](DA1.md#app_timesheet-client), [DA2](DA2.md#app_timesheet-client), [DA3](DA3.md#app_timesheet-client), [DA4](DA4.md#app_timesheet-client), [DA5](DA5.md#app_timesheet-client), [DA6](DA6.md#app_timesheet-client), [DA7](DA7.md#app_timesheet-client) |
+| ts-java-spring-boot-realworld-example-app | [DA3](DA3.md#ts-java-spring-boot-realworld-example-app) |
+| uc-framework-upgrade-monolith-to-microservices | [DA1](DA1.md#uc-framework-upgrade-monolith-to-microservices), [DA2](DA2.md#uc-framework-upgrade-monolith-to-microservices), [DA3](DA3.md#uc-framework-upgrade-monolith-to-microservices), [DA4](DA4.md#uc-framework-upgrade-monolith-to-microservices), [DA5](DA5.md#uc-framework-upgrade-monolith-to-microservices), [DA6](DA6.md#uc-framework-upgrade-monolith-to-microservices), [DA7](DA7.md#uc-framework-upgrade-monolith-to-microservices) |
 
 ## When to Use This Category
 

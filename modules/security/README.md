@@ -6,20 +6,20 @@ Challenges focused on dependency management, vulnerability remediation, security
 
 | ID | Challenge | Difficulty | Time |
 |----|-----------|-----------|------|
-| [B1](B1.md) | Upgrade Dependencies | Beginner to Intermediate | 45 min |
-| [B2](B2.md) | Remediate Vulnerabilities | Intermediate | 60 min |
-| [B3](B3.md) | Shift Left Security | Intermediate to Advanced | 60 min |
-| [B4](B4.md) | Security Antipatterns | Intermediate | 45 min |
-| [B5](B5.md) | Secrets Management & Detection | Intermediate | 45 min |
+| [SEC1](SEC1.md) | Upgrade Dependencies | Beginner to Intermediate | 45 min |
+| [SEC2](SEC2.md) | Remediate Vulnerabilities | Intermediate | 60 min |
+| [SEC3](SEC3.md) | Shift Left Security | Intermediate to Advanced | 60 min |
+| [SEC4](SEC4.md) | Security Antipatterns | Intermediate | 45 min |
+| [SEC5](SEC5.md) | Secrets Management & Detection | Intermediate | 45 min |
 
 ## Repositories
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet-client | [B1](B1.md#app_timesheet-client), [B2](B2.md#app_timesheet-client), [B3](B3.md#app_timesheet-client), [B4](B4.md#app_timesheet-client), [B5](B5.md#app_timesheet-client) |
-| Online-Banking-System-using-Java | [B4](B4.md#online-banking-system-using-java) |
-| uc-cve-remediation-regulatory-compliance | [B1](B1.md#uc-cve-remediation-regulatory-compliance), [B2](B2.md#uc-cve-remediation-regulatory-compliance), [B3](B3.md#uc-cve-remediation-regulatory-compliance), [B4](B4.md#uc-cve-remediation-regulatory-compliance), [B5](B5.md#uc-cve-remediation-regulatory-compliance) |
-| uc-framework-upgrade-monolith-to-microservices | [B5](B5.md#uc-framework-upgrade-monolith-to-microservices) |
+| app_timesheet-client | [SEC1](SEC1.md#app_timesheet-client), [SEC2](SEC2.md#app_timesheet-client), [SEC3](SEC3.md#app_timesheet-client), [SEC4](SEC4.md#app_timesheet-client), [SEC5](SEC5.md#app_timesheet-client) |
+| Online-Banking-System-using-Java | [SEC4](SEC4.md#online-banking-system-using-java) |
+| uc-cve-remediation-regulatory-compliance | [SEC1](SEC1.md#uc-cve-remediation-regulatory-compliance), [SEC2](SEC2.md#uc-cve-remediation-regulatory-compliance), [SEC3](SEC3.md#uc-cve-remediation-regulatory-compliance), [SEC4](SEC4.md#uc-cve-remediation-regulatory-compliance), [SEC5](SEC5.md#uc-cve-remediation-regulatory-compliance) |
+| uc-framework-upgrade-monolith-to-microservices | [SEC5](SEC5.md#uc-framework-upgrade-monolith-to-microservices) |
 
 ## When to Use This Category
 
