@@ -21,7 +21,7 @@ Challenges focused on code quality, testing, documentation, refactoring, perform
 | Repository | Compatible Modules |
 |------------|--------------------|
 | app_petclinic-backend | [QE2](QE2.md#app_petclinic-backend) |
-| app_timesheet-client | [QE1](QE1.md#app_timesheet-client), [QE2](QE2.md#app_timesheet-client), [QE3](QE3.md#app_timesheet-client), [QE4](QE4.md#app_timesheet-client), [QE5](QE5.md#app_timesheet-client), [QE6](QE6.md#app_timesheet-client), [QE7](QE7.md#app_timesheet-client) |
+| app_timesheet | [QE1](QE1.md#app_timesheet), [QE2](QE2.md#app_timesheet), [QE3](QE3.md#app_timesheet), [QE4](QE4.md#app_timesheet), [QE5](QE5.md#app_timesheet), [QE6](QE6.md#app_timesheet), [QE7](QE7.md#app_timesheet) |
 | cal.com | [QE3](QE3.md#calcom), [QE5](QE5.md#calcom), [QE6](QE6.md#calcom), [QE7](QE7.md#calcom) |
 | hosting-client-timesheet-app | [QE1](QE1.md#hosting-client-timesheet-app) |
 | ts-java-spring-boot-realworld-example-app | [QE2](QE2.md#ts-java-spring-boot-realworld-example-app), [QE4](QE4.md#ts-java-spring-boot-realworld-example-app), [QE5](QE5.md#ts-java-spring-boot-realworld-example-app) |

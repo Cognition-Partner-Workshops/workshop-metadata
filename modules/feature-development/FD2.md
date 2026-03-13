@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -42,9 +42,9 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application with Jest test infrastructure — ideal for writing backend API tests first, then implementing.
 
@@ -52,7 +52,7 @@ Node.js/Express application with Jest test infrastructure — ideal for writing 
 
 **Session 1 — Write Tests:**
 
-> I want to add a "duplicate work entry" feature to app_timesheet-client. Write failing Jest tests for a new POST /api/work-entries/:id/duplicate endpoint that creates a copy of an existing work entry with today's date. Test: successful duplication, 404 for non-existent entry, 403 for entry owned by another user. Commit the tests to a new branch.
+> I want to add a "duplicate work entry" feature to app_timesheet. Write failing Jest tests for a new POST /api/work-entries/:id/duplicate endpoint that creates a copy of an existing work entry with today's date. Test: successful duplication, 404 for non-existent entry, 403 for entry owned by another user. Commit the tests to a new branch.
 
 **Session 2 — Implement:**
 
@@ -60,7 +60,7 @@ Node.js/Express application with Jest test infrastructure — ideal for writing 
 
 ### Step 2: Level Up with AskDevin
 
-- *"What patterns do the existing Jest tests in app_timesheet-client follow? How should new tests be structured to match?"*
+- *"What patterns do the existing Jest tests in app_timesheet follow? How should new tests be structured to match?"*
 - *"What edge cases should the duplicate endpoint handle beyond the basic scenarios?"*
 
 ### Step 3: Explore with DeepWiki

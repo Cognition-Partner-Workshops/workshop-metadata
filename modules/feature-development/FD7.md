@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-data-source-migration-legacy-to-modern](#uc-data-source-migration-legacy-to-modern)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
@@ -43,19 +43,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express backend with REST endpoints for work entries, clients, and reporting.
 
 ### Step 1: Get Started Fast
 
-> Generate an OpenAPI 3.0 specification for all REST endpoints in app_timesheet-client's backend. Include: endpoint paths, HTTP methods, request/response schemas, authentication requirements, status codes, and example payloads. Add swagger-ui-express to serve interactive documentation at /api-docs. Open a PR.
+> Generate an OpenAPI 3.0 specification for all REST endpoints in app_timesheet's backend. Include: endpoint paths, HTTP methods, request/response schemas, authentication requirements, status codes, and example payloads. Add swagger-ui-express to serve interactive documentation at /api-docs. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What REST endpoints exist in app_timesheet-client? Are there any undocumented or inconsistent endpoints?"*
+- *"What REST endpoints exist in app_timesheet? Are there any undocumented or inconsistent endpoints?"*
 - *"Does the API follow REST best practices for status codes and error responses? Where does it deviate?"*
 
 ### Step 3: Explore with DeepWiki

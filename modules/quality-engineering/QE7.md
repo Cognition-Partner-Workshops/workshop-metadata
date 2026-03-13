@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [cal.com](#calcom)
 
 ---
@@ -46,19 +46,19 @@ The application should be running locally for browser-based auditing.
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 React application with Material-UI components — good candidate for ARIA attribute improvements and keyboard navigation fixes.
 
 ### Step 1: Get Started Fast
 
-> Run app_timesheet-client locally (frontend on port 5173). Run a Lighthouse accessibility audit on the main pages (/work-entries, /clients, /reports). Fix all critical and serious accessibility violations: missing form labels, insufficient color contrast, missing alt text, and keyboard navigation issues. Open a PR with the fixes and the audit scores before/after.
+> Run app_timesheet locally (frontend on port 5173). Run a Lighthouse accessibility audit on the main pages (/work-entries, /clients, /reports). Fix all critical and serious accessibility violations: missing form labels, insufficient color contrast, missing alt text, and keyboard navigation issues. Open a PR with the fixes and the audit scores before/after.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What WCAG 2.1 Level AA violations exist in app_timesheet-client's React components?"*
+- *"What WCAG 2.1 Level AA violations exist in app_timesheet's React components?"*
 - *"Are the Material-UI components configured with proper ARIA attributes for screen readers?"*
 
 ### Step 3: Explore with DeepWiki

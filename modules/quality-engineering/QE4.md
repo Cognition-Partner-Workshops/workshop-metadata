@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
 - [uc-dw-migration-teradata-to-snowflake](#uc-dw-migration-teradata-to-snowflake)
 
@@ -41,19 +41,19 @@ Beginner
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Moderate codebase with a mix of frontend (React) and backend (Express) — benefits from JSDoc comments and API documentation.
 
 ### Step 1: Get Started Fast
 
-> Review app_timesheet-client and add comprehensive inline documentation (JSDoc) to all public functions in the backend API routes and service layer. Also add TSDoc comments to the main React components. Focus on explaining the "why" not just the "what". Open a PR with the changes.
+> Review app_timesheet and add comprehensive inline documentation (JSDoc) to all public functions in the backend API routes and service layer. Also add TSDoc comments to the main React components. Focus on explaining the "why" not just the "what". Open a PR with the changes.
 
 ### Step 2: Level Up with AskDevin
 
-- *"Which parts of app_timesheet-client are most confusing for a new developer? Where would documentation have the highest impact?"*
+- *"Which parts of app_timesheet are most confusing for a new developer? Where would documentation have the highest impact?"*
 - *"Should the README be updated with an architecture diagram or setup guide?"*
 
 ### Step 3: Explore with DeepWiki

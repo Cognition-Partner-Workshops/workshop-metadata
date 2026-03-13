@@ -18,7 +18,7 @@ Challenges focused on dependency management, vulnerability remediation, security
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet-client | [SEC1](SEC1.md#app_timesheet-client), [SEC2](SEC2.md#app_timesheet-client), [SEC3](SEC3.md#app_timesheet-client), [SEC4](SEC4.md#app_timesheet-client), [SEC5](SEC5.md#app_timesheet-client), [SEC6](SEC6.md#app_timesheet-client), [SEC7](SEC7.md#app_timesheet-client) |
+| app_timesheet | [SEC1](SEC1.md#app_timesheet), [SEC2](SEC2.md#app_timesheet), [SEC3](SEC3.md#app_timesheet), [SEC4](SEC4.md#app_timesheet), [SEC5](SEC5.md#app_timesheet), [SEC6](SEC6.md#app_timesheet), [SEC7](SEC7.md#app_timesheet) |
 | Online-Banking-System-using-Java | [SEC4](SEC4.md#online-banking-system-using-java) |
 | uc-cve-remediation-regulatory-compliance | [SEC1](SEC1.md#uc-cve-remediation-regulatory-compliance), [SEC2](SEC2.md#uc-cve-remediation-regulatory-compliance), [SEC3](SEC3.md#uc-cve-remediation-regulatory-compliance), [SEC4](SEC4.md#uc-cve-remediation-regulatory-compliance), [SEC5](SEC5.md#uc-cve-remediation-regulatory-compliance), [SEC6](SEC6.md#uc-cve-remediation-regulatory-compliance), [SEC7](SEC7.md#uc-cve-remediation-regulatory-compliance) |
 | uc-framework-upgrade-monolith-to-microservices | [SEC5](SEC5.md#uc-framework-upgrade-monolith-to-microservices) |

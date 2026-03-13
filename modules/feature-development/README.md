@@ -19,7 +19,7 @@ Challenges focused on requirements gathering, test-driven development, bug fixin
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet-client | [FD1](FD1.md#app_timesheet-client), [FD2](FD2.md#app_timesheet-client), [FD3](FD3.md#app_timesheet-client), [FD4](FD4.md#app_timesheet-client), [FD5](FD5.md#app_timesheet-client), [FD6](FD6.md#app_timesheet-client), [FD7](FD7.md#app_timesheet-client), [FD8](FD8.md#app_timesheet-client) |
+| app_timesheet | [FD1](FD1.md#app_timesheet), [FD2](FD2.md#app_timesheet), [FD3](FD3.md#app_timesheet), [FD4](FD4.md#app_timesheet), [FD5](FD5.md#app_timesheet), [FD6](FD6.md#app_timesheet), [FD7](FD7.md#app_timesheet), [FD8](FD8.md#app_timesheet) |
 | cal.com | [FD1](FD1.md#calcom), [FD3](FD3.md#calcom) |
 | uc-data-source-migration-legacy-to-modern | [FD6](FD6.md#uc-data-source-migration-legacy-to-modern), [FD7](FD7.md#uc-data-source-migration-legacy-to-modern), [FD8](FD8.md#uc-data-source-migration-legacy-to-modern) |
 | uc-framework-upgrade-monolith-to-microservices | [FD2](FD2.md#uc-framework-upgrade-monolith-to-microservices), [FD6](FD6.md#uc-framework-upgrade-monolith-to-microservices), [FD7](FD7.md#uc-framework-upgrade-monolith-to-microservices), [FD8](FD8.md#uc-framework-upgrade-monolith-to-microservices) |

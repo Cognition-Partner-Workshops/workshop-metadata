@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [hosting-client-timesheet-app](#hosting-client-timesheet-app)
 
 ---
@@ -39,19 +39,19 @@ Beginner
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 React 19 + Node.js/Express timesheet application with ESLint and Prettier configured.
 
 ### Step 1: Get Started Fast
 
-> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/app_timesheet-client/issues/3 — fix all ESLint linting errors in the codebase, run the linter to verify all issues are resolved, and open a PR with the fixes.
+> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/app_timesheet/issues/3 — fix all ESLint linting errors in the codebase, run the linter to verify all issues are resolved, and open a PR with the fixes.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What linting rules are configured in app_timesheet-client? Are there any disabled rules that should be re-enabled?"*
+- *"What linting rules are configured in app_timesheet? Are there any disabled rules that should be re-enabled?"*
 - *"Are there any inconsistencies between the ESLint config and the Prettier config?"*
 - Use insights to start a second session with a more comprehensive lint cleanup approach
 

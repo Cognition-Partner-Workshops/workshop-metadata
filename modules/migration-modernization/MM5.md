@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -42,19 +42,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application with SQLite — candidate for database externalization, container orchestration, and health check improvements.
 
 ### Step 1: Get Started Fast
 
-> Make app_timesheet-client more cloud-native: add a /health endpoint, externalize all configuration to environment variables, add structured JSON logging with Winston, create a Dockerfile with multi-stage build, and add a Kubernetes deployment manifest with resource limits and readiness probes. Open a PR.
+> Make app_timesheet more cloud-native: add a /health endpoint, externalize all configuration to environment variables, add structured JSON logging with Winston, create a Dockerfile with multi-stage build, and add a Kubernetes deployment manifest with resource limits and readiness probes. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What 12-factor app violations exist in app_timesheet-client? Which ones are highest priority?"*
+- *"What 12-factor app violations exist in app_timesheet? Which ones are highest priority?"*
 - *"What would it take to migrate from SQLite to a managed database (PostgreSQL) for production readiness?"*
 
 ### Step 3: Explore with DeepWiki

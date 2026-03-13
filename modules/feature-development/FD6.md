@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-data-source-migration-legacy-to-modern](#uc-data-source-migration-legacy-to-modern)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
@@ -50,19 +50,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 React + Node.js/Express full-stack application — add a new CRUD feature, management page, or API endpoint with UI.
 
 ### Step 1: Get Started Fast
 
-> Add a "Projects" management feature to app_timesheet-client. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
+> Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What patterns do the existing CRUD features (clients, work entries) follow in app_timesheet-client? What conventions should a new feature match?"*
+- *"What patterns do the existing CRUD features (clients, work entries) follow in app_timesheet? What conventions should a new feature match?"*
 - *"What database migration approach does the app use? How should I add a new table?"*
 
 ### Step 3: Explore with DeepWiki

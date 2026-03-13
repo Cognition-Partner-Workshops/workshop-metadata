@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 
 ---
 
@@ -53,9 +53,9 @@ Runtime helpful but not required — the bug can be found by code analysis alone
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 **Bug:** Clients do not persist when you log out and log back in with a different email. Clients are intended to be shared by all users of the application.
 
@@ -65,11 +65,11 @@ Runtime helpful but not required — the bug can be found by code analysis alone
 
 ### Step 1: Get Started Fast
 
-> There's a data bug in app_timesheet-client: clients created by one user are not visible to other users after logging out and back in with a different email. Clients should be shared across all users. Investigate the database schema and queries, find the root cause, and fix it. Make sure work entries still belong to individual users. Open a PR.
+> There's a data bug in app_timesheet: clients created by one user are not visible to other users after logging out and back in with a different email. Clients should be shared across all users. Investigate the database schema and queries, find the root cause, and fix it. Make sure work entries still belong to individual users. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"How is the client data model related to users in app_timesheet-client? Is there a user_email foreign key that shouldn't be there?"*
+- *"How is the client data model related to users in app_timesheet? Is there a user_email foreign key that shouldn't be there?"*
 - *"What other data in the app should be shared vs. user-scoped?"*
 
 ### Step 3: Explore with DeepWiki

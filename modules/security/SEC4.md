@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [Online-Banking-System-using-Java](#online-banking-system-using-java)
 - [uc-cve-remediation-regulatory-compliance](#uc-cve-remediation-regulatory-compliance)
 
@@ -42,19 +42,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application with email-only auth (no password) and potential SQL injection paths.
 
 ### Step 1: Get Started Fast
 
-> Perform a security code review of app_timesheet-client against the OWASP Top 10. Focus on: authentication weaknesses (email-only, no password), SQL injection risks in the SQLite queries, XSS vulnerabilities in the React frontend, and CSRF protection. For each finding, explain the vulnerability, its severity, and provide a recommended fix. Implement fixes for the top 3 most critical findings. Open a PR.
+> Perform a security code review of app_timesheet against the OWASP Top 10. Focus on: authentication weaknesses (email-only, no password), SQL injection risks in the SQLite queries, XSS vulnerabilities in the React frontend, and CSRF protection. For each finding, explain the vulnerability, its severity, and provide a recommended fix. Implement fixes for the top 3 most critical findings. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What authentication mechanism does app_timesheet-client use? What are its security weaknesses?"*
+- *"What authentication mechanism does app_timesheet use? What are its security weaknesses?"*
 - *"Are there any SQL queries that use string concatenation instead of parameterized queries?"*
 
 ### Step 3: Explore with DeepWiki

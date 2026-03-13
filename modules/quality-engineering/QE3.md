@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [cal.com](#calcom)
 
 ---
@@ -45,19 +45,19 @@ The application must be running locally on Devin's machine or hosted externally.
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Simpler application — good for first-timers with E2E testing. Backend on port 3001, frontend on port 5173. Login with any email (no password required).
 
 ### Step 1: Get Started Fast
 
-> Set up and run app_timesheet-client locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the work entries workflow: login, create a work entry, verify it appears in the list, edit it, and delete it. Run the tests and take a screen recording. Open a PR with the test files.
+> Set up and run app_timesheet locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the work entries workflow: login, create a work entry, verify it appears in the list, edit it, and delete it. Run the tests and take a screen recording. Open a PR with the test files.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What are the main user workflows in app_timesheet-client that would benefit from E2E tests?"*
+- *"What are the main user workflows in app_timesheet that would benefit from E2E tests?"*
 - *"Does the app already have any test infrastructure (Playwright config, test utilities) that I should build on?"*
 - Use insights to write tests for additional workflows (client management, reporting)
 

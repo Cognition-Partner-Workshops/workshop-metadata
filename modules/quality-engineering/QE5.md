@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [cal.com](#calcom)
 - [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
@@ -44,19 +44,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 React + Express application with opportunities for backend route handler refactoring and frontend component decomposition.
 
 ### Step 1: Get Started Fast
 
-> Analyze app_timesheet-client for code smells and tech debt. Focus on the backend route handlers and service layer — identify long functions, duplicated logic, and poor naming. Refactor the top 5 most impactful issues without changing any external behavior. Run all existing tests to verify no regressions. Open a PR documenting each refactoring.
+> Analyze app_timesheet for code smells and tech debt. Focus on the backend route handlers and service layer — identify long functions, duplicated logic, and poor naming. Refactor the top 5 most impactful issues without changing any external behavior. Run all existing tests to verify no regressions. Open a PR documenting each refactoring.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What are the most complex functions in app_timesheet-client? Which ones have the highest cyclomatic complexity?"*
+- *"What are the most complex functions in app_timesheet? Which ones have the highest cyclomatic complexity?"*
 - *"Are there any duplicated patterns across the backend route handlers that could be extracted into shared utilities?"*
 
 ### Step 3: Explore with DeepWiki

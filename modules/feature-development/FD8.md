@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-data-source-migration-legacy-to-modern](#uc-data-source-migration-legacy-to-modern)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
@@ -44,19 +44,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express with SQLite — add or modify database migrations to support new features or schema improvements.
 
 ### Step 1: Get Started Fast
 
-> Add a database migration system to app_timesheet-client using Knex.js (or the existing migration approach). Create a migration that adds a "projects" table with columns: id, name, description, client_id (FK to clients), start_date, end_date, status, created_at, updated_at. Add an index on client_id. Create a second migration that adds a project_id column to the work_entries table. Ensure both migrations have rollback (down) functions. Open a PR.
+> Add a database migration system to app_timesheet using Knex.js (or the existing migration approach). Create a migration that adds a "projects" table with columns: id, name, description, client_id (FK to clients), start_date, end_date, status, created_at, updated_at. Add an index on client_id. Create a second migration that adds a project_id column to the work_entries table. Ensure both migrations have rollback (down) functions. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What migration framework does app_timesheet-client currently use? If none, what's the best option for SQLite + Express?"*
+- *"What migration framework does app_timesheet currently use? If none, what's the best option for SQLite + Express?"*
 - *"How should we handle the foreign key from work_entries to projects — nullable (gradual migration) or required (breaking change)?"*
 
 ### Step 3: Explore with DeepWiki

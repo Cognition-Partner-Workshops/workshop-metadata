@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-cve-remediation-regulatory-compliance](#uc-cve-remediation-regulatory-compliance)
 
 ---
@@ -75,19 +75,19 @@ Advanced
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Has existing `security-scan.yml` and `sonar-devin-fix.yml` workflows that already demonstrate a version of this pattern. Participants will study the existing implementation and extend it into a full event-driven remediation pipeline.
 
 ### Step 1: Get Started Fast
 
-> Analyze the existing `.github/workflows/sonar-devin-fix.yml` in app_timesheet-client. This workflow already triggers Devin to fix SonarQube findings. Extend this pattern to create a new workflow called `sast-auto-remediate.yml` that: (1) triggers on PRs opened by users other than `devin-ai-integration[bot]`, (2) runs `npm audit --json` and Trivy container scan, (3) if HIGH or CRITICAL findings are found, posts a PR comment summarizing the findings and triggers a Devin session via the Devin API to remediate them on the same branch, (4) includes a re-scan step that verifies the fix. Document the architecture in an `ARCHITECTURE.md`. Open a PR.
+> Analyze the existing `.github/workflows/sonar-devin-fix.yml` in app_timesheet. This workflow already triggers Devin to fix SonarQube findings. Extend this pattern to create a new workflow called `sast-auto-remediate.yml` that: (1) triggers on PRs opened by users other than `devin-ai-integration[bot]`, (2) runs `npm audit --json` and Trivy container scan, (3) if HIGH or CRITICAL findings are found, posts a PR comment summarizing the findings and triggers a Devin session via the Devin API to remediate them on the same branch, (4) includes a re-scan step that verifies the fix. Document the architecture in an `ARCHITECTURE.md`. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"How does the existing sonar-devin-fix.yml workflow in app_timesheet-client trigger Devin? What API endpoint does it use and what parameters does it pass?"*
+- *"How does the existing sonar-devin-fix.yml workflow in app_timesheet trigger Devin? What API endpoint does it use and what parameters does it pass?"*
 - *"What's the best way to prevent an infinite loop where Devin's fix commit triggers another scan that triggers another Devin session?"*
 - Use the analysis to design a robust event-driven pipeline with proper circuit breakers
 

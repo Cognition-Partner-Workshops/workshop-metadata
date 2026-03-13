@@ -108,11 +108,12 @@ clusters:
     upstream: null  # all scaffolded from scratch
     shared_initial_commit: null
     reason: >
-      Four-repo event-driven architecture demo: order service, payment
-      service, infrastructure, and Devin integration tooling.
+      Five-repo event-driven architecture demo: order service, payment
+      service, storefront, infrastructure, and Devin integration tooling.
     repos:
       - app_eventflow-order-service
       - app_eventflow-payment-service
+      - app_eventflow-storefront
       - app_eventflow-infra
       - app_eventflow-devin-integration
 
@@ -134,7 +135,7 @@ clusters:
     reason: >
       The timesheet application and its hosting/infrastructure repo.
     repos:
-      - app_timesheet-client          # the app itself
+      - app_timesheet          # the app itself
       - hosting-client-timesheet-app  # Terraform infra for deploying it
 
   C9:
@@ -159,6 +160,34 @@ clusters:
     repos:
       - ts-sas-legacy-codebase            # SAS source (from scottbass/SAS)
       - uc-data-migration-sas-to-snowflake  # migration validation tooling
+
+  C11:
+    label: "OrderManager Monolith-to-Microservices"
+    upstream: null
+    shared_initial_commit: null
+    reason: >
+      Platform standard + .NET/Angular monolith + service IaC for
+      decomposition demos. Platform repo provides the shared EKS/ArgoCD/
+      monitoring infrastructure; app repos demonstrate monolith-to-
+      microservices conforming to platform standard.
+    repos:
+      - platform-engineering-shared-services
+      - app_dotnet-angular-monolith
+      - app_dotnet-angular-monolith-iac
+
+  C12:
+    label: ".NET/Angular Containerized Decomposition"
+    upstream: null
+    shared_initial_commit: null
+    reason: >
+      Four-repo decomposition workshop: before-state monolith (imported
+      from QuickApp), target-state .NET microservices, target-state Angular
+      micro-frontends, and app-specific IaC for Kubernetes deployment.
+    repos:
+      - app_dotnet_angular_containerized_decomposition_monolith
+      - app_dotnet_angular_containerized_decomposition_microservices
+      - app_dotnet_angular_containerized_decomposition_microfrontends
+      - app_dotnet_angular_containerized_decomposition_iac
 
 # ============================================================
 # Per-repo upstream mapping (alphabetical)
@@ -215,6 +244,52 @@ repos:
     import_method: original
     cluster: C6
 
+  app_eventflow-storefront:
+    upstream: null
+    import_method: original
+    cluster: C6
+
+  app_dotnet_angular_containerized_decomposition_monolith:
+    upstream: null
+    import_method: original
+    cluster: C12
+    note: "Before-state monolith imported from QuickApp"
+
+  app_dotnet_angular_containerized_decomposition_microservices:
+    upstream: null
+    import_method: original
+    cluster: C12
+
+  app_dotnet_angular_containerized_decomposition_microfrontends:
+    upstream: null
+    import_method: original
+    cluster: C12
+
+  app_dotnet_angular_containerized_decomposition_iac:
+    upstream: null
+    import_method: original
+    cluster: C12
+
+  custom_coboltest:
+    upstream: null
+    import_method: original
+    cluster: null
+
+  custom_app-test:
+    upstream: null
+    import_method: original
+    cluster: null
+
+  custom_service-app1:
+    upstream: null
+    import_method: original
+    cluster: null
+
+  custom_service-app2:
+    upstream: null
+    import_method: original
+    cluster: null
+
   app_petclinic-angular:
     upstream: spring-petclinic/spring-petclinic-angular
     upstream_url: https://github.com/spring-petclinic/spring-petclinic-angular
@@ -233,7 +308,7 @@ repos:
     import_method: clone-and-push
     cluster: C3
 
-  app_timesheet-client:
+  app_timesheet:
     upstream: null
     import_method: original
     cluster: C8

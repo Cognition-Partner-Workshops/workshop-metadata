@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -43,19 +43,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application — add Winston structured logging, Prometheus metrics, and OpenTelemetry tracing.
 
 ### Step 1: Get Started Fast
 
-> Add observability to app_timesheet-client: (1) Replace console.log with Winston structured JSON logging with correlation IDs per request, (2) Add a /metrics endpoint using prom-client for Prometheus scraping (request count, latency histogram, error rate), (3) Add OpenTelemetry auto-instrumentation for HTTP and Express. Open a PR.
+> Add observability to app_timesheet: (1) Replace console.log with Winston structured JSON logging with correlation IDs per request, (2) Add a /metrics endpoint using prom-client for Prometheus scraping (request count, latency histogram, error rate), (3) Add OpenTelemetry auto-instrumentation for HTTP and Express. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What logging patterns does app_timesheet-client currently use? How inconsistent is the logging?"*
+- *"What logging patterns does app_timesheet currently use? How inconsistent is the logging?"*
 - *"What metrics are most valuable for a CRUD application — request rate, error rate, latency, or database query times?"*
 
 ### Step 3: Explore with DeepWiki

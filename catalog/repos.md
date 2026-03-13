@@ -30,7 +30,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **C5** | Cal.com ecosystem | [`calcom/cal.com`](https://github.com/calcom/cal.com) | `cal.com`, `cal.com-infra`, `cal.com-dataeng` | Main app (fork) plus infra and data-eng repos built around it. |
 | **C6** | EventFlow demo | *original* | `app_eventflow-order-service`, `app_eventflow-payment-service`, `app_eventflow-infra`, `app_eventflow-devin-integration` | Four-repo event-driven architecture demo (scaffolded from scratch). |
 | **C7** | Apache Fineract | [`apache/fineract`](https://github.com/apache/fineract) | `fineract`, `mifos-fineract-web-app` | Backend (Fineract) + frontend (Mifos web app) from the same banking platform. |
-| **C8** | Client Timesheet | *original* | `app_timesheet-client`, `hosting-client-timesheet-app` | The timesheet app and its Terraform hosting/infra repo. |
+| **C8** | Client Timesheet | *original* | `app_timesheet`, `hosting-client-timesheet-app` | The timesheet app and its Terraform hosting/infra repo. |
 | **C9** | AngularJS 1.x admins | *different upstreams* | `angular-1.x-bootstrap-admin-dashboard`, `angular-1.x-dashboard` | Two AngularJS 1.x admin dashboards for framework migration demos. |
 | **C10** | SAS to Snowflake | [`scottbass/SAS`](https://github.com/scottbass/SAS) | `ts-sas-legacy-codebase`, `uc-data-migration-sas-to-snowflake` | Legacy SAS source paired with Snowflake migration validation tooling. |
 | **C11** | OrderManager Monolith-to-Microservices | *original* | `platform-engineering-shared-services`, `app_dotnet-angular-monolith`, `app_dotnet-angular-monolith-iac`, `app_dotnet-angular-microservices` | Platform standard + .NET/Angular monolith + service IaC + microservices landing repo for decomposition demos. Platform repo provides the shared EKS/ArgoCD/monitoring infrastructure; monolith is the source; microservices repo receives all decomposed services and service-level IaC. |
@@ -314,10 +314,65 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
 | **Challenges** | [DA8](../modules/devops-automation/DA8.md) (landing repo) |
 
-### app_timesheet-client
+### app_eventflow-storefront
 | | |
 |---|---|
-| **URL** | https://github.com/Cognition-Partner-Workshops/app_timesheet-client |
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_eventflow-storefront |
+| **Description** | Customer-facing e-commerce storefront for EventFlow demo. Workshop participants experience the zero-decimal currency bug. |
+| **Tech Stack** | TypeScript, React |
+| **License** | — |
+| **Default Branch** | `devin/1772995107-storefront-ui` |
+| **Cluster** | C6 (EventFlow multi-service demo) |
+| **Challenges** | [DA6](../modules/devops-automation/DA6.md), [FD3](../modules/feature-development/FD3.md) |
+
+### app_dotnet_angular_containerized_decomposition_monolith
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_monolith |
+| **Description** | Before-state monolithic .NET + Angular application (imported from QuickApp) — starting point for containerized decomposition workshop. |
+| **Tech Stack** | .NET, C#, Angular, TypeScript |
+| **License** | MIT |
+| **Default Branch** | `import/initial` |
+| **Cluster** | C12 (.NET/Angular Containerized Decomposition) |
+| **Challenges** | [MM3](../modules/migration-modernization/MM3.md), [MM10](../modules/migration-modernization/MM10.md) |
+
+### app_dotnet_angular_containerized_decomposition_microservices
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices |
+| **Description** | Target-state .NET microservices architecture — decomposed from monolith into Identity, Customer, Order, Product, Notification services with YARP API Gateway. |
+| **Tech Stack** | .NET, C#, YARP |
+| **License** | — |
+| **Default Branch** | `scaffold/initial` |
+| **Cluster** | C12 (.NET/Angular Containerized Decomposition) |
+| **Challenges** | [MM3](../modules/migration-modernization/MM3.md) |
+
+### app_dotnet_angular_containerized_decomposition_microfrontends
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microfrontends |
+| **Description** | Target-state Angular micro-frontends — decomposed from monolith using Webpack Module Federation (shell + 4 remote apps). |
+| **Tech Stack** | Angular, TypeScript, Webpack Module Federation |
+| **License** | — |
+| **Default Branch** | `scaffold/initial` |
+| **Cluster** | C12 (.NET/Angular Containerized Decomposition) |
+| **Challenges** | [MM3](../modules/migration-modernization/MM3.md) |
+
+### app_dotnet_angular_containerized_decomposition_iac
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_iac |
+| **Description** | App-specific Helm charts for deploying the decomposed .NET microservices and Angular micro-frontends to Kubernetes. |
+| **Tech Stack** | Helm, Kubernetes, Docker |
+| **License** | — |
+| **Default Branch** | `scaffold/initial` |
+| **Cluster** | C12 (.NET/Angular Containerized Decomposition) |
+| **Challenges** | [MM3](../modules/migration-modernization/MM3.md), [DA5](../modules/devops-automation/DA5.md) |
+
+### app_timesheet
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_timesheet |
 | **Description** | Client timesheet and billable hours tracking application. React 19 + Node.js/Express + SQLite. Full CRUD, auth, reporting, CSV/PDF export. Multi-part app (backend + frontend + Docker). |
 | **Tech Stack** | React 19, TypeScript, Node.js, Express, SQLite, Material-UI, Vite |
 | **License** | — |

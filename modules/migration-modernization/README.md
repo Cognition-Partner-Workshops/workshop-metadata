@@ -27,7 +27,7 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 |------------|--------------------|
 | app_petclinic-angular | [MM2](MM2.md#app_petclinic-angular), [MM9](MM9.md#app_petclinic-angular) |
 | app_petclinic-microservices | [MM3](MM3.md#app_petclinic-microservices) |
-| app_timesheet-client | [MM5](MM5.md#app_timesheet-client) |
+| app_timesheet | [MM5](MM5.md#app_timesheet) |
 | app_dotnet-angular-monolith | [DA8](../devops-automation/DA8.md#app_dotnet-angular-monolith) (cross-category: DevOps) |
 | hosting-client-timesheet-app | [MM6](MM6.md#hosting-client-timesheet-app) |
 | ts-angular-realworld-example-app | [MM2](MM2.md#ts-angular-realworld-example-app), [MM9](MM9.md#ts-angular-realworld-example-app) |

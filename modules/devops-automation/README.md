@@ -21,7 +21,7 @@ Challenges focused on CI/CD, observability, PR review, failure resolution, relea
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet-client | [DA1](DA1.md#app_timesheet-client), [DA2](DA2.md#app_timesheet-client), [DA3](DA3.md#app_timesheet-client), [DA4](DA4.md#app_timesheet-client), [DA5](DA5.md#app_timesheet-client), [DA6](DA6.md#app_timesheet-client), [DA7](DA7.md#app_timesheet-client) |
+| app_timesheet | [DA1](DA1.md#app_timesheet), [DA2](DA2.md#app_timesheet), [DA3](DA3.md#app_timesheet), [DA4](DA4.md#app_timesheet), [DA5](DA5.md#app_timesheet), [DA6](DA6.md#app_timesheet), [DA7](DA7.md#app_timesheet) |
 | ts-java-spring-boot-realworld-example-app | [DA3](DA3.md#ts-java-spring-boot-realworld-example-app) |
 | uc-framework-upgrade-monolith-to-microservices | [DA1](DA1.md#uc-framework-upgrade-monolith-to-microservices), [DA2](DA2.md#uc-framework-upgrade-monolith-to-microservices), [DA3](DA3.md#uc-framework-upgrade-monolith-to-microservices), [DA4](DA4.md#uc-framework-upgrade-monolith-to-microservices), [DA5](DA5.md#uc-framework-upgrade-monolith-to-microservices), [DA6](DA6.md#uc-framework-upgrade-monolith-to-microservices), [DA7](DA7.md#uc-framework-upgrade-monolith-to-microservices) |
 | app_dotnet-angular-monolith | [DA8](DA8.md#app_dotnet-angular-monolith) |

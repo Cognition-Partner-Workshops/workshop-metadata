@@ -3,7 +3,7 @@
 ## Repositories
 
 - [app_petclinic-backend](#app_petclinic-backend)
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
@@ -70,19 +70,19 @@ Open the repo's DeepWiki page to understand the domain model and identify which 
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 React + Node.js/Express application with Jest tests in `backend/src/__tests__/`.
 
 ### Step 1: Get Started Fast
 
-> Analyze the current test coverage of app_timesheet-client. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Open a PR with the changes.
+> Analyze the current test coverage of app_timesheet. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Open a PR with the changes.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What backend routes in app_timesheet-client have no test coverage? Which ones handle the most critical business logic?"*
+- *"What backend routes in app_timesheet have no test coverage? Which ones handle the most critical business logic?"*
 - *"Should the frontend React components also have unit tests? What testing library would be appropriate?"*
 
 ### Step 3: Explore with DeepWiki

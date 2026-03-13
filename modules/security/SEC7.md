@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-cve-remediation-regulatory-compliance](#uc-cve-remediation-regulatory-compliance)
 
 ---
@@ -17,13 +17,13 @@ This is an **agent orchestration pattern** — it demonstrates Devin coordinatin
 
 ```
 Facilitator provides consolidated SAST report
-(covering app_timesheet-client + uc-cve-remediation-regulatory-compliance)
+(covering app_timesheet + uc-cve-remediation-regulatory-compliance)
         ↓
 Parent Devin session:
   1. Reads the consolidated report
   2. Triages findings by repo and severity
   3. Creates a remediation plan (which repo gets which fixes)
-  4. Launches Child Session 1 → app_timesheet-client
+  4. Launches Child Session 1 → app_timesheet
   5. Launches Child Session 2 → uc-cve-remediation-regulatory-compliance
         ↓
 Child sessions run in parallel:
@@ -80,9 +80,9 @@ Advanced
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application. The child agent for this repo will focus on npm dependency vulnerabilities, ESLint security rules, and secrets detection.
 
@@ -90,17 +90,17 @@ Node.js/Express application. The child agent for this repo will focus on npm dep
 
 > You are coordinating a mass security remediation across 2 repositories. First, run security scans on both repos to build a consolidated findings report:
 >
-> **Repo 1 — app_timesheet-client:** Run `npm audit --json` and capture the output. Also run `npx eslint . --format json` to check for security-related lint violations.
+> **Repo 1 — app_timesheet:** Run `npm audit --json` and capture the output. Also run `npx eslint . --format json` to check for security-related lint violations.
 >
 > **Repo 2 — uc-cve-remediation-regulatory-compliance:** Run `./gradlew dependencyCheckAnalyze` and capture the OWASP DC report.
 >
 > Create a consolidated `SECURITY_BACKLOG.md` that lists all findings across both repos, organized by severity (CRITICAL → HIGH → MEDIUM). For each finding, note: the repo, the dependency/file, the CVE/rule ID, and the CVSS score.
 >
-> Then remediate the CRITICAL and HIGH findings in app_timesheet-client: upgrade vulnerable npm dependencies, fix ESLint security violations, and verify with a re-scan. Open a PR in app_timesheet-client with the fixes and a `REMEDIATION_REPORT.md` documenting what was fixed.
+> Then remediate the CRITICAL and HIGH findings in app_timesheet: upgrade vulnerable npm dependencies, fix ESLint security violations, and verify with a re-scan. Open a PR in app_timesheet with the fixes and a `REMEDIATION_REPORT.md` documenting what was fixed.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What are the most critical npm vulnerabilities in app_timesheet-client? Are any of them in direct dependencies vs. transitive dependencies?"*
+- *"What are the most critical npm vulnerabilities in app_timesheet? Are any of them in direct dependencies vs. transitive dependencies?"*
 - *"What's the fastest way to remediate transitive dependency vulnerabilities — override in package.json or upgrade the parent package?"*
 
 ### Step 3: Explore with DeepWiki

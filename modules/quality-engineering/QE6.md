@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [cal.com](#calcom)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
@@ -47,15 +47,15 @@ The application should be running locally for profiling. See [runtime-resources.
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express backend with SQLite — good candidate for query optimization and API response time improvement.
 
 ### Step 1: Get Started Fast
 
-> Run app_timesheet-client locally and profile the API endpoints. Identify the slowest endpoints and database queries. Add request timing middleware to measure response times. Optimize the top 3 slowest operations (query optimization, adding indexes, caching). Create a simple benchmark script to measure before/after performance. Open a PR with the optimizations and evidence.
+> Run app_timesheet locally and profile the API endpoints. Identify the slowest endpoints and database queries. Add request timing middleware to measure response times. Optimize the top 3 slowest operations (query optimization, adding indexes, caching). Create a simple benchmark script to measure before/after performance. Open a PR with the optimizations and evidence.
 
 ### Step 2: Level Up with AskDevin
 

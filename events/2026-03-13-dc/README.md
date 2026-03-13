@@ -68,7 +68,7 @@ If time allows, demonstrate Devin building a new feature from a requirements pro
 | | |
 |---|---|
 | **Module** | [FD6 — New Feature Development](../../modules/feature-development/FD6.md) |
-| **Repository** | [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client) or [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app) |
+| **Repository** | [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) or [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app) |
 | **Demo Focus** | Prompt engineering for CRUD feature development — show how specific requirements lead to better outputs |
 | **Key Artifacts** | New feature with backend + frontend + tests, PR with clean description |
 | **Testing Story** | Unit tests for new endpoints, feature works end-to-end |
@@ -86,7 +86,7 @@ After the demo, participants can work on any of the following challenges. They m
 | Modernization | COBOL → Java | [MM1](../../modules/migration-modernization/MM1.md) | uc-legacy-modernization-cobol-to-java | Advanced | 60 min |
 | Upgrades | Spring Boot 2→3 | [MM9](../../modules/migration-modernization/MM9.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 60 min |
 | Data Migration | Legacy → Modern Schema | [MM8](../../modules/migration-modernization/MM8.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
-| Feature Dev | New CRUD Feature | [FD6](../../modules/feature-development/FD6.md) | app_timesheet-client | Intermediate | 60 min |
+| Feature Dev | New CRUD Feature | [FD6](../../modules/feature-development/FD6.md) | app_timesheet | Intermediate | 60 min |
 | Security | CVE Remediation | [SEC1-SEC4](../../modules/security/README.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
 | Quality | Unit Testing | [QE2](../../modules/quality-engineering/QE2.md) | Any | Beginner | 30 min |
 
@@ -103,7 +103,7 @@ Participants may also attempt any challenge from the full [module catalog](../..
 - [x] uc-framework-upgrade-monolith-to-microservices
 - [x] uc-data-source-migration-legacy-to-modern
 - [x] ts-angular-realworld-example-app (or app_petclinic-angular)
-- [x] app_timesheet-client (or ts-java-spring-boot-realworld-example-app)
+- [x] app_timesheet (or ts-java-spring-boot-realworld-example-app)
 
 ### For Hands-on (all should be accessible)
 - [x] All repos listed above

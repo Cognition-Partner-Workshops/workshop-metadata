@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -43,15 +43,15 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js application — set up semantic-release or standard-version with GitHub Actions.
 
 ### Step 1: Get Started Fast
 
-> Set up automated release management for app_timesheet-client: (1) Add conventional commit linting with commitlint and husky, (2) Configure standard-version for automated changelog generation and version bumping, (3) Create a GitHub Actions workflow that creates a GitHub Release with generated release notes when a version tag is pushed, (4) Add a CHANGELOG.md with the initial release. Open a PR.
+> Set up automated release management for app_timesheet: (1) Add conventional commit linting with commitlint and husky, (2) Configure standard-version for automated changelog generation and version bumping, (3) Create a GitHub Actions workflow that creates a GitHub Release with generated release notes when a version tag is pushed, (4) Add a CHANGELOG.md with the initial release. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 

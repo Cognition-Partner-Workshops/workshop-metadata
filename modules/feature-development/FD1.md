@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [cal.com](#calcom)
 
 ---
@@ -42,19 +42,19 @@ Beginner
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Simple domain (timesheets, clients, work entries) — easy to ideate features like invoice generation, project hierarchy, team views, or reporting dashboards.
 
 ### Step 1: Get Started Fast
 
-> I want to add invoice generation to app_timesheet-client. Help me gather requirements: what data do we need, what's the UI flow, what APIs need to change, what new database tables are needed? Consider edge cases and constraints. Document the requirements as a GitHub Issue with acceptance criteria.
+> I want to add invoice generation to app_timesheet. Help me gather requirements: what data do we need, what's the UI flow, what APIs need to change, what new database tables are needed? Consider edge cases and constraints. Document the requirements as a GitHub Issue with acceptance criteria.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What features are missing from app_timesheet-client that a typical timesheet application would have?"*
+- *"What features are missing from app_timesheet that a typical timesheet application would have?"*
 - *"If I wanted to add project/task hierarchy to group work entries, what would the data model look like?"*
 - Use the gathered requirements as input for a coding session (see [FD6](FD6.md))
 

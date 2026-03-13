@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
@@ -49,15 +49,15 @@ Beginner to Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express + React application — review PRs for JavaScript/TypeScript best practices.
 
 ### Step 1: Get Started Fast
 
-> Review the open PR on app_timesheet-client. Check for: security issues (SQL injection, XSS, missing input validation), performance problems (N+1 queries, missing indexes), code style violations, missing error handling, and test coverage gaps. Leave inline comments on specific lines with suggested fixes. Provide an overall review summary.
+> Review the open PR on app_timesheet. Check for: security issues (SQL injection, XSS, missing input validation), performance problems (N+1 queries, missing indexes), code style violations, missing error handling, and test coverage gaps. Leave inline comments on specific lines with suggested fixes. Provide an overall review summary.
 
 ### Step 2: Level Up with AskDevin
 

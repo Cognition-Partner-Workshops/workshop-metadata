@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -42,15 +42,15 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application — create a CI pipeline with npm install, lint, test, and build steps.
 
 ### Step 1: Get Started Fast
 
-> Create a GitHub Actions CI workflow for app_timesheet-client. The workflow should: trigger on push to main and on pull requests, install dependencies with npm ci, run linting (npm run lint), run tests (npm test) with coverage reporting, and upload the coverage report as an artifact. Add caching for node_modules. Open a PR.
+> Create a GitHub Actions CI workflow for app_timesheet. The workflow should: trigger on push to main and on pull requests, install dependencies with npm ci, run linting (npm run lint), run tests (npm test) with coverage reporting, and upload the coverage report as an artifact. Add caching for node_modules. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 

@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -44,15 +44,15 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application — create incident response materials for a web application.
 
 ### Step 1: Get Started Fast
 
-> Create incident response materials for app_timesheet-client: (1) Analyze the application to identify common failure modes (database issues, API errors, memory leaks, dependency failures), (2) Create a RUNBOOK.md with step-by-step response procedures for each failure mode, (3) Add GitHub Issue templates for P1/P2/P3/P4 incidents with fields for impact, timeline, and resolution, (4) Create a health check script that tests all critical endpoints. Open a PR.
+> Create incident response materials for app_timesheet: (1) Analyze the application to identify common failure modes (database issues, API errors, memory leaks, dependency failures), (2) Create a RUNBOOK.md with step-by-step response procedures for each failure mode, (3) Add GitHub Issue templates for P1/P2/P3/P4 incidents with fields for impact, timeline, and resolution, (4) Create a health check script that tests all critical endpoints. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 

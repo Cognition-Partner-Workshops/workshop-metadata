@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet-client](#app_timesheet-client)
+- [app_timesheet](#app_timesheet)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -44,19 +44,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet-client"></a>app_timesheet-client
+## <a id="app_timesheet"></a>app_timesheet
 
-**Repository:** [app_timesheet-client](https://github.com/Cognition-Partner-Workshops/app_timesheet-client)
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 
 Node.js/Express application — externalize configuration and add feature flags.
 
 ### Step 1: Get Started Fast
 
-> Implement configuration management for app_timesheet-client: (1) Create a config module that reads all settings from environment variables with sensible defaults (PORT, DATABASE_URL, LOG_LEVEL, etc.), (2) Add dotenv support with .env.example documenting all variables, (3) Implement a simple feature flag system using a JSON config file or environment variables, (4) Use a feature flag to gate a new "dark mode" UI toggle — when the flag is off, the toggle is hidden. Open a PR.
+> Implement configuration management for app_timesheet: (1) Create a config module that reads all settings from environment variables with sensible defaults (PORT, DATABASE_URL, LOG_LEVEL, etc.), (2) Add dotenv support with .env.example documenting all variables, (3) Implement a simple feature flag system using a JSON config file or environment variables, (4) Use a feature flag to gate a new "dark mode" UI toggle — when the flag is off, the toggle is hidden. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What configuration values in app_timesheet-client are currently hardcoded that should be externalized?"*
+- *"What configuration values in app_timesheet are currently hardcoded that should be externalized?"*
 - *"What's the simplest feature flag implementation that doesn't require an external service?"*
 
 ### Step 3: Explore with DeepWiki
