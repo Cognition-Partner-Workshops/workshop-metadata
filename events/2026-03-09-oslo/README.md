@@ -8,7 +8,6 @@
 | **Location** | Oslo, Norway |
 | **Host Organization** | *(customer)* |
 | **Duration** | 14:00–15:30 CET (90 minutes) |
-| **Facilitator** | Brian Smitches, brian.smitches@cognition.ai |
 | **Event Site** | https://partner-workshops.devinenterprise.com |
 
 ## Featured Labs
