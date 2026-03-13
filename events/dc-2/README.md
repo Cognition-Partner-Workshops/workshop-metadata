@@ -25,7 +25,7 @@ This variant focuses on four agentic AI use cases that demonstrate multi-agent c
 
 ### UC1 — Automated Remediation of Pod Failures After Credential Rotations
 
-Demonstrate how agentic AI automates the detection, approval, and remediation of pod failures caused by credential rotations, reducing MTTR and operational risk.
+Walk through how agentic AI automates the detection, approval, and remediation of pod failures caused by credential rotations, reducing MTTR and operational risk.
 
 | | |
 |---|---|
@@ -37,7 +37,7 @@ Demonstrate how agentic AI automates the detection, approval, and remediation of
 
 ### UC2 — Automating Document Review for Loan Processing
 
-Demonstrate how agentic AI automates document extraction, comparison, and decisioning for loan correction workflows, improving accuracy and reducing manual review time.
+Walk through how agentic AI automates document extraction, comparison, and decisioning for loan correction workflows, improving accuracy and reducing manual review time.
 
 | | |
 |---|---|
@@ -49,7 +49,7 @@ Demonstrate how agentic AI automates document extraction, comparison, and decisi
 
 ### UC3 — BDD Test Case Generation for REST APIs
 
-Demonstrate how agentic AI generates BDD test cases from Swagger/OpenAPI definitions and produces executable Cucumber tests, improving test coverage and consistency.
+Walk through how agentic AI generates BDD test cases from Swagger/OpenAPI definitions and produces executable Cucumber tests, improving test coverage and consistency.
 
 | | |
 |---|---|
@@ -61,7 +61,7 @@ Demonstrate how agentic AI generates BDD test cases from Swagger/OpenAPI definit
 
 ### UC4 — Volume-Based Anomaly Detection for Early Issue Identification
 
-Demonstrate how agentic AI establishes transaction volume baselines, detects anomalies using statistical methods, correlates with service health, and recommends corrective actions.
+Walk through how agentic AI establishes transaction volume baselines, detects anomalies using statistical methods, correlates with service health, and recommends corrective actions.
 
 | | |
 |---|---|
