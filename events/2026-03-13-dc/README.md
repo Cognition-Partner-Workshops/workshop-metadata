@@ -6,110 +6,153 @@
 |---|---|
 | **Date** | 2026-03-13 |
 | **Location** | Washington, DC |
-| **Host Organization** | *(customer)* |
-| **Focus** | Technology modernization |
-| **Duration** | ~4 hours (1 hour demo + 3 hours hands-on) |
-| **Facilitator** | Brian Smitches, brian.smitches@cognition.ai |
 | **Event Site** | https://partner-workshops.devinenterprise.com |
-| **Audience** | Technology teams |
 
-## Structure
+## Featured Labs
 
-This variant has two parts:
+This event features 3 structured labs using purpose-built repositories, focused on technology modernization:
 
-1. **Demo Session (1 hour)** — Facilitator-led demonstration of 3-4 use cases using Devin
-2. **Hands-on Session (2-3 hours)** — Participants work through challenges independently
+### Lab 1 — Framework Upgrade & Microservice Extraction (60 min)
+- **Module:** [MM2 — Framework Upgrade](../../modules/migration-modernization/MM2.md#uc-framework-upgrade-monolith-to-microservices) + [MM3 — Containerization](../../modules/migration-modernization/MM3.md#uc-framework-upgrade-monolith-to-microservices)
+- **Repository:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
+- **Objective:** Take an older Java monolith (Java 11 + Spring Boot 2.6.3) and modernize it — upgrade the framework, extract a microservice, or both
 
----
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-## Demo Use Cases (1 hour)
+> Upgrade uc-framework-upgrade-monolith-to-microservices from Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2. Handle the javax to jakarta namespace migration, update Gradle build configuration, fix any deprecations, and ensure all tests pass. Open a PR with the changes.
 
-### UC1 — Legacy Modernization + Microservices + Data Source Migration
+#### Step 2: Level Up with AskDevin
 
-Demonstrate the full modernization journey: legacy code → modern tech stack, monolith → microservices, and old data warehouse → modern data source.
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What are the domain boundaries in uc-framework-upgrade-monolith-to-microservices? Which bounded context would be easiest to extract as a microservice?"*
+- *"What's the best order to tackle the javax to jakarta migration, the Gradle plugin updates, and the deprecated API removals?"*
+- Use the refined understanding to start a **second session** — try extracting a microservice, or upgrade with a different strategy
 
-| | |
-|---|---|
-| **Module** | [MM10 — Legacy Modernization Combined](../../modules/migration-modernization/MM10.md) |
-| **Repositories** | [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java), [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices), [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) |
-| **Demo Focus** | Show Devin rewriting legacy code to a new tech stack, breaking into microservices, and changing the data source from a legacy data warehouse (CDW-style, all-VARCHAR, denormalized) to a modern schema (normalized, proper types, FK constraints) based on documented data mappings |
-| **Key Artifacts** | Java code replacing COBOL, extracted microservice with OpenAPI, modern JPA entities, migration documentation |
-| **Testing Story** | Parity tests (COBOL output = Java output), API contract verification, golden-file comparison before/after data source migration |
+#### Step 3: Explore with DeepWiki
 
-### UC2 — Repetitive Framework Upgrades (Angular + Spring Boot)
+Open the repo's **DeepWiki** page to browse the architecture, domain model, and dependency graph. Use what you learn to try something different:
+- Extract a different bounded context (Articles, Users, or Comments) as a containerized microservice
+- Have Devin produce an architecture decision record (ADR) for how the monolith should be decomposed
+- Run parallel sessions — one upgrading the framework, one extracting a service
+- Try the Angular upgrade on a different repo alongside the Spring Boot upgrade
 
-Show how Devin handles the same upgrade pattern applied across multiple services — a common enterprise pain point.
+#### Step 4: Review the PR and Give Feedback
 
-| | |
-|---|---|
-| **Module** | [MM9 — Repetitive Framework Upgrades](../../modules/migration-modernization/MM9.md) |
-| **Repositories** | [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) (Spring Boot 2→3), [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) or [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular) (Angular upgrade) |
-| **Demo Focus** | Run parallel Devin sessions — one upgrading Spring Boot, one upgrading Angular — to show how repetitive tasks scale |
-| **Key Artifacts** | Upgraded builds passing tests, documented breaking changes and resolutions |
-| **Testing Story** | Build passes, all tests green, upgrade documentation in PR description |
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — does the upgrade look complete? Are there files Devin missed?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"This still uses javax.servlet — please update to jakarta.servlet"* or *"Can you also add a Dockerfile?"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+- Try leaving both general comments and inline code comments to see how Devin handles each
 
-### UC3 — Data Source Rewrite + App Reconnection
+See the full challenge details for [MM2 — Framework Upgrade](../../modules/migration-modernization/MM2.md) and [MM3 — Containerization](../../modules/migration-modernization/MM3.md) for more ideas.
 
-A focused demo on the data source migration workflow: take an existing app connected to a legacy data warehouse and rewire it to a modern data source using documented schema mappings.
+- **Target Outcomes (any of these count):**
+  - Application builds and tests on Java 17+ / Spring Boot 3.x
+  - One extracted microservice with its own Dockerfile and REST API
+  - Docker Compose to run the full stack locally
+  - Architecture decision record or migration report
+  - PR with review comments and Devin's responses
 
-| | |
-|---|---|
-| **Module** | [MM8 — Data Source Migration](../../modules/migration-modernization/MM8.md) |
-| **Repository** | [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) |
-| **Also relevant** | [uc-dw-migration-teradata-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake) (for SQL translation portion) |
-| **Demo Focus** | (1) Show Devin creating modern entities from the target schema, (2) writing a migration utility that transforms legacy data, (3) rewiring the application's service layer to point to the new data source |
-| **Key Artifacts** | Modern JPA entities, data migration script, rewired service layer, validation results |
-| **Testing Story** | API responses identical before and after migration (golden-file validation) |
+### Lab 2 — Data Source Migration: Legacy → Modern Schema (60 min)
+- **Module:** [MM8 — Data Source Migration](../../modules/migration-modernization/MM8.md#uc-data-source-migration-legacy-to-modern)
+- **Repository:** [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern)
+- **Objective:** Take an existing loan management app connected to a legacy data warehouse (all-VARCHAR, denormalized, cryptic column names) and rewire it to a modern normalized schema using documented data mappings
 
-### UC4 — New Feature Development (as time permits)
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-If time allows, demonstrate Devin building a new feature from a requirements prompt.
+> Review the legacy CDW schema in uc-data-source-migration-legacy-to-modern. Create modern JPA entities matching the target schema in data/modern-schema/modern_tables.sql. Write a migration service that reads from legacy tables, transforms the data (parse dates, amounts, expand codes per data/mappings/column_mappings.md), and inserts into modern tables. Then update LoanService.java to read from modern repositories instead of legacy ones. Verify all API endpoints return the same data. Open a PR.
 
-| | |
-|---|---|
-| **Module** | [FD6 — New Feature Development](../../modules/feature-development/FD6.md) |
-| **Repository** | [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) or [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app) |
-| **Demo Focus** | Prompt engineering for CRUD feature development — show how specific requirements lead to better outputs |
-| **Key Artifacts** | New feature with backend + frontend + tests, PR with clean description |
-| **Testing Story** | Unit tests for new endpoints, feature works end-to-end |
+#### Step 2: Level Up with AskDevin
 
----
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What are the data type mismatches between the legacy and modern schemas? Which transformations are most error-prone?"*
+- *"How should we handle the code abbreviations (ACT, CLO, DFT, FRB) — enum mapping, lookup table, or inline conversion?"*
+- Use the analysis to plan a more robust migration with error handling and validation
 
-## Hands-on Session Challenges
+#### Step 3: Explore with DeepWiki
 
-After the demo, participants can work on any of the following challenges. They may replicate what they saw in the demo or explore other modules:
+Open the repo's **DeepWiki** page to understand the loan service domain model and API contracts. Use what you learn to try different approaches:
+- Have Devin add a **dual-read feature flag** that can switch between legacy and modern data sources at runtime
+- Ask Devin to generate **validation queries** that compare row counts and field totals between legacy and modern tables
+- Try having Devin produce a **complete data lineage map** showing which API endpoints read from which tables
+- Ask Devin to add **error handling** for malformed legacy data (null values, bad dates, unparseable amounts)
 
-### Recommended Starting Points
+#### Step 4: Review the PR and Give Feedback
 
-| Use Case | Challenge | Module | Repo | Difficulty | Time |
-|----------|-----------|--------|------|-----------|------|
-| Modernization | COBOL → Java | [MM1](../../modules/migration-modernization/MM1.md) | uc-legacy-modernization-cobol-to-java | Advanced | 60 min |
-| Upgrades | Spring Boot 2→3 | [MM9](../../modules/migration-modernization/MM9.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 60 min |
-| Data Migration | Legacy → Modern Schema | [MM8](../../modules/migration-modernization/MM8.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
-| Feature Dev | New CRUD Feature | [FD6](../../modules/feature-development/FD6.md) | app_timesheet | Intermediate | 60 min |
-| Security | CVE Remediation | [SEC1-SEC4](../../modules/security/README.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
-| Quality | Unit Testing | [QE2](../../modules/quality-engineering/QE2.md) | Any | Beginner | 30 min |
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — are the data type conversions correct? Does the migration handle edge cases (null values, malformed dates)?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"Can you add a dual-read feature flag that switches between legacy and modern data sources at runtime?"* or *"The date parsing doesn't handle two-digit years — please fix"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+- Try leaving inline comments on specific data transformation code
 
-### Full Module Catalog
+See the full challenge details for [MM8 — Data Source Migration](../../modules/migration-modernization/MM8.md) for more ideas.
 
-Participants may also attempt any challenge from the full [module catalog](../../modules/). See the [Devin Features Appendix](../../modules/devin-features/README.md) for additional activities to discover.
+- **Target Outcomes (any of these count):**
+  - Modern JPA entities with proper types and FK relationships
+  - Data migration script that transforms and loads all records
+  - Service layer rewired to modern repositories (no more string parsing)
+  - Golden-file validation: API responses match pre-migration baseline
+  - `DATA_SOURCE_MIGRATION_NOTES.md` documenting decisions
+  - PR with review comments and Devin's responses
 
----
+### Lab 3 — Legacy Modernization: COBOL → Java (60 min)
+- **Module:** [MM1 — COBOL to Java](../../modules/migration-modernization/MM1.md#uc-legacy-modernization-cobol-to-java)
+- **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
+- **Objective:** Explore a real COBOL mainframe application and use Devin to modernize part of it — you choose the scope, target, and approach
 
-## Repos Required
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-### For Demo (facilitator must have these set up)
-- [x] uc-legacy-modernization-cobol-to-java
+> Analyze the COBOL program CBACT01C.cbl in uc-legacy-modernization-cobol-to-java. Understand its business logic, data structures (copybooks), and I/O operations. Rewrite it as a Java 17+ application using modern idioms. Create JUnit tests that verify the Java version produces identical results to the COBOL version for a set of sample inputs. Open a PR with the Java code and tests.
+
+#### Step 2: Level Up with AskDevin
+
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What are the most complex COBOL programs in uc-legacy-modernization-cobol-to-java and what do they do?"*
+- *"What would be the best Java architecture for migrating CBTRN01C.cbl? Consider Spring Boot, plain Java, or Kotlin."*
+- Use the refined understanding to start a **second session** with a more targeted prompt
+
+#### Step 3: Explore with DeepWiki
+
+Open the repo's **DeepWiki** page to browse the auto-generated architecture diagrams and module explanations. Use what you learn to try something different:
+- Pick a different COBOL program and compare how Devin handles it
+- Try migrating to a different target (Kotlin, Python, Spring Boot service)
+- Ask Devin to reverse-engineer business rules or generate a data dictionary
+- Run parallel sessions migrating the same program to two different targets
+
+#### Step 4: Review the PR and Give Feedback
+
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — does the Java code faithfully represent the COBOL business logic?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"The packed decimal conversion doesn't handle negative values"* or *"Can you also generate a data dictionary for the copybooks?"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+- Try leaving both general comments and inline code comments to see how Devin handles each
+
+See the [full challenge details](../../modules/migration-modernization/MM1.md) for more ideas — there is no single right answer.
+
+- **Target Outcomes (any of these count):**
+  - Java/Kotlin/Python source code + tests with a working build
+  - Parity tests: modern output matches COBOL output for provided fixtures
+  - `MIGRATION_NOTES.md` describing field mappings and decisions
+  - Technical documentation, data dictionary, or migration plan for the repo
+  - PR with review comments and Devin's responses
+
+## Additional Challenges
+
+Participants may also attempt any challenge from the full [module catalog](../../modules/) as creative inspiration. Recommended extras:
+
+| Challenge | Module | Repo | Difficulty | Time |
+|-----------|--------|------|-----------|------|
+| CVE Remediation | [SEC1-SEC4](../../modules/security/README.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
+| New CRUD Feature | [FD6](../../modules/feature-development/FD6.md) | app_timesheet | Intermediate | 60 min |
+| DW Migration: Teradata → Snowflake | [MM7](../../modules/migration-modernization/MM7.md) | uc-dw-migration-teradata-to-snowflake | Intermediate | 60 min |
+| Unit Testing | [QE2](../../modules/quality-engineering/QE2.md) | Any | Beginner | 30 min |
+
+## Repos Required on Devin's Machine
+
 - [x] uc-framework-upgrade-monolith-to-microservices
 - [x] uc-data-source-migration-legacy-to-modern
-- [x] ts-angular-realworld-example-app (or app_petclinic-angular)
-- [x] app_timesheet (or ts-java-spring-boot-realworld-example-app)
-
-### For Hands-on (all should be accessible)
-- [x] All repos listed above
+- [x] uc-legacy-modernization-cobol-to-java
 - [x] uc-cve-remediation-regulatory-compliance
-- [x] uc-dw-migration-teradata-to-snowflake
-- [x] Any additional repos from [catalog](../../catalog/repos.md)
 
 ## Repo Duplication Notes
 
@@ -118,31 +161,10 @@ Participants may also attempt any challenge from the full [module catalog](../..
 
 ## Context
 
-- **Industry:** Financial services
-- **Key Pain Points Addressed:**
-  - Legacy mainframe applications needing modernization
-  - Repetitive framework upgrades across many microservices
-  - Data warehouse migration from legacy (CDW-style) to modern platforms
-  - New feature development with prompt engineering
+- **Audience:** Technology teams
+- **Focus:** Technology modernization — framework upgrades, data source migration, and legacy COBOL modernization
 - **Domain Data:** Loan management (borrowers, loan accounts, products, payments)
-- **Atlassian Integration Note:** Devin can integrate with Bitbucket, JIRA, and Confluence via MCP — can be discussed during Q&A
-- **Reverse Engineering Note:** Devin can analyze ETL logic, generate documentation and code explanations — demonstrable with any repo during hands-on
 
 ## Devin Features Checklist
 
-Encourage participants to track their progress on the [Devin Features Appendix](../../modules/devin-features/README.md) throughout the session. Key activities for this variant:
-
-- [ ] Run parallel Devin sessions (UC2 demo)
-- [ ] Create Knowledge from a session (after completing a migration)
-- [ ] Use AskDevin to gather requirements (UC4)
-- [ ] Review a Devin PR via GitHub (after any challenge)
-- [ ] Provide feedback to steer Devin's behavior mid-session
-- [ ] Take control of Devin's machine to verify results
-- [ ] Have Devin produce a report with migration findings
-
-## Post-Event
-
-- [ ] Collect participant feedback
-- [ ] Archive any event-specific branches
-- [ ] Update challenge modules if issues were discovered
-- [ ] Share session recordings/artifacts with participants
+Encourage participants to track their progress on the [Devin Features Appendix](../../modules/devin-features/README.md) throughout the session.
