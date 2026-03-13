@@ -26,6 +26,8 @@ events/
 │   └── README.md              ← COBOL Modernization: Understand → Plan → Safeguard → Execute
 ├── workshop-variant-2/
 │   └── README.md              ← QE + Security Vulnerability Remediation
+├── platform-microservice-decomposition/
+│   └── README.md              ← Platform-Conformant Microservice Decomposition (DA8)
 └── YYYY-MM-DD-city-org/
     └── README.md              ← Your new event
 ```
