@@ -25,6 +25,7 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 | app_petclinic-angular | [MM2](MM2.md#app_petclinic-angular), [MM9](MM9.md#app_petclinic-angular) |
 | app_petclinic-microservices | [MM3](MM3.md#app_petclinic-microservices) |
 | app_timesheet | [MM5](MM5.md#app_timesheet) |
+| app_dotnet-angular-monolith | [DA8](../devops-automation/DA8.md#app_dotnet-angular-monolith) (cross-category: DevOps) |
 | hosting-client-timesheet-app | [MM6](MM6.md#hosting-client-timesheet-app) |
 | ts-angular-realworld-example-app | [MM2](MM2.md#ts-angular-realworld-example-app), [MM9](MM9.md#ts-angular-realworld-example-app) |
 | uc-data-source-migration-legacy-to-modern | [MM8](MM8.md#uc-data-source-migration-legacy-to-modern), [MM10](MM10.md#uc-data-source-migration-legacy-to-modern) |
@@ -43,3 +44,4 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 - MM10 combines MM1, MM2/MM3, and MM8 into one end-to-end modernization narrative
 - MM11 is an **enterprise demo module** — one-shot tech debt remediation with long-term reasoning and provable deliverables
 - See the [Enterprise Demo Track](../../events/enterprise-demo-track/README.md) for a lab sequence using SEC6 + SEC7 + MM11
+- For monolith-to-microservices with **platform conformance and IaC**, see [DA8](../devops-automation/DA8.md) (DevOps category) — uses the .NET/Angular monolith with platform-engineering-shared-services as context

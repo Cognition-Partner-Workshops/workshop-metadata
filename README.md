@@ -86,7 +86,8 @@ workshop-metadata/
 │   │   ├── DA4.md                          ← CI Failure Resolution
 │   │   ├── DA5.md                          ← Release Management
 │   │   ├── DA6.md                          ← Incident Response & Triage
-│   │   └── DA7.md                          ← Configuration Management & Feature Flags
+│   │   ├── DA7.md                          ← Configuration Management & Feature Flags
+│   │   └── DA8.md                          ← Platform-Conformant Microservice Decomposition
 │   └── devin-features/
 │       └── README.md                      ← Devin-specific activities checklist
 ├── events/
@@ -99,8 +100,10 @@ workshop-metadata/
 │   │   └── README.md                      ← SF workshop: Framework Upgrade + CVE Remediation
 │   ├── 2026-03-13-dc/
 │   │   └── README.md                      ← DC event (4 UCs)
-│   └── enterprise-demo-track/
-│       └── README.md                      ← Enterprise demo: SAST + Orchestration + One-Shot
+│   ├── enterprise-demo-track/
+│   │   └── README.md                      ← Enterprise demo: SAST + Orchestration + One-Shot
+│   └── platform-microservice-decomposition/
+│       └── README.md                      ← Platform-Conformant Microservice Decomposition (DA8)
 └── shared/
     ├── repo-naming-convention.md
     ├── runtime-resources.md
