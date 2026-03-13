@@ -2,40 +2,40 @@
 
 ## Repositories
 
-- [uc-volume-anomaly-detection](#uc-volume-anomaly-detection)
+- [uc-pod-remediation-credential-rotation](#uc-pod-remediation-credential-rotation)
 
 ---
 
 ## Challenge
 
-Implement volume-based anomaly detection for early identification of production issues after releases. This exercises Devin's ability to work with time-series analysis, statistical detection algorithms, and multi-agent coordination for observability.
+Implement automated detection and remediation of pod failures caused by credential rotations. This exercises Devin's ability to work with Kubernetes manifests, observability patterns, and multi-agent orchestration code that coordinates detection, approval, and remediation steps.
 
 ## Target Outcomes
 
-- Z-score and seasonal decomposition detectors that identify abnormal transaction volume patterns
-- Service health correlation agent that maps anomalies to upstream/downstream dependencies
-- Recommendation engine that suggests corrective actions based on runbook knowledge
-- Incident insight agent that consolidates findings into actionable reports
-- PR with detection algorithms, configuration, and unit tests
+- Rotation monitoring agent that detects recently rotated secrets and identifies affected deployments
+- Failure detection agent that scans pods for CrashLoopBackOff and credential-related error patterns
+- Approval workflow integration with ServiceNow (or mock) for change request creation and polling
+- Remediation orchestrator that performs rolling restarts upon approval
+- PR with agent implementations, Kubernetes RBAC, and unit tests
 
 ## What Participants Will Learn
 
-- How Devin implements statistical anomaly detection (z-score, seasonal baselines)
-- How Devin builds service dependency correlation logic
-- Devin's ability to create knowledge-based recommendation systems
-- How to evaluate AI-generated observability and alerting code
+- How Devin navigates multi-agent Python codebases with Kubernetes integration
+- How Devin implements approval-gated remediation workflows
+- Devin's ability to work with K8s RBAC, deployment manifests, and pod lifecycle management
+- How to evaluate AI-generated observability and remediation code
 
 ## Devin Features Exercised
 
-- Statistical algorithm implementation (z-score, seasonal decomposition)
-- Multi-agent Python development with shared data models
-- Configuration-driven architecture (YAML rule definitions)
-- Unit test generation for detection algorithms
-- PR creation with test evidence
+- Multi-file Python development across agents, models, and utilities
+- Kubernetes manifest authoring (RBAC, Deployments, ConfigMaps)
+- Integration pattern implementation (ServiceNow API client)
+- Unit test generation for domain models
+- PR creation with architectural documentation
 
 ## Difficulty
 
-Intermediate to Advanced
+Advanced
 
 ## Estimated Time
 
@@ -43,26 +43,26 @@ Intermediate to Advanced
 
 ---
 
-## <a id="uc-volume-anomaly-detection"></a>uc-volume-anomaly-detection
+## <a id="uc-pod-remediation-credential-rotation"></a>uc-pod-remediation-credential-rotation
 
-**Repository:** [uc-volume-anomaly-detection](https://github.com/Cognition-Partner-Workshops/uc-volume-anomaly-detection)
+**Repository:** [uc-pod-remediation-credential-rotation](https://github.com/Cognition-Partner-Workshops/uc-pod-remediation-credential-rotation)
 
-Python anomaly detection framework with z-score and seasonal detection, service health correlation, and incident reporting.
+Python multi-agent system for Kubernetes credential rotation monitoring and automated pod remediation.
 
 ### Step 1: Get Started Fast
 
-> Review the uc-volume-anomaly-detection codebase. The seasonal detector currently builds baselines from hourly data bucketed by day-of-week. Enhance it to also support a "time-of-day only" mode that ignores day-of-week (useful for services with consistent daily patterns). Add a configuration option in detection_rules.yaml to toggle between modes. Add unit tests for both modes. Open a PR.
+> Review the uc-pod-remediation-credential-rotation codebase. The rotation_monitor agent needs to be enhanced to support detecting rotations that happen outside the scheduled cron window (emergency rotations). Add a method `detect_emergency_rotations` that compares the last_rotated_at timestamp against the cron schedule and flags any rotation that occurred more than 24 hours before the next scheduled window. Add unit tests for the new method. Open a PR.
 
 ### Step 2: Level Up with AskDevin
 
-- *"What additional detection strategies beyond z-score and seasonal would improve anomaly detection accuracy? Should we add EWMA or CUSUM?"*
-- *"How should the recommendation engine prioritize actions when multiple anomalies are detected simultaneously?"*
+- *"What failure patterns beyond CrashLoopBackOff should the failure detector watch for after a credential rotation?"*
+- *"How should the approval workflow handle timeouts — should it auto-escalate or auto-reject?"*
 
 ### Step 3: Explore with DeepWiki
 
-Open the repo's DeepWiki page to understand the detection pipeline flow from raw transaction data through baseline building, anomaly detection, health correlation, and incident reporting. Identify gaps in the current detection coverage.
+Open the repo's DeepWiki page to understand the agent architecture and data flow between rotation monitoring, failure detection, approval, and remediation. Identify which agent interactions could benefit from better error handling.
 
 ### Step 4: Review the PR and Give Feedback
 
-- **Review the diff** — does the time-of-day mode correctly aggregate across all days of the week?
-- **Leave a comment** asking Devin to add a CLI entrypoint that processes the sample CSV data and prints detected anomalies
+- **Review the diff** — does the emergency rotation detection correctly parse cron schedules?
+- **Leave a comment** asking Devin to add integration test scaffolding that mocks the Kubernetes API client

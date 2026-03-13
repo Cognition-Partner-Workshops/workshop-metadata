@@ -29,7 +29,7 @@ Walk through how agentic AI automates the detection, approval, and remediation o
 
 | | |
 |---|---|
-| **Module** | [DA8 — Pod Remediation After Credential Rotation](../../modules/devops-automation/DA8.md) |
+| **Module** | [DA9 — Pod Remediation After Credential Rotation](../../modules/devops-automation/DA9.md) |
 | **Repository** | [uc-pod-remediation-credential-rotation](https://github.com/Cognition-Partner-Workshops/uc-pod-remediation-credential-rotation) |
 | **Walkthrough Focus** | Show Devin implementing rotation monitoring, failure detection, ServiceNow approval integration, and remediation orchestration |
 | **Key Artifacts** | Python agent implementations, Kubernetes RBAC manifests, ServiceNow client, unit tests |
@@ -65,7 +65,7 @@ Walk through how agentic AI establishes transaction volume baselines, detects an
 
 | | |
 |---|---|
-| **Module** | [DA9 — Volume Anomaly Detection](../../modules/devops-automation/DA9.md) |
+| **Module** | [DA10 — Volume Anomaly Detection](../../modules/devops-automation/DA10.md) |
 | **Repository** | [uc-volume-anomaly-detection](https://github.com/Cognition-Partner-Workshops/uc-volume-anomaly-detection) |
 | **Walkthrough Focus** | Show Devin implementing z-score and seasonal detection algorithms, service health correlation, and runbook-based recommendations |
 | **Key Artifacts** | Detection algorithms, service dependency mapping, recommendation engine, incident reports |
@@ -81,10 +81,10 @@ After the walkthrough, participants can work on any of the following challenges.
 
 | Use Case | Challenge | Module | Repo | Difficulty | Time |
 |----------|-----------|--------|------|-----------|------|
-| Pod Remediation | Credential rotation monitoring | [DA8](../../modules/devops-automation/DA8.md) | uc-pod-remediation-credential-rotation | Advanced | 60 min |
+| Pod Remediation | Credential rotation monitoring | [DA9](../../modules/devops-automation/DA9.md) | uc-pod-remediation-credential-rotation | Advanced | 60 min |
 | Document Review | Fuzzy matching improvements | [QE8](../../modules/quality-engineering/QE8.md) | uc-document-review-automation | Intermediate | 45 min |
 | BDD Test Generation | Swagger-to-Cucumber tests | [QE9](../../modules/quality-engineering/QE9.md) | uc-bdd-test-generation-rest-api | Intermediate | 60 min |
-| Anomaly Detection | Seasonal detection enhancements | [DA9](../../modules/devops-automation/DA9.md) | uc-volume-anomaly-detection | Intermediate | 60 min |
+| Anomaly Detection | Seasonal detection enhancements | [DA10](../../modules/devops-automation/DA10.md) | uc-volume-anomaly-detection | Intermediate | 60 min |
 | Unit Testing | Add test coverage | [QE2](../../modules/quality-engineering/QE2.md) | Any | Beginner | 30 min |
 | Observability | Monitoring setup | [DA2](../../modules/devops-automation/DA2.md) | Any | Intermediate | 60 min |
 
