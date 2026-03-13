@@ -6,137 +6,190 @@
 |---|---|
 | **Date** | 2026-03-13 |
 | **Location** | Washington, DC |
-| **Host Organization** | *(customer)* |
-| **Focus** | Agentic AI use cases — observability, document processing, test automation, anomaly detection |
-| **Duration** | ~4 hours (1 hour walkthrough + 3 hours hands-on) |
 | **Event Site** | https://partner-workshops.devinenterprise.com |
-| **Audience** | Technology teams — platform engineering, QA, observability, and operations |
 
-## Structure
+## Featured Labs
 
-This variant focuses on four agentic AI use cases that demonstrate multi-agent coordination, approval-gated workflows, and intelligent automation:
+This event features 4 structured labs using purpose-built repositories, focused on agentic AI patterns — multi-agent coordination, document processing, test automation, and anomaly detection:
 
-1. **Walkthrough Session (1 hour)** — Facilitator-led walkthrough of the four agentic AI use cases
-2. **Hands-on Session (2-3 hours)** — Participants work through challenges independently
+### Lab 1 — Automated Pod Remediation After Credential Rotations (60 min)
+- **Module:** [DA9 — Pod Remediation After Credential Rotation](../../modules/devops-automation/DA9.md)
+- **Repository:** [uc-pod-remediation-credential-rotation](https://github.com/Cognition-Partner-Workshops/uc-pod-remediation-credential-rotation)
+- **Objective:** Explore a multi-agent Python system that automates detection, approval, and remediation of pod failures caused by credential rotations — enhance it with emergency rotation detection
 
----
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-## Walkthrough Use Cases (1 hour)
+> Review the uc-pod-remediation-credential-rotation codebase. The rotation_monitor agent needs to be enhanced to support detecting rotations that happen outside the scheduled cron window (emergency rotations). Add a method `detect_emergency_rotations` that compares the last_rotated_at timestamp against the cron schedule and flags any rotation that occurred more than 24 hours before the next scheduled window. Add unit tests for the new method. Open a PR.
 
-### UC1 — Automated Remediation of Pod Failures After Credential Rotations
+#### Step 2: Level Up with AskDevin
 
-Walk through how agentic AI automates the detection, approval, and remediation of pod failures caused by credential rotations, reducing MTTR and operational risk.
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What failure patterns beyond CrashLoopBackOff should the failure detector watch for after a credential rotation?"*
+- *"How should the approval workflow handle timeouts — should it auto-escalate or auto-reject?"*
+- Use the analysis to start a **second session** — try adding a new failure detection pattern or improving the ServiceNow integration
 
-| | |
-|---|---|
-| **Module** | [DA9 — Pod Remediation After Credential Rotation](../../modules/devops-automation/DA9.md) |
-| **Repository** | [uc-pod-remediation-credential-rotation](https://github.com/Cognition-Partner-Workshops/uc-pod-remediation-credential-rotation) |
-| **Walkthrough Focus** | Show Devin implementing rotation monitoring, failure detection, ServiceNow approval integration, and remediation orchestration |
-| **Key Artifacts** | Python agent implementations, Kubernetes RBAC manifests, ServiceNow client, unit tests |
-| **Key Takeaways** | Multi-agent coordination, approval-gated remediation, Kubernetes API integration |
+#### Step 3: Explore with DeepWiki
 
-### UC2 — Automating Document Review for Loan Processing
+Open the repo's **DeepWiki** page to understand the agent architecture and data flow between rotation monitoring, failure detection, approval, and remediation. Use what you learn to try different approaches:
+- Have Devin add **retry logic with exponential backoff** to the remediation orchestrator
+- Ask Devin to add **Prometheus metrics** for rotation detection latency and remediation success rate
+- Try having Devin implement a **dry-run mode** that logs what would be remediated without taking action
+- Ask Devin to add **integration test scaffolding** that mocks the Kubernetes API client
 
-Walk through how agentic AI automates document extraction, comparison, and decisioning for loan correction workflows, improving accuracy and reducing manual review time.
+#### Step 4: Review the PR and Give Feedback
 
-| | |
-|---|---|
-| **Module** | [QE8 — Document Review Automation](../../modules/quality-engineering/QE8.md) |
-| **Repository** | [uc-document-review-automation](https://github.com/Cognition-Partner-Workshops/uc-document-review-automation) |
-| **Walkthrough Focus** | Show Devin building extraction pipelines, fuzzy matching comparators, confidence-based decisioning, and compliance audit logging |
-| **Key Artifacts** | Extraction agents, field comparators (exact, fuzzy, numeric), decision engine, audit trail |
-| **Key Takeaways** | Multi-strategy comparison engines, confidence thresholds, compliance-oriented audit logging |
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — does the emergency rotation detection correctly parse cron schedules?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"Add integration test scaffolding that mocks the Kubernetes API client"* or *"The cron parsing doesn't handle edge cases like leap seconds"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+- Try leaving both general comments and inline code comments to see how Devin handles each
 
-### UC3 — BDD Test Case Generation for REST APIs
+See the full challenge details for [DA9 — Pod Remediation](../../modules/devops-automation/DA9.md) for more ideas.
 
-Walk through how agentic AI generates BDD test cases from Swagger/OpenAPI definitions and produces executable Cucumber tests, improving test coverage and consistency.
+- **Target Outcomes (any of these count):**
+  - Emergency rotation detection method with unit tests
+  - Improved failure detection patterns beyond CrashLoopBackOff
+  - Retry logic or dry-run mode for the remediation orchestrator
+  - Integration test scaffolding with mocked Kubernetes API
+  - PR with review comments and Devin's responses
 
-| | |
-|---|---|
-| **Module** | [QE9 — BDD Test Generation](../../modules/quality-engineering/QE9.md) |
-| **Repositories** | [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api), [ts-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-swagger-petstore) |
-| **Walkthrough Focus** | Show Devin reading a Swagger spec, generating Gherkin feature files, and producing executable step definitions |
-| **Key Artifacts** | Gherkin feature files, Cucumber step definitions, Maven test integration |
-| **Key Takeaways** | API specification analysis, BDD scenario generation, test automation pipeline integration |
+### Lab 2 — Document Review Automation for Loan Processing (45 min)
+- **Module:** [QE8 — Document Review Automation](../../modules/quality-engineering/QE8.md)
+- **Repository:** [uc-document-review-automation](https://github.com/Cognition-Partner-Workshops/uc-document-review-automation)
+- **Objective:** Work with a multi-agent document review system — enhance the fuzzy matching comparator with an alternative string similarity strategy and evaluate accuracy
 
-### UC4 — Volume-Based Anomaly Detection for Early Issue Identification
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-Walk through how agentic AI establishes transaction volume baselines, detects anomalies using statistical methods, correlates with service health, and recommends corrective actions.
+> Review the uc-document-review-automation codebase. The fuzzy_comparator currently uses Jaccard similarity on bigrams for name matching. Enhance it to also support Levenshtein distance as an alternative strategy, configurable via comparison_rules.yaml. Add unit tests comparing accuracy of both strategies on sample name pairs (with typos, abbreviations, and reordering). Open a PR.
 
-| | |
-|---|---|
-| **Module** | [DA10 — Volume Anomaly Detection](../../modules/devops-automation/DA10.md) |
-| **Repository** | [uc-volume-anomaly-detection](https://github.com/Cognition-Partner-Workshops/uc-volume-anomaly-detection) |
-| **Walkthrough Focus** | Show Devin implementing z-score and seasonal detection algorithms, service health correlation, and runbook-based recommendations |
-| **Key Artifacts** | Detection algorithms, service dependency mapping, recommendation engine, incident reports |
-| **Key Takeaways** | Statistical anomaly detection, service health correlation, knowledge-based remediation suggestions |
+#### Step 2: Level Up with AskDevin
 
----
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What document types are most likely to have extraction errors? How should the decision agent weight confidence differently by document type?"*
+- *"Should the audit agent support structured query capabilities (e.g., find all reviews with confidence below 0.8)?"*
+- Use the analysis to start a **second session** — try adding a new document type extractor or improving the decision engine thresholds
 
-## Hands-on Session Challenges
+#### Step 3: Explore with DeepWiki
 
-After the walkthrough, participants can work on any of the following challenges. They may replicate what they saw or explore other modules:
+Open the repo's **DeepWiki** page to understand the extraction-comparison-decision pipeline and the field routing logic. Use what you learn to try different approaches:
+- Have Devin add a **batch processing CLI** that reads a directory of documents and outputs a comparison report
+- Ask Devin to implement **configurable confidence thresholds** per document type
+- Try having Devin add **phonetic matching** (Soundex or Metaphone) as a third comparison strategy
+- Ask Devin to generate a **compliance audit report** summarizing all decisions with confidence scores
 
-### Recommended Starting Points
+#### Step 4: Review the PR and Give Feedback
 
-| Use Case | Challenge | Module | Repo | Difficulty | Time |
-|----------|-----------|--------|------|-----------|------|
-| Pod Remediation | Credential rotation monitoring | [DA9](../../modules/devops-automation/DA9.md) | uc-pod-remediation-credential-rotation | Advanced | 60 min |
-| Document Review | Fuzzy matching improvements | [QE8](../../modules/quality-engineering/QE8.md) | uc-document-review-automation | Intermediate | 45 min |
-| BDD Test Generation | Swagger-to-Cucumber tests | [QE9](../../modules/quality-engineering/QE9.md) | uc-bdd-test-generation-rest-api | Intermediate | 60 min |
-| Anomaly Detection | Seasonal detection enhancements | [DA10](../../modules/devops-automation/DA10.md) | uc-volume-anomaly-detection | Intermediate | 60 min |
-| Unit Testing | Add test coverage | [QE2](../../modules/quality-engineering/QE2.md) | Any | Beginner | 30 min |
-| Observability | Monitoring setup | [DA2](../../modules/devops-automation/DA2.md) | Any | Intermediate | 60 min |
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — does the Levenshtein implementation handle Unicode characters correctly?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"Add a batch processing CLI that reads a directory of documents and outputs a comparison report"* or *"The Levenshtein distance should be normalized by string length"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 
-### Full Module Catalog
+See the full challenge details for [QE8 — Document Review Automation](../../modules/quality-engineering/QE8.md) for more ideas.
 
-Participants may also attempt any challenge from the full [module catalog](../../modules/). See the [Devin Features Appendix](../../modules/devin-features/README.md) for additional activities to discover.
+- **Target Outcomes (any of these count):**
+  - Levenshtein distance comparator with YAML configuration
+  - Unit tests comparing accuracy of Jaccard vs. Levenshtein on sample data
+  - Batch processing CLI or additional comparison strategy
+  - Configurable confidence thresholds per document type
+  - PR with review comments and Devin's responses
 
----
+### Lab 3 — BDD Test Case Generation for REST APIs (60 min)
+- **Module:** [QE9 — BDD Test Generation](../../modules/quality-engineering/QE9.md)
+- **Repositories:** [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api), [ts-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-swagger-petstore)
+- **Objective:** Generate BDD test cases from a Swagger/OpenAPI specification and produce executable Cucumber tests covering happy paths, error cases, and edge cases
 
-## Repos Required
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-### For Walkthrough (facilitator must have these set up)
+> Review the uc-bdd-test-generation-rest-api codebase. This is a Cucumber BDD framework for testing REST APIs. Add new Gherkin feature files that test a Petstore-style API (pets CRUD: create, read, update, delete, list). Include scenarios for: successful CRUD operations, validation errors (missing required fields), not-found cases, and pagination. Implement the corresponding step definitions. Open a PR.
+
+#### Step 2: Level Up with AskDevin
+
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What Cucumber best practices should be followed for REST API testing — should scenarios be independent or can they share state?"*
+- *"How should authentication be handled in the BDD scenarios — per-scenario setup or shared background?"*
+- Use the analysis to start a **second session** — try generating tests from the `ts-swagger-petstore` OpenAPI spec directly
+
+#### Step 3: Explore with DeepWiki
+
+Open the repo's **DeepWiki** page to understand the existing Cucumber configuration, step definition patterns, and how the framework maps Gherkin steps to REST API calls. Use what you learn to try different approaches:
+- Have Devin generate **data-driven scenarios** using Cucumber Scenario Outlines with Examples tables
+- Ask Devin to add **negative test scenarios** for authentication failures and rate limiting
+- Try having Devin read the `ts-swagger-petstore` spec and **auto-generate feature files** for all endpoints
+- Ask Devin to add a **test report generator** that produces HTML results
+
+#### Step 4: Review the PR and Give Feedback
+
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — are the Gherkin scenarios readable by non-developers? Do they describe business behavior rather than implementation details?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"Add data-driven scenarios using Cucumber Scenario Outlines with Examples tables"* or *"The step definitions should use more descriptive method names"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+
+See the full challenge details for [QE9 — BDD Test Generation](../../modules/quality-engineering/QE9.md) for more ideas.
+
+- **Target Outcomes (any of these count):**
+  - Gherkin feature files covering CRUD operations, validation errors, and edge cases
+  - Executable Cucumber step definitions integrated with Maven build
+  - Data-driven scenarios using Scenario Outlines with Examples tables
+  - Test coverage of the Petstore API specification
+  - PR with review comments and Devin's responses
+
+### Lab 4 — Volume-Based Anomaly Detection (60 min)
+- **Module:** [DA10 — Volume Anomaly Detection](../../modules/devops-automation/DA10.md)
+- **Repository:** [uc-volume-anomaly-detection](https://github.com/Cognition-Partner-Workshops/uc-volume-anomaly-detection)
+- **Objective:** Work with a multi-agent anomaly detection framework — enhance the seasonal detector to support a time-of-day-only mode and evaluate detection accuracy
+
+#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+
+> Review the uc-volume-anomaly-detection codebase. The seasonal detector currently builds baselines from hourly data bucketed by day-of-week. Enhance it to also support a "time-of-day only" mode that ignores day-of-week (useful for services with consistent daily patterns). Add a configuration option in detection_rules.yaml to toggle between modes. Add unit tests for both modes. Open a PR.
+
+#### Step 2: Level Up with AskDevin
+
+While Devin works on step 1, open **AskDevin** and explore:
+- *"What additional detection strategies beyond z-score and seasonal would improve anomaly detection accuracy? Should we add EWMA or CUSUM?"*
+- *"How should the recommendation engine prioritize actions when multiple anomalies are detected simultaneously?"*
+- Use the analysis to start a **second session** — try adding an EWMA detector or improving the service health correlation logic
+
+#### Step 3: Explore with DeepWiki
+
+Open the repo's **DeepWiki** page to understand the detection pipeline flow from raw transaction data through baseline building, anomaly detection, health correlation, and incident reporting. Use what you learn to try different approaches:
+- Have Devin add a **CLI entrypoint** that processes the sample CSV data and prints detected anomalies
+- Ask Devin to implement an **EWMA (Exponentially Weighted Moving Average)** detector as a third strategy
+- Try having Devin add **visualization output** — generate a simple chart showing baseline vs. actual volumes with anomaly markers
+- Ask Devin to add **configurable alerting thresholds** per service in the YAML rules
+
+#### Step 4: Review the PR and Give Feedback
+
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — does the time-of-day mode correctly aggregate across all days of the week?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"Add a CLI entrypoint that processes the sample CSV data and prints detected anomalies"* or *"The baseline calculation should handle missing data points gracefully"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+
+See the full challenge details for [DA10 — Volume Anomaly Detection](../../modules/devops-automation/DA10.md) for more ideas.
+
+- **Target Outcomes (any of these count):**
+  - Time-of-day-only seasonal detection mode with YAML configuration
+  - Unit tests for both day-of-week and time-of-day modes
+  - CLI entrypoint or additional detection strategy (EWMA, CUSUM)
+  - Configurable alerting thresholds per service
+  - PR with review comments and Devin's responses
+
+## Additional Challenges
+
+Participants may also attempt any challenge from the full [module catalog](../../modules/) as creative inspiration. The labs above are the primary structured activities.
+
+## Repos Required on Devin's Machine
+
 - [ ] uc-pod-remediation-credential-rotation
 - [ ] uc-document-review-automation
 - [ ] uc-bdd-test-generation-rest-api
 - [ ] ts-swagger-petstore
 - [ ] uc-volume-anomaly-detection
 
-### For Hands-on (all should be accessible)
-- [ ] All repos listed above
-- [ ] Any additional repos from [catalog](../../catalog/repos.md)
-
 ## Context
 
-- **Theme:** Agentic AI — multi-agent systems for observability, document processing, quality engineering, and anomaly detection
-- **Key Pain Points Addressed:**
-  - Manual remediation of pod failures after credential rotations
-  - Time-intensive manual document review for loan corrections
-  - Inconsistent and lagging BDD test case creation for REST APIs
-  - Late detection of volume-related production issues
-- **Agentic AI Patterns Demonstrated:**
-  - Multi-agent coordination (rotation monitor → failure detector → approval → remediation)
-  - Human-in-the-loop approval gates (ServiceNow integration)
-  - Confidence-based auto-approval with exception routing
-  - Statistical baseline building and deviation detection
-  - Knowledge-based recommendation from runbooks
+- **Audience:** Technology teams — platform engineering, QA, observability, and operations
+- **Focus:** Agentic AI patterns — multi-agent coordination, document processing, BDD test automation, and statistical anomaly detection
 
 ## Devin Features Checklist
 
-Encourage participants to track their progress on the [Devin Features Appendix](../../modules/devin-features/README.md) throughout the session. Key activities for this variant:
-
-- [ ] Use AskDevin to understand multi-agent architectures
-- [ ] Review a Devin PR via GitHub (after any challenge)
-- [ ] Provide feedback to steer Devin's behavior mid-session
-- [ ] Take control of Devin's machine to verify results
-- [ ] Have Devin produce a report with detection findings
-- [ ] Create Knowledge from a session (after completing a challenge)
-- [ ] Explore DeepWiki for repo understanding
-
-## Post-Event
-
-- [ ] Collect participant feedback
-- [ ] Archive any event-specific branches
-- [ ] Update challenge modules if issues were discovered
-- [ ] Share session recordings/artifacts with participants
+Encourage participants to track their progress on the [Devin Features Appendix](../../modules/devin-features/README.md) throughout the session.
