@@ -246,7 +246,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
-| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [MM3](../modules/migration-modernization/MM3.md) |
+| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA8](../modules/devops-automation/DA8.md), [MM3](../modules/migration-modernization/MM3.md) |
 
 ### app_dotnet-angular-monolith-iac
 | | |
@@ -257,7 +257,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
-| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [MM3](../modules/migration-modernization/MM3.md) |
+| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA8](../modules/devops-automation/DA8.md) (context), [MM3](../modules/migration-modernization/MM3.md) |
 
 ### app_timesheet-client
 | | |
@@ -364,7 +364,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
-| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA7](../modules/devops-automation/DA7.md) |
+| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA7](../modules/devops-automation/DA7.md), [DA8](../modules/devops-automation/DA8.md) (context) |
 
 ### Other Repos
 

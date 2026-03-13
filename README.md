@@ -86,7 +86,8 @@ workshop-metadata/
 │   │   ├── DA4.md                          ← CI Failure Resolution
 │   │   ├── DA5.md                          ← Release Management
 │   │   ├── DA6.md                          ← Incident Response & Triage
-│   │   └── DA7.md                          ← Configuration Management & Feature Flags
+│   │   ├── DA7.md                          ← Configuration Management & Feature Flags
+│   │   └── DA8.md                          ← Platform-Conformant Microservice Decomposition
 │   └── devin-features/
 │       └── README.md                      ← Devin-specific activities checklist
 ├── events/
