@@ -13,6 +13,8 @@ Challenges focused on code quality, testing, documentation, refactoring, perform
 | [QE5](QE5.md) | Code Refactoring & Tech Debt | Intermediate | 45 min |
 | [QE6](QE6.md) | Performance Testing & Optimization | Intermediate to Advanced | 60 min |
 | [QE7](QE7.md) | Accessibility Compliance | Intermediate | 45 min |
+| [QE8](QE8.md) | Document Review Automation | Intermediate | 45 min |
+| [QE9](QE9.md) | BDD Test Generation | Intermediate | 60 min |
 
 ## Repositories
 
@@ -25,6 +27,9 @@ Challenges focused on code quality, testing, documentation, refactoring, perform
 | ts-java-spring-boot-realworld-example-app | [QE2](QE2.md#ts-java-spring-boot-realworld-example-app), [QE4](QE4.md#ts-java-spring-boot-realworld-example-app), [QE5](QE5.md#ts-java-spring-boot-realworld-example-app) |
 | uc-dw-migration-teradata-to-snowflake | [QE4](QE4.md#uc-dw-migration-teradata-to-snowflake) |
 | uc-framework-upgrade-monolith-to-microservices | [QE2](QE2.md#uc-framework-upgrade-monolith-to-microservices), [QE5](QE5.md#uc-framework-upgrade-monolith-to-microservices), [QE6](QE6.md#uc-framework-upgrade-monolith-to-microservices) |
+| uc-document-review-automation | [QE8](QE8.md#uc-document-review-automation) |
+| uc-bdd-test-generation-rest-api | [QE9](QE9.md#uc-bdd-test-generation-rest-api) |
+| ts-swagger-petstore | [QE9](QE9.md#ts-swagger-petstore) |
 
 ## When to Use This Category
 

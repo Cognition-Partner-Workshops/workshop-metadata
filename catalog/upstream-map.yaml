@@ -474,6 +474,31 @@ repos:
     cluster: C2
     note: "Lab 1 — COBOL-to-Java migration copy of CardDemo"
 
+  uc-pod-remediation-credential-rotation:
+    upstream: null
+    import_method: original
+    cluster: null
+    note: "Scaffolded for agentic AI pod remediation use case (dc-2 workshop)"
+
+  uc-document-review-automation:
+    upstream: null
+    import_method: original
+    cluster: null
+    note: "Scaffolded for agentic AI document review use case (dc-2 workshop)"
+
+  uc-bdd-test-generation-rest-api:
+    upstream: RedFroggy/spring-cucumber-rest-api
+    upstream_url: https://github.com/RedFroggy/spring-cucumber-rest-api
+    import_method: clone-and-push
+    cluster: null
+    note: "Imported for BDD test generation use case (dc-2 workshop)"
+
+  uc-volume-anomaly-detection:
+    upstream: null
+    import_method: original
+    cluster: null
+    note: "Scaffolded for agentic AI anomaly detection use case (dc-2 workshop)"
+
   uc-product-analysis-loan-modernization:
     upstream: null
     import_method: original

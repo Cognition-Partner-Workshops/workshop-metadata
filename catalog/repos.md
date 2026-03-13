@@ -134,6 +134,50 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | — |
 | **Challenges** | Business analysis/product analysis demos |
 
+### uc-pod-remediation-credential-rotation
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-pod-remediation-credential-rotation |
+| **Description** | Automated remediation of pod failures after credential rotations. Multi-agent Python system with rotation monitoring, failure detection, ServiceNow approval workflow, and remediation orchestration. |
+| **Tech Stack** | Python, Kubernetes, ServiceNow API |
+| **License** | MIT |
+| **Default Branch** | `initial-scaffold` |
+| **Cluster** | None (scaffolded from scratch) |
+| **Challenges** | [DA8](../modules/devops-automation/DA8.md) |
+
+### uc-document-review-automation
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-document-review-automation |
+| **Description** | Automated document review for loan processing. Multi-agent Python system with document extraction (PDF, image, form), field comparison (exact, fuzzy, numeric), confidence-based decisioning, and compliance audit logging. |
+| **Tech Stack** | Python |
+| **License** | MIT |
+| **Default Branch** | `initial-scaffold` |
+| **Cluster** | None (scaffolded from scratch) |
+| **Challenges** | [QE8](../modules/quality-engineering/QE8.md) |
+
+### uc-bdd-test-generation-rest-api
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api |
+| **Description** | BDD test case generation for REST APIs. Spring Boot + Cucumber + Gherkin framework for automated Swagger-to-test transformation. Imported from RedFroggy/spring-cucumber-rest-api (MIT license). |
+| **Tech Stack** | Java, Spring Boot, Cucumber, Gherkin, Maven |
+| **License** | MIT |
+| **Default Branch** | `initial-scaffold` |
+| **Cluster** | None (imported from RedFroggy/spring-cucumber-rest-api) |
+| **Challenges** | [QE9](../modules/quality-engineering/QE9.md) |
+
+### uc-volume-anomaly-detection
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-volume-anomaly-detection |
+| **Description** | Volume-based anomaly detection for early issue identification. Multi-agent Python system with z-score and seasonal decomposition detectors, service health correlation, runbook-based recommendation engine, and incident insight reporting. |
+| **Tech Stack** | Python |
+| **License** | MIT |
+| **Default Branch** | `initial-scaffold` |
+| **Cluster** | None (scaffolded from scratch) |
+| **Challenges** | [DA9](../modules/devops-automation/DA9.md) |
+
 ### uc-Quality-Engineering-and-Assurance
 | | |
 |---|---|
