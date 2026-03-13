@@ -100,8 +100,10 @@ workshop-metadata/
 │   │   └── README.md                      ← SF workshop: Framework Upgrade + CVE Remediation
 │   ├── 2026-03-13-dc/
 │   │   └── README.md                      ← DC event (4 UCs)
-│   └── enterprise-demo-track/
-│       └── README.md                      ← Enterprise demo: SAST + Orchestration + One-Shot
+│   ├── enterprise-demo-track/
+│   │   └── README.md                      ← Enterprise demo: SAST + Orchestration + One-Shot
+│   └── platform-microservice-decomposition/
+│       └── README.md                      ← Platform-Conformant Microservice Decomposition (DA8)
 └── shared/
     ├── repo-naming-convention.md
     ├── runtime-resources.md
