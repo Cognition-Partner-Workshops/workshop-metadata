@@ -33,7 +33,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **C8** | Client Timesheet | *original* | `app_timesheet-client`, `hosting-client-timesheet-app` | The timesheet app and its Terraform hosting/infra repo. |
 | **C9** | AngularJS 1.x admins | *different upstreams* | `angular-1.x-bootstrap-admin-dashboard`, `angular-1.x-dashboard` | Two AngularJS 1.x admin dashboards for framework migration demos. |
 | **C10** | SAS to Snowflake | [`scottbass/SAS`](https://github.com/scottbass/SAS) | `ts-sas-legacy-codebase`, `uc-data-migration-sas-to-snowflake` | Legacy SAS source paired with Snowflake migration validation tooling. |
-| **C11** | OrderManager Monolith-to-Microservices | *original* | `platform-engineering-shared-services`, `app_dotnet-angular-monolith`, `app_dotnet-angular-monolith-iac` | Platform standard + .NET/Angular monolith + service IaC for decomposition demos. Platform repo provides the shared EKS/ArgoCD/monitoring infrastructure; app repos demonstrate monolith-to-microservices conforming to platform standard. |
+| **C11** | OrderManager Monolith-to-Microservices | *original* | `platform-engineering-shared-services`, `app_dotnet-angular-monolith`, `app_dotnet-angular-monolith-iac`, `app_dotnet-angular-microservices` | Platform standard + .NET/Angular monolith + service IaC + microservices landing repo for decomposition demos. Platform repo provides the shared EKS/ArgoCD/monitoring infrastructure; monolith is the source; microservices repo receives all decomposed services and service-level IaC. |
 
 ---
 
@@ -246,7 +246,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
-| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [MM3](../modules/migration-modernization/MM3.md) |
+| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA8](../modules/devops-automation/DA8.md), [MM3](../modules/migration-modernization/MM3.md) |
 
 ### app_dotnet-angular-monolith-iac
 | | |
@@ -257,7 +257,18 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
-| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [MM3](../modules/migration-modernization/MM3.md) |
+| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA8](../modules/devops-automation/DA8.md) (context), [MM3](../modules/migration-modernization/MM3.md) |
+
+### app_dotnet-angular-microservices
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-microservices |
+| **Description** | Landing repository for all microservices decomposed from the OrderManager monolith. Houses service source code (.NET 8 Web API + Angular 17), service-level IaC (Dockerfile, Helm chart, ArgoCD manifests, CI/CD pipeline) per service. Each participant works on a `workshop-<participant>` branch. |
+| **Tech Stack** | .NET 8, C#, Angular 17, TypeScript, Helm, Docker, ArgoCD, GitHub Actions |
+| **License** | MIT |
+| **Default Branch** | `main` |
+| **Cluster** | C11 (OrderManager monolith-to-microservices) |
+| **Challenges** | [DA8](../modules/devops-automation/DA8.md) (landing repo) |
 
 ### app_timesheet-client
 | | |
@@ -364,7 +375,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
-| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA7](../modules/devops-automation/DA7.md) |
+| **Challenges** | [DA5](../modules/devops-automation/DA5.md), [DA6](../modules/devops-automation/DA6.md), [DA7](../modules/devops-automation/DA7.md), [DA8](../modules/devops-automation/DA8.md) (context) |
 
 ### Other Repos
 
