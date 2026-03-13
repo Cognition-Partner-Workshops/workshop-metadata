@@ -2,7 +2,8 @@
 
 ## Repositories
 
-- [app_dotnet-angular-monolith](#app_dotnet-angular-monolith)
+- [app_dotnet-angular-monolith](#app_dotnet-angular-monolith) — source monolith (refactored in-place)
+- [app_dotnet-angular-microservices](#app_dotnet-angular-microservices) — landing repo for all decomposed services + service-level IaC
 
 **Context Repositories** (added to Devin's machine, not modified):
 - [platform-engineering-shared-services](#platform-engineering-shared-services)
@@ -24,6 +25,7 @@ Decompose a bounded context from a monolith into a standalone microservice that 
 - GitHub Actions CI/CD pipeline (build, test, push to ECR, ArgoCD sync)
 - All IaC conforming to the platform-engineering-shared-services standard (namespaces, resource quotas, network policies)
 - PR in the monolith repo with the refactored code
+- PR in app_dotnet-angular-microservices with the new service code and service-level IaC
 
 ## What Participants Will Learn
 
@@ -59,15 +61,23 @@ The following repos must be added to the Devin machine via Settings > Repositori
 - `platform-engineering-shared-services` — the platform standard (EKS, namespaces, network policies, monitoring)
 - `app_dotnet-angular-monolith` — the .NET 8 + Angular 17 monolith to decompose
 - `app_dotnet-angular-monolith-iac` — the existing IaC patterns (Helm chart, Dockerfile, ArgoCD manifests)
+- `app_dotnet-angular-microservices` — landing repo where decomposed services and service-level IaC are pushed
 
-All three repos are in the [Cognition-Partner-Workshops](https://github.com/Cognition-Partner-Workshops) GitHub org.
+All four repos are in the [Cognition-Partner-Workshops](https://github.com/Cognition-Partner-Workshops) GitHub org.
+
+## Branch Convention
+
+Each participant works on a dedicated branch: **`workshop-<participant>`** (e.g., `workshop-alice`, `workshop-bob`). This prevents conflicts when multiple participants run the lab simultaneously against the same repos.
+
+Include the branch name in your Devin session prompt so that PRs target the correct branch.
 
 ## Notes
 
 - This challenge uses .NET 8 and Angular 17 — a different tech stack from the Java/Spring Boot decomposition in [MM3](../migration-modernization/MM3.md)
 - The key differentiator is **platform conformance** — the extracted service must follow the patterns in `platform-engineering-shared-services` and `app_dotnet-angular-monolith-iac`
 - The Inventory bounded context is recommended as the extraction target because it has clear boundaries and moderate complexity
-- Devin will need to create a new repository for the extracted service — if it lacks org permissions, you may need to create the empty repo first
+- All new service code and service-level IaC goes into `app_dotnet-angular-microservices` — no need to create separate repos per service
+- Each participant uses their own `workshop-<participant>` branch to avoid conflicts
 
 ---
 
@@ -85,6 +95,8 @@ All three repos are in the [Cognition-Partner-Workshops](https://github.com/Cogn
 
 > **Decompose the Inventory module from app_dotnet-angular-monolith into a standalone microservice.**
 >
+> Work on branch `workshop-<participant>` in both repos.
+>
 > Use these repos as context for platform patterns and IaC standards:
 > - `platform-engineering-shared-services` — defines the platform standard (namespaces, network policies, monitoring, ArgoCD)
 > - `app_dotnet-angular-monolith-iac` — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
@@ -98,7 +110,9 @@ All three repos are in the [Cognition-Partner-Workshops](https://github.com/Cogn
 > 6. **GitHub Actions CI/CD pipeline** — build, test, push to ECR, trigger ArgoCD sync
 > 7. **Monolith refactoring** — replace in-process Inventory calls with an HTTP client that calls the new service
 >
-> Create a PR in app_dotnet-angular-monolith with the monolith refactoring changes. Build and test both services locally to verify they work together.
+> Push the new inventory-service code and all service-level IaC to `app_dotnet-angular-microservices` on branch `workshop-<participant>`. Create a PR.
+> Push the monolith refactoring changes to `app_dotnet-angular-monolith` on branch `workshop-<participant>`. Create a PR.
+> Build and test both services locally to verify they work together.
 
 ### Step 2: Level Up with AskDevin
 
@@ -130,9 +144,40 @@ Open each repo's DeepWiki page to understand the architecture before starting:
 
 If time permits, extend the session with these follow-up prompts:
 
-- *"Extract the Customers module next, following the same pattern you used for Inventory. Create a customers-service with its own Helm chart and ArgoCD manifests."*
+- *"Extract the Customers module next, following the same pattern you used for Inventory. Add it to app_dotnet-angular-microservices on the same workshop branch with its own Helm chart and ArgoCD manifests."*
 - *"Add OpenTelemetry distributed tracing to both the monolith and inventory-service so we can trace requests across the HTTP boundary."*
 - *"Create a Grafana dashboard JSON that shows inventory-service request rate, error rate, and p95 latency using the ServiceMonitor metrics."*
+
+---
+
+## <a id="app_dotnet-angular-microservices"></a>app_dotnet-angular-microservices
+
+**Repository:** [app_dotnet-angular-microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-microservices)
+
+This is the **landing repository** for all decomposed microservices and their service-level IaC. Each service lives in its own directory with source code, Dockerfile, Helm chart, ArgoCD manifests, and CI/CD pipeline.
+
+**Expected directory structure after decomposition:**
+```
+app_dotnet-angular-microservices/
+├── inventory-service/
+│   ├── src/                          ← .NET 8 Web API + Angular frontend
+│   ├── tests/                        ← Unit and integration tests
+│   ├── docker/
+│   │   └── Dockerfile                ← Multi-stage build
+│   ├── helm/
+│   │   └── inventory-service/        ← Helm chart (deployment, service, networkpolicy, servicemonitor, hpa)
+│   ├── argocd/
+│   │   ├── application-dev.yaml
+│   │   └── application-staging.yaml
+│   └── .github/
+│       └── workflows/
+│           └── build-push.yaml       ← CI/CD pipeline
+├── customers-service/                ← (bonus challenge)
+│   └── ...                           ← Same structure as inventory-service
+└── README.md
+```
+
+Each participant pushes to their own `workshop-<participant>` branch.
 
 ---
 

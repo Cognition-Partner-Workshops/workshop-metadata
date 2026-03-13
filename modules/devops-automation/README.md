@@ -23,6 +23,7 @@ Challenges focused on CI/CD, observability, PR review, failure resolution, relea
 | ts-java-spring-boot-realworld-example-app | [DA3](DA3.md#ts-java-spring-boot-realworld-example-app) |
 | uc-framework-upgrade-monolith-to-microservices | [DA1](DA1.md#uc-framework-upgrade-monolith-to-microservices), [DA2](DA2.md#uc-framework-upgrade-monolith-to-microservices), [DA3](DA3.md#uc-framework-upgrade-monolith-to-microservices), [DA4](DA4.md#uc-framework-upgrade-monolith-to-microservices), [DA5](DA5.md#uc-framework-upgrade-monolith-to-microservices), [DA6](DA6.md#uc-framework-upgrade-monolith-to-microservices), [DA7](DA7.md#uc-framework-upgrade-monolith-to-microservices) |
 | app_dotnet-angular-monolith | [DA8](DA8.md#app_dotnet-angular-monolith) |
+| app_dotnet-angular-microservices | [DA8](DA8.md#app_dotnet-angular-microservices) (landing repo) |
 | platform-engineering-shared-services | [DA8](DA8.md#platform-engineering-shared-services) (context) |
 | app_dotnet-angular-monolith-iac | [DA8](DA8.md#app_dotnet-angular-monolith-iac) (context) |
 
