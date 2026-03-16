@@ -1,14 +1,14 @@
-# Workshop: Hands-on Devin Workshop — Oslo
+# Workshop: Hands-on Devin Workshop — Zurich
 
 ## Event Details
 
 | | |
 |---|---|
-| **Date** | 2026-03-09 |
-| **Location** | Oslo, Norway |
+| **Date** | 2026-03-17 |
+| **Location** | Zurich |
 | **Host Organization** | *(customer)* |
-| **Duration** | 14:00–15:30 CET (90 minutes) |
-| **Facilitator** | Brian Smitches, brian.smitches@cognition.ai |
+| **Duration** | N/A |
+| **Facilitator** | Sachet Agarwal, sachet.agarwal@cognition.ai |
 | **Event Site** | https://partner-workshops.devinenterprise.com |
 
 ## Featured Labs
