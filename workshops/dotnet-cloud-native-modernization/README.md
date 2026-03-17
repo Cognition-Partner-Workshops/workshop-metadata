@@ -28,6 +28,19 @@ Each phase builds on the previous one, and all development uses local hosting al
 | **Bug hunt standalone** | Lab 3 only | 45 min | Quick hands-on session, adding to a broader workshop agenda |
 | **Extract + validate** | Labs 1 + 2 | 2 hours | QE-focused audiences, emphasis on testing practices |
 
+## Getting Started
+
+Before beginning any lab, each participant creates a personal working branch from `main`:
+
+```
+git checkout main && git pull
+git checkout -b workshop-<attendee_id>
+```
+
+Replace `<attendee_id>` with a unique identifier (e.g., name, employee ID). All work happens on this branch. This prevents conflicts when multiple participants run labs simultaneously against the same repos.
+
+---
+
 ## Labs
 
 ### Lab 1 — Monolith Decomposition & Containerization (75 min)
@@ -43,7 +56,7 @@ Each phase builds on the previous one, and all development uses local hosting al
 
 #### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-> Extract the Order bounded context from app_dotnet_angular_containerized_decomposition_monolith into a standalone .NET microservice. Work on branch `workshop-<participant>` in both repos. Use app_dotnet_angular_containerized_decomposition_microservices as reference for the target architecture, and app_dotnet_angular_containerized_decomposition_iac for Helm chart patterns. Deliverables: (1) New .NET Web API for order-service, (2) Shared contracts for inter-service communication, (3) Dockerfile with multi-stage build, (4) Docker Compose for local dev (monolith + order-service + PostgreSQL), (5) Monolith refactored to use HTTP client, (6) Integration smoke test. Push to both repos and create PRs.
+> Extract the Order bounded context from app_dotnet_angular_containerized_decomposition_monolith into a standalone .NET microservice. Work on branch `workshop-<attendee_id>` in both repos. Use app_dotnet_angular_containerized_decomposition_microservices as reference for the target architecture, and app_dotnet_angular_containerized_decomposition_iac for Helm chart patterns. Deliverables: (1) New .NET Web API for order-service, (2) Shared contracts for inter-service communication, (3) Dockerfile with multi-stage build, (4) Docker Compose for local dev (monolith + order-service + PostgreSQL), (5) Monolith refactored to use HTTP client, (6) Integration smoke test. Push to both repos and create PRs.
 
 #### Step 2: Level Up with AskDevin
 
@@ -74,7 +87,7 @@ Review both PRs. Ask Devin to add circuit breaker logic, health checks, or impro
 
 #### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-> Write integration tests for the HTTP contract between the QuickApp monolith and the extracted Order microservice in app_dotnet_angular_containerized_decomposition_microservices. Create: (1) Integration test project, (2) Docker Compose test configuration, (3) Contract tests for all Order CRUD operations, (4) End-to-end flow test (create customer → place order → verify in Order service), (5) Shared DTO serialization roundtrip tests. Work on branch `workshop-<participant>`. Open a PR.
+> Write integration tests for the HTTP contract between the QuickApp monolith and the extracted Order microservice in app_dotnet_angular_containerized_decomposition_microservices. Create: (1) Integration test project, (2) Docker Compose test configuration, (3) Contract tests for all Order CRUD operations, (4) End-to-end flow test (create customer → place order → verify in Order service), (5) Shared DTO serialization roundtrip tests. Work on branch `workshop-<attendee_id>`. Open a PR.
 
 #### Step 2: Level Up with AskDevin
 
@@ -100,13 +113,13 @@ Ask Devin to add concurrent order creation tests, contract backwards-compatibili
 
 - **Module:** [MM17 — Cross-Service Bug Investigation](../../modules/migration-modernization/MM17.md)
 - **Repository:**
-  - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices) (branch: `devin/1773765870-workshop-notification-bug-hunt`)
+  - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
 - **Objective:** Find and fix a visual bug in the Notification service where order confirmation emails show amounts 100x smaller than the actual order total
 - **Duration:** 45 min
 
 #### Step 1: Get Started Fast (copy-paste this prompt into Devin)
 
-> Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices on branch `devin/1773765870-workshop-notification-bug-hunt`. Reproduce by running the notification-service and POSTing to /api/notification/events/order-placed with `{"orderId":"11111111-1111-1111-1111-111111111111","customerId":"22222222-2222-2222-2222-222222222222","totalAmount":149.99,"placedAt":"2026-03-17T12:00:00Z"}`. Open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR.
+> Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices. Work on branch `workshop-<attendee_id>`. Reproduce by running the notification-service and POSTing to /api/notification/events/order-placed with `{"orderId":"11111111-1111-1111-1111-111111111111","customerId":"22222222-2222-2222-2222-222222222222","totalAmount":149.99,"placedAt":"2026-03-17T12:00:00Z"}`. Open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR.
 
 #### Step 2: Level Up with AskDevin
 
