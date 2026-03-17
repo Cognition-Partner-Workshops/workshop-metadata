@@ -334,7 +334,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `import/initial` |
 | **Cluster** | C12 (.NET/Angular Containerized Decomposition) |
-| **Challenges** | [MM3](../modules/migration-modernization/MM3.md), [MM10](../modules/migration-modernization/MM10.md) |
+| **Challenges** | [MM3](../modules/migration-modernization/MM3.md), [MM10](../modules/migration-modernization/MM10.md), [MM15](../modules/migration-modernization/MM15.md), [MM16](../modules/migration-modernization/MM16.md) |
 
 ### app_dotnet_angular_containerized_decomposition_microservices
 | | |
@@ -345,7 +345,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | — |
 | **Default Branch** | `scaffold/initial` |
 | **Cluster** | C12 (.NET/Angular Containerized Decomposition) |
-| **Challenges** | [MM3](../modules/migration-modernization/MM3.md) |
+| **Challenges** | [MM3](../modules/migration-modernization/MM3.md), [MM15](../modules/migration-modernization/MM15.md), [MM16](../modules/migration-modernization/MM16.md), [MM17](../modules/migration-modernization/MM17.md) |
 
 ### app_dotnet_angular_containerized_decomposition_microfrontends
 | | |
@@ -367,7 +367,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | — |
 | **Default Branch** | `scaffold/initial` |
 | **Cluster** | C12 (.NET/Angular Containerized Decomposition) |
-| **Challenges** | [MM3](../modules/migration-modernization/MM3.md), [DA5](../modules/devops-automation/DA5.md) |
+| **Challenges** | [MM3](../modules/migration-modernization/MM3.md), [MM15](../modules/migration-modernization/MM15.md), [DA5](../modules/devops-automation/DA5.md) |
 
 ### app_timesheet
 | | |
