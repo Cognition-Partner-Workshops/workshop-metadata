@@ -8,9 +8,9 @@
 | **Based On** | [workshops/platform-microservice-decomposition](../../workshops/platform-microservice-decomposition/) |
 | **Focus** | Monolith-to-microservices decomposition with IaC conformance on Kubernetes |
 | **Duration** | 60 minutes |
-| **Audience** | DevOps / Platform Engineering / Solution Architects |
+| **Audience** | General |
 | **Facilitator** | TBD |
-| **Event Site** | TBD |
+| **Event Site** | Remote |
 
 ## Abstract
 
@@ -31,29 +31,6 @@
 | 0:10 | **Phase 2 — Explore** | Use AskDevin and DeepWiki while Devin works |
 | 0:25 | **Phase 3 — Interact** | Steer Devin in-session, refine prompts, explore Devin features |
 | 0:50 | **Wrap-up** | Discussion, compare results, share next steps |
-
----
-
-## Prerequisites
-
-### Repos Required on Devin's Machine
-
-All four repos must be added via **Settings > Machine configuration > Add repository** before the lab:
-
-- [ ] [app_dotnet-angular-monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith) — .NET 8 + Angular 17 monolith (source)
-- [ ] [app_dotnet-angular-monolith-iac](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac) — Helm chart, Dockerfile, ArgoCD patterns (context)
-- [ ] [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — EKS cluster, namespaces, monitoring (context)
-- [ ] [app_dotnet-angular-microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-microservices) — landing repo for decomposed services + service-level IaC
-
-### Branch Convention
-
-Each participant works on a dedicated branch: **`workshop-<participant>`** (e.g., `workshop-alice`, `workshop-bob`).
-
-### Participant Requirements
-
-- [ ] Devin account on partner-workshops.devinenterprise.com
-- [ ] GitHub access to `Cognition-Partner-Workshops` org (for PR review)
-- [ ] Browser (Chrome recommended)
 
 ---
 
