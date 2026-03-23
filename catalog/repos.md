@@ -141,7 +141,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Automated remediation of pod failures after credential rotations. Multi-agent Python system with rotation monitoring, failure detection, ServiceNow approval workflow, and remediation orchestration. |
 | **Tech Stack** | Python, Kubernetes, ServiceNow API |
 | **License** | MIT |
-| **Default Branch** | `initial-scaffold` |
+| **Default Branch** | `main` |
 | **Cluster** | None (scaffolded from scratch) |
 | **Challenges** | [DA9](../modules/devops-automation/DA9.md) |
 
@@ -152,7 +152,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Automated document review for loan processing. Multi-agent Python system with document extraction (PDF, image, form), field comparison (exact, fuzzy, numeric), confidence-based decisioning, and compliance audit logging. |
 | **Tech Stack** | Python |
 | **License** | MIT |
-| **Default Branch** | `initial-scaffold` |
+| **Default Branch** | `main` |
 | **Cluster** | None (scaffolded from scratch) |
 | **Challenges** | [QE8](../modules/quality-engineering/QE8.md) |
 
@@ -163,7 +163,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | BDD test case generation for REST APIs. Spring Boot + Cucumber + Gherkin framework for automated Swagger-to-test transformation. Imported from RedFroggy/spring-cucumber-rest-api (MIT license). |
 | **Tech Stack** | Java, Spring Boot, Cucumber, Gherkin, Maven |
 | **License** | MIT |
-| **Default Branch** | `initial-scaffold` |
+| **Default Branch** | `main` |
 | **Cluster** | None (imported from RedFroggy/spring-cucumber-rest-api) |
 | **Challenges** | [QE9](../modules/quality-engineering/QE9.md) |
 
@@ -174,7 +174,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Volume-based anomaly detection for early issue identification. Multi-agent Python system with z-score and seasonal decomposition detectors, service health correlation, runbook-based recommendation engine, and incident insight reporting. |
 | **Tech Stack** | Python |
 | **License** | MIT |
-| **Default Branch** | `initial-scaffold` |
+| **Default Branch** | `main` |
 | **Cluster** | None (scaffolded from scratch) |
 | **Challenges** | [DA10](../modules/devops-automation/DA10.md) |
 
@@ -469,8 +469,8 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | | |
 |---|---|
 | **URL** | https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services |
-| **Description** | Shared DevOps platform for all workshop runtime environments. Terraform modules for EKS, VPC, ECR, IAM. Helm values for ingress-nginx, cert-manager, Prometheus/Grafana monitoring, ArgoCD GitOps. Namespace provisioning with resource quotas, network policies (default-deny), and RBAC. The "golden path" that decomposed microservices must conform to. |
-| **Tech Stack** | Terraform, Helm, Kubernetes, AWS EKS, ArgoCD, Prometheus, Grafana |
+| **Description** | Shared DevOps platform for all workshop runtime environments. AWS CDK (TypeScript) stacks for EKS, VPC, ECR, Route 53 DNS. Helm values for ingress-nginx, cert-manager, Prometheus/Grafana monitoring, ArgoCD GitOps. Namespace provisioning with resource quotas, limit ranges, and network policies. All resources use RemovalPolicy.DESTROY for clean teardown. |
+| **Tech Stack** | AWS CDK (TypeScript), Helm, Kubernetes, AWS EKS, ArgoCD, Prometheus, Grafana |
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | C11 (OrderManager monolith-to-microservices) |
