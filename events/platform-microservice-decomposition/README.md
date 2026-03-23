@@ -262,7 +262,7 @@ The platform team owns the platform-level infrastructure. Each service team owns
 
 - [ ] Collect participant feedback — especially: did Devin's IaC conform to the platform standard?
 - [ ] Archive workshop branches if needed
-- [ ] Update [DA8 module](../../modules/devops-automation/DA8.md) if issues were discovered
+- [ ] Update [DA8 module](../../modules/devops-automation/platform-conformant-microservice-decomposition.md) if issues were discovered
 - [ ] Share session recordings/artifacts with participants
 
 ---
@@ -271,10 +271,10 @@ The platform team owns the platform-level infrastructure. Each service team owns
 
 | Module | Relationship |
 |--------|-------------|
-| [DA8 — Platform-Conformant Microservice Decomposition](../../modules/devops-automation/DA8.md) | Core module for this lab |
-| [MM3 — Containerization & Microservice Extraction](../../modules/migration-modernization/MM3.md) | Similar pattern with Java/Spring Boot (simpler — no platform conformance) |
-| [DA1 — CI/CD Pipeline](../../modules/devops-automation/DA1.md) | Complementary — build pipelines for the extracted service |
-| [DA2 — Observability & Monitoring](../../modules/devops-automation/DA2.md) | Complementary — add dashboards and alerting for the new service |
+| [Platform-Conformant Microservice Decomposition](../../modules/devops-automation/platform-conformant-microservice-decomposition.md) | Core module for this lab |
+| [Containerization & Microservice Extraction & Microservice Extraction](../../modules/migration-modernization/containerization-microservice-extraction.md) | Similar pattern with Java/Spring Boot (simpler — no platform conformance) |
+| [CI/CD Pipeline](../../modules/devops-automation/cicd-pipeline.md) | Complementary — build pipelines for the extracted service |
+| [Observability & Monitoring & Monitoring](../../modules/devops-automation/observability-monitoring.md) | Complementary — add dashboards and alerting for the new service |
 
 ## Context
 

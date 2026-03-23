@@ -7,7 +7,7 @@
 | **Focus** | Rewriting a legacy data source to a modern schema and reconnecting the application with comprehensive testing |
 | **Duration** | 1-2 hours |
 | **Audience** | Database engineers, backend developers, data migration teams |
-| **Key Modules** | [MM8](../../modules/migration-modernization/MM8.md) |
+| **Key Modules** | [Data Source Migration](../../modules/migration-modernization/data-source-migration.md) |
 
 ## Workshop Narrative
 
@@ -17,12 +17,12 @@ Data source migration is not just schema work — the application must be rewire
 
 ### Lab 1 — Data Source Rewrite + App Reconnection + Testing
 
-- **Module:** [MM8 — Data Source Migration](../../modules/migration-modernization/MM8.md)
+- **Module:** [Data Source Migration](../../modules/migration-modernization/data-source-migration.md)
 - **Repository:** [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern)
 - **Objective:** Transform a legacy data warehouse (all-VARCHAR, denormalized) to a modern normalized schema, rewire the app, and validate with comprehensive tests
 - **Duration:** 60 min
 
-#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+#### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 > Review the legacy CDW schema in uc-data-source-migration-legacy-to-modern. This loan management app reads from denormalized tables where all columns are VARCHAR.
 >
@@ -32,17 +32,17 @@ Data source migration is not just schema work — the application must be rewire
 >
 > Create a `TESTING_REPORT.md` documenting what tests were added and what they validate. Open a PR.
 
-#### Step 2: Level Up with AskDevin
+#### Step 2: Research with Ask Devin
 
 - *"What are the riskiest data type conversions — VARCHAR dates to LocalDate, amounts to BigDecimal? What edge cases could cause data loss?"*
 - *"How should we validate that no records were lost or corrupted? What reconciliation checks should we run?"*
 - *"What's the best way to implement a dual-read feature flag for safe rollout?"*
 
-#### Step 3: Explore with DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's DeepWiki page to understand the domain model and API contracts. Try adding dual-read feature flags, data reconciliation dashboards, or complete data lineage maps.
 
-#### Step 4: Review the PR and Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 Focus on the testing story: data transformation correctness, reconciliation tests, golden-file validation, and app reconnection completeness.
 

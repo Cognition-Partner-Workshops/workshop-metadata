@@ -7,7 +7,7 @@
 | **Focus** | Progressive modernization of a monolithic .NET system to Kubernetes-hosted cloud-native APIs on EKS |
 | **Duration** | 2.5-3 hours (configurable — see Duration Variants below) |
 | **Audience** | .NET developers, solution architects, platform engineers, modernization teams |
-| **Key Modules** | [MM15](../../modules/migration-modernization/MM15.md), [MM16](../../modules/migration-modernization/MM16.md), [MM17](../../modules/migration-modernization/MM17.md) |
+| **Key Modules** | [.NET Monolith Decomposition](../../modules/migration-modernization/dotnet-monolith-decomposition.md), [Cross-Service Integration Testing](../../modules/migration-modernization/cross-service-integration-testing.md), [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md) |
 
 ## Workshop Narrative
 
@@ -45,7 +45,7 @@ Replace `<attendee_id>` with a unique identifier (e.g., name, employee ID). All 
 
 ### Lab 1 — Monolith Decomposition & Containerization (75 min)
 
-- **Module:** [MM15 — .NET Monolith Decomposition with Local Hosting](../../modules/migration-modernization/MM15.md)
+- **Module:** [.NET Monolith Decomposition with Local Hosting](../../modules/migration-modernization/dotnet-monolith-decomposition.md)
 - **Repositories:**
   - [app_dotnet_angular_containerized_decomposition_monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_monolith) — .NET + Angular monolith (source)
   - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices) — target scaffold (reference)
@@ -54,20 +54,20 @@ Replace `<attendee_id>` with a unique identifier (e.g., name, employee ID). All 
 - **Objective:** Extract the Order bounded context into a standalone .NET microservice with Docker Compose for local testing
 - **Duration:** 75 min
 
-#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+#### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 > Extract the Order bounded context from app_dotnet_angular_containerized_decomposition_monolith into a standalone .NET microservice. Work on branch `workshop-<attendee_id>` in both repos. Use app_dotnet_angular_containerized_decomposition_microservices as reference for the target architecture, and app_dotnet_angular_containerized_decomposition_iac for Helm chart patterns. Deliverables: (1) New .NET Web API for order-service, (2) Shared contracts for inter-service communication, (3) Dockerfile with multi-stage build, (4) Docker Compose for local dev (monolith + order-service + PostgreSQL), (5) Monolith refactored to use HTTP client, (6) Integration smoke test. Push to both repos and create PRs.
 
-#### Step 2: Level Up with AskDevin
+#### Step 2: Research with Ask Devin
 
 - *"Analyze the domain boundaries in the QuickApp monolith. Which bounded contexts have clean boundaries vs. tight coupling?"*
 - *"What's the best strategy for splitting the shared EF Core DbContext into per-service databases?"*
 
-#### Step 3: Explore with DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open each repo's DeepWiki page to understand the monolith's module structure, the target microservices scaffold, and the Helm chart patterns.
 
-#### Step 4: Review the PR and Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 Review both PRs. Ask Devin to add circuit breaker logic, health checks, or improve the Docker Compose configuration.
 
@@ -80,25 +80,25 @@ Review both PRs. Ask Devin to add circuit breaker logic, health checks, or impro
 
 ### Lab 2 — Integration Testing Between Monolith & Microservice (45 min)
 
-- **Module:** [MM16 — Cross-Service Integration Testing](../../modules/migration-modernization/MM16.md)
+- **Module:** [Cross-Service Integration Testing](../../modules/migration-modernization/cross-service-integration-testing.md)
 - **Repositories:** Same as Lab 1
 - **Objective:** Write integration tests that validate the HTTP contract between the monolith and extracted Order service
 - **Duration:** 45 min
 
-#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+#### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 > Write integration tests for the HTTP contract between the QuickApp monolith and the extracted Order microservice in app_dotnet_angular_containerized_decomposition_microservices. Create: (1) Integration test project, (2) Docker Compose test configuration, (3) Contract tests for all Order CRUD operations, (4) End-to-end flow test (create customer → place order → verify in Order service), (5) Shared DTO serialization roundtrip tests. Work on branch `workshop-<attendee_id>`. Open a PR.
 
-#### Step 2: Level Up with AskDevin
+#### Step 2: Research with Ask Devin
 
 - *"What are the critical failure modes when the monolith calls the Order service?"*
 - *"Should we use WebApplicationFactory or TestContainers for the integration tests?"*
 
-#### Step 3: Explore with DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Review both repos to understand the HTTP contract — find the HTTP client in the monolith and the controller endpoints in the Order service.
 
-#### Step 4: Review the PR and Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 Ask Devin to add concurrent order creation tests, contract backwards-compatibility tests, or performance benchmarks.
 
@@ -111,26 +111,26 @@ Ask Devin to add concurrent order creation tests, contract backwards-compatibili
 
 ### Lab 3 — Cross-Service Bug Hunt (45 min)
 
-- **Module:** [MM17 — Cross-Service Bug Investigation](../../modules/migration-modernization/MM17.md)
+- **Module:** [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md)
 - **Repository:**
   - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
 - **Objective:** Find and fix a visual bug in the Notification service where order confirmation emails show amounts 100x smaller than the actual order total
 - **Duration:** 45 min
 
-#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+#### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 > Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices. Work on branch `workshop-<attendee_id>`. Reproduce by running the notification-service and POSTing to /api/notification/events/order-placed with `{"orderId":"11111111-1111-1111-1111-111111111111","customerId":"22222222-2222-2222-2222-222222222222","totalAmount":149.99,"placedAt":"2026-03-17T12:00:00Z"}`. Open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR.
 
-#### Step 2: Level Up with AskDevin
+#### Step 2: Research with Ask Devin
 
 - *"Trace the data flow from OrderPlacedEvent to the rendered notification email. Where does the monetary amount get transformed?"*
 - *"What does OrderPlacedEvent.TotalAmount represent — dollars or cents? Check the shared contract."*
 
-#### Step 3: Explore with DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the microservices repo's DeepWiki to understand the event flow from Order to Notification, the shared contracts library, and the rendering pipeline.
 
-#### Step 4: Review the PR and Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 Check that Devin removed the erroneous division and fixed the misleading comment. Ask for a regression test.
 

@@ -1,34 +1,34 @@
-# Category B: Security
+# Security
 
 Challenges focused on dependency management, vulnerability remediation, security engineering practices, and secrets management.
 
 ## Modules
 
-| ID | Challenge | Difficulty | Time |
-|----|-----------|-----------|------|
-| [SEC1](SEC1.md) | Upgrade Dependencies | Beginner to Intermediate | 45 min |
-| [SEC2](SEC2.md) | Remediate Vulnerabilities | Intermediate | 60 min |
-| [SEC3](SEC3.md) | Shift Left Security | Intermediate to Advanced | 60 min |
-| [SEC4](SEC4.md) | Security Antipatterns | Intermediate | 45 min |
-| [SEC5](SEC5.md) | Secrets Management & Detection | Intermediate | 45 min |
-| [SEC6](SEC6.md) | Event-Driven SAST Remediation | Advanced | 90 min |
-| [SEC7](SEC7.md) | Mass Security Backlog Remediation | Advanced | 90 min |
+| Module | Difficulty | Time |
+|--------|-----------|------|
+| [Upgrade Dependencies](upgrade-dependencies.md) | Beginner–Intermediate | 45 min |
+| [Remediate Vulnerabilities](remediate-vulnerabilities.md) | Intermediate | 60 min |
+| [Shift Left Security](shift-left-security.md) | Intermediate–Advanced | 60 min |
+| [Security Antipatterns](security-antipatterns.md) | Intermediate | 45 min |
+| [Secrets Management & Detection](secrets-management-detection.md) | Intermediate | 45 min |
+| [Event-Driven SAST Remediation](event-driven-sast-remediation.md) | Advanced | 90 min |
+| [Mass Security Backlog Remediation](mass-security-backlog-remediation.md) | Advanced | 90 min |
 
 ## Repositories
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet | [SEC1](SEC1.md#app_timesheet), [SEC2](SEC2.md#app_timesheet), [SEC3](SEC3.md#app_timesheet), [SEC4](SEC4.md#app_timesheet), [SEC5](SEC5.md#app_timesheet), [SEC6](SEC6.md#app_timesheet), [SEC7](SEC7.md#app_timesheet) |
-| Online-Banking-System-using-Java | [SEC4](SEC4.md#online-banking-system-using-java) |
-| uc-cve-remediation-regulatory-compliance | [SEC1](SEC1.md#uc-cve-remediation-regulatory-compliance), [SEC2](SEC2.md#uc-cve-remediation-regulatory-compliance), [SEC3](SEC3.md#uc-cve-remediation-regulatory-compliance), [SEC4](SEC4.md#uc-cve-remediation-regulatory-compliance), [SEC5](SEC5.md#uc-cve-remediation-regulatory-compliance), [SEC6](SEC6.md#uc-cve-remediation-regulatory-compliance), [SEC7](SEC7.md#uc-cve-remediation-regulatory-compliance) |
-| uc-framework-upgrade-monolith-to-microservices | [SEC5](SEC5.md#uc-framework-upgrade-monolith-to-microservices) |
+| app_timesheet | [Upgrade Dependencies](upgrade-dependencies.md), [Remediate Vulnerabilities](remediate-vulnerabilities.md), [Shift Left Security](shift-left-security.md), [Security Antipatterns](security-antipatterns.md), [Secrets Management & Detection](secrets-management-detection.md), [Event-Driven SAST Remediation](event-driven-sast-remediation.md), [Mass Security Backlog Remediation](mass-security-backlog-remediation.md) |
+| Online-Banking-System-using-Java | [Security Antipatterns](security-antipatterns.md) |
+| uc-cve-remediation-regulatory-compliance | [Upgrade Dependencies](upgrade-dependencies.md), [Remediate Vulnerabilities](remediate-vulnerabilities.md), [Shift Left Security](shift-left-security.md), [Security Antipatterns](security-antipatterns.md), [Secrets Management & Detection](secrets-management-detection.md), [Event-Driven SAST Remediation](event-driven-sast-remediation.md), [Mass Security Backlog Remediation](mass-security-backlog-remediation.md) |
+| uc-framework-upgrade-monolith-to-microservices | [Secrets Management & Detection](secrets-management-detection.md) |
 
 ## When to Use This Category
 
 - Security-conscious audiences (AppSec, DevSecOps teams)
-- Workshops demonstrating Devin's ability to interpret CVE databases and SAST output
-- Paired with Category A for a "quality + security" half-day workshop
-- SEC5 covers secrets management — a common compliance requirement across industries
-- SEC6 and SEC7 are **enterprise demo modules** — event-driven SAST remediation and mass backlog remediation with agent orchestration
-- See the [Enterprise Demo Track](../../events/enterprise-demo-track/README.md) for a lab sequence using SEC6 + SEC7 + MM11
+- Workshops showing Devin's ability to interpret CVE databases and SAST output
+- Paired with Quality Engineering for a "quality + security" half-day workshop
+- Secrets Management & Detection covers a common compliance requirement across industries
+- Event-Driven SAST Remediation and Mass Security Backlog Remediation are **enterprise modules** — agent orchestration at organizational scale
+- See the [Enterprise Demo Track](../../events/enterprise-demo-track/README.md) for a lab sequence using these advanced modules
 - The `uc-cve-remediation-regulatory-compliance` repo was specifically curated for these challenges (Spring Boot 2.6.3 with known vulnerable dependencies)
