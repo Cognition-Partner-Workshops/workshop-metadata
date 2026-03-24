@@ -42,66 +42,8 @@ workshop-metadata/
 ├── catalog/
 │   └── repos.md                           ← master repo inventory + cross-refs
 ├── modules/                               ← challenge instructions by category
-│   ├── README.md                          ← navigation index for all 78 modules
-│   ├── quality-engineering/
-│   │   ├── README.md                      ← category overview
-│   │   ├── linting-static-analysis.md
-│   │   ├── unit-testing.md
-│   │   ├── end-to-end-testing.md
-│   │   ├── inline-documentation.md
-│   │   ├── code-refactoring-tech-debt.md
-│   │   ├── performance-testing.md
-│   │   ├── accessibility-compliance.md
-│   │   ├── document-review-automation.md
-│   │   ├── bdd-test-generation.md
-│   │   ├── architecture-decision-records.md
-│   │   ├── api-design-review.md
-│   │   ├── dependency-graph-analysis.md
-│   │   ├── contract-testing.md
-│   │   ├── mutation-testing.md
-│   │   ├── load-testing-benchmarking.md
-│   │   ├── visual-regression-testing.md
-│   │   ├── runbook-generation.md
-│   │   ├── onboarding-guide-generation.md
-│   │   └── changelog-release-notes.md
-│   ├── security/
-│   │   ├── README.md
-│   │   ├── upgrade-dependencies.md
-│   │   ├── remediate-vulnerabilities.md
-│   │   ├── shift-left-security.md
-│   │   ├── security-antipatterns.md
-│   │   ├── secrets-management-detection.md
-│   │   ├── event-driven-sast-remediation.md
-│   │   ├── mass-security-backlog-remediation.md
-│   │   ├── license-compliance-audit.md
-│   │   ├── gdpr-pii-detection.md
-│   │   └── regulatory-reporting.md
-│   ├── migration-modernization/
-│   │   ├── README.md
-│   │   ├── cobol-to-java.md
-│   │   ├── framework-upgrade.md
-│   │   ├── containerization-microservice-extraction.md
-│   │   ├── api-consolidation.md
-│   │   ├── cloud-native-refactor.md
-│   │   ├── iac-translation.md
-│   │   ├── dw-migration-teradata-to-snowflake.md
-│   │   ├── data-source-migration.md
-│   │   ├── repetitive-framework-upgrades.md
-│   │   ├── legacy-modernization-combined.md
-│   │   ├── one-shot-tech-debt-remediation.md
-│   │   ├── cobol-system-understanding.md
-│   │   ├── cobol-migration-planning.md
-│   │   ├── migration-test-harness.md
-│   │   ├── dotnet-monolith-decomposition.md
-│   │   ├── cross-service-integration-testing.md
-│   │   ├── cross-service-bug-investigation.md
-│   │   ├── oracle-forms-system-understanding.md
-│   │   ├── oracle-forms-migration-planning.md
-│   │   ├── oracle-forms-to-java.md
-│   │   ├── etl-pipeline-modernization.md
-│   │   ├── data-quality-validation.md
-│   │   └── sas-to-python-snowflake.md
-│   ├── feature-development/
+│   ├── README.md                          ← navigation index for all 77 modules
+│   ├── application-development/           ← Software Developer, Full-Stack Engineer
 │   │   ├── README.md
 │   │   ├── gather-requirements.md
 │   │   ├── test-driven-development.md
@@ -109,27 +51,99 @@ workshop-metadata/
 │   │   ├── fix-ui-bug.md
 │   │   ├── fix-data-bug.md
 │   │   ├── new-feature-development.md
-│   │   ├── api-documentation.md
-│   │   ├── database-schema-evolution.md
-│   │   ├── ml-pipeline-setup.md
-│   │   ├── model-evaluation-testing.md
-│   │   └── llm-integration-patterns.md
-│   ├── devops-automation/
+│   │   └── database-schema-evolution.md
+│   ├── testing-qa/                        ← QA Engineer, SDET, Test Automation Engineer
+│   │   ├── README.md
+│   │   ├── linting-static-analysis.md
+│   │   ├── unit-testing.md
+│   │   ├── end-to-end-testing.md
+│   │   ├── performance-testing.md
+│   │   ├── accessibility-compliance.md
+│   │   ├── bdd-test-generation.md
+│   │   ├── contract-testing.md
+│   │   ├── mutation-testing.md
+│   │   ├── load-testing-benchmarking.md
+│   │   ├── visual-regression-testing.md
+│   │   └── cross-service-integration-testing.md
+│   ├── security/                          ← Security Engineer, AppSec Engineer
+│   │   ├── README.md
+│   │   ├── upgrade-dependencies.md
+│   │   ├── remediate-vulnerabilities.md
+│   │   ├── shift-left-security.md
+│   │   ├── security-antipatterns.md
+│   │   ├── secrets-management-detection.md
+│   │   ├── event-driven-sast-remediation.md
+│   │   └── mass-security-backlog-remediation.md
+│   ├── compliance-governance/             ← Compliance Officer, GRC Analyst
+│   │   ├── README.md
+│   │   ├── license-compliance-audit.md
+│   │   ├── gdpr-pii-detection.md
+│   │   └── regulatory-reporting.md
+│   ├── devops-cicd/                       ← DevOps Engineer, Release Engineer
 │   │   ├── README.md
 │   │   ├── cicd-pipeline.md
-│   │   ├── observability-monitoring.md
 │   │   ├── pr-review-automation.md
 │   │   ├── ci-failure-resolution.md
 │   │   ├── release-management.md
-│   │   ├── incident-response-triage.md
-│   │   ├── configuration-management-feature-flags.md
+│   │   └── configuration-management-feature-flags.md
+│   ├── cloud-infrastructure/              ← Cloud Engineer, Platform Engineer
+│   │   ├── README.md
+│   │   ├── iac-translation.md
 │   │   ├── platform-conformant-microservice-decomposition.md
-│   │   ├── pod-remediation-credential-rotation.md
-│   │   ├── volume-anomaly-detection.md
 │   │   ├── gitops-argocd-setup.md
 │   │   ├── kubernetes-manifest-generation.md
 │   │   ├── terraform-module-extraction.md
 │   │   └── cost-optimization-analysis.md
+│   ├── observability-sre/                 ← SRE, Observability Engineer
+│   │   ├── README.md
+│   │   ├── observability-monitoring.md
+│   │   ├── incident-response-triage.md
+│   │   ├── pod-remediation-credential-rotation.md
+│   │   └── volume-anomaly-detection.md
+│   ├── data-engineering/                  ← Data Engineer, Analytics Engineer
+│   │   ├── README.md
+│   │   ├── dw-migration-teradata-to-snowflake.md
+│   │   ├── data-source-migration.md
+│   │   ├── etl-pipeline-modernization.md
+│   │   ├── data-quality-validation.md
+│   │   └── sas-to-python-snowflake.md
+│   ├── architecture-design/               ← Solution Architect, Enterprise Architect
+│   │   ├── README.md
+│   │   ├── architecture-decision-records.md
+│   │   ├── api-design-review.md
+│   │   ├── dependency-graph-analysis.md
+│   │   ├── api-consolidation.md
+│   │   └── code-refactoring-tech-debt.md
+│   ├── ai-ml-engineering/                 ← ML Engineer, AI Engineer
+│   │   ├── README.md
+│   │   ├── ml-pipeline-setup.md
+│   │   ├── model-evaluation-testing.md
+│   │   └── llm-integration-patterns.md
+│   ├── technical-documentation/           ← Technical Writer, Documentation Engineer
+│   │   ├── README.md
+│   │   ├── inline-documentation.md
+│   │   ├── api-documentation.md
+│   │   ├── document-review-automation.md
+│   │   ├── runbook-generation.md
+│   │   ├── onboarding-guide-generation.md
+│   │   └── changelog-release-notes.md
+│   ├── migration-modernization/           ← Modernization Specialist, Migration Lead
+│   │   ├── README.md
+│   │   ├── cobol-to-java.md
+│   │   ├── cobol-system-understanding.md
+│   │   ├── cobol-migration-planning.md
+│   │   ├── migration-test-harness.md
+│   │   ├── framework-upgrade.md
+│   │   ├── repetitive-framework-upgrades.md
+│   │   ├── containerization-microservice-extraction.md
+│   │   ├── cloud-native-refactor.md
+│   │   ├── legacy-modernization-combined.md
+│   │   ├── one-shot-tech-debt-remediation.md
+│   │   ├── dotnet-monolith-decomposition.md
+│   │   ├── cross-service-bug-investigation.md
+│   │   ├── oracle-forms-system-understanding.md
+│   │   ├── oracle-forms-migration-planning.md
+│   │   └── oracle-forms-to-java.md
 │   └── devin-features/
 │       └── README.md                      ← Devin-specific activities checklist
 ├── workshops/                             ← reusable workshop templates
@@ -162,16 +176,23 @@ workshop-metadata/
     └── facilitator-guide.md
 ```
 
-## Module Categories (78 modules)
+## Module Categories (77 modules across 12 disciplines)
 
-| Category | Count | Focus Areas |
-|----------|-------|-------------|
-| [Quality Engineering](modules/quality-engineering/) | 19 | Linting, testing, documentation, refactoring, performance, accessibility, contract testing, mutation testing, ADRs |
-| [Security](modules/security/) | 10 | Dependency upgrades, vulnerability remediation, SAST, secrets management, license compliance, GDPR/PII |
-| [Migration & Modernization](modules/migration-modernization/) | 23 | COBOL, Oracle Forms, framework upgrades, containerization, data migration, .NET decomposition, ETL, SAS |
-| [Feature Development](modules/feature-development/) | 11 | Requirements, TDD, bug fixing, new features, API docs, schema evolution, AI/ML, LLM integration |
-| [DevOps & Automation](modules/devops-automation/) | 14 | CI/CD, observability, PR review, incident response, platform engineering, GitOps, Terraform, K8s |
-| [Devin Features](modules/devin-features/) | 1 | Cross-cutting Devin platform activities checklist |
+| Category | Count | Discipline / Job Title |
+|----------|-------|----------------------|
+| [Application Development](modules/application-development/) | 7 | Software Developer, Full-Stack Engineer |
+| [Testing & QA](modules/testing-qa/) | 11 | QA Engineer, SDET, Test Automation Engineer |
+| [Security](modules/security/) | 7 | Security Engineer, AppSec Engineer |
+| [Compliance & Governance](modules/compliance-governance/) | 3 | Compliance Officer, GRC Analyst |
+| [DevOps & CI/CD](modules/devops-cicd/) | 5 | DevOps Engineer, Release Engineer |
+| [Cloud & Infrastructure](modules/cloud-infrastructure/) | 6 | Cloud Engineer, Platform Engineer |
+| [Observability & SRE](modules/observability-sre/) | 4 | SRE, Observability Engineer |
+| [Data Engineering](modules/data-engineering/) | 5 | Data Engineer, Analytics Engineer |
+| [Architecture & Design](modules/architecture-design/) | 5 | Solution Architect, Enterprise Architect |
+| [AI & ML Engineering](modules/ai-ml-engineering/) | 3 | ML Engineer, AI Engineer |
+| [Technical Documentation](modules/technical-documentation/) | 6 | Technical Writer, Documentation Engineer |
+| [Migration & Modernization](modules/migration-modernization/) | 15 | Modernization Specialist, Migration Lead |
+| [Devin Features](modules/devin-features/) | 1 | Cross-cutting Devin platform activities |
 
 Browse all modules: [modules/README.md](modules/README.md)
 

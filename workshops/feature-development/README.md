@@ -7,7 +7,7 @@
 | **Focus** | Building new features on existing applications — requirements through implementation and testing |
 | **Duration** | 1-2 hours |
 | **Audience** | Full-stack developers, product engineers, development teams |
-| **Key Modules** | [Gather Requirements](../../modules/feature-development/gather-requirements.md), [Test-Driven Development](../../modules/feature-development/test-driven-development.md), [New Feature Development](../../modules/feature-development/new-feature-development.md), [API Documentation](../../modules/feature-development/api-documentation.md), [Database Schema Evolution](../../modules/feature-development/database-schema-evolution.md) |
+| **Key Modules** | [Gather Requirements](../../modules/application-development/gather-requirements.md), [Test-Driven Development](../../modules/application-development/test-driven-development.md), [New Feature Development](../../modules/application-development/new-feature-development.md), [API Documentation](../../modules/technical-documentation/api-documentation.md), [Database Schema Evolution](../../modules/application-development/database-schema-evolution.md) |
 
 ## Workshop Narrative
 
@@ -17,7 +17,7 @@ Feature development is the most common daily activity for development teams. Thi
 
 ### Lab 1 — Full-Stack CRUD Feature
 
-- **Module:** [New Feature Development](../../modules/feature-development/new-feature-development.md)
+- **Module:** [New Feature Development](../../modules/application-development/new-feature-development.md)
 - **Repositories:**
   - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
   - [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) — Spring Boot loan service (alternative)

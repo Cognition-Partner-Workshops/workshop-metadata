@@ -75,7 +75,7 @@ Once Devin opens a PR from step 1, focus your review on the **testing story**:
 - *"The integration test between the monolith and microservice should verify the full request-response cycle, not just connectivity"*
 - *"Add a data reconciliation report that shows row counts and checksum comparisons between legacy and modern tables"*
 
-See the full challenge details for [Legacy Modernization Combined](../../modules/migration-modernization/legacy-modernization-combined.md) for more ideas — each phase can also be explored individually via [COBOL to Java](../../modules/migration-modernization/cobol-to-java.md), [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md)/[Containerization & Microservice Extraction](../../modules/migration-modernization/containerization-microservice-extraction.md), and [Data Source Migration](../../modules/migration-modernization/data-source-migration.md).
+See the full challenge details for [Legacy Modernization Combined](../../modules/migration-modernization/legacy-modernization-combined.md) for more ideas — each phase can also be explored individually via [COBOL to Java](../../modules/migration-modernization/cobol-to-java.md), [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md)/[Containerization & Microservice Extraction](../../modules/migration-modernization/containerization-microservice-extraction.md), and [Data Source Migration](../../modules/data-engineering/data-source-migration.md).
 
 - **Key Takeaways:**
   - **"Modernization is a pipeline, not a single step"** — legacy code → new stack → microservices → modern data source, each phase validated with tests
@@ -163,7 +163,7 @@ See the full challenge details for [Repetitive Framework Upgrades](../../modules
 
 ### Lab 3 — Data Source Migration: Rewrite + Reconnect + Test (60 min)
 
-- **Module:** [Data Source Migration](../../modules/migration-modernization/data-source-migration.md)
+- **Module:** [Data Source Migration](../../modules/data-engineering/data-source-migration.md)
 - **Repository:** [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern)
 - **Objective:** Take an existing loan management app connected to a legacy data warehouse (all-VARCHAR, denormalized, cryptic column names), rewrite it to a modern normalized schema, rewire the app to point to the new data source, and prove correctness with comprehensive testing
 
@@ -212,7 +212,7 @@ Once Devin opens a PR from step 1, focus your review on the **testing and valida
 - *"The date parsing doesn't handle two-digit years — please fix and add a test case"*
 - *"Add a data reconciliation report that shows row counts, field checksums, and any mismatches between legacy and modern tables"*
 
-See the full challenge details for [Data Source Migration](../../modules/migration-modernization/data-source-migration.md) for more ideas.
+See the full challenge details for [Data Source Migration](../../modules/data-engineering/data-source-migration.md) for more ideas.
 
 - **Key Takeaways:**
   - **"Rewrite + reconnect + test"** — data source migration is not just schema work; the application must be rewired and the entire pipeline must be validated
@@ -232,7 +232,7 @@ See the full challenge details for [Data Source Migration](../../modules/migrati
 
 ### Lab 4 — New Feature Development (45 min, as time permits)
 
-- **Module:** [New Feature Development](../../modules/feature-development/new-feature-development.md)
+- **Module:** [New Feature Development](../../modules/application-development/new-feature-development.md)
 - **Repositories:**
   - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
   - [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) — Spring Boot loan service (alternative)
@@ -270,7 +270,7 @@ Once Devin opens a PR from step 1, practice the feedback loop:
 - **Leave a comment on the PR** asking Devin to add validation, error handling, or additional test cases
 - **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
 
-See the full challenge details for [New Feature Development](../../modules/feature-development/new-feature-development.md) for more ideas.
+See the full challenge details for [New Feature Development](../../modules/application-development/new-feature-development.md) for more ideas.
 
 - **Key Takeaways:**
   - **"Devin follows existing patterns"** — it analyzes the codebase's conventions before implementing, producing code that fits the existing architecture
@@ -291,8 +291,8 @@ Participants may also attempt any challenge from the full [module catalog](../..
 | Challenge | Module | Repo | Difficulty | Time |
 |-----------|--------|------|-----------|------|
 | CVE Remediation | [SEC1-SEC4](../../modules/security/README.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
-| DW Migration: Teradata → Snowflake | [DW Migration: Teradata to Snowflake](../../modules/migration-modernization/dw-migration-teradata-to-snowflake.md) | uc-dw-migration-teradata-to-snowflake | Intermediate | 60 min |
-| Unit Testing | [Unit Testing](../../modules/quality-engineering/unit-testing.md) | Any | Beginner | 30 min |
+| DW Migration: Teradata → Snowflake | [DW Migration: Teradata to Snowflake](../../modules/data-engineering/dw-migration-teradata-to-snowflake.md) | uc-dw-migration-teradata-to-snowflake | Intermediate | 60 min |
+| Unit Testing | [Unit Testing](../../modules/testing-qa/unit-testing.md) | Any | Beginner | 30 min |
 | COBOL System Understanding | [COBOL System Understanding](../../modules/migration-modernization/cobol-system-understanding.md) | uc-legacy-modernization-cobol-to-java | Advanced | 60 min |
 
 ## Repos Required on Devin's Machine

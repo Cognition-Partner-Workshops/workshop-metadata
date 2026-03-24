@@ -36,7 +36,7 @@ Two halves, each with 2 structured labs:
 ## Featured Labs
 
 ### Lab 1 — Linting & Unit Testing (45 min)
-- **Modules:** [Linting & Static Analysis](../../modules/quality-engineering/linting-static-analysis.md) + [Unit Testing](../../modules/quality-engineering/unit-testing.md)
+- **Modules:** [Linting & Static Analysis](../../modules/testing-qa/linting-static-analysis.md) + [Unit Testing](../../modules/testing-qa/unit-testing.md)
 - **Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 - **Objective:** Start by resolving linting issues (GitHub Issue #3), then improve unit test coverage and generate a coverage report
 - **Target Outcomes:**
@@ -46,7 +46,7 @@ Two halves, each with 2 structured labs:
   - PR with linting fixes and new tests
 
 ### Lab 2 — E2E Testing & Documentation (45 min)
-- **Modules:** [End-to-End Testing](../../modules/quality-engineering/end-to-end-testing.md) + [Inline Documentation](../../modules/quality-engineering/inline-documentation.md)
+- **Modules:** [End-to-End Testing](../../modules/testing-qa/end-to-end-testing.md) + [Inline Documentation](../../modules/technical-documentation/inline-documentation.md)
 - **Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
 - **Alternative E2E repo:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com) (for participants wanting a more complex target)
 - **Objective:** Write and run E2E tests against the locally running application, then improve inline documentation across the codebase
@@ -93,9 +93,9 @@ Participants who finish early may attempt any challenge from the full [module ca
 
 | Challenge | Module | Repo | Difficulty | Time |
 |-----------|--------|------|-----------|------|
-| New Feature Development | [New Feature Development](../../modules/feature-development/new-feature-development.md) | app_timesheet | Intermediate | 60 min |
-| Fix UI Bug | [Fix UI Bug](../../modules/feature-development/fix-ui-bug.md) | app_timesheet | Intermediate | 45 min |
-| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-automation/cicd-pipeline.md) | app_timesheet | Intermediate | 60 min |
+| New Feature Development | [New Feature Development](../../modules/application-development/new-feature-development.md) | app_timesheet | Intermediate | 60 min |
+| Fix UI Bug | [Fix UI Bug](../../modules/application-development/fix-ui-bug.md) | app_timesheet | Intermediate | 45 min |
+| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | app_timesheet | Intermediate | 60 min |
 
 ---
 

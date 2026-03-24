@@ -143,7 +143,7 @@ Participants who finish early may attempt any challenge from the full [module ca
 |-----------|--------|------|-----------|------|
 | Shift Left Security (build on Lab 1) | [Shift Left Security](../../modules/security/shift-left-security.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
 | Repetitive Framework Upgrades (scale Lab 3) | [Repetitive Framework Upgrades](../../modules/migration-modernization/repetitive-framework-upgrades.md) | Multiple repos | Intermediate | 60 min |
-| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-automation/cicd-pipeline.md) | app_timesheet | Intermediate | 45 min |
+| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | app_timesheet | Intermediate | 45 min |
 
 ---
 

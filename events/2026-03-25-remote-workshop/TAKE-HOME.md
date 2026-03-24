@@ -153,7 +153,7 @@ Once Devin opens a PR from step 1:
 
 ## Lab 4 — DW Migration: Teradata → Snowflake (60 min)
 
-- **Module:** [DW Migration: Teradata to Snowflake](../../modules/migration-modernization/dw-migration-teradata-to-snowflake.md#uc-dw-migration-teradata-to-snowflake)
+- **Module:** [DW Migration: Teradata to Snowflake](../../modules/data-engineering/dw-migration-teradata-to-snowflake.md#uc-dw-migration-teradata-to-snowflake)
 - **Repository:** [uc-dw-migration-teradata-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake)
 - **Objective:** A Teradata-based data warehouse needs to be migrated to Snowflake. Convert DDL/DML, build a migration runbook, and set up validation
 
@@ -186,7 +186,7 @@ Once Devin opens a PR from step 1:
   - *"Generate validation queries that compare row counts and checksums between Teradata and Snowflake"*
 - Try leaving inline feedback on specific SQL statements to see how Devin handles dialect-level corrections
 
-See the full challenge details in [DW Migration: Teradata to Snowflake](../../modules/migration-modernization/dw-migration-teradata-to-snowflake.md) for more ideas — the repo includes a complete [Teradata features reference](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake/blob/initial-code/docs/teradata_features_reference.md) with Snowflake equivalents.
+See the full challenge details in [DW Migration: Teradata to Snowflake](../../modules/data-engineering/dw-migration-teradata-to-snowflake.md) for more ideas — the repo includes a complete [Teradata features reference](https://github.com/Cognition-Partner-Workshops/uc-dw-migration-teradata-to-snowflake/blob/initial-code/docs/teradata_features_reference.md) with Snowflake equivalents.
 
 ### Target Outcomes (any of these count)
 

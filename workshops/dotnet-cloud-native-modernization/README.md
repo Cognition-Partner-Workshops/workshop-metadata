@@ -7,7 +7,7 @@
 | **Focus** | Progressive modernization of a monolithic .NET system to Kubernetes-hosted cloud-native APIs on EKS |
 | **Duration** | 2.5-3 hours (configurable — see Duration Variants below) |
 | **Audience** | .NET developers, solution architects, platform engineers, modernization teams |
-| **Key Modules** | [.NET Monolith Decomposition](../../modules/migration-modernization/dotnet-monolith-decomposition.md), [Cross-Service Integration Testing](../../modules/migration-modernization/cross-service-integration-testing.md), [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md) |
+| **Key Modules** | [.NET Monolith Decomposition](../../modules/migration-modernization/dotnet-monolith-decomposition.md), [Cross-Service Integration Testing](../../modules/testing-qa/cross-service-integration-testing.md), [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md) |
 
 ## Workshop Narrative
 
@@ -80,7 +80,7 @@ Review both PRs. Ask Devin to add circuit breaker logic, health checks, or impro
 
 ### Lab 2 — Integration Testing Between Monolith & Microservice (45 min)
 
-- **Module:** [Cross-Service Integration Testing](../../modules/migration-modernization/cross-service-integration-testing.md)
+- **Module:** [Cross-Service Integration Testing](../../modules/testing-qa/cross-service-integration-testing.md)
 - **Repositories:** Same as Lab 1
 - **Objective:** Write integration tests that validate the HTTP contract between the monolith and extracted Order service
 - **Duration:** 45 min
