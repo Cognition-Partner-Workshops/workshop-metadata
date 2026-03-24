@@ -7,7 +7,6 @@
 | **Date** | 2026-04-02 |
 | **Location** | Washington, DC |
 | **Duration** | ~4 hours (4 labs + breaks) |
-| **Event Site** | https://partner-workshops.devinenterprise.com |
 
 ## How These Labs Work
 
