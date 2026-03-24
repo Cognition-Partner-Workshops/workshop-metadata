@@ -7,7 +7,7 @@
 | **Focus** | Testing, documentation, code review automation, and quality assurance |
 | **Duration** | 2-4 hours |
 | **Audience** | QA engineers, test leads, development teams focused on quality |
-| **Key Modules** | [Linting & Static Analysis](../../modules/quality-engineering/linting-static-analysis.md) through [BDD Test Generation](../../modules/quality-engineering/bdd-test-generation.md) |
+| **Key Modules** | [Linting & Static Analysis](../../modules/testing-qa/linting-static-analysis.md) through [BDD Test Generation](../../modules/testing-qa/bdd-test-generation.md) |
 
 ## Workshop Narrative
 
@@ -17,7 +17,7 @@ Quality engineering encompasses everything from unit testing to E2E testing, fro
 
 ### Lab 1 — Unit & Integration Testing
 
-- **Modules:** [Unit Testing](../../modules/quality-engineering/unit-testing.md) + [End-to-End Testing](../../modules/quality-engineering/end-to-end-testing.md)
+- **Modules:** [Unit Testing](../../modules/testing-qa/unit-testing.md) + [End-to-End Testing](../../modules/testing-qa/end-to-end-testing.md)
 - **Repository:** Any application repo
 - **Objective:** Generate comprehensive unit tests and integration tests for an existing codebase
 - **Duration:** 60 min
@@ -46,7 +46,7 @@ Open the repo's DeepWiki page. Try generating property-based tests, mutation tes
 
 ### Lab 2 — Code Review & Documentation
 
-- **Modules:** [Code Refactoring & Tech Debt](../../modules/quality-engineering/code-refactoring-tech-debt.md) + [Inline Documentation](../../modules/quality-engineering/inline-documentation.md)
+- **Modules:** [Code Refactoring & Tech Debt](../../modules/architecture-design/code-refactoring-tech-debt.md) + [Inline Documentation](../../modules/technical-documentation/inline-documentation.md)
 - **Repository:** Any application repo
 - **Objective:** Automate code review and generate documentation for an existing codebase
 - **Duration:** 45 min

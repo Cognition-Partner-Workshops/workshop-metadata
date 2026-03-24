@@ -29,8 +29,8 @@ Reusable workshop definitions that can be instantiated as events. Each workshop 
 | [Security & Compliance](security-compliance/) | CVE remediation, SAST, shift-left security | 1-2 hours | 1-3 | SEC1-SEC7 |
 | [Platform Microservice Decomposition](platform-microservice-decomposition/) | Monolith → platform-conformant microservices with IaC | 1.5-2 hours | 1 | DA8 |
 | [Agentic AI](agentic-ai/) | Multi-agent systems, document processing, anomaly detection | 2-4 hours | 2-4 | DA9, DA10, QE8, QE9 |
-| [Feature Development](feature-development/) | New features on existing applications | 1-2 hours | 1-2 | FD1-FD8 |
-| [Quality Engineering](quality-engineering/) | Testing, documentation, code review automation | 2-4 hours | 2-4 | QE1-QE9 |
+| [Feature Development](feature-development/) | New features on existing applications | 1-2 hours | 1-2 | Application Development modules |
+| [Quality Engineering](quality-engineering/) | Testing, documentation, code review automation | 2-4 hours | 2-4 | Testing & QA modules |
 
 ## Creating a New Workshop
 

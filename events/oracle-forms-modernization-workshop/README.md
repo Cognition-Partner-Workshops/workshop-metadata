@@ -199,7 +199,7 @@ Participants who finish early or want to go deeper may attempt:
 | COBOL Modernization (parallel track) | [COBOL to Java](../../modules/migration-modernization/cobol-to-java.md) | uc-legacy-modernization-cobol-to-java | Intermediate–Advanced | 60 min |
 | Combined Modernization | [Legacy Modernization Combined](../../modules/migration-modernization/legacy-modernization-combined.md) | Multiple repos | Advanced | 60 min |
 | Framework Upgrade (Java 11 → 17) | [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 60 min |
-| Data Source Migration | [Data Source Migration](../../modules/migration-modernization/data-source-migration.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
+| Data Source Migration | [Data Source Migration](../../modules/data-engineering/data-source-migration.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
 
 ---
 
