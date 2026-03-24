@@ -53,7 +53,7 @@ Four labs that build on each other in a progressive arc:
 
 ### Lab 1 — System Understanding & Reverse Engineering (60 min)
 
-- **Module:** [MM12 — COBOL System Understanding & Reverse Engineering](../../modules/migration-modernization/MM12.md)
+- **Module:** [COBOL System Understanding & Reverse Engineering](../../modules/migration-modernization/cobol-system-understanding.md)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Objective:** Produce a complete system inventory, data dictionary, dependency map, and hotspot report for a COBOL mainframe application
 
@@ -84,7 +84,7 @@ Four labs that build on each other in a progressive arc:
 
 ### Lab 2 — Migration Planning & Domain Decomposition (60 min)
 
-- **Module:** [MM13 — COBOL Migration Planning & Domain Decomposition](../../modules/migration-modernization/MM13.md)
+- **Module:** [COBOL Migration Planning & Domain Decomposition](../../modules/migration-modernization/cobol-migration-planning.md)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Objective:** Produce a modernization blueprint with strategy options, domain decomposition, phased cutover plan, and risk register
 
@@ -115,7 +115,7 @@ Four labs that build on each other in a progressive arc:
 
 ### Lab 3 — Migration Test Harness & Validation Strategy (60 min)
 
-- **Module:** [MM14 — Migration Test Harness & Validation Strategy](../../modules/migration-modernization/MM14.md)
+- **Module:** [Migration Test Harness & Validation Strategy](../../modules/migration-modernization/migration-test-harness.md)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Objective:** Design and implement a test harness that validates migration correctness — golden files, differential testing, batch reconciliation, and contract tests
 
@@ -146,7 +146,7 @@ Four labs that build on each other in a progressive arc:
 
 ### Lab 4 — COBOL to Java Code Migration (60 min)
 
-- **Module:** [MM1 — COBOL to Java](../../modules/migration-modernization/MM1.md)
+- **Module:** [COBOL to Java](../../modules/migration-modernization/cobol-to-java.md)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
 - **Objective:** Translate selected COBOL programs to Java 17+ with parity tests that validate against the golden files and reconciliation checks from Lab 3
 
@@ -176,7 +176,7 @@ Four labs that build on each other in a progressive arc:
 
 ## Accelerated Variant
 
-For shorter workshops (2 hours), use [MM10 — Legacy Modernization Combined](../../modules/migration-modernization/MM10.md) which compresses the migration execution into a multi-phase hands-on alongside framework upgrade and data source migration. Pair with a 30-minute abbreviated version of Lab 1 (system understanding only) for context.
+For shorter workshops (2 hours), use [Legacy Modernization Combined](../../modules/migration-modernization/legacy-modernization-combined.md) which compresses the migration execution into a multi-phase hands-on alongside framework upgrade and data source migration. Pair with a 30-minute abbreviated version of Lab 1 (system understanding only) for context.
 
 | Duration | Recommended Format |
 |----------|-------------------|
@@ -193,10 +193,10 @@ Participants who finish early or want to go deeper may attempt:
 
 | Challenge | Module | Repo | Difficulty | Time |
 |-----------|--------|------|-----------|------|
-| Combined Modernization (COBOL + Framework + Data) | [MM10](../../modules/migration-modernization/MM10.md) | Multiple repos | Advanced | 60 min |
-| Framework Upgrade (Java 11 → 17) | [MM2](../../modules/migration-modernization/MM2.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 60 min |
-| Data Source Migration | [MM8](../../modules/migration-modernization/MM8.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
-| One-Shot Tech Debt Remediation | [MM11](../../modules/migration-modernization/MM11.md) | uc-framework-upgrade-monolith-to-microservices | Advanced | 75 min |
+| Combined Modernization (COBOL + Framework + Data) | [Legacy Modernization Combined](../../modules/migration-modernization/legacy-modernization-combined.md) | Multiple repos | Advanced | 60 min |
+| Framework Upgrade (Java 11 → 17) | [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md) | uc-framework-upgrade-monolith-to-microservices | Intermediate | 60 min |
+| Data Source Migration | [Data Source Migration](../../modules/migration-modernization/data-source-migration.md) | uc-data-source-migration-legacy-to-modern | Intermediate | 60 min |
+| One-Shot Tech Debt Remediation | [One-Shot Tech Debt Remediation](../../modules/migration-modernization/one-shot-tech-debt-remediation.md) | uc-framework-upgrade-monolith-to-microservices | Advanced | 75 min |
 
 ---
 

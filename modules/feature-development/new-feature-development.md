@@ -1,0 +1,127 @@
+# New Feature Development
+
+## Repositories
+
+- [app_timesheet](#app_timesheet)
+- [uc-data-source-migration-legacy-to-modern](#uc-data-source-migration-legacy-to-modern)
+- [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
+
+---
+
+## Challenge
+
+Develop a new feature for an existing application — from requirements through implementation, testing, and PR creation. This exercises Devin's ability to understand an existing codebase and add functionality that fits the existing architecture.
+
+## Target Outcomes
+
+- New feature implemented following existing code conventions and architecture
+- Unit tests and/or integration tests for the new feature
+- Database schema changes (if needed) with migration scripts
+- PR with clear description of what was added and why
+
+## What Participants Will Learn
+
+- How Devin analyzes existing code patterns before implementing new features
+- How Devin handles full-stack changes (database + API + UI)
+- The importance of clear, specific requirements in prompts
+- How Devin creates tests for new functionality
+
+## Devin Features Exercised
+
+- Codebase analysis and pattern matching
+- Full-stack implementation (backend + frontend)
+- Test generation
+- Database schema design
+- PR creation with feature documentation
+
+## Difficulty
+
+Intermediate to Advanced
+
+## Estimated Time
+
+60 minutes
+
+## Notes
+
+- This challenge requires strong prompt engineering — the more specific the requirements, the better the output
+- Encourage participants to use AskDevin first to gather requirements and scope the feature
+- Good follow-up: have another participant review the PR using Devin's PR review capabilities
+
+---
+
+## <a id="app_timesheet"></a>app_timesheet
+
+**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+
+React + Node.js/Express full-stack application — add a new CRUD feature, management page, or API endpoint with UI.
+
+### Step 1: Paste into Devin
+
+> Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
+
+### Step 2: Research with Ask Devin
+
+- *"What patterns do the existing CRUD features (clients, work entries) follow in app_timesheet? What conventions should a new feature match?"*
+- *"What database migration approach does the app use? How should I add a new table?"*
+
+### Step 3 (Optional): Read the DeepWiki
+
+Open the repo's DeepWiki page to understand the existing feature patterns. The new feature should follow the same conventions for routing, state management, API design, and database schema.
+
+### Step 4 (Optional): Review & Give Feedback
+
+- **Review the diff** — does the new feature match the existing code style and patterns?
+- **Leave a comment** asking Devin to add validation for the project dates or status transitions
+
+---
+
+## <a id="uc-data-source-migration-legacy-to-modern"></a>uc-data-source-migration-legacy-to-modern
+
+**Repository:** [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern)
+
+Spring Boot loan service — add new API endpoints, filtering, pagination, or reporting capabilities.
+
+### Step 1: Paste into Devin
+
+> Add a loan payment history API to uc-data-source-migration-legacy-to-modern. Create a new endpoint GET /api/loans/:id/payments that returns a paginated list of payment records for a given loan. Include filtering by date range and payment type. Add proper error handling for invalid loan IDs. Write JUnit tests for the new endpoint. Open a PR.
+
+### Step 2: Research with Ask Devin
+
+- *"What API patterns does the existing loan service follow? What conventions should new endpoints match?"*
+- *"What pagination pattern is used — offset-based or cursor-based? Which is better for this use case?"*
+
+### Step 3 (Optional): Read the DeepWiki
+
+Open the repo's DeepWiki page to understand the existing API contracts and data model. Ensure the new endpoint follows the same patterns.
+
+### Step 4 (Optional): Review & Give Feedback
+
+- **Review the diff** — does the pagination implementation follow REST best practices?
+- **Leave a comment** asking Devin to add sorting options to the payment history endpoint
+
+---
+
+## <a id="uc-framework-upgrade-monolith-to-microservices"></a>uc-framework-upgrade-monolith-to-microservices
+
+**Repository:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
+
+Spring Boot RealWorld app — add new API endpoints or enhance existing ones with additional functionality.
+
+### Step 1: Paste into Devin
+
+> Add an "article statistics" feature to uc-framework-upgrade-monolith-to-microservices. Create a new endpoint GET /api/articles/:slug/stats that returns: view count, favorite count, comment count, and days since published. Add a GET /api/stats/trending endpoint that returns the top 10 most-favorited articles in the last 7 days. Write tests for both endpoints. Open a PR.
+
+### Step 2: Research with Ask Devin
+
+- *"What data is available in the existing schema to support article statistics? Do we need new tables or can we derive from existing data?"*
+- *"How do the existing article endpoints handle authentication — should stats be public or require auth?"*
+
+### Step 3 (Optional): Read the DeepWiki
+
+Open the repo's DeepWiki page to understand the article domain model and existing API surface. Identify how to compute statistics from existing data.
+
+### Step 4 (Optional): Review & Give Feedback
+
+- **Review the diff** — is the stats computation efficient? Would it cause performance issues at scale?
+- **Leave a comment** asking Devin to add caching for the trending endpoint

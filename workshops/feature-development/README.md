@@ -7,7 +7,7 @@
 | **Focus** | Building new features on existing applications — requirements through implementation and testing |
 | **Duration** | 1-2 hours |
 | **Audience** | Full-stack developers, product engineers, development teams |
-| **Key Modules** | [FD1](../../modules/feature-development/FD1.md), [FD2](../../modules/feature-development/FD2.md), [FD6](../../modules/feature-development/FD6.md), [FD7](../../modules/feature-development/FD7.md), [FD8](../../modules/feature-development/FD8.md) |
+| **Key Modules** | [Gather Requirements](../../modules/feature-development/gather-requirements.md), [Test-Driven Development](../../modules/feature-development/test-driven-development.md), [New Feature Development](../../modules/feature-development/new-feature-development.md), [API Documentation](../../modules/feature-development/api-documentation.md), [Database Schema Evolution](../../modules/feature-development/database-schema-evolution.md) |
 
 ## Workshop Narrative
 
@@ -17,7 +17,7 @@ Feature development is the most common daily activity for development teams. Thi
 
 ### Lab 1 — Full-Stack CRUD Feature
 
-- **Module:** [FD6 — New Feature Development](../../modules/feature-development/FD6.md)
+- **Module:** [New Feature Development](../../modules/feature-development/new-feature-development.md)
 - **Repositories:**
   - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
   - [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) — Spring Boot loan service (alternative)
@@ -25,7 +25,7 @@ Feature development is the most common daily activity for development teams. Thi
 - **Objective:** Build a new feature from requirements through implementation and testing
 - **Duration:** 60 min
 
-#### Step 1: Get Started Fast (copy-paste this prompt into Devin)
+#### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 Choose one:
 
@@ -38,16 +38,16 @@ Choose one:
 **Option C — Spring Boot API (RealWorld app):**
 > Add an "article statistics" feature to uc-framework-upgrade-monolith-to-microservices. Create GET /api/articles/:slug/stats (view count, favorite count, comment count, days since published) and GET /api/stats/trending (top 10 most-favorited in last 7 days). Write tests. Open a PR.
 
-#### Step 2: Level Up with AskDevin
+#### Step 2: Research with Ask Devin
 
 - *"What patterns do the existing features follow? What conventions should a new feature match?"*
 - *"What database migration approach does the app use?"*
 
-#### Step 3: Explore with DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's DeepWiki page. Try adding validation rules, frontend tests, audit logging, or API documentation.
 
-#### Step 4: Review the PR and Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 - Review for code style consistency with existing patterns
 - Ask Devin to add validation, error handling, or additional test cases

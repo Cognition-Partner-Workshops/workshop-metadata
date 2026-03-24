@@ -283,7 +283,7 @@ For the full version with bonus challenges, see [platform-microservice-decomposi
 | Resource | Link |
 |----------|------|
 | Full 90-min event | [platform-microservice-decomposition](../platform-microservice-decomposition/) |
-| Core module | [DA8 — Platform-Conformant Microservice Decomposition](../../modules/devops-automation/DA8.md) |
+| Core module | [Platform-Conformant Microservice Decomposition](../../modules/devops-automation/platform-conformant-microservice-decomposition.md) |
 | Workshop template | [workshops/platform-microservice-decomposition](../../workshops/platform-microservice-decomposition/) |
 | Facilitator guide | [shared/facilitator-guide.md](../../shared/facilitator-guide.md) |
 | Devin Features Appendix | [modules/devin-features](../../modules/devin-features/README.md) |

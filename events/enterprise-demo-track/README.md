@@ -46,17 +46,17 @@ Three labs that build on each other in a progressive arc:
 
 ### Lab 1 — Event-Driven SAST Remediation (90 min)
 
-- **Module:** [SEC6 — Event-Driven SAST Remediation](../../modules/security/SEC6.md)
+- **Module:** [Event-Driven SAST Remediation](../../modules/security/event-driven-sast-remediation.md)
 - **Repositories:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) and [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** Build a GitHub Actions workflow where SAST tools scan PRs from non-Devin authors and automatically trigger a Devin session to remediate findings
 
-#### What to Demo
+#### What to Try
 
 1. **Show the existing pattern:** Walk through `app_timesheet`'s `sonar-devin-fix.yml` workflow to show how Devin is already integrated into CI for auto-remediation
 2. **Build the pipeline:** Have Devin create a new `sast-auto-remediate.yml` workflow on `uc-cve-remediation-regulatory-compliance` that scans PRs and calls the Devin API when findings exceed a severity threshold
 3. **Trigger it live:** Open a PR as a human user, watch the SAST scan run, see Devin automatically start remediating, and observe the re-scan passing
 
-#### Key Talking Points
+#### Key Takeaways
 
 - **"Devin as a background agent"** — Devin isn't a tool someone opens; it's an agent that responds to events
 - **"Closed-loop verification"** — the same CI that found the problem verifies the fix
@@ -74,11 +74,11 @@ Three labs that build on each other in a progressive arc:
 
 ### Lab 2 — Mass Security Backlog Remediation with Agent Orchestration (90 min)
 
-- **Module:** [SEC7 — Mass Security Backlog Remediation](../../modules/security/SEC7.md)
+- **Module:** [Mass Security Backlog Remediation](../../modules/security/mass-security-backlog-remediation.md)
 - **Repositories:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) and [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** Demonstrate enterprise-scale remediation: one parent Devin session triages a consolidated SAST report and launches parallel child sessions to remediate 2 repos simultaneously
 
-#### What to Demo
+#### What to Try
 
 1. **Generate the backlog:** Run SAST scans on both repos to produce a consolidated findings report (or use the output from Lab 1)
 2. **Parent session — triage:** Give Devin the consolidated report and have it create a `SECURITY_BACKLOG.md` with all findings organized by severity and repo
@@ -86,7 +86,7 @@ Three labs that build on each other in a progressive arc:
 4. **Show parallel execution:** Both sessions running simultaneously, each working on its assigned repo
 5. **Consolidate results:** After both sessions complete, review the PRs and the consolidated `REMEDIATION_SUMMARY.md`
 
-#### Key Talking Points
+#### Key Takeaways
 
 - **"Agent orchestration"** — a parent agent that plans and delegates to child agents
 - **"Scoped context"** — each child session gets only the information it needs
@@ -105,11 +105,11 @@ Three labs that build on each other in a progressive arc:
 
 ### Lab 3 — One-Shot Tech Debt Remediation via Long-Term Reasoning (75 min)
 
-- **Module:** [MM11 — One-Shot Tech Debt Remediation](../../modules/migration-modernization/MM11.md)
+- **Module:** [One-Shot Tech Debt Remediation](../../modules/migration-modernization/one-shot-tech-debt-remediation.md)
 - **Repository:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) or [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** Demonstrate that a single, well-engineered prompt can achieve 80-90% completion of a major tech debt remediation — with provable results and honest acknowledgement of testing gaps
 
-#### What to Demo
+#### What to Try
 
 1. **The prompt IS the engineering:** Spend 10 minutes showing participants the structured prompt with its 5 elements (scope, execution order, proof requirements, testing gap acknowledgement, exit criteria)
 2. **Submit and observe:** Submit the prompt to Devin and watch the long-running session execute step by step
@@ -117,7 +117,7 @@ Three labs that build on each other in a progressive arc:
 4. **Review the deliverables:** When the PR opens, review `MIGRATION_PROOF.md` (before/after metrics) and `TESTING_GAPS.md` (what Devin couldn't verify)
 5. **Compare across participants:** If multiple participants are running the same prompt, compare completion rates
 
-#### Key Talking Points
+#### Key Takeaways
 
 - **"Prompt engineering for complex tasks"** — the quality of the output is proportional to the quality of the input
 - **"Provable deliverables"** — demanding proof in the prompt produces better results than reviewing after the fact
@@ -141,9 +141,9 @@ Participants who finish early may attempt any challenge from the full [module ca
 
 | Challenge | Module | Repo | Difficulty | Time |
 |-----------|--------|------|-----------|------|
-| Shift Left Security (build on Lab 1) | [SEC3](../../modules/security/SEC3.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
-| Repetitive Framework Upgrades (scale Lab 3) | [MM9](../../modules/migration-modernization/MM9.md) | Multiple repos | Intermediate | 60 min |
-| CI/CD Pipeline | [DA1](../../modules/devops-automation/DA1.md) | app_timesheet | Intermediate | 45 min |
+| Shift Left Security (build on Lab 1) | [Shift Left Security](../../modules/security/shift-left-security.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
+| Repetitive Framework Upgrades (scale Lab 3) | [Repetitive Framework Upgrades](../../modules/migration-modernization/repetitive-framework-upgrades.md) | Multiple repos | Intermediate | 60 min |
+| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-automation/cicd-pipeline.md) | app_timesheet | Intermediate | 45 min |
 
 ---
 
