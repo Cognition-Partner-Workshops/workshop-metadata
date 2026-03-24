@@ -14,6 +14,9 @@ Challenges focused on requirements gathering, test-driven development, bug fixin
 | [New Feature Development](new-feature-development.md) | Intermediate–Advanced | 60 min |
 | [API Documentation](api-documentation.md) | Intermediate | 45 min |
 | [Database Schema Evolution](database-schema-evolution.md) | Intermediate | 45 min |
+| [ML Pipeline Setup](ml-pipeline-setup.md) | Advanced | 75 min |
+| [Model Evaluation & Testing](model-evaluation-testing.md) | Advanced | 60 min |
+| [LLM Integration Patterns](llm-integration-patterns.md) | Intermediate–Advanced | 60 min |
 
 ## Repositories
 

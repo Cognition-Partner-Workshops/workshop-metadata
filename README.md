@@ -42,7 +42,7 @@ workshop-metadata/
 ├── catalog/
 │   └── repos.md                           ← master repo inventory + cross-refs
 ├── modules/                               ← challenge instructions by category
-│   ├── README.md                          ← navigation index for all 56 modules
+│   ├── README.md                          ← navigation index for all 78 modules
 │   ├── quality-engineering/
 │   │   ├── README.md                      ← category overview
 │   │   ├── linting-static-analysis.md
@@ -53,7 +53,17 @@ workshop-metadata/
 │   │   ├── performance-testing.md
 │   │   ├── accessibility-compliance.md
 │   │   ├── document-review-automation.md
-│   │   └── bdd-test-generation.md
+│   │   ├── bdd-test-generation.md
+│   │   ├── architecture-decision-records.md
+│   │   ├── api-design-review.md
+│   │   ├── dependency-graph-analysis.md
+│   │   ├── contract-testing.md
+│   │   ├── mutation-testing.md
+│   │   ├── load-testing-benchmarking.md
+│   │   ├── visual-regression-testing.md
+│   │   ├── runbook-generation.md
+│   │   ├── onboarding-guide-generation.md
+│   │   └── changelog-release-notes.md
 │   ├── security/
 │   │   ├── README.md
 │   │   ├── upgrade-dependencies.md
@@ -62,7 +72,10 @@ workshop-metadata/
 │   │   ├── security-antipatterns.md
 │   │   ├── secrets-management-detection.md
 │   │   ├── event-driven-sast-remediation.md
-│   │   └── mass-security-backlog-remediation.md
+│   │   ├── mass-security-backlog-remediation.md
+│   │   ├── license-compliance-audit.md
+│   │   ├── gdpr-pii-detection.md
+│   │   └── regulatory-reporting.md
 │   ├── migration-modernization/
 │   │   ├── README.md
 │   │   ├── cobol-to-java.md
@@ -81,7 +94,13 @@ workshop-metadata/
 │   │   ├── migration-test-harness.md
 │   │   ├── dotnet-monolith-decomposition.md
 │   │   ├── cross-service-integration-testing.md
-│   │   └── cross-service-bug-investigation.md
+│   │   ├── cross-service-bug-investigation.md
+│   │   ├── oracle-forms-system-understanding.md
+│   │   ├── oracle-forms-migration-planning.md
+│   │   ├── oracle-forms-to-java.md
+│   │   ├── etl-pipeline-modernization.md
+│   │   ├── data-quality-validation.md
+│   │   └── sas-to-python-snowflake.md
 │   ├── feature-development/
 │   │   ├── README.md
 │   │   ├── gather-requirements.md
@@ -91,7 +110,10 @@ workshop-metadata/
 │   │   ├── fix-data-bug.md
 │   │   ├── new-feature-development.md
 │   │   ├── api-documentation.md
-│   │   └── database-schema-evolution.md
+│   │   ├── database-schema-evolution.md
+│   │   ├── ml-pipeline-setup.md
+│   │   ├── model-evaluation-testing.md
+│   │   └── llm-integration-patterns.md
 │   ├── devops-automation/
 │   │   ├── README.md
 │   │   ├── cicd-pipeline.md
@@ -103,7 +125,11 @@ workshop-metadata/
 │   │   ├── configuration-management-feature-flags.md
 │   │   ├── platform-conformant-microservice-decomposition.md
 │   │   ├── pod-remediation-credential-rotation.md
-│   │   └── volume-anomaly-detection.md
+│   │   ├── volume-anomaly-detection.md
+│   │   ├── gitops-argocd-setup.md
+│   │   ├── kubernetes-manifest-generation.md
+│   │   ├── terraform-module-extraction.md
+│   │   └── cost-optimization-analysis.md
 │   └── devin-features/
 │       └── README.md                      ← Devin-specific activities checklist
 ├── workshops/                             ← reusable workshop templates
@@ -136,15 +162,15 @@ workshop-metadata/
     └── facilitator-guide.md
 ```
 
-## Module Categories (56 modules)
+## Module Categories (78 modules)
 
 | Category | Count | Focus Areas |
 |----------|-------|-------------|
-| [Quality Engineering](modules/quality-engineering/) | 9 | Linting, testing, documentation, refactoring, performance, accessibility, BDD |
-| [Security](modules/security/) | 7 | Dependency upgrades, vulnerability remediation, SAST, secrets management |
-| [Migration & Modernization](modules/migration-modernization/) | 17 | COBOL, framework upgrades, containerization, data migration, .NET decomposition |
-| [Feature Development](modules/feature-development/) | 8 | Requirements, TDD, bug fixing, new features, API docs, schema evolution |
-| [DevOps & Automation](modules/devops-automation/) | 10 | CI/CD, observability, PR review, incident response, platform engineering |
+| [Quality Engineering](modules/quality-engineering/) | 19 | Linting, testing, documentation, refactoring, performance, accessibility, contract testing, mutation testing, ADRs |
+| [Security](modules/security/) | 10 | Dependency upgrades, vulnerability remediation, SAST, secrets management, license compliance, GDPR/PII |
+| [Migration & Modernization](modules/migration-modernization/) | 23 | COBOL, Oracle Forms, framework upgrades, containerization, data migration, .NET decomposition, ETL, SAS |
+| [Feature Development](modules/feature-development/) | 11 | Requirements, TDD, bug fixing, new features, API docs, schema evolution, AI/ML, LLM integration |
+| [DevOps & Automation](modules/devops-automation/) | 14 | CI/CD, observability, PR review, incident response, platform engineering, GitOps, Terraform, K8s |
 | [Devin Features](modules/devin-features/) | 1 | Cross-cutting Devin platform activities checklist |
 
 Browse all modules: [modules/README.md](modules/README.md)

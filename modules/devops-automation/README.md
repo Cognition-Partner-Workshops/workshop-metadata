@@ -16,6 +16,10 @@ Challenges focused on CI/CD, observability, PR review, failure resolution, relea
 | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) | Advanced | 75 min |
 | [Pod Remediation After Credential Rotation](pod-remediation-credential-rotation.md) | Advanced | 60 min |
 | [Volume Anomaly Detection](volume-anomaly-detection.md) | Intermediate–Advanced | 60 min |
+| [GitOps & ArgoCD Setup](gitops-argocd-setup.md) | Advanced | 75 min |
+| [Kubernetes Manifest Generation](kubernetes-manifest-generation.md) | Intermediate–Advanced | 60 min |
+| [Terraform Module Extraction](terraform-module-extraction.md) | Intermediate–Advanced | 60 min |
+| [Cost Optimization Analysis](cost-optimization-analysis.md) | Intermediate | 45 min |
 
 ## Repositories
 
@@ -30,6 +34,8 @@ Challenges focused on CI/CD, observability, PR review, failure resolution, relea
 | app_dotnet-angular-monolith-iac | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) (context) |
 | uc-pod-remediation-credential-rotation | [Pod Remediation After Credential Rotation](pod-remediation-credential-rotation.md) |
 | uc-volume-anomaly-detection | [Volume Anomaly Detection](volume-anomaly-detection.md) |
+| hosting-client-timesheet-app | [Terraform Module Extraction](terraform-module-extraction.md), [Cost Optimization Analysis](cost-optimization-analysis.md) |
+| cal.com-infra | [Cost Optimization Analysis](cost-optimization-analysis.md) |
 
 ## When to Use This Category
 

@@ -13,11 +13,11 @@ All hands-on modules organized by SDLC domain. Each module is a self-contained c
 
 | Category | Focus | Modules |
 |----------|-------|---------|
-| [Quality Engineering](quality-engineering/) | Testing, linting, documentation, refactoring, accessibility | 9 modules |
-| [Security](security/) | Dependency upgrades, vulnerability remediation, SAST, secrets | 7 modules |
-| [Migration & Modernization](migration-modernization/) | Language migration, framework upgrades, containerization, data migration | 17 modules |
-| [Feature Development](feature-development/) | Requirements, TDD, bug fixing, new features, API docs, schema evolution | 8 modules |
-| [DevOps & Automation](devops-automation/) | CI/CD, observability, PR review, incident response, platform engineering | 10 modules |
+| [Quality Engineering](quality-engineering/) | Testing, linting, documentation, refactoring, accessibility | 19 modules |
+| [Security](security/) | Dependency upgrades, vulnerability remediation, SAST, secrets, compliance | 10 modules |
+| [Migration & Modernization](migration-modernization/) | Language migration, framework upgrades, containerization, data migration | 23 modules |
+| [Feature Development](feature-development/) | Requirements, TDD, bug fixing, new features, API docs, AI/ML | 11 modules |
+| [DevOps & Automation](devops-automation/) | CI/CD, observability, PR review, incident response, platform engineering | 14 modules |
 | [Devin Features](devin-features/) | Cross-cutting Devin platform activities checklist | 1 reference |
 
 ---
@@ -37,6 +37,16 @@ All hands-on modules organized by SDLC domain. Each module is a self-contained c
 | [Accessibility Compliance](quality-engineering/accessibility-compliance.md) | Intermediate | 45 min | app_timesheet, cal.com |
 | [Document Review Automation](quality-engineering/document-review-automation.md) | Intermediate | 45 min | uc-document-review-automation |
 | [BDD Test Generation](quality-engineering/bdd-test-generation.md) | Intermediate | 60 min | uc-bdd-test-generation-rest-api, ts-swagger-petstore |
+| [Architecture Decision Records](quality-engineering/architecture-decision-records.md) | Intermediate | 45 min | Multiple repos |
+| [API Design Review](quality-engineering/api-design-review.md) | Intermediate | 45 min | Multiple repos |
+| [Dependency Graph Analysis](quality-engineering/dependency-graph-analysis.md) | Intermediate–Advanced | 60 min | Multiple repos |
+| [Contract Testing](quality-engineering/contract-testing.md) | Intermediate–Advanced | 60 min | app_petclinic-microservices, app_dotnet_angular_containerized_decomposition_microservices |
+| [Mutation Testing](quality-engineering/mutation-testing.md) | Intermediate–Advanced | 60 min | Multiple repos |
+| [Load Testing & Benchmarking](quality-engineering/load-testing-benchmarking.md) | Intermediate–Advanced | 60 min | Multiple repos |
+| [Visual Regression Testing](quality-engineering/visual-regression-testing.md) | Intermediate | 45 min | Multiple repos |
+| [Runbook Generation](quality-engineering/runbook-generation.md) | Intermediate | 45 min | platform-engineering-shared-services, app_eventflow-infra |
+| [Onboarding Guide Generation](quality-engineering/onboarding-guide-generation.md) | Intermediate | 45 min | Multiple repos |
+| [Changelog & Release Notes](quality-engineering/changelog-release-notes.md) | Beginner–Intermediate | 30 min | Multiple repos |
 
 ### Security
 
@@ -49,6 +59,9 @@ All hands-on modules organized by SDLC domain. Each module is a self-contained c
 | [Secrets Management & Detection](security/secrets-management-detection.md) | Intermediate | 45 min | app_timesheet, uc-cve-remediation-regulatory-compliance, uc-framework-upgrade-monolith-to-microservices |
 | [Event-Driven SAST Remediation](security/event-driven-sast-remediation.md) | Advanced | 90 min | app_timesheet, uc-cve-remediation-regulatory-compliance |
 | [Mass Security Backlog Remediation](security/mass-security-backlog-remediation.md) | Advanced | 90 min | app_timesheet, uc-cve-remediation-regulatory-compliance |
+| [License Compliance Audit](security/license-compliance-audit.md) | Intermediate | 45 min | Multiple repos |
+| [GDPR/PII Detection](security/gdpr-pii-detection.md) | Intermediate–Advanced | 60 min | Multiple repos |
+| [Regulatory Reporting](security/regulatory-reporting.md) | Intermediate | 45 min | Multiple repos |
 
 ### Migration & Modernization
 
@@ -71,6 +84,12 @@ All hands-on modules organized by SDLC domain. Each module is a self-contained c
 | [.NET Monolith Decomposition](migration-modernization/dotnet-monolith-decomposition.md) | Intermediate–Advanced | 75 min | app_dotnet_angular_containerized_decomposition_monolith, app_dotnet_angular_containerized_decomposition_microservices |
 | [Cross-Service Integration Testing](migration-modernization/cross-service-integration-testing.md) | Intermediate | 45 min | app_dotnet_angular_containerized_decomposition_monolith, app_dotnet_angular_containerized_decomposition_microservices |
 | [Cross-Service Bug Investigation](migration-modernization/cross-service-bug-investigation.md) | Intermediate | 45 min | app_dotnet_angular_containerized_decomposition_microservices |
+| [Oracle Forms System Understanding](migration-modernization/oracle-forms-system-understanding.md) | Intermediate | 60 min | ts-plsql-oracle-forms-legacy-codebase |
+| [Oracle Forms Migration Planning](migration-modernization/oracle-forms-migration-planning.md) | Intermediate–Advanced | 60 min | ts-plsql-oracle-forms-legacy-codebase, uc-legacy-modernization-oracle-forms-to-java |
+| [Oracle Forms to Java](migration-modernization/oracle-forms-to-java.md) | Intermediate–Advanced | 60 min | ts-plsql-oracle-forms-legacy-codebase, uc-legacy-modernization-oracle-forms-to-java |
+| [ETL Pipeline Modernization](migration-modernization/etl-pipeline-modernization.md) | Intermediate–Advanced | 60 min | uc-dw-migration-teradata-to-snowflake |
+| [Data Quality & Validation](migration-modernization/data-quality-validation.md) | Intermediate | 45 min | uc-dw-migration-teradata-to-snowflake |
+| [SAS to Python/Snowflake](migration-modernization/sas-to-python-snowflake.md) | Intermediate–Advanced | 60 min | Multiple repos |
 
 ### Feature Development
 
@@ -84,6 +103,9 @@ All hands-on modules organized by SDLC domain. Each module is a self-contained c
 | [New Feature Development](feature-development/new-feature-development.md) | Intermediate–Advanced | 60 min | app_timesheet, uc-framework-upgrade-monolith-to-microservices, uc-data-source-migration-legacy-to-modern |
 | [API Documentation](feature-development/api-documentation.md) | Intermediate | 45 min | app_timesheet, uc-framework-upgrade-monolith-to-microservices, uc-data-source-migration-legacy-to-modern |
 | [Database Schema Evolution](feature-development/database-schema-evolution.md) | Intermediate | 45 min | app_timesheet, uc-framework-upgrade-monolith-to-microservices, uc-data-source-migration-legacy-to-modern |
+| [ML Pipeline Setup](feature-development/ml-pipeline-setup.md) | Advanced | 75 min | Multiple repos |
+| [Model Evaluation & Testing](feature-development/model-evaluation-testing.md) | Advanced | 60 min | Multiple repos |
+| [LLM Integration Patterns](feature-development/llm-integration-patterns.md) | Intermediate–Advanced | 60 min | Multiple repos |
 
 ### DevOps & Automation
 
@@ -99,6 +121,10 @@ All hands-on modules organized by SDLC domain. Each module is a self-contained c
 | [Platform-Conformant Microservice Decomposition](devops-automation/platform-conformant-microservice-decomposition.md) | Advanced | 75 min | app_dotnet-angular-monolith, app_dotnet-angular-microservices, platform-engineering-shared-services |
 | [Pod Remediation After Credential Rotation](devops-automation/pod-remediation-credential-rotation.md) | Advanced | 60 min | uc-pod-remediation-credential-rotation |
 | [Volume Anomaly Detection](devops-automation/volume-anomaly-detection.md) | Intermediate–Advanced | 60 min | uc-volume-anomaly-detection |
+| [GitOps & ArgoCD Setup](devops-automation/gitops-argocd-setup.md) | Advanced | 75 min | Multiple repos |
+| [Kubernetes Manifest Generation](devops-automation/kubernetes-manifest-generation.md) | Intermediate–Advanced | 60 min | Multiple repos |
+| [Terraform Module Extraction](devops-automation/terraform-module-extraction.md) | Intermediate–Advanced | 60 min | hosting-client-timesheet-app |
+| [Cost Optimization Analysis](devops-automation/cost-optimization-analysis.md) | Intermediate | 45 min | hosting-client-timesheet-app, cal.com-infra |
 
 ---
 

@@ -13,6 +13,9 @@ Challenges focused on dependency management, vulnerability remediation, security
 | [Secrets Management & Detection](secrets-management-detection.md) | Intermediate | 45 min |
 | [Event-Driven SAST Remediation](event-driven-sast-remediation.md) | Advanced | 90 min |
 | [Mass Security Backlog Remediation](mass-security-backlog-remediation.md) | Advanced | 90 min |
+| [License Compliance Audit](license-compliance-audit.md) | Intermediate | 45 min |
+| [GDPR/PII Detection](gdpr-pii-detection.md) | Intermediate–Advanced | 60 min |
+| [Regulatory Reporting](regulatory-reporting.md) | Intermediate | 45 min |
 
 ## Repositories
 
@@ -21,7 +24,7 @@ Challenges focused on dependency management, vulnerability remediation, security
 | app_timesheet | [Upgrade Dependencies](upgrade-dependencies.md), [Remediate Vulnerabilities](remediate-vulnerabilities.md), [Shift Left Security](shift-left-security.md), [Security Antipatterns](security-antipatterns.md), [Secrets Management & Detection](secrets-management-detection.md), [Event-Driven SAST Remediation](event-driven-sast-remediation.md), [Mass Security Backlog Remediation](mass-security-backlog-remediation.md) |
 | Online-Banking-System-using-Java | [Security Antipatterns](security-antipatterns.md) |
 | uc-cve-remediation-regulatory-compliance | [Upgrade Dependencies](upgrade-dependencies.md), [Remediate Vulnerabilities](remediate-vulnerabilities.md), [Shift Left Security](shift-left-security.md), [Security Antipatterns](security-antipatterns.md), [Secrets Management & Detection](secrets-management-detection.md), [Event-Driven SAST Remediation](event-driven-sast-remediation.md), [Mass Security Backlog Remediation](mass-security-backlog-remediation.md) |
-| uc-framework-upgrade-monolith-to-microservices | [Secrets Management & Detection](secrets-management-detection.md) |
+| uc-framework-upgrade-monolith-to-microservices | [Secrets Management & Detection](secrets-management-detection.md), [License Compliance Audit](license-compliance-audit.md) |
 
 ## When to Use This Category
 

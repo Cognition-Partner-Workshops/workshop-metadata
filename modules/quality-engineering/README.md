@@ -15,6 +15,16 @@ Challenges focused on code quality, testing, documentation, refactoring, perform
 | [Accessibility Compliance](accessibility-compliance.md) | Intermediate | 45 min |
 | [Document Review Automation](document-review-automation.md) | Intermediate | 45 min |
 | [BDD Test Generation](bdd-test-generation.md) | Intermediate | 60 min |
+| [Architecture Decision Records](architecture-decision-records.md) | Intermediate | 45 min |
+| [API Design Review](api-design-review.md) | Intermediate | 45 min |
+| [Dependency Graph Analysis](dependency-graph-analysis.md) | Intermediate–Advanced | 60 min |
+| [Contract Testing](contract-testing.md) | Intermediate–Advanced | 60 min |
+| [Mutation Testing](mutation-testing.md) | Intermediate–Advanced | 60 min |
+| [Load Testing & Benchmarking](load-testing-benchmarking.md) | Intermediate–Advanced | 60 min |
+| [Visual Regression Testing](visual-regression-testing.md) | Intermediate | 45 min |
+| [Runbook Generation](runbook-generation.md) | Intermediate | 45 min |
+| [Onboarding Guide Generation](onboarding-guide-generation.md) | Intermediate | 45 min |
+| [Changelog & Release Notes](changelog-release-notes.md) | Beginner–Intermediate | 30 min |
 
 ## Repositories
 
@@ -30,6 +40,10 @@ Challenges focused on code quality, testing, documentation, refactoring, perform
 | uc-document-review-automation | [Document Review Automation](document-review-automation.md) |
 | uc-bdd-test-generation-rest-api | [BDD Test Generation](bdd-test-generation.md) |
 | ts-swagger-petstore | [BDD Test Generation](bdd-test-generation.md) |
+| app_petclinic-microservices | [Contract Testing](contract-testing.md) |
+| app_dotnet_angular_containerized_decomposition_microservices | [Contract Testing](contract-testing.md) |
+| platform-engineering-shared-services | [Runbook Generation](runbook-generation.md) |
+| app_eventflow-infra | [Runbook Generation](runbook-generation.md) |
 
 ## When to Use This Category
 

@@ -26,6 +26,9 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 | [Oracle Forms System Understanding](oracle-forms-system-understanding.md) | Intermediate | 60 min |
 | [Oracle Forms Migration Planning](oracle-forms-migration-planning.md) | Intermediate–Advanced | 60 min |
 | [Oracle Forms to Java](oracle-forms-to-java.md) | Intermediate–Advanced | 60 min |
+| [ETL Pipeline Modernization](etl-pipeline-modernization.md) | Intermediate–Advanced | 60 min |
+| [Data Quality & Validation](data-quality-validation.md) | Intermediate | 45 min |
+| [SAS to Python/Snowflake](sas-to-python-snowflake.md) | Intermediate–Advanced | 60 min |
 
 ## Repositories
 
@@ -46,6 +49,7 @@ Challenges focused on language migrations, framework upgrades, architectural ref
 | uc-legacy-modernization-cobol-to-java | [COBOL to Java](cobol-to-java.md), [Legacy Modernization Combined](legacy-modernization-combined.md), [COBOL System Understanding](cobol-system-understanding.md), [COBOL Migration Planning](cobol-migration-planning.md), [Migration Test Harness](migration-test-harness.md) |
 | ts-plsql-oracle-forms-legacy-codebase | [Oracle Forms System Understanding](oracle-forms-system-understanding.md), [Oracle Forms Migration Planning](oracle-forms-migration-planning.md), [Oracle Forms to Java](oracle-forms-to-java.md) |
 | uc-legacy-modernization-oracle-forms-to-java | [Oracle Forms to Java](oracle-forms-to-java.md), [Oracle Forms Migration Planning](oracle-forms-migration-planning.md), [Migration Test Harness](migration-test-harness.md) |
+| uc-dw-migration-teradata-to-snowflake | [DW Migration: Teradata to Snowflake](dw-migration-teradata-to-snowflake.md), [ETL Pipeline Modernization](etl-pipeline-modernization.md), [Data Quality & Validation](data-quality-validation.md) |
 
 ## When to Use This Category
 
