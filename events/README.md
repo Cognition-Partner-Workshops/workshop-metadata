@@ -37,6 +37,8 @@ events/
 │   └── README.md              ← Based on workshops/security-compliance
 ├── workshop-variant-2/
 │   └── README.md              ← Based on workshops/quality-engineering + workshops/security-compliance
+├── 2026-04-02-dc/
+│   └── README.md              ← DC Pricing BTO Agentic AI workshop
 ├── platform-microservice-decomposition/
 │   └── README.md              ← Based on workshops/platform-microservice-decomposition
 └── YYYY-MM-DD-city/
