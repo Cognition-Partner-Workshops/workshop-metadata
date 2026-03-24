@@ -55,26 +55,24 @@
 
 Create a new Devin session and paste the following prompt. Replace `<participant>` with your name:
 
-> Decompose the Inventory module from `app_dotnet-angular-monolith` into a standalone microservice.
+> Decompose the Inventory module from @Cognition-Partner-Workshops/app_dotnet-angular-monolith into a standalone microservice.
 >
-> Work on branch `workshop-<participant>` in both repos.
+> Work on branch workshop-mason in both repos.
 >
 > Use these repos as context for platform patterns and IaC standards:
-> - `platform-engineering-shared-services` — defines the platform standard (namespaces, network policies, monitoring, ArgoCD)
-> - `app_dotnet-angular-monolith-iac` — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
+> - @Cognition-Partner-Workshops/platform-engineering-shared-services — defines the platform standard (namespaces, network policies, monitoring, ArgoCD)
+> - @Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
 >
 > Deliverables:
-> 1. **New .NET 8 Web API** for the inventory-service with its own models, controllers, services, and EF Core DbContext
-> 2. **Angular 17 frontend components** for inventory management
-> 3. **Dockerfile** — multi-stage build following the pattern in `app_dotnet-angular-monolith-iac/docker/Dockerfile`
-> 4. **Helm chart** — deployment, service, network policy, service monitor, HPA (follow `app_dotnet-angular-monolith-iac/helm/`)
-> 5. **ArgoCD application manifests** for dev and staging (follow `app_dotnet-angular-monolith-iac/argocd/`)
-> 6. **GitHub Actions CI/CD pipeline** — build, test, push to ECR, trigger ArgoCD sync
-> 7. **Monolith refactoring** — replace in-process Inventory calls with an HTTP client that calls the new service
+> - New .NET 8 Web API for the inventory-service with its own models, controllers, services, and EF Core DbContext
+> - Angular 17 frontend components for inventory management
+> - Dockerfile — multi-stage build following the pattern in app_dotnet-angular-monolith-iac/docker/Dockerfile
+> - Helm chart — deployment, service, network policy, service monitor, HPA (follow app_dotnet-angular-monolith-iac/helm/)
+> - ArgoCD application manifests for dev and staging (follow app_dotnet-angular-monolith-iac/argocd/)
+> - GitHub Actions CI/CD pipeline — build, test, push to ECR, trigger ArgoCD sync
+> - Monolith refactoring — replace in-process Inventory calls with an HTTP client that calls the new service
 >
-> Push the new inventory-service code and all service-level IaC to `app_dotnet-angular-microservices` on branch `workshop-<participant>`. Create a PR.
-> Push the monolith refactoring changes to `app_dotnet-angular-monolith` on branch `workshop-<participant>`. Create a PR.
-> Build and test both services locally to verify they work together.
+> Push the new inventory-service code and all service-level IaC to @Cognition-Partner-Workshops/app_dotnet-angular-microservices on branch workshop-mason. Create a PR. Push the monolith refactoring changes to app_dotnet-angular-monolith on branch workshop-mason. Create a PR. Build and test both services locally to verify they work together.
 
 ### Phase 2 — Explore While Devin Works (15 min)
 
