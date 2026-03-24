@@ -1,4 +1,4 @@
-# Workshop: Pricing BTO Agentic AI Workshop — Washington, DC
+# Workshop: Agentic AI Workshop — Washington, DC
 
 ## Event Details
 
@@ -14,7 +14,7 @@ Each lab gives participants a **real-world use case codebase** and a prompt to p
 
 ## Featured Labs
 
-This event features 4 structured labs where Devin tackles Pricing BTO use cases — automated remediation, document review, BDD test generation, and anomaly detection:
+This event features 4 structured labs where Devin tackles use cases — automated remediation, document review, BDD test generation, and anomaly detection:
 
 ### Lab 1 — Automated Remediation of Pod Failures After Password Rotations (60 min)
 - **Module:** [Pod Remediation After Credential Rotation](../../modules/observability-sre/pod-remediation-credential-rotation.md)
@@ -270,9 +270,9 @@ Participants may also attempt any challenge from the full [module catalog](../..
 
 ## Context
 
-- **Audience:** Pricing BTO technology teams — platform engineering, QA, observability, and operations
+- **Audience:** technology teams — platform engineering, QA, observability, and operations
 - **Focus:** Devin as an agentic AI worker — participants prompt Devin with real use cases and watch it autonomously build pipelines, implement algorithms, generate tests, and iterate on PR feedback
-- **Use Cases:** These 4 labs map directly to the Pricing BTO Agentic AI use case proposals (UC1-UC4)
+- **Use Cases:** These 4 labs map directly to the Agentic AI use case proposals (UC1-UC4)
 
 ## Code Adequacy
 
