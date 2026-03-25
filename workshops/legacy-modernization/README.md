@@ -9,6 +9,27 @@
 | **Audience** | Enterprise architects, modernization teams, application portfolio managers |
 | **Tracks** | **COBOL Track** (mainframe → Java) · **Oracle Forms Track** (Forms/PL/SQL → Spring Boot) |
 
+## Before You Begin (First-Time Devin Users)
+
+If this is your first time using Devin, take 5 minutes to orient yourself before starting a lab:
+
+1. **Open the Devin workspace** at your event site URL (provided by your facilitator). You'll see a chat interface where you can give Devin instructions.
+2. **Warm-up exercise** — Before jumping into a full lab, try a quick interaction to get familiar with Devin:
+   - Paste this into a new Devin session: *"What repos do I have access to? Give me a one-paragraph summary of each."*
+   - Watch Devin work in real time via **Session Insights** (the activity panel that shows what Devin is reading, writing, and thinking)
+3. **What to expect while Devin works:**
+   - Complex tasks (like the lab prompts) take **15-45 minutes** — this is normal, not a sign that something is broken
+   - While waiting, explore **DeepWiki** for your track's repo (see Step 3 in any lab), use **Ask Devin** for quick questions (see Step 2), or review the module documentation linked in each lab
+   - You can open multiple Devin sessions in parallel — start Lab 1 and explore DeepWiki at the same time
+4. **How to give feedback on Devin's work:**
+   - When Devin opens a PR, go to the PR on GitHub and **leave comments directly on the code**
+   - Devin reads your PR comments and iterates — this is one of the most powerful workshop interactions
+   - You can also reply in the Devin chat to ask for changes or ask follow-up questions
+
+> **Tip for facilitators:** Consider enabling **Devin's PR Review agent** on `uc-legacy-modernization-oracle-forms-to-java` (for Track B) so that participants see automatic code review on their migration PRs. This demonstrates Devin working as both author and reviewer — a compelling capability for enterprise teams. See [PR Review Recommendation](#pr-review-recommendation) below.
+
+---
+
 ## Workshop Narrative
 
 This workshop follows a progressive modernization arc that applies to **both** legacy platforms:
@@ -276,6 +297,20 @@ Open both repos' DeepWiki pages to understand the legacy architecture and target
 | 2 hours | Single track: Abbreviated Lab 1 (30 min) + Lab 4 (60 min) + discussion |
 | 1 hour | Lab 4 only (code migration) or walkthrough with pre-built artifacts |
 
+## PR Review Recommendation
+
+For the best workshop experience, enable **Devin's automatic PR Review agent** on the following repo:
+
+- **`uc-legacy-modernization-oracle-forms-to-java`** — This is the primary code generation target for Track B (Labs B3 and B4). Participants create PRs with real Java/Spring Boot migration code here, and the PR Review agent will:
+  - Catch bugs in generated migration code (JPA entities, REST controllers, validation logic)
+  - Verify that technical debt fixes were applied correctly (SQL injection, race conditions, MD5 hashing)
+  - Demonstrate Devin working as both code author and code reviewer — a powerful "aha moment" for enterprise teams
+  - Scale review across all workshop participants where human facilitators can't
+
+This repo is the clear choice because it has a pre-existing Maven build system with Spring Boot 3, JPA, and tests that give the review agent a real baseline to validate against. The COBOL repo (`uc-legacy-modernization-cobol-to-java`) also receives many PRs but lacks a pre-existing build system, so review has less to validate against.
+
+---
+
 ## Repos Required
 
 ### Track A (COBOL)
@@ -291,6 +326,13 @@ Open both repos' DeepWiki pages to understand the legacy architecture and target
 
 - [ ] uc-framework-upgrade-monolith-to-microservices
 - [ ] uc-data-source-migration-legacy-to-modern
+
+### Environment Notes
+
+- **Java 17** is required for Track B Lab B4 (Spring Boot 3 project in `uc-legacy-modernization-oracle-forms-to-java/java-target/`). Ensure Devin's machine has Java 17 as the default or that the Maven wrapper selects it automatically.
+- **Python 3.10+** is needed for test harness comparators in Lab B3.
+- **No external runtime needed** — both COBOL and Oracle Forms/PL/SQL analysis is static (no mainframe or Oracle database required).
+- Track A repos have no build system (COBOL is compiled on mainframes) — Devin creates Java project structures from scratch in Lab A4.
 
 ## Key Takeaways
 
