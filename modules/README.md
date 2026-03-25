@@ -13,7 +13,7 @@ All hands-on modules organized by engineering discipline. Each module is a self-
 
 | Category | Discipline / Job Title | Modules |
 |----------|----------------------|---------|
-| [Application Development](application-development/) | Software Developer, Full-Stack Engineer | 7 modules |
+| [Application Development](application-development/) | Software Developer, Full-Stack Engineer | 8 modules |
 | [Testing & QA](testing-qa/) | QA Engineer, SDET, Test Automation Engineer | 11 modules |
 | [Security](security/) | Security Engineer, AppSec Engineer | 7 modules |
 | [Compliance & Governance](compliance-governance/) | Compliance Officer, GRC Analyst | 3 modules |
@@ -36,6 +36,7 @@ All hands-on modules organized by engineering discipline. Each module is a self-
 | Module | Difficulty | Time | Repos |
 |--------|-----------|------|-------|
 | [Gather Requirements](application-development/gather-requirements.md) | Beginner | 30 min | app_timesheet, cal.com |
+| [Greenfield Application Development](application-development/greenfield-application-development.md) | Intermediate | 60 min | *(no repo — Devin builds from scratch)* |
 | [Test-Driven Development](application-development/test-driven-development.md) | Intermediate | 60 min | app_timesheet, uc-framework-upgrade-monolith-to-microservices |
 | [Fix Runtime Bug](application-development/fix-runtime-bug.md) | Intermediate | 45 min | app_timesheet, cal.com, app_eventflow-storefront |
 | [Fix UI Bug](application-development/fix-ui-bug.md) | Beginner–Intermediate | 30 min | app_timesheet |
@@ -183,6 +184,7 @@ Modules are the building blocks. Combine them into workshops:
 | **Platform Engineering** | Platform-Conformant Microservice Decomposition + GitOps & ArgoCD + K8s Manifest Generation | 3 hours |
 | **Testing & Quality** | Linting & Static Analysis → Unit Testing → End-to-End Testing → Contract Testing | 3 hours |
 | **Feature Development** | Gather Requirements → Test-Driven Development → New Feature Development | 3 hours |
+| **Greenfield Development** | Gather Requirements → Greenfield Application Development → Test-Driven Development → New Feature Development | 3 hours |
 | **Agentic AI** | Pod Remediation → Volume Anomaly Detection → Document Review Automation → BDD Test Generation | 4 hours |
 | **.NET Cloud-Native** | .NET Monolith Decomposition → Cross-Service Integration Testing → Cross-Service Bug Investigation | 3 hours |
 | **Data Modernization** | DW Migration: Teradata to Snowflake → ETL Pipeline Modernization → Data Quality & Validation | 3 hours |

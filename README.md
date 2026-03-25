@@ -42,10 +42,11 @@ workshop-metadata/
 ├── catalog/
 │   └── repos.md                           ← master repo inventory + cross-refs
 ├── modules/                               ← challenge instructions by category
-│   ├── README.md                          ← navigation index for all 77 modules
+│   ├── README.md                          ← navigation index for all 78 modules
 │   ├── application-development/           ← Software Developer, Full-Stack Engineer
 │   │   ├── README.md
 │   │   ├── gather-requirements.md
+│   │   ├── greenfield-application-development.md
 │   │   ├── test-driven-development.md
 │   │   ├── fix-runtime-bug.md
 │   │   ├── fix-ui-bug.md
@@ -156,6 +157,7 @@ workshop-metadata/
 │   ├── dotnet-cloud-native-modernization/
 │   ├── agentic-ai/
 │   ├── feature-development/
+│   ├── greenfield-application-development/
 │   └── quality-engineering/
 ├── events/                                ← specific workshop instances
 │   ├── README.md
@@ -176,11 +178,11 @@ workshop-metadata/
     └── facilitator-guide.md
 ```
 
-## Module Categories (77 modules across 12 disciplines)
+## Module Categories (78 modules across 12 disciplines)
 
 | Category | Count | Discipline / Job Title |
 |----------|-------|----------------------|
-| [Application Development](modules/application-development/) | 7 | Software Developer, Full-Stack Engineer |
+| [Application Development](modules/application-development/) | 8 | Software Developer, Full-Stack Engineer |
 | [Testing & QA](modules/testing-qa/) | 11 | QA Engineer, SDET, Test Automation Engineer |
 | [Security](modules/security/) | 7 | Security Engineer, AppSec Engineer |
 | [Compliance & Governance](modules/compliance-governance/) | 3 | Compliance Officer, GRC Analyst |
