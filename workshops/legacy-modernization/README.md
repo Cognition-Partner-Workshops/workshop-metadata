@@ -303,6 +303,17 @@ Open both repos' DeepWiki pages to understand the legacy architecture and target
 - **No external runtime needed** — both COBOL and Oracle Forms/PL/SQL analysis is static (no mainframe or Oracle database required).
 - Track A repos have no build system (COBOL is compiled on mainframes) — Devin creates Java project structures from scratch in Lab A4.
 
+## Sample PR Review
+
+To see what Devin's automated code review looks like on a real migration PR, browse this example:
+
+- **PR:** [Migrate PKG_EMPLOYEE to Spring Boot EmployeeService](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-oracle-forms-to-java/pull/2)
+- **Devin Review:** [Open in Devin Review](https://partner-workshops.devinenterprise.com/review/cognition-partner-workshops/uc-legacy-modernization-oracle-forms-to-java/pull/2)
+
+This PR migrates `PKG_EMPLOYEE` (967 lines of PL/SQL) to a Spring Boot service with REST API, JPA entities, and unit tests. The PR Review agent automatically found bugs including a search filter that silently drops terminated employees, validation annotations that break partial updates, and a required salary field that gets silently discarded.
+
+---
+
 ## Key Takeaways
 
 - **"Time-to-understanding drops from months to hours"** — dependency maps and data dictionaries produced in one session, regardless of the legacy platform
