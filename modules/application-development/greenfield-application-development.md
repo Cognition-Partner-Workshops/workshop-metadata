@@ -105,17 +105,7 @@ DELETE /api/items/:id   → Delete item (return 404 if not found)
 >
 > **Requirements:** Clean separation of frontend and backend. Input validation on both client and server. No external database dependencies — use in-memory storage or SQLite. Include a README with setup instructions. Open a PR with the complete application.
 
-## Step 2: Research with Ask Devin
-
-- *"What tech stack would you recommend for a simple CRUD dashboard — and why?"*
-- *"What are the most common pitfalls when building a full-stack app from scratch? How would you avoid them?"*
-- *"How would you structure the project to make it easy to add new entity types later?"*
-
-## Step 3 (Optional): Read the DeepWiki
-
-After Devin creates the application, open the repo's DeepWiki page to see how Devin auto-documents the architecture of an app it just built. Compare the generated documentation to the original specification.
-
-## Step 4 (Optional): Review & Give Feedback
+## Step 2: Review & Give Feedback
 
 - **Review the PR** — does the data model match the spec? Are all CRUD endpoints working?
 - **Test the status logic** — create items with quantity 0, 5, and 20 and verify the status auto-derives correctly

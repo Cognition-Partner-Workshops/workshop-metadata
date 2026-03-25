@@ -33,16 +33,7 @@ This mirrors how teams increasingly work with AI: provide clear specifications, 
 
 > I need a web-based Operations Dashboard for managing items (inventory, assets, or resources). Users should be able to create, view, update, and delete items. Each item has a name, category, quantity, unit price, and a status that auto-updates based on stock level. Before writing any code, produce: (1) `REQUIREMENTS.md` with detailed functional and non-functional requirements, (2) `DATA_MODEL.md` with entity definitions, field types, constraints, and status derivation rules, (3) `API_DESIGN.md` with REST endpoint contracts including request/response schemas and HTTP status codes, (4) `ARCHITECTURE.md` recommending a tech stack with justification, project structure, and separation of concerns. Open a PR with these planning artifacts.
 
-### Step 2: Research with Ask Devin
-
-- *"What tech stacks are best suited for a simple CRUD dashboard that needs to run locally without external dependencies?"*
-- *"What's the right level of complexity for a production-ready MVP — where do you draw the line between 'good enough' and over-engineering?"*
-
-### Step 3 (Optional): Read the DeepWiki
-
-Not applicable for this lab (no existing repo yet). Use this time to compare requirements from different participants — different Devin sessions may recommend different tech stacks.
-
-### Step 4 (Optional): Review & Give Feedback
+### Step 2: Review & Give Feedback
 
 - Review the data model — are the field types and constraints sensible?
 - Review the API design — does it follow REST conventions?
@@ -69,16 +60,7 @@ Not applicable for this lab (no existing repo yet). Use this time to compare req
 >
 > **Requirements:** Clean separation of frontend and backend. Input validation on both client and server. No external database dependencies — use in-memory storage or SQLite. Include a README with setup instructions. Open a PR with the complete application.
 
-### Step 2: Research with Ask Devin
-
-- *"Walk me through the project structure you created. Why did you organize it this way?"*
-- *"What would need to change to deploy this to production? What's missing?"*
-
-### Step 3 (Optional): Read the DeepWiki
-
-After Devin creates the application, open the repo's DeepWiki page. See how Devin auto-documents the architecture of an app it just built — compare the generated documentation to the original specification.
-
-### Step 4 (Optional): Review & Give Feedback
+### Step 2: Review & Give Feedback
 
 - **Test the app** — run it locally, create items with quantities 0, 5, and 20. Verify status auto-derives correctly.
 - **Review the code** — is there clean separation between frontend and backend? Is the code modular?
@@ -97,16 +79,7 @@ After Devin creates the application, open the repo's DeepWiki page. See how Devi
 
 > Review the Operations Dashboard application you built. Add: (1) Unit tests for all API endpoints — test CRUD operations, validation errors (missing required fields, negative quantity, negative price), and 404 responses for non-existent items. (2) Test the status derivation logic with boundary values (quantity = 0, 1, 10, 11). (3) Add input sanitization — prevent XSS in item names and SQL injection if using a database. (4) Add proper error response format with consistent error messages. Open a PR with the tests and improvements.
 
-### Step 2: Research with Ask Devin
-
-- *"What's the current test coverage? Which code paths are untested?"*
-- *"What are the most common security issues in CRUD applications and how have you addressed them?"*
-
-### Step 3 (Optional): Read the DeepWiki
-
-Open the repo's DeepWiki page to review the test structure. Try asking Devin to add integration tests, performance tests, or accessibility checks.
-
-### Step 4 (Optional): Review & Give Feedback
+### Step 2: Review & Give Feedback
 
 - **Run the tests** — do they all pass? Are the assertions meaningful?
 - **Try breaking things** — submit invalid data through the UI and API. Does the app handle it gracefully?
@@ -134,16 +107,7 @@ Choose one:
 **Option C — Categories Management:**
 > Add a separate "Categories" management feature to the Operations Dashboard. Users should be able to create, edit, and delete categories. The item creation/edit form should use a dropdown populated from the categories list instead of free-text input. Include validation that prevents deleting a category that still has items assigned. Open a PR.
 
-### Step 2: Research with Ask Devin
-
-- *"How extensible is the current architecture? What would need to change to add a completely new entity type?"*
-- *"If this app needed to support multiple users, what changes would be required?"*
-
-### Step 3 (Optional): Read the DeepWiki
-
-Open the repo's DeepWiki page to see how the architecture has evolved after adding the new feature. Compare the before and after documentation.
-
-### Step 4 (Optional): Review & Give Feedback
+### Step 2: Review & Give Feedback
 
 - **Review the diff** — did Devin follow the existing code patterns when adding the new feature?
 - **Test the integration** — does the new feature work correctly with the existing CRUD operations?
