@@ -7,17 +7,18 @@
 | **Date** | 2026-03-13 |
 | **Location** | Washington, DC |
 | **Host Organization** | *(customer)* |
-| **Duration** | ~4 hours (4 labs + breaks) |
+| **Duration** | ~5 hours (5 labs + breaks) |
 | **Event Site** | https://partner-workshops.devinenterprise.com |
 
 ## Featured Labs
 
-This event features 4 labs that follow a progressive modernization narrative:
+This event features 5 labs that follow a progressive modernization narrative:
 
 - Lab 1: **End-to-End Modernization** — Modernize a legacy app into a new tech stack, break it into microservices, migrate the data source, and verify with tests
 - Lab 2: **Framework Upgrades** — Run parallel Angular and Spring Boot upgrades across multiple repos
 - Lab 3: **Data Source Migration & Testing** — Rewrite a legacy data source to a modern schema and rewire the app to use it, with validation testing
 - Lab 4: **New Feature Development** — Build a new feature on an existing application (as time permits)
+- Lab 5: **BDD Test Case Generation** — Generate Cucumber BDD test scenarios for REST APIs and build new API resources with matching Gherkin tests
 
 ### Lab 1 — End-to-End Legacy Modernization: New Tech Stack + Microservices + Data Source (75 min)
 
@@ -284,6 +285,64 @@ See the full challenge details for [New Feature Development](../../modules/appli
   - Frontend UI components for the new feature
   - PR with review comments and Devin's responses
 
+---
+
+### Lab 5 — BDD Test Case Generation for REST APIs (60 min)
+- **Module:** [BDD Test Generation](../../modules/testing-qa/bdd-test-generation.md)
+- **Repository:** [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api)
+- **Objective:** Give Devin a Spring Boot + Cucumber BDD framework and prompt it to generate new test scenarios, build a new API resource, and produce executable Cucumber tests
+
+#### Step 1: Paste into Devin (copy-paste this prompt into Devin)
+
+> Review the uc-bdd-test-generation-rest-api codebase. This is a Spring Boot + Cucumber BDD framework (from RedFroggy, MIT license) with pre-built step definitions for REST API testing. Run `mvn test` to see the 16 existing scenarios pass.
+>
+> Then add new Gherkin feature files that test edge cases for the existing Users API:
+> - `src/test/resources/features/users-edge-cases.feature` covering:
+>   - Creating a user with missing required fields (expect 400)
+>   - Creating a user with duplicate ID (expect 409 or appropriate error)
+>   - Pagination and sorting of the users list
+>   - Input validation (invalid age values, empty name fields)
+>
+> Also create a new `OrderController` in the test application with endpoints for managing orders (linked to users). Write corresponding Gherkin feature files that test the order lifecycle (create, read, update, delete) and cross-resource relationships (e.g., get orders for a specific user). Open a PR.
+
+#### Step 2: Research with Ask Devin
+
+While Devin works on step 1, open **Ask Devin** and explore:
+- *"What Cucumber best practices should be followed for REST API testing — should scenarios be independent or can they share state?"*
+- *"How should authentication be handled in the BDD scenarios — per-scenario setup or shared background?"*
+- *"How can WireMock be used to test failure modes — what happens when the third-party API returns 500, times out, or returns malformed JSON?"*
+- Use the analysis to start a **second session** — have Devin generate tests from a Swagger/OpenAPI spec directly
+
+#### Step 3 (Optional): Read the DeepWiki
+
+Open the repo's **DeepWiki** page to understand the existing Cucumber configuration, step definition patterns, and how the framework maps Gherkin steps to REST API calls. Use what you learn to give Devin more tasks:
+- Have Devin generate **data-driven scenarios** using Cucumber Scenario Outlines with Examples tables
+- Ask Devin to add **negative test scenarios** for authentication failures and rate limiting
+- Try having Devin add **WireMock failure mode tests** — third-party API returns 500, times out, or returns malformed JSON
+- Ask Devin to add a **test report generator** that produces HTML results
+
+#### Step 4 (Optional): Review & Give Feedback
+
+Once Devin opens a PR from step 1, practice the feedback loop:
+- **Review the diff** — are the Gherkin scenarios readable by non-developers? Do they describe business behavior rather than implementation details?
+- **Leave a comment on the PR** asking Devin to fix something (e.g., *"Add data-driven scenarios using Cucumber Scenario Outlines with Examples tables"* or *"The step definitions should use more descriptive method names"*)
+- **Watch Devin respond** to your PR comment and push a fix — this is how real teams work with Devin
+
+See the full challenge details for [BDD Test Generation](../../modules/testing-qa/bdd-test-generation.md) for more ideas.
+
+- **Key Takeaways:**
+  - Devin generates BDD test scenarios from existing API patterns — covering happy paths, edge cases, and error handling
+  - Devin builds new API resources (controllers, models, endpoints) and writes matching Gherkin tests
+  - Devin understands the Cucumber/Spring Boot test framework and produces executable, Maven-integrated tests
+  - Devin uses WireMock to isolate tests from external dependencies
+
+- **Target Outcomes (any of these count):**
+  - Devin generates edge-case feature files for the Users API with validation and error scenarios
+  - Devin builds a new OrderController with Gherkin feature files for order lifecycle
+  - Devin creates data-driven scenarios using Scenario Outlines with Examples tables
+  - Devin adds WireMock failure mode tests
+  - PR with review comments and Devin's responses
+
 ## Additional Challenges
 
 Participants may also attempt any challenge from the full [module catalog](../../modules/) as creative inspiration. Recommended extras:
@@ -303,6 +362,7 @@ Participants may also attempt any challenge from the full [module catalog](../..
 - [ ] app_petclinic-angular
 - [ ] ts-angular-realworld-example-app
 - [ ] app_timesheet
+- [ ] uc-bdd-test-generation-rest-api
 
 ### Optional (for extended challenges)
 
@@ -317,8 +377,8 @@ Participants may also attempt any challenge from the full [module catalog](../..
 ## Context
 
 - **Audience:** Technology teams
-- **Focus:** End-to-end modernization — legacy tech stack migration, framework upgrades (Angular + Spring Boot), data source rewrite and reconnection, and new feature development
-- **Testing narrative:** Each lab emphasizes how to test and validate the changes — parity tests, integration tests, golden-file validation, and data reconciliation
+- **Focus:** End-to-end modernization — legacy tech stack migration, framework upgrades (Angular + Spring Boot), data source rewrite and reconnection, new feature development, and BDD test generation
+- **Testing narrative:** Each lab emphasizes how to test and validate the changes — parity tests, integration tests, golden-file validation, data reconciliation, and BDD scenarios
 - **Domain Data:** Loan management (borrowers, loan accounts, products, payments)
 
 ## Devin Features Checklist
