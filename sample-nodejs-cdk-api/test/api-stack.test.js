@@ -13,43 +13,51 @@ describe('ApiStack', () => {
     template = Template.fromStack(stack);
   });
 
-  test('creates Lambda function with Node.js 20 runtime', () => {
-    template.hasResourceProperties('AWS::Lambda::Function', {
-      Runtime: 'nodejs20.x',
-      Architectures: ['arm64'],
-      MemorySize: 512,
+  test('creates a VPC with public subnets', () => {
+    template.hasResourceProperties('AWS::EC2::VPC', {});
+    template.hasResourceProperties('AWS::EC2::Subnet', {
+      MapPublicIpOnLaunch: true,
     });
   });
 
-  test('creates Lambda alias with provisioned concurrency', () => {
-    template.hasResourceProperties('AWS::Lambda::Alias', {
-      Name: 'test',
-      ProvisionedConcurrencyConfig: {
-        ProvisionedConcurrentExecutions: 2,
-      },
+  test('creates a security group allowing port 3000', () => {
+    template.hasResourceProperties('AWS::EC2::SecurityGroup', {
+      GroupDescription: 'Allow HTTP traffic to Express API on port 3000',
     });
   });
 
-  test('creates auto-scaling target for provisioned concurrency', () => {
-    template.hasResourceProperties('AWS::ApplicationAutoScaling::ScalableTarget', {
-      MinCapacity: 2,
-      MaxCapacity: 10,
+  test('creates an EC2 instance with t3.micro', () => {
+    template.hasResourceProperties('AWS::EC2::Instance', {
+      InstanceType: 't3.micro',
     });
   });
 
-  test('creates API Gateway REST API', () => {
-    template.hasResourceProperties('AWS::ApiGateway::RestApi', {
+  test('creates an API Gateway HTTP API', () => {
+    template.hasResourceProperties('AWS::ApiGatewayV2::Api', {
       Name: 'nodejs-rest-api-test',
+      ProtocolType: 'HTTP',
     });
   });
 
-  test('configures CORS on API Gateway', () => {
-    template.hasResourceProperties('AWS::ApiGateway::Method', {
-      HttpMethod: 'OPTIONS',
+  test('creates an HTTP proxy integration', () => {
+    template.hasResourceProperties('AWS::ApiGatewayV2::Integration', {
+      IntegrationType: 'HTTP_PROXY',
+      IntegrationMethod: 'ANY',
+    });
+  });
+
+  test('creates an auto-deploy stage', () => {
+    template.hasResourceProperties('AWS::ApiGatewayV2::Stage', {
+      StageName: 'test',
+      AutoDeploy: true,
     });
   });
 
   test('outputs the API endpoint URL', () => {
     template.hasOutput('ApiEndpoint', {});
+  });
+
+  test('outputs the EC2 public IP', () => {
+    template.hasOutput('Ec2PublicIp', {});
   });
 });
