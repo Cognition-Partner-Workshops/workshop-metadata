@@ -97,9 +97,8 @@ After deployment, you get two URLs:
 ├── lib/
 │   └── api-stack.js        # CDK stack (VPC, EC2, API Gateway HTTP API)
 ├── src/
-│   ├── app.js              # Express application (local dev)
-│   ├── handler.js          # Lambda handler (kept for reference)
-│   ├── local.js            # Local dev server
+│   ├── app.js              # Express application
+│   ├── local.js            # Server entry point (used by EC2 and local dev)
 │   └── routes/
 │       ├── health.js       # Health check endpoint
 │       └── items.js        # CRUD items endpoints

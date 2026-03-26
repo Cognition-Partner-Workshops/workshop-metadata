@@ -2,6 +2,8 @@ const cdk = require('aws-cdk-lib');
 const ec2 = require('aws-cdk-lib/aws-ec2');
 const iam = require('aws-cdk-lib/aws-iam');
 const apigwv2 = require('aws-cdk-lib/aws-apigatewayv2');
+const s3assets = require('aws-cdk-lib/aws-s3-assets');
+const path = require('path');
 
 class ApiStack extends cdk.Stack {
   constructor(scope, id, props) {
@@ -10,7 +12,18 @@ class ApiStack extends cdk.Stack {
     const { envName } = props;
 
     // -------------------------------------------------------
-    // VPC — default public subnet for simplicity
+    // Upload src/ as an S3 Asset (single source of truth)
+    // -------------------------------------------------------
+    const appAsset = new s3assets.Asset(this, 'AppCode', {
+      path: path.join(__dirname, '..', 'src'),
+    });
+
+    const pkgAsset = new s3assets.Asset(this, 'PackageJson', {
+      path: path.join(__dirname, '..', 'package.json'),
+    });
+
+    // -------------------------------------------------------
+    // VPC — public subnet for simplicity
     // -------------------------------------------------------
     const vpc = new ec2.Vpc(this, 'ApiVpc', {
       vpcName: `nodejs-rest-api-vpc-${envName}`,
@@ -48,7 +61,7 @@ class ApiStack extends cdk.Stack {
     );
 
     // -------------------------------------------------------
-    // IAM Role for EC2
+    // IAM Role for EC2 (SSM + S3 asset access)
     // -------------------------------------------------------
     const role = new iam.Role(this, 'Ec2Role', {
       assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com'),
@@ -57,62 +70,30 @@ class ApiStack extends cdk.Stack {
       ],
     });
 
+    // Grant EC2 read access to the S3 assets
+    appAsset.grantRead(role);
+    pkgAsset.grantRead(role);
+
     // -------------------------------------------------------
-    // EC2 Instance — runs Express.js API on port 3000
+    // EC2 Instance — downloads src/ from S3, runs Express.js
     // -------------------------------------------------------
     const userData = ec2.UserData.forLinux();
     userData.addCommands(
-      '#!/bin/bash',
       'set -e',
-
-      // Install Node.js 20
       'curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -',
-      'yum install -y nodejs git',
-
-      // Create app directory
-      'mkdir -p /home/ec2-user/app',
+      'yum install -y nodejs unzip',
+      'mkdir -p /home/ec2-user/app/src',
       'cd /home/ec2-user/app',
+      `aws s3 cp s3://${appAsset.s3BucketName}/${appAsset.s3ObjectKey} /tmp/app-code.zip`,
+      'unzip -o /tmp/app-code.zip -d /home/ec2-user/app/src/',
+      `aws s3 cp s3://${pkgAsset.s3BucketName}/${pkgAsset.s3ObjectKey} /home/ec2-user/app/package.json`,
+      'npm install --omit=dev',
+      'chown -R ec2-user:ec2-user /home/ec2-user/app'
+    );
 
-      // Write package.json
-      'cat > package.json << \'PKG\'',
-      '{',
-      '  "name": "nodejs-rest-api",',
-      '  "version": "1.0.0",',
-      '  "dependencies": {',
-      '    "express": "^4.18.3"',
-      '  }',
-      '}',
-      'PKG',
-
-      // Write the Express app
-      'cat > app.js << \'APP\'',
-      'const express = require("express");',
-      'const app = express();',
-      'app.use(express.json());',
-      '',
-      '// In-memory store',
-      'const items = new Map();',
-      'items.set("1", { id: "1", name: "Sample Item 1", description: "First sample item", createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() });',
-      'items.set("2", { id: "2", name: "Sample Item 2", description: "Second sample item", createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() });',
-      '',
-      'app.get("/", (_req, res) => res.json({ service: "nodejs-rest-api", version: "1.0.0", endpoints: ["GET /health", "GET /api/items", "GET /api/items/:id", "POST /api/items", "PUT /api/items/:id", "DELETE /api/items/:id"] }));',
-      'app.get("/health", (_req, res) => res.json({ status: "healthy", timestamp: new Date().toISOString(), uptime: process.uptime() }));',
-      'app.get("/api/items", (_req, res) => res.json({ items: Array.from(items.values()), count: items.size }));',
-      'app.get("/api/items/:id", (req, res) => { const item = items.get(req.params.id); if (!item) return res.status(404).json({ error: "Item not found" }); res.json(item); });',
-      'app.post("/api/items", (req, res) => { const { name, description } = req.body; if (!name || !description) return res.status(400).json({ error: "name and description are required" }); const id = String(Date.now()); const now = new Date().toISOString(); const item = { id, name, description, createdAt: now, updatedAt: now }; items.set(id, item); res.status(201).json(item); });',
-      'app.put("/api/items/:id", (req, res) => { const existing = items.get(req.params.id); if (!existing) return res.status(404).json({ error: "Item not found" }); const { name, description } = req.body; const updated = { ...existing, name: name || existing.name, description: description || existing.description, updatedAt: new Date().toISOString() }; items.set(req.params.id, updated); res.json(updated); });',
-      'app.delete("/api/items/:id", (req, res) => { if (!items.has(req.params.id)) return res.status(404).json({ error: "Item not found" }); items.delete(req.params.id); res.status(204).send(); });',
-      '',
-      'const PORT = process.env.PORT || 3000;',
-      'app.listen(PORT, "0.0.0.0", () => console.log(`API running on port ${PORT}`));',
-      'APP',
-
-      // Install dependencies and start
-      'npm install',
-      'chown -R ec2-user:ec2-user /home/ec2-user/app',
-
-      // Create systemd service for auto-start
-      'cat > /etc/systemd/system/nodejs-api.service << \'SVC\'',
+    // systemd service — runs src/local.js (same entry point as local dev)
+    userData.addCommands(
+      'cat > /etc/systemd/system/nodejs-api.service << SVCEOF',
       '[Unit]',
       'Description=Node.js REST API',
       'After=network.target',
@@ -120,8 +101,8 @@ class ApiStack extends cdk.Stack {
       '[Service]',
       'Type=simple',
       'User=ec2-user',
-      'WorkingDirectory=/home/ec2-user/app',
-      'ExecStart=/usr/bin/node /home/ec2-user/app/app.js',
+      'WorkingDirectory=/home/ec2-user/app/src',
+      'ExecStart=/usr/bin/node /home/ec2-user/app/src/local.js',
       'Restart=always',
       'RestartSec=5',
       'Environment=NODE_ENV=production',
@@ -129,8 +110,7 @@ class ApiStack extends cdk.Stack {
       '',
       '[Install]',
       'WantedBy=multi-user.target',
-      'SVC',
-
+      'SVCEOF',
       'systemctl daemon-reload',
       'systemctl enable nodejs-api',
       'systemctl start nodejs-api'
@@ -162,7 +142,6 @@ class ApiStack extends cdk.Stack {
       },
     });
 
-    // HTTP proxy integration to EC2 public DNS
     const integration = new apigwv2.CfnIntegration(this, 'HttpIntegration', {
       apiId: httpApi.ref,
       integrationType: 'HTTP_PROXY',
@@ -171,14 +150,12 @@ class ApiStack extends cdk.Stack {
       payloadFormatVersion: '1.0',
     });
 
-    // Default catch-all route
     new apigwv2.CfnRoute(this, 'DefaultRoute', {
       apiId: httpApi.ref,
-      routeKey: '$default',
+      routeKey: '',
       target: `integrations/${integration.ref}`,
     });
 
-    // Auto-deploy stage
     new apigwv2.CfnStage(this, 'ApiStage', {
       apiId: httpApi.ref,
       stageName: envName,

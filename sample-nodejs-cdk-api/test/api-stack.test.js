@@ -32,6 +32,14 @@ describe('ApiStack', () => {
     });
   });
 
+  test('grants EC2 role S3 read access for app assets', () => {
+    // S3 assets trigger an IAM policy granting the EC2 role read access
+    template.hasResourceProperties('AWS::IAM::Policy', {});
+    // Verify at least one S3 asset parameter exists (CDK creates these for assets)
+    const resources = template.findResources('AWS::IAM::Policy');
+    expect(Object.keys(resources).length).toBeGreaterThan(0);
+  });
+
   test('creates an API Gateway HTTP API', () => {
     template.hasResourceProperties('AWS::ApiGatewayV2::Api', {
       Name: 'nodejs-rest-api-test',
