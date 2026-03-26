@@ -27,7 +27,7 @@ events/
 │   └── README.md              ← Oslo workshop
 ├── 2026-03-09-san-francisco/
 │   └── README.md              ← SF workshop: Framework Upgrade + CVE Remediation
-├── 2026-03-13-dc/
+├── 2026-04-dc/
 │   └── README.md              ← DC event (demo + hands-on)
 ├── cobol-modernization-workshop/
 │   └── README.md              ← Based on workshops/legacy-modernization

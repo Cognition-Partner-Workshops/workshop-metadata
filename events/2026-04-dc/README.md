@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Date** | 2026-03-13 |
+| **Date** | 2026-04 |
 | **Location** | Washington, DC |
 | **Host Organization** | *(customer)* |
 | **Duration** | ~5 hours (5 labs + breaks) |
