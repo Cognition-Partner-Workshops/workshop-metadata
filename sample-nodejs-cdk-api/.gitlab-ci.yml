@@ -1,6 +1,6 @@
 # ──────────────────────────────────────────────────────────────
 # GitLab CI/CD — Node.js REST API with AWS CDK
-# Deploys Lambda + API Gateway with Provisioned Concurrency
+# Deploys EC2 + API Gateway HTTP API (zero latency)
 # ──────────────────────────────────────────────────────────────
 
 stages:

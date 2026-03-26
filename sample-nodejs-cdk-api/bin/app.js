@@ -12,7 +12,7 @@ new ApiStack(app, `NodejsRestApi-${envName}`, {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION || 'us-east-1',
   },
-  description: `Node.js REST API stack (${envName}) - Lambda with Provisioned Concurrency`,
+  description: `Node.js REST API stack (${envName}) - EC2 with API Gateway HTTP API`,
 });
 
 app.synth();
