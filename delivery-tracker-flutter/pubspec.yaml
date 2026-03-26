@@ -1,0 +1,33 @@
+name: delivery_tracker
+description: "Delivery tracking app with robust background location tracking."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  dio: ^5.4.0
+  geolocator: ^13.0.2
+  permission_handler: ^11.3.0
+  flutter_background_service: ^5.0.12
+  flutter_background_service_android: ^6.2.7
+  flutter_local_notifications: ^18.0.1
+  intl: ^0.20.2
+  shared_preferences: ^2.3.4
+  disable_battery_optimization: ^1.1.0+1
+  wakelock_plus: ^1.2.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
