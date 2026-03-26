@@ -1,19 +1,16 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["eslint:recommended"],
   "env": {
     "node": true,
-    "jest": true
+    "jest": true,
+    "es2020": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
   },
   "rules": {
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "warn"
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
   },
-  "ignorePatterns": ["dist/", "node_modules/", "cdk.out/"]
+  "ignorePatterns": ["cdk.out/", "node_modules/"]
 }

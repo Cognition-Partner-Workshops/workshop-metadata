@@ -1,9 +1,9 @@
-import * as cdk from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
-import { ApiStack } from '../lib/api-stack';
+const cdk = require('aws-cdk-lib');
+const { Template } = require('aws-cdk-lib/assertions');
+const { ApiStack } = require('../lib/api-stack');
 
 describe('ApiStack', () => {
-  let template: Template;
+  let template;
 
   beforeAll(() => {
     const app = new cdk.App();

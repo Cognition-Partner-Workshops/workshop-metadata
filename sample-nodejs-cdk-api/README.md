@@ -92,22 +92,21 @@ npx cdk deploy --context env=prod
 
 ```
 ├── bin/
-│   └── app.ts              # CDK app entry point
+│   └── app.js              # CDK app entry point
 ├── lib/
-│   └── api-stack.ts        # CDK stack (Lambda, API GW, Provisioned Concurrency)
+│   └── api-stack.js        # CDK stack (Lambda, API GW, Provisioned Concurrency)
 ├── src/
-│   ├── app.ts              # Express application
-│   ├── handler.ts          # Lambda handler (serverless-express)
-│   ├── local.ts            # Local dev server
+│   ├── app.js              # Express application
+│   ├── handler.js          # Lambda handler (serverless-express)
+│   ├── local.js            # Local dev server
 │   └── routes/
-│       ├── health.ts       # Health check endpoint
-│       └── items.ts        # CRUD items endpoints
+│       ├── health.js       # Health check endpoint
+│       └── items.js        # CRUD items endpoints
 ├── test/
-│   └── api-stack.test.ts   # CDK stack tests
+│   └── api-stack.test.js   # CDK stack tests
 ├── .gitlab-ci.yml          # GitLab CI/CD pipeline
 ├── cdk.json                # CDK configuration
-├── package.json
-└── tsconfig.json
+└── package.json
 ```
 
 ## GitLab CI/CD Pipeline
@@ -116,8 +115,7 @@ The `.gitlab-ci.yml` defines a multi-stage pipeline:
 
 ```
 validate ──► test ──► build ──► deploy
- (lint,       (jest)   (synth)   (dev → staging → prod)
-  typecheck)
+ (lint)       (jest)   (synth)   (dev → staging → prod)
 ```
 
 ### Required GitLab CI/CD Variables
@@ -140,15 +138,15 @@ Set these in **Settings > CI/CD > Variables**:
 
 ### Change Provisioned Concurrency
 
-Edit `lib/api-stack.ts`:
+Edit `lib/api-stack.js`:
 
-```typescript
+```javascript
 provisionedConcurrentExecutions: 5, // increase warm instances
 ```
 
 ### Add DynamoDB Table
 
-The items are currently in-memory. To persist data, add a DynamoDB table to `lib/api-stack.ts` and update the routes in `src/routes/items.ts`.
+The items are currently in-memory. To persist data, add a DynamoDB table to `lib/api-stack.js` and update the routes in `src/routes/items.js`.
 
 ## Cost Considerations
 

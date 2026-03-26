@@ -1,10 +1,6 @@
 node_modules/
-dist/
 cdk.out/
-*.js
-!jest.config.js
-*.d.ts
-*.map
 .env
 .env.local
 .cdk.staging/
+coverage/

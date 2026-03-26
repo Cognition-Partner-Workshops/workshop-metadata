@@ -1,8 +1,8 @@
-import { Router, Request, Response } from 'express';
+const { Router } = require('express');
 
 const healthRouter = Router();
 
-healthRouter.get('/', (_req: Request, res: Response) => {
+healthRouter.get('/', (_req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -10,4 +10,4 @@ healthRouter.get('/', (_req: Request, res: Response) => {
   });
 });
 
-export { healthRouter };
+module.exports = { healthRouter };

@@ -30,12 +30,6 @@ lint:
   script:
     - npm run lint
 
-typecheck:
-  extends: .node_base
-  stage: validate
-  script:
-    - npm run build
-
 # ── Test ───────────────────────────────────────────────────
 unit_tests:
   extends: .node_base
@@ -63,7 +57,7 @@ cdk_synth:
 deploy_dev:
   extends: .node_base
   stage: deploy
-  needs: ["cdk_synth", "unit_tests", "lint", "typecheck"]
+  needs: ["cdk_synth", "unit_tests", "lint"]
   script:
     - npm install -g aws-cdk
     - cdk deploy --all --require-approval never --context env=dev
@@ -79,7 +73,7 @@ deploy_dev:
 deploy_staging:
   extends: .node_base
   stage: deploy
-  needs: ["cdk_synth", "unit_tests", "lint", "typecheck"]
+  needs: ["cdk_synth", "unit_tests", "lint"]
   script:
     - npm install -g aws-cdk
     - cdk deploy --all --require-approval never --context env=staging

@@ -1,18 +1,10 @@
-import { Router, Request, Response } from 'express';
-
-interface Item {
-  id: string;
-  name: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-}
+const { Router } = require('express');
 
 // In-memory store (replace with DynamoDB or RDS for production)
-const items: Map<string, Item> = new Map();
+const items = new Map();
 
 // Seed sample data
-const seedItems: Item[] = [
+const seedItems = [
   {
     id: '1',
     name: 'Sample Item 1',
@@ -34,7 +26,7 @@ seedItems.forEach((item) => items.set(item.id, item));
 const itemsRouter = Router();
 
 // GET all items
-itemsRouter.get('/', (_req: Request, res: Response) => {
+itemsRouter.get('/', (_req, res) => {
   res.json({
     items: Array.from(items.values()),
     count: items.size,
@@ -42,27 +34,25 @@ itemsRouter.get('/', (_req: Request, res: Response) => {
 });
 
 // GET single item by ID
-itemsRouter.get('/:id', (req: Request, res: Response) => {
+itemsRouter.get('/:id', (req, res) => {
   const item = items.get(req.params.id);
   if (!item) {
-    res.status(404).json({ error: 'Item not found' });
-    return;
+    return res.status(404).json({ error: 'Item not found' });
   }
   res.json(item);
 });
 
 // POST create new item
-itemsRouter.post('/', (req: Request, res: Response) => {
+itemsRouter.post('/', (req, res) => {
   const { name, description } = req.body;
 
   if (!name || !description) {
-    res.status(400).json({ error: 'name and description are required' });
-    return;
+    return res.status(400).json({ error: 'name and description are required' });
   }
 
   const id = String(Date.now());
   const now = new Date().toISOString();
-  const newItem: Item = {
+  const newItem = {
     id,
     name,
     description,
@@ -75,15 +65,14 @@ itemsRouter.post('/', (req: Request, res: Response) => {
 });
 
 // PUT update item
-itemsRouter.put('/:id', (req: Request, res: Response) => {
+itemsRouter.put('/:id', (req, res) => {
   const existing = items.get(req.params.id);
   if (!existing) {
-    res.status(404).json({ error: 'Item not found' });
-    return;
+    return res.status(404).json({ error: 'Item not found' });
   }
 
   const { name, description } = req.body;
-  const updatedItem: Item = {
+  const updatedItem = {
     ...existing,
     name: name ?? existing.name,
     description: description ?? existing.description,
@@ -95,14 +84,13 @@ itemsRouter.put('/:id', (req: Request, res: Response) => {
 });
 
 // DELETE item
-itemsRouter.delete('/:id', (req: Request, res: Response) => {
+itemsRouter.delete('/:id', (req, res) => {
   if (!items.has(req.params.id)) {
-    res.status(404).json({ error: 'Item not found' });
-    return;
+    return res.status(404).json({ error: 'Item not found' });
   }
 
   items.delete(req.params.id);
   res.status(204).send();
 });
 
-export { itemsRouter };
+module.exports = { itemsRouter };

@@ -1,13 +1,13 @@
-import express, { Request, Response } from 'express';
-import { healthRouter } from './routes/health';
-import { itemsRouter } from './routes/items';
+const express = require('express');
+const { healthRouter } = require('./routes/health');
+const { itemsRouter } = require('./routes/items');
 
 const app = express();
 
 app.use(express.json());
 
 // Request logging middleware
-app.use((req: Request, _res: Response, next) => {
+app.use((req, _res, next) => {
   console.log(`${req.method} ${req.path}`);
   next();
 });
@@ -17,7 +17,7 @@ app.use('/health', healthRouter);
 app.use('/api/items', itemsRouter);
 
 // Root endpoint
-app.get('/', (_req: Request, res: Response) => {
+app.get('/', (_req, res) => {
   res.json({
     service: 'sample-nodejs-cdk-api',
     version: '1.0.0',
@@ -32,4 +32,4 @@ app.get('/', (_req: Request, res: Response) => {
   });
 });
 
-export { app };
+module.exports = { app };

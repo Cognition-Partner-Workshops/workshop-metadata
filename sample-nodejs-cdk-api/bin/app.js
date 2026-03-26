@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { ApiStack } from '../lib/api-stack';
+const cdk = require('aws-cdk-lib');
+const { ApiStack } = require('../lib/api-stack');
 
 const app = new cdk.App();
 

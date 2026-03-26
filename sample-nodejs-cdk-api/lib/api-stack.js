@@ -1,19 +1,12 @@
-import * as cdk from 'aws-cdk-lib';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
-import * as nodejs from 'aws-cdk-lib/aws-lambda-nodejs';
-import * as apigateway from 'aws-cdk-lib/aws-apigateway';
-import * as logs from 'aws-cdk-lib/aws-logs';
-import { Construct } from 'constructs';
-import * as path from 'path';
+const cdk = require('aws-cdk-lib');
+const lambda = require('aws-cdk-lib/aws-lambda');
+const nodejs = require('aws-cdk-lib/aws-lambda-nodejs');
+const apigateway = require('aws-cdk-lib/aws-apigateway');
+const logs = require('aws-cdk-lib/aws-logs');
+const path = require('path');
 
-interface ApiStackProps extends cdk.StackProps {
-  envName: string;
-}
-
-export class ApiStack extends cdk.Stack {
-  public readonly apiUrl: cdk.CfnOutput;
-
-  constructor(scope: Construct, id: string, props: ApiStackProps) {
+class ApiStack extends cdk.Stack {
+  constructor(scope, id, props) {
     super(scope, id, props);
 
     const { envName } = props;
@@ -25,7 +18,7 @@ export class ApiStack extends cdk.Stack {
       functionName: `nodejs-rest-api-${envName}`,
       runtime: lambda.Runtime.NODEJS_20_X,
       architecture: lambda.Architecture.ARM_64,
-      entry: path.join(__dirname, '..', 'src', 'handler.ts'),
+      entry: path.join(__dirname, '..', 'src', 'handler.js'),
       handler: 'handler',
       memorySize: 512,
       timeout: cdk.Duration.seconds(29),
@@ -114,3 +107,5 @@ export class ApiStack extends cdk.Stack {
     });
   }
 }
+
+module.exports = { ApiStack };
