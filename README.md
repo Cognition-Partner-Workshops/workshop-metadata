@@ -162,7 +162,7 @@ workshop-metadata/
 │   ├── _template/
 │   ├── 2026-03-09-oslo/
 │   ├── 2026-03-09-san-francisco/
-│   ├── 2026-03-13-dc/
+│   ├── 2026-04-dc/
 │   ├── 2026-03-17-zurich/
 │   ├── 2026-03-25-remote-workshop/
 │   ├── dc-2/

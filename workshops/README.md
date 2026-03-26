@@ -9,7 +9,7 @@ Reusable workshop definitions that can be instantiated as events. Each workshop 
 | **Purpose** | Reusable reference template | Specific instance with date, location, audience |
 | **Location** | `workshops/` | `events/` |
 | **Contains** | Labs, modules, repos, structure, timing | Links to a workshop + facilitator overrides, audience context, event-specific customizations |
-| **Example** | `workshops/legacy-modernization/` | `events/2026-03-13-dc/` |
+| **Example** | `workshops/legacy-modernization/` | `events/2026-04-dc/` |
 
 ## How It Works
 
