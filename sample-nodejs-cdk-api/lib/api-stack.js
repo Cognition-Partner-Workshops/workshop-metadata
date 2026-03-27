@@ -91,29 +91,13 @@ class ApiStack extends cdk.Stack {
       'chown -R ec2-user:ec2-user /home/ec2-user/app'
     );
 
-    // systemd service — runs src/local.js (same entry point as local dev)
+    // PM2 — production process manager for Node.js
     userData.addCommands(
-      'cat > /etc/systemd/system/nodejs-api.service << SVCEOF',
-      '[Unit]',
-      'Description=Node.js REST API',
-      'After=network.target',
-      '',
-      '[Service]',
-      'Type=simple',
-      'User=ec2-user',
-      'WorkingDirectory=/home/ec2-user/app/src',
-      'ExecStart=/usr/bin/node /home/ec2-user/app/src/local.js',
-      'Restart=always',
-      'RestartSec=5',
-      'Environment=NODE_ENV=production',
-      'Environment=PORT=3000',
-      '',
-      '[Install]',
-      'WantedBy=multi-user.target',
-      'SVCEOF',
-      'systemctl daemon-reload',
-      'systemctl enable nodejs-api',
-      'systemctl start nodejs-api'
+      'npm install -g pm2',
+      'cd /home/ec2-user/app/src',
+      'sudo -u ec2-user PORT=3000 NODE_ENV=production pm2 start local.js --name nodejs-rest-api',
+      'sudo -u ec2-user pm2 save',
+      'env PATH=$PATH:/usr/bin pm2 startup systemd -u ec2-user --hp /home/ec2-user'
     );
 
     const instance = new ec2.Instance(this, 'ApiInstance', {
