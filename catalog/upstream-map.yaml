@@ -484,6 +484,13 @@ repos:
     import_method: clone-and-push
     cluster: C10
 
+  ts-java-mulesoft-employee-service-api:
+    upstream: sf-partner-solutions/hrm-service-api
+    upstream_url: https://github.com/sf-partner-solutions/hrm-service-api
+    import_method: clone-and-push
+    cluster: null
+    note: "MuleSoft Mule 4 Employee Service API for MuleSoft development demos"
+
   ts-selenium-simple:
     upstream: bharathish-diggavi/selenium-testng-framework
     upstream_url: https://github.com/bharathish-diggavi/selenium-testng-framework
