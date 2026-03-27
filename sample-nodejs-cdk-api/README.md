@@ -12,7 +12,7 @@ A Node.js REST API deployed on **EC2** behind **API Gateway HTTP API**, using AW
                            │  HTTP Proxy
                     ┌──────▼───────────┐
                     │   EC2 (t3.micro) │ ◄── Always running, no cold start
-                    │   Express.js     │     systemd auto-restart
+                    │   Express.js     │     PM2 auto-restart
                     │   Port 3000      │
                     └──────────────────┘
 ```
