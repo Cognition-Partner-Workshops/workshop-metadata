@@ -189,6 +189,19 @@ clusters:
       - app_dotnet_angular_containerized_decomposition_microfrontends
       - app_dotnet_angular_containerized_decomposition_iac
 
+  C13:
+    label: "Oracle Forms HRMS Modernization"
+    upstream: null
+    shared_initial_commit: null
+    reason: >
+      Legacy Oracle Forms/PL/SQL HRMS application paired with Java/Spring Boot
+      migration artifacts, test harness, and architecture documentation. Legacy
+      repo is the static analysis target; use-case repo holds migration planning,
+      target code, and equivalence tests.
+    repos:
+      - ts-plsql-oracle-forms-legacy-codebase
+      - uc-legacy-modernization-oracle-forms-to-java
+
 # ============================================================
 # Per-repo upstream mapping (alphabetical)
 # ============================================================
@@ -478,6 +491,12 @@ repos:
     cluster: C1
     note: "Original import; renamed from spring-boot-realworld-example-app"
 
+  ts-plsql-oracle-forms-legacy-codebase:
+    upstream: null
+    import_method: original
+    cluster: C13
+    note: "Oracle Forms 11g/12c HRMS legacy application — static analysis target"
+
   ts-sas-legacy-codebase:
     upstream: scottbass/SAS
     upstream_url: https://github.com/scottbass/SAS
@@ -561,6 +580,12 @@ repos:
     import_method: clone-and-push
     cluster: C2
     note: "Lab 1 — COBOL-to-Java migration copy of CardDemo"
+
+  uc-legacy-modernization-oracle-forms-to-java:
+    upstream: null
+    import_method: original
+    cluster: C13
+    note: "Oracle Forms to Java migration use case — planning, target Spring Boot, test harness"
 
   uc-pod-remediation-credential-rotation:
     upstream: null

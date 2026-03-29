@@ -34,7 +34,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **C9** | AngularJS 1.x admins | *different upstreams* | `angular-1.x-bootstrap-admin-dashboard`, `angular-1.x-dashboard` | Two AngularJS 1.x admin dashboards for framework migration demos. |
 | **C10** | SAS to Snowflake | [`scottbass/SAS`](https://github.com/scottbass/SAS) | `ts-sas-legacy-codebase`, `uc-data-migration-sas-to-snowflake` | Legacy SAS source paired with Snowflake migration validation tooling. |
 | **C11** | OrderManager Monolith-to-Microservices | *original* | `platform-engineering-shared-services`, `app_dotnet-angular-monolith`, `app_dotnet-angular-monolith-iac`, `app_dotnet-angular-microservices` | Platform standard + .NET/Angular monolith + service IaC + microservices landing repo for decomposition demos. Platform repo provides the shared EKS/ArgoCD/monitoring infrastructure; monolith is the source; microservices repo receives all decomposed services and service-level IaC. |
-| **C12** | Oracle Forms HRMS Modernization | *original* | `ts-plsql-oracle-forms-legacy-codebase`, `uc-legacy-modernization-oracle-forms-to-java` | Legacy Oracle Forms/PL/SQL HRMS application paired with Java/Spring Boot migration artifacts, test harness, and architecture documentation. Legacy repo is the static analysis target; use-case repo holds migration planning, target code, and equivalence tests. |
+| **C13** | Oracle Forms HRMS Modernization | *original* | `ts-plsql-oracle-forms-legacy-codebase`, `uc-legacy-modernization-oracle-forms-to-java` | Legacy Oracle Forms/PL/SQL HRMS application paired with Java/Spring Boot migration artifacts, test harness, and architecture documentation. Legacy repo is the static analysis target; use-case repo holds migration planning, target code, and equivalence tests. |
 
 ---
 
@@ -59,7 +59,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | Java 17, Spring Boot 3, Spring Data JPA, Spring Batch, Maven, Python (test harness) |
 | **License** | MIT |
 | **Default Branch** | `main` |
-| **Cluster** | C12 (companion to `ts-plsql-oracle-forms-legacy-codebase`) |
+| **Cluster** | C13 (companion to `ts-plsql-oracle-forms-legacy-codebase`) |
 | **Key Contents** | Migration plan (assessment, strategy, component mapping, risk register, timeline, ADRs), Java target (Spring Boot project with Employee module), test harness (YAML business scenarios, Python result comparator), architecture docs |
 | **Challenges** | [Oracle Forms to Java](../modules/migration-modernization/oracle-forms-to-java.md), [Oracle Forms Migration Planning](../modules/migration-modernization/oracle-forms-migration-planning.md), [Migration Test Harness](../modules/migration-modernization/migration-test-harness.md) |
 
@@ -212,7 +212,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | Oracle Forms 12c, PL/SQL, Oracle Database 19c |
 | **License** | MIT |
 | **Default Branch** | `main` |
-| **Cluster** | C12 (companion to `uc-legacy-modernization-oracle-forms-to-java`) |
+| **Cluster** | C13 (companion to `uc-legacy-modernization-oracle-forms-to-java`) |
 | **Key Legacy Characteristics** | Multi-layer architecture (Forms triggers + PLL libraries + PL/SQL packages + DB triggers), validation drift between client/server, circular package dependencies, cursor-loop batch processing, CONNECT BY performance anti-pattern, hard-coded encryption keys |
 | **Challenges** | [Oracle Forms System Understanding](../modules/migration-modernization/oracle-forms-system-understanding.md), [Oracle Forms to Java](../modules/migration-modernization/oracle-forms-to-java.md), [Oracle Forms Migration Planning](../modules/migration-modernization/oracle-forms-migration-planning.md) |
 
