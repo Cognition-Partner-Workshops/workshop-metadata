@@ -6,9 +6,8 @@
 |---|---|
 | **Date** | 2026-04 |
 | **Location** | Washington, DC |
-| **Host Organization** | *(customer)* |
 | **Duration** | ~5 hours (5 labs + breaks) |
-| **Event Site** | https://partner-workshops.devinenterprise.com |
+| **Event Site** | https://partner-workshops-no-anthropic.devinenterprise.com |
 
 ## Getting the Most from This Workshop
 
