@@ -26,12 +26,12 @@ Challenges focused on test automation, static analysis, performance validation, 
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet | [Linting & Static Analysis](linting-static-analysis.md), [Unit Testing](unit-testing.md), [End-to-End Testing](end-to-end-testing.md), [Performance Testing](performance-testing.md), [Accessibility Compliance](accessibility-compliance.md) |
+| app_timesheet | [Linting & Static Analysis](linting-static-analysis.md), [Unit Testing](unit-testing.md), [End-to-End Testing](end-to-end-testing.md), [Performance Testing](performance-testing.md), [Accessibility Compliance](accessibility-compliance.md), [Continuous Quality Engineering](continuous-quality-engineering.md) |
 | cal.com | [End-to-End Testing](end-to-end-testing.md), [Performance Testing](performance-testing.md), [Accessibility Compliance](accessibility-compliance.md) |
 | ts-java-spring-boot-realworld-example-app | [Unit Testing](unit-testing.md) |
 | hosting-client-timesheet-app | [Linting & Static Analysis](linting-static-analysis.md) |
 | uc-framework-upgrade-monolith-to-microservices | [Unit Testing](unit-testing.md), [Performance Testing](performance-testing.md) |
-| uc-bdd-test-generation-rest-api | [BDD Test Generation](bdd-test-generation.md) |
+| uc-bdd-test-generation-rest-api | [BDD Test Generation](bdd-test-generation.md), [Continuous Quality Engineering](continuous-quality-engineering.md) |
 | ts-swagger-petstore | [BDD Test Generation](bdd-test-generation.md) |
 | ts-selenium-simple | [End-to-End Testing](end-to-end-testing.md) |
 | app_petclinic-microservices | [Contract Testing](contract-testing.md) |
