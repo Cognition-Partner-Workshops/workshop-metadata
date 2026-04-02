@@ -727,7 +727,7 @@ Participants who finish early or want to explore further can attempt any challen
 ### Track C (Feature Development & Testing)
 - [ ] app_timesheet
 - [ ] uc-framework-upgrade-monolith-to-microservices (optional, for Lab C1 Option B)
-- [ ] uc-bdd-test-generation-rest-api (optional, for Labs C2/C3 Option B)
+- [ ] uc-bdd-test-generation-rest-api (optional, for Lab C2 Option C / Lab C3 Option B)
 
 ## Repo Duplication Notes
 
