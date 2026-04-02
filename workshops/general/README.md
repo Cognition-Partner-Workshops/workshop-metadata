@@ -1,28 +1,5 @@
 # Workshop: General
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Workshop Narrative](#workshop-narrative)
-- [Getting the Most from This Workshop](#getting-the-most-from-this-workshop)
-- [Track A: Security & Issue Triage](#track-a-security--issue-triage)
-  - [Lab A1 — SAST Scans & Vulnerability Remediation](#lab-a1--sast-scans--vulnerability-remediation)
-  - [Lab A2 — Bug Fixes & Root Cause Analysis](#lab-a2--bug-fixes--root-cause-analysis)
-  - [Lab A3 — Scheduled Dependency Hygiene](#lab-a3--scheduled-dependency-hygiene)
-- [Track B: Modernization](#track-b-modernization)
-  - [Lab B1 — Rearchitecting Monolith to Microservice](#lab-b1--rearchitecting-monolith-to-microservice)
-  - [Lab B2 — Upgrading EOL Systems to LTS Versions](#lab-b2--upgrading-eol-systems-to-lts-versions)
-  - [Lab B3 — Language Translation](#lab-b3--language-translation)
-- [Track C: Feature Development & Testing](#track-c-feature-development--testing)
-  - [Lab C1 — Add a Feature + PR Review Feedback](#lab-c1--add-a-feature--pr-review-feedback)
-  - [Lab C2 — Add Test Coverage](#lab-c2--add-test-coverage)
-  - [Lab C3 — Perform E2E Tests & Fix Issues](#lab-c3--perform-e2e-tests--fix-issues)
-- [Additional Challenges](#additional-challenges)
-- [Suggested Formats](#suggested-formats)
-- [Repos Required](#repos-required)
-- [Context](#context)
-- [Devin Features Checklist](#devin-features-checklist)
-
 ## Overview
 
 | | |
@@ -52,6 +29,28 @@ A few tips to maximize your hands-on time:
 - **Use Ask Devin to refine requirements before creating a session.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem first so Devin can execute with less back-and-forth.
 - **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item during a session, accept it — this is how teams build a shared context layer that makes Devin smarter over time. You can also create Knowledge manually for project conventions and standards.
 - **Leave PR comments to steer Devin.** After Devin opens a PR, the PR Review agent and CI checks provide automatic feedback loops. You can also leave comments directly on the PR and Devin will wake up and address them — this is the core workflow for iterating with Devin in production.
+
+---
+
+## Table of Contents
+
+- [Track A: Security & Issue Triage](#track-a-security--issue-triage)
+  - [Lab A1 — SAST Scans & Vulnerability Remediation](#lab-a1--sast-scans--vulnerability-remediation)
+  - [Lab A2 — Bug Fixes & Root Cause Analysis](#lab-a2--bug-fixes--root-cause-analysis)
+  - [Lab A3 — Scheduled Dependency Hygiene](#lab-a3--scheduled-dependency-hygiene)
+- [Track B: Modernization](#track-b-modernization)
+  - [Lab B1 — Rearchitecting Monolith to Microservice](#lab-b1--rearchitecting-monolith-to-microservice)
+  - [Lab B2 — Upgrading EOL Systems to LTS Versions](#lab-b2--upgrading-eol-systems-to-lts-versions)
+  - [Lab B3 — Language Translation](#lab-b3--language-translation)
+- [Track C: Feature Development & Testing](#track-c-feature-development--testing)
+  - [Lab C1 — Add a Feature + PR Review Feedback](#lab-c1--add-a-feature--pr-review-feedback)
+  - [Lab C2 — Add Test Coverage](#lab-c2--add-test-coverage)
+  - [Lab C3 — Perform E2E Tests & Fix Issues](#lab-c3--perform-e2e-tests--fix-issues)
+- [Additional Challenges](#additional-challenges)
+- [Suggested Formats](#suggested-formats)
+- [Repos Required](#repos-required)
+- [Context](#context)
+- [Devin Features Checklist](#devin-features-checklist)
 
 ---
 
@@ -402,71 +401,74 @@ See the full challenge details for [Framework Upgrade](../../modules/migration-m
 
 ### Lab B3 — Language Translation
 
-- **Module:** [COBOL to Java](../../modules/migration-modernization/cobol-to-java.md)
-- **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java) — AWS CardDemo COBOL mainframe credit card management application
-- **Objective:** Translate a COBOL program to Java 17+, preserving business logic and proving functional equivalence with parity tests
+- **Module:** [Language Translation](../../modules/migration-modernization/legacy-modernization-combined.md)
+- **Repositories:**
+  - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot (Java) RealWorld app — source language
+  - [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) — Angular (TypeScript) RealWorld app — reference for alternative target
+- **Objective:** Translate a Java Spring Boot service layer into an equivalent Python (Flask/FastAPI) application, preserving API contracts and proving functional equivalence with parity tests. Both source and target compile and run on Ubuntu.
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 ```
-Analyze the COBOL program CBACT01C.cbl in uc-legacy-modernization-cobol-to-java. Understand its business logic, data structures (copybooks), and I/O operations. Rewrite it as a Java 17+ application using modern idioms. Create JUnit tests that verify the Java version produces identical output to the COBOL version for the sample data files in the repo. Document the field mappings in a `MIGRATION_NOTES.md`. Open a PR.
+Translate the Articles API from uc-framework-upgrade-monolith-to-microservices (Java/Spring Boot) into a Python FastAPI application. The Python version should expose the same REST endpoints: GET /api/articles, GET /api/articles/:slug, POST /api/articles, PUT /api/articles/:slug, DELETE /api/articles/:slug, and GET /api/articles/feed. Use SQLAlchemy for persistence and Pydantic for request/response models. Preserve the same JSON response shape so the API is a drop-in replacement. Write pytest tests that verify the Python endpoints return identical responses to the Java version for the same inputs. Document the translation decisions in a `MIGRATION_NOTES.md`. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
 
 While Devin works on step 1, open **AskDevin** and explore:
-- *"What are the most complex COBOL programs in uc-legacy-modernization-cobol-to-java and what do they do?"*
-- *"What would be the best Java architecture for migrating CBTRN01C.cbl? Consider Spring Boot, plain Java, or Kotlin."*
-- *"What are the riskiest COBOL-to-Java translation patterns — packed decimals, EBCDIC encoding, VSAM file I/O?"*
-- Use the analysis to start a **second session** — try migrating the same program to **two different targets** (e.g., Java and Python) in parallel and compare results
+- *"What are the main API endpoints in uc-framework-upgrade-monolith-to-microservices? What does each one do and what are the request/response shapes?"*
+- *"What's the best Python web framework for translating a Spring Boot REST API — Flask, FastAPI, or Django REST Framework? Compare trade-offs."*
+- *"What are the riskiest Java-to-Python translation patterns — type safety, null handling, dependency injection, ORM differences?"*
+- Use the analysis to start a **second session** — try translating the same service to **TypeScript (Express/NestJS)** in parallel and compare the results
 
 #### Step 3 (Optional): Read the DeepWiki
 
-Open the repo's **DeepWiki** page to see the auto-generated architecture diagrams, module relationships, and code explanations:
-1. Understand the COBOL program structure, copybook layouts, and I/O operations
-2. Identify which programs are the best migration candidates (see the Starting Points table below)
-3. Use this understanding to decide your own migration scope
+Open the repo's **DeepWiki** page to understand the Java application architecture before translating:
+1. Understand the layered architecture: API controllers → Application services → Domain entities → Repositories
+2. Identify which service layer has the most complex business logic
+3. Map Java patterns (Spring DI, JPA repositories, Bean Validation) to Python equivalents (FastAPI dependency injection, SQLAlchemy, Pydantic)
 
-| Program | Description | Complexity | Good For |
-|---------|-------------|-----------|----------|
-| `CBACT01C.cbl` | Account file batch processing | Medium | First migration attempt |
-| `CBACT02C.cbl` | Account data processing | Medium | Data transformation focus |
-| `CBTRN01C.cbl` | Transaction processing | High | Complex business logic |
-| `COTRTUPC.cbl` | Transaction type update | Low-Medium | Quick win |
-| `CBSTM03A.cbl` | Statement generation | Medium-High | Report generation |
+| Java Component | Python Equivalent | Notes |
+|---------------|-------------------|-------|
+| `@RestController` | FastAPI router | Route decorators |
+| `@Service` | Plain class or FastAPI dependency | Business logic layer |
+| JPA Repository | SQLAlchemy session | ORM queries |
+| Bean Validation (`@Valid`) | Pydantic models | Request validation |
+| `@Transactional` | SQLAlchemy session context manager | Transaction management |
+| MyBatis XML mappers | SQLAlchemy Core queries | Complex queries |
 
 Try different approaches:
-- Migrate **multiple programs in parallel** using separate Devin sessions
-- Ask Devin to produce a **complete system inventory** before migrating any code
-- Try targeting **different languages** (Java, Python, C#) and compare the results
-- Have Devin create a **migration test harness** with golden-file comparisons
+- Translate **multiple API domains in parallel** (Articles, Users, Comments) using separate Devin sessions
+- Ask Devin to produce a **translation mapping document** before writing any code
+- Try targeting **two different Python frameworks** (FastAPI vs. Flask) and compare the output
+- Have Devin create a **contract test suite** that hits both the Java and Python servers and asserts identical responses
 
 #### Step 4 (Optional): Review & Give Feedback
 
 Once Devin opens a PR from step 1, focus your review on the **translation fidelity**:
-- **Business logic:** Does the Java code faithfully represent the COBOL business logic?
-- **Data structures:** Are copybook PIC clauses correctly mapped to Java types (especially packed decimals, zoned decimals)?
-- **Parity tests:** Do the JUnit tests compare COBOL output to Java output for the same inputs?
+- **API contract:** Does the Python version return the exact same JSON shape as the Java version?
+- **Business logic:** Are edge cases handled the same way (e.g., slug generation, pagination, authentication)?
+- **Parity tests:** Do the pytest tests verify identical behavior for the same inputs?
 
 **Leave a feedback comment** and watch Devin respond:
-- *"Can you use an enum for the status codes instead of string constants?"*
-- *"The packed decimal handling looks wrong — COBOL PIC S9(7)V99 COMP-3 should map to BigDecimal, not double"*
-- *"Add a golden-file comparison test that captures the COBOL output and asserts the Java version matches"*
+- *"The slug generation logic doesn't match — Java uses `String.toLowerCase().replaceAll()` but Python is using a different regex"*
+- *"Add a contract test that starts both servers and compares responses for the same request"*
+- *"The error responses don't match — Java returns `{errors: {body: [...]}}` but Python returns a flat string"*
 
-See the full challenge details for [COBOL to Java](../../modules/migration-modernization/cobol-to-java.md) for more ideas.
+See the full challenge details for [Language Translation](../../modules/migration-modernization/legacy-modernization-combined.md) for more ideas.
 
 - **Key Takeaways:**
-  - **"Devin reads COBOL"** — it understands copybooks, WORKING-STORAGE, PERFORM, EVALUATE, and file I/O — a language most developers can't read
-  - **"Parity tests prove correctness"** — the Java version must produce identical results to the COBOL version for the same inputs. Tests are the proof.
-  - **"Different targets, same source"** — the same COBOL program can be migrated to Java, Python, or C# in parallel sessions, letting teams compare approaches
-  - **"Migration notes capture decisions"** — the `MIGRATION_NOTES.md` documents field mappings, architectural choices, and trade-offs for future reference
+  - **"Same API, different language"** — Devin translates the business logic while preserving the API contract, so the new service is a drop-in replacement
+  - **"Parity tests prove correctness"** — the Python version must return identical responses to the Java version for the same inputs. Tests are the proof.
+  - **"Both compile on Ubuntu"** — unlike mainframe languages, both Java and Python run natively on Devin's machine, so Devin can build, run, and test both versions end-to-end
+  - **"Migration notes capture decisions"** — the `MIGRATION_NOTES.md` documents how Java patterns map to Python equivalents and any trade-offs made
 
 - **Target Outcomes (any of these count):**
-  - Java source code replacing selected COBOL program(s)
-  - JUnit parity tests proving functional equivalence
-  - `MIGRATION_NOTES.md` documenting translation decisions and field mappings
-  - Business rules extracted and documented
-  - PR with Java code, tests, and Devin's responses to review comments
+  - Python (FastAPI) application implementing the same REST API as the Java source
+  - pytest parity tests proving functional equivalence
+  - `MIGRATION_NOTES.md` documenting translation decisions and pattern mappings
+  - Both source and target building and running successfully on Ubuntu
+  - PR with Python code, tests, and Devin's responses to review comments
 
 ---
 
@@ -500,16 +502,7 @@ Add a "Projects" management feature to app_timesheet. Users should be able to cr
 Add an "article statistics" feature to uc-framework-upgrade-monolith-to-microservices. Create a new endpoint GET /api/articles/:slug/stats that returns: view count, favorite count, comment count, and days since published. Add a GET /api/stats/trending endpoint that returns the top 10 most-favorited articles in the last 7 days. Write tests for both endpoints. Open a PR.
 ```
 
-#### Step 2: Research with Ask Devin
-
-While Devin works on step 1, open **AskDevin** and go deeper:
-- *"What validation rules should the Projects feature have? Should project names be unique per client?"*
-- *"What database migration approach does the app use? How should I add a new table?"*
-- Use the analysis to refine your requirements — try starting a **second session** with more specific feature requirements based on what you learned
-
-> **Tip:** This is the Ask Devin workflow in action — use it to gather requirements and plan before creating a session. Teams that front-load clarity in Ask Devin get better results from Devin sessions with less back-and-forth.
-
-#### Step 3 (Optional): Read the DeepWiki
+#### Step 2 (Optional): Read the DeepWiki
 
 Open the repo's **DeepWiki** page to understand the existing feature patterns. Use what you learn to try different approaches:
 - Have Devin add **validation rules** for the new feature (e.g., project dates must not overlap)
@@ -517,7 +510,7 @@ Open the repo's **DeepWiki** page to understand the existing feature patterns. U
 - Try having Devin add **audit logging** for all CRUD operations on the new feature
 - Ask Devin to generate **API documentation** (Swagger/OpenAPI) for the new endpoints
 
-#### Step 4: Review PR & Observe PR Review Agent
+#### Step 3: Review PR & Observe PR Review Agent
 
 Once Devin opens a PR from step 1, this is where the **PR Review feedback loop** comes in:
 - **PR Review will automatically analyze the PR** and flag potential issues — missing validation, error handling gaps, security concerns, or logic bugs
