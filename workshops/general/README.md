@@ -1,11 +1,34 @@
 # Workshop: General
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Workshop Narrative](#workshop-narrative)
+- [Getting the Most from This Workshop](#getting-the-most-from-this-workshop)
+- [Track A: Security & Issue Triage](#track-a-security--issue-triage)
+  - [Lab A1 — SAST Scans & Vulnerability Remediation](#lab-a1--sast-scans--vulnerability-remediation)
+  - [Lab A2 — Bug Fixes & Root Cause Analysis](#lab-a2--bug-fixes--root-cause-analysis)
+  - [Lab A3 — Scheduled Dependency Hygiene](#lab-a3--scheduled-dependency-hygiene)
+- [Track B: Modernization](#track-b-modernization)
+  - [Lab B1 — Rearchitecting Monolith to Microservice](#lab-b1--rearchitecting-monolith-to-microservice)
+  - [Lab B2 — Upgrading EOL Systems to LTS Versions](#lab-b2--upgrading-eol-systems-to-lts-versions)
+  - [Lab B3 — Language Translation](#lab-b3--language-translation)
+- [Track C: Feature Development & Testing](#track-c-feature-development--testing)
+  - [Lab C1 — Add a Feature + PR Review Feedback](#lab-c1--add-a-feature--pr-review-feedback)
+  - [Lab C2 — Add Test Coverage](#lab-c2--add-test-coverage)
+  - [Lab C3 — Perform E2E Tests & Fix Issues](#lab-c3--perform-e2e-tests--fix-issues)
+- [Additional Challenges](#additional-challenges)
+- [Suggested Formats](#suggested-formats)
+- [Repos Required](#repos-required)
+- [Context](#context)
+- [Devin Features Checklist](#devin-features-checklist)
+
 ## Overview
 
 | | |
 |---|---|
 | **Focus** | Security triage, modernization, feature development, and testing — a broad hands-on tour of Devin's capabilities |
-| **Duration** | 4-6 hours (3 tracks, 3 labs each + breaks) |
+| **Duration** | Flexible (3 tracks, 3 labs each) |
 | **Audience** | Development teams, engineering leaders, platform teams evaluating Devin across multiple use cases |
 | **Tracks** | **Track A:** Security & Issue Triage · **Track B:** Modernization · **Track C:** Feature Development & Testing |
 
@@ -36,7 +59,7 @@ A few tips to maximize your hands-on time:
 
 Track A demonstrates Devin as a security and reliability agent. Participants will run SAST scans and remediate findings, investigate and fix bugs with root cause analysis, and set up automated scheduled sessions for ongoing dependency hygiene.
 
-### Lab A1 — SAST Scans & Vulnerability Remediation (60 min)
+### Lab A1 — SAST Scans & Vulnerability Remediation
 
 - **Modules:** [Remediate Vulnerabilities](../../modules/security/remediate-vulnerabilities.md) + [Shift Left Security](../../modules/security/shift-left-security.md)
 - **Repositories:**
@@ -51,10 +74,14 @@ This lab has two parts: (1) find and fix existing vulnerabilities, and (2) shift
 Run these as **parallel sessions** — one to fix existing vulnerabilities, one to add CI scanning:
 
 **Session A — Scan & Remediate:**
-> Run `./gradlew dependencyCheckAnalyze` on uc-cve-remediation-regulatory-compliance to identify dependency CVEs. Remediate the top 5 most critical findings (CVSS >= 7.0) — start with Spring Boot 2.6.3, SnakeYAML 1.29, and sqlite-jdbc 3.36.0.3. Re-run the scan to verify the fixes. Create a `SECURITY_REMEDIATION.md` documenting the before/after results. Open a PR.
+```
+Run `./gradlew dependencyCheckAnalyze` on uc-cve-remediation-regulatory-compliance to identify dependency CVEs. Remediate the top 5 most critical findings (CVSS >= 7.0) — start with Spring Boot 2.6.3, SnakeYAML 1.29, and sqlite-jdbc 3.36.0.3. Re-run the scan to verify the fixes. Create a `SECURITY_REMEDIATION.md` documenting the before/after results. Open a PR.
+```
 
 **Session B — Shift Left (CI Pipeline):**
-> Create a GitHub Actions CI pipeline for uc-cve-remediation-regulatory-compliance that: builds with Gradle, runs `./gradlew dependencyCheckAnalyze`, fails the PR if any dependency has CVSS >= 7.0, generates an SBOM in CycloneDX format, and uploads the dependency check report as a build artifact. Open a PR with the workflow file.
+```
+Create a GitHub Actions CI pipeline for uc-cve-remediation-regulatory-compliance that: builds with Gradle, runs `./gradlew dependencyCheckAnalyze`, fails the PR if any dependency has CVSS >= 7.0, generates an SBOM in CycloneDX format, and uploads the dependency check report as a build artifact. Open a PR with the workflow file.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -100,7 +127,7 @@ See the full challenge details for [Remediate Vulnerabilities](../../modules/sec
 
 ---
 
-### Lab A2 — Bug Fixes & Root Cause Analysis (60 min)
+### Lab A2 — Bug Fixes & Root Cause Analysis
 
 - **Modules:** [Fix Runtime Bug](../../modules/application-development/fix-runtime-bug.md) + [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md)
 - **Repositories:**
@@ -115,10 +142,14 @@ This lab shows two dimensions of bug investigation: (1) exploratory testing wher
 Choose one or both:
 
 **Option A — Exploratory Bug Hunting (app_timesheet):**
-> Start app_timesheet locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Write a `ROOT_CAUSE_ANALYSIS.md` explaining the bug, why it happened, and how you fixed it. Open a PR.
+```
+Start app_timesheet locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Write a `ROOT_CAUSE_ANALYSIS.md` explaining the bug, why it happened, and how you fixed it. Open a PR.
+```
 
 **Option B — Cross-Service Bug Investigation (.NET microservices):**
-> Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices. To reproduce: run the notification-service locally, POST to `http://localhost:5005/api/notification/events/order-placed` with `{"orderId": "11111111-1111-1111-1111-111111111111", "customerId": "22222222-2222-2222-2222-222222222222", "totalAmount": 149.99, "placedAt": "2026-03-17T12:00:00Z"}`, then open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR with your fix and root cause analysis.
+```
+Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices. To reproduce: run the notification-service locally, POST to `http://localhost:5005/api/notification/events/order-placed` with `{"orderId": "11111111-1111-1111-1111-111111111111", "customerId": "22222222-2222-2222-2222-222222222222", "totalAmount": 149.99, "placedAt": "2026-03-17T12:00:00Z"}`, then open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR with your fix and root cause analysis.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -168,7 +199,7 @@ See the full challenge details for [Fix Runtime Bug](../../modules/application-d
 
 ---
 
-### Lab A3 — Scheduled Dependency Hygiene (30 min)
+### Lab A3 — Scheduled Dependency Hygiene
 
 - **Modules:** [Upgrade Dependencies](../../modules/security/upgrade-dependencies.md)
 - **Repositories:**
@@ -178,35 +209,31 @@ See the full challenge details for [Fix Runtime Bug](../../modules/application-d
 
 This lab introduces **Devin Scheduled Sessions** — recurring automated tasks that run without human intervention. Dependency version bumps are a perfect use case: low-risk, high-volume, and easy to verify via CI.
 
-#### Step 1: Create a Scheduled Session
+#### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-Navigate to **Devin > Schedules** and create a new weekly schedule with this prompt:
-
-> Check all dependencies in uc-cve-remediation-regulatory-compliance for available minor and patch version updates. Upgrade each dependency to the latest minor version (do not jump major versions). Run `./gradlew build` and `./gradlew test` to verify the build still passes after each upgrade. If any upgrade breaks the build, revert that specific upgrade and document it. Open a PR with all successful upgrades and a `DEPENDENCY_UPDATES.md` listing what was upgraded, from which version to which version, and any upgrades that were skipped (with reasons). Title the PR "chore: weekly dependency version bump".
-
-Set the schedule to run **weekly on Monday mornings**. Select the repository `uc-cve-remediation-regulatory-compliance`.
+```
+Check all dependencies in uc-cve-remediation-regulatory-compliance for available minor and patch version updates. Upgrade each dependency to the latest minor version (do not jump major versions). Run `./gradlew build` and `./gradlew test` to verify the build still passes after each upgrade. If any upgrade breaks the build, revert that specific upgrade and document it. Open a PR with all successful upgrades and a `DEPENDENCY_UPDATES.md` listing what was upgraded, from which version to which version, and any upgrades that were skipped (with reasons). Title the PR "chore: weekly dependency version bump".
+```
 
 #### Step 2: Research with Ask Devin
 
-While the schedule is being set up, open **AskDevin** and explore:
+While Devin works on step 1, open **AskDevin** and explore:
 - *"What dependencies in uc-cve-remediation-regulatory-compliance are the most out of date? Which ones have the most available minor/patch updates?"*
 - *"What's the difference between minor and patch version upgrades in terms of risk? When is it safe to auto-upgrade vs. requiring human review?"*
 - *"How should a team handle dependency upgrades that break the build — auto-revert and flag, or block and notify?"*
 - Consider creating a **Devin Knowledge item** capturing the dependency upgrade policy (e.g., "always upgrade patch versions, upgrade minor versions if tests pass, never auto-upgrade major versions")
 
-#### Step 3 (Optional): Try It Now
+#### Step 3 (Optional): Set Up a Scheduled Session
 
-Instead of waiting for the schedule to trigger, run the same prompt as a regular Devin session right now to see the output:
-
-> Check all dependencies in uc-cve-remediation-regulatory-compliance for available minor and patch version updates. Upgrade each dependency to the latest minor version (do not jump major versions). Run `./gradlew build` and `./gradlew test` to verify the build still passes. If any upgrade breaks the build, revert it and document why. Open a PR with all successful upgrades and a `DEPENDENCY_UPDATES.md`.
-
-Review the PR Devin creates — this is exactly what the weekly scheduled session will produce automatically.
+Once you're happy with the output from step 1, turn it into a recurring task. Navigate to **Devin > Schedules** and create a new weekly schedule using the same prompt. Set it to run **weekly on Monday mornings** and select the repository `uc-cve-remediation-regulatory-compliance`. This way Devin will automatically open a dependency bump PR every week without human intervention.
 
 #### Step 4 (Optional): Extend to Multiple Repos
 
-Try setting up the same schedule for **app_timesheet** with an npm-flavored prompt:
+Try running the same pattern for **app_timesheet** with an npm-flavored prompt:
 
-> Check all npm dependencies in app_timesheet for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works. Open a PR with the upgrades and a `DEPENDENCY_UPDATES.md`.
+```
+Check all npm dependencies in app_timesheet for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works. Open a PR with the upgrades and a `DEPENDENCY_UPDATES.md`.
+```
 
 This demonstrates how the same maintenance pattern scales across different tech stacks and repositories — each scheduled session runs independently on its own VM.
 
@@ -228,7 +255,7 @@ This demonstrates how the same maintenance pattern scales across different tech 
 
 Track B demonstrates Devin handling large-scale structural changes to codebases. Participants will extract microservices from a monolith, upgrade end-of-life frameworks to LTS versions, and translate legacy code to a modern language.
 
-### Lab B1 — Rearchitecting Monolith to Microservice (60 min)
+### Lab B1 — Rearchitecting Monolith to Microservice
 
 - **Module:** [Containerization & Microservice Extraction](../../modules/migration-modernization/containerization-microservice-extraction.md)
 - **Repositories:**
@@ -238,9 +265,11 @@ Track B demonstrates Devin handling large-scale structural changes to codebases.
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Analyze the domain boundaries in uc-framework-upgrade-monolith-to-microservices. This Spring Boot monolith has three bounded contexts: Articles (CRUD, feed, favorites, tags), Users/Profiles (registration, authentication, following), and Comments (CRUD linked to articles).
->
-> Extract the Comments domain into a standalone Spring Boot microservice with its own database, Dockerfile, and REST API. The monolith should communicate with the comments microservice via HTTP. Create a docker-compose.yml that runs both services. Add integration tests that verify the monolith and microservice communicate correctly. Open a PR.
+```
+Analyze the domain boundaries in uc-framework-upgrade-monolith-to-microservices. This Spring Boot monolith has three bounded contexts: Articles (CRUD, feed, favorites, tags), Users/Profiles (registration, authentication, following), and Comments (CRUD linked to articles).
+
+Extract the Comments domain into a standalone Spring Boot microservice with its own database, Dockerfile, and REST API. The monolith should communicate with the comments microservice via HTTP. Create a docker-compose.yml that runs both services. Add integration tests that verify the monolith and microservice communicate correctly. Open a PR.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -291,7 +320,7 @@ See the full challenge details for [Containerization & Microservice Extraction](
 
 ---
 
-### Lab B2 — Upgrading EOL Systems to LTS Versions (60 min)
+### Lab B2 — Upgrading EOL Systems to LTS Versions
 
 - **Modules:** [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md) + [Repetitive Framework Upgrades](../../modules/migration-modernization/repetitive-framework-upgrades.md)
 - **Repositories:**
@@ -305,13 +334,19 @@ See the full challenge details for [Containerization & Microservice Extraction](
 Run these as **parallel sessions** to see how the same upgrade pattern scales across repos:
 
 **Session A — Spring Boot + Java Upgrade:**
-> Upgrade uc-framework-upgrade-monolith-to-microservices from Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2. Handle the javax to jakarta namespace migration, update Gradle build configuration, fix any deprecations, and ensure all tests pass. Document every breaking change and how you resolved it in the PR description. Open a PR.
+```
+Upgrade uc-framework-upgrade-monolith-to-microservices from Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2. Handle the javax to jakarta namespace migration, update Gradle build configuration, fix any deprecations, and ensure all tests pass. Document every breaking change and how you resolved it in the PR description. Open a PR.
+```
 
 **Session B — Angular Upgrade (PetClinic):**
-> Upgrade app_petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Document every breaking change encountered. Open a PR.
+```
+Upgrade app_petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Document every breaking change encountered. Open a PR.
+```
 
 **Session C — Angular Upgrade (RealWorld, optional for comparison):**
-> Upgrade ts-angular-realworld-example-app to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
+```
+Upgrade ts-angular-realworld-example-app to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -365,7 +400,7 @@ See the full challenge details for [Framework Upgrade](../../modules/migration-m
 
 ---
 
-### Lab B3 — Language Translation (60 min)
+### Lab B3 — Language Translation
 
 - **Module:** [COBOL to Java](../../modules/migration-modernization/cobol-to-java.md)
 - **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java) — AWS CardDemo COBOL mainframe credit card management application
@@ -373,7 +408,9 @@ See the full challenge details for [Framework Upgrade](../../modules/migration-m
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Analyze the COBOL program CBACT01C.cbl in uc-legacy-modernization-cobol-to-java. Understand its business logic, data structures (copybooks), and I/O operations. Rewrite it as a Java 17+ application using modern idioms. Create JUnit tests that verify the Java version produces identical output to the COBOL version for the sample data files in the repo. Document the field mappings in a `MIGRATION_NOTES.md`. Open a PR.
+```
+Analyze the COBOL program CBACT01C.cbl in uc-legacy-modernization-cobol-to-java. Understand its business logic, data structures (copybooks), and I/O operations. Rewrite it as a Java 17+ application using modern idioms. Create JUnit tests that verify the Java version produces identical output to the COBOL version for the sample data files in the repo. Document the field mappings in a `MIGRATION_NOTES.md`. Open a PR.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -437,7 +474,7 @@ See the full challenge details for [COBOL to Java](../../modules/migration-moder
 
 Track C demonstrates Devin as a day-to-day development partner. Participants will build a new feature, see PR Review automatically flag potential issues, add test coverage, and run E2E tests to find and fix issues.
 
-### Lab C1 — Add a Feature + PR Review Feedback (60 min)
+### Lab C1 — Add a Feature + PR Review Feedback
 
 - **Module:** [New Feature Development](../../modules/application-development/new-feature-development.md)
 - **Repositories:**
@@ -454,10 +491,14 @@ For example, ask: *"What existing patterns does app_timesheet use for CRUD featu
 Then use what you learn to refine one of these prompts before pasting it into a Devin session:
 
 **Option A — Full-Stack CRUD Feature (app_timesheet):**
-> Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
+```
+Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
+```
 
 **Option B — API Feature (Spring Boot RealWorld app):**
-> Add an "article statistics" feature to uc-framework-upgrade-monolith-to-microservices. Create a new endpoint GET /api/articles/:slug/stats that returns: view count, favorite count, comment count, and days since published. Add a GET /api/stats/trending endpoint that returns the top 10 most-favorited articles in the last 7 days. Write tests for both endpoints. Open a PR.
+```
+Add an "article statistics" feature to uc-framework-upgrade-monolith-to-microservices. Create a new endpoint GET /api/articles/:slug/stats that returns: view count, favorite count, comment count, and days since published. Add a GET /api/stats/trending endpoint that returns the top 10 most-favorited articles in the last 7 days. Write tests for both endpoints. Open a PR.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -507,7 +548,7 @@ See the full challenge details for [New Feature Development](../../modules/appli
 
 ---
 
-### Lab C2 — Add Test Coverage (60 min)
+### Lab C2 — Add Test Coverage
 
 - **Modules:** [Unit Testing](../../modules/testing-qa/unit-testing.md) + [BDD Test Generation](../../modules/testing-qa/bdd-test-generation.md)
 - **Repositories:**
@@ -521,13 +562,19 @@ See the full challenge details for [New Feature Development](../../modules/appli
 Choose one or run multiple in parallel:
 
 **Option A — Unit Test Coverage (Spring Boot):**
-> Analyze the current test coverage of uc-framework-upgrade-monolith-to-microservices. Identify the modules with the lowest test coverage. Write JUnit tests for the top 5 least-tested modules, following the existing test patterns and framework. Aim for at least 80% line coverage on each module. Generate a JaCoCo coverage report. Open a PR with the new tests.
+```
+Analyze the current test coverage of uc-framework-upgrade-monolith-to-microservices. Identify the modules with the lowest test coverage. Write JUnit tests for the top 5 least-tested modules, following the existing test patterns and framework. Aim for at least 80% line coverage on each module. Generate a JaCoCo coverage report. Open a PR with the new tests.
+```
 
 **Option B — Unit Test Coverage (Node.js):**
-> Analyze the current test coverage of app_timesheet. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Aim for at least 80% coverage on each tested module. Open a PR with the new tests.
+```
+Analyze the current test coverage of app_timesheet. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Aim for at least 80% coverage on each tested module. Open a PR with the new tests.
+```
 
 **Option C — BDD Test Generation (Cucumber):**
-> Review the uc-bdd-test-generation-rest-api codebase. This is a Spring Boot + Cucumber BDD framework with pre-built step definitions for REST API testing. Run `mvn test` to see the existing scenarios pass. Then add new Gherkin feature files that test edge cases for the existing Users API: creating a user with missing required fields (expect 400), creating a user with duplicate ID (expect 409 or appropriate error), pagination and sorting, and input validation. Also create a new `OrderController` with endpoints for managing orders and write corresponding Gherkin feature files. Open a PR.
+```
+Review the uc-bdd-test-generation-rest-api codebase. This is a Spring Boot + Cucumber BDD framework with pre-built step definitions for REST API testing. Run `mvn test` to see the existing scenarios pass. Then add new Gherkin feature files that test edge cases for the existing Users API: creating a user with missing required fields (expect 400), creating a user with duplicate ID (expect 409 or appropriate error), pagination and sorting, and input validation. Also create a new `OrderController` with endpoints for managing orders and write corresponding Gherkin feature files. Open a PR.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -575,7 +622,7 @@ See the full challenge details for [Unit Testing](../../modules/testing-qa/unit-
 
 ---
 
-### Lab C3 — Perform E2E Tests & Fix Issues (60 min)
+### Lab C3 — Perform E2E Tests & Fix Issues
 
 - **Module:** [End-to-End Testing](../../modules/testing-qa/end-to-end-testing.md) + [Fix Runtime Bug](../../modules/application-development/fix-runtime-bug.md)
 - **Repositories:**
@@ -588,10 +635,14 @@ This lab completes the testing story: after adding unit tests (Lab C2), now run 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 **Option A — Playwright E2E Tests (app_timesheet):**
-> Set up and run app_timesheet locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the core user workflows: (1) Login flow, (2) Create a client, (3) Create a work entry for that client, (4) Verify the work entry appears in the list, (5) Edit the work entry, (6) Delete the work entry, (7) Check the reports page shows correct totals. Run the tests and take a screen recording. If any tests fail because of application bugs, fix the bugs too. Open a PR with the test files and any bug fixes.
+```
+Set up and run app_timesheet locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the core user workflows: (1) Login flow, (2) Create a client, (3) Create a work entry for that client, (4) Verify the work entry appears in the list, (5) Edit the work entry, (6) Delete the work entry, (7) Check the reports page shows correct totals. Run the tests and take a screen recording. If any tests fail because of application bugs, fix the bugs too. Open a PR with the test files and any bug fixes.
+```
 
 **Option B — API E2E Tests (BDD framework):**
-> Review the uc-bdd-test-generation-rest-api codebase. Run `mvn test` to verify the existing 16 scenarios pass. Then write new end-to-end Gherkin scenarios that test the full user lifecycle: create a user, verify they appear in the list, update their details, verify the update, then delete them and verify they're gone. Also test cross-resource relationships — create a user, create orders for that user, verify the orders appear when querying by user. Run all tests and fix any failures. Open a PR.
+```
+Review the uc-bdd-test-generation-rest-api codebase. Run `mvn test` to verify the existing 16 scenarios pass. Then write new end-to-end Gherkin scenarios that test the full user lifecycle: create a user, verify they appear in the list, update their details, verify the update, then delete them and verify they're gone. Also test cross-resource relationships — create a user, create orders for that user, verify the orders appear when querying by user. Run all tests and fix any failures. Open a PR.
+```
 
 #### Step 2: Research with Ask Devin
 
@@ -642,23 +693,23 @@ See the full challenge details for [End-to-End Testing](../../modules/testing-qa
 
 Participants who finish early or want to explore further can attempt any challenge from the full [module catalog](../../modules/). Recommended extras:
 
-| Challenge | Module | Repo | Track | Difficulty | Time |
-|-----------|--------|------|-------|-----------|------|
-| Data Source Migration | [Data Source Migration](../../modules/data-engineering/data-source-migration.md) | uc-data-source-migration-legacy-to-modern | B | Intermediate | 60 min |
-| Event-Driven SAST Pipeline | [Event-Driven SAST Remediation](../../modules/security/event-driven-sast-remediation.md) | uc-cve-remediation-regulatory-compliance | A | Advanced | 90 min |
-| Monolith Decomposition (.NET) | [.NET Monolith Decomposition](../../modules/migration-modernization/dotnet-monolith-decomposition.md) | dotnet-modular-monolith | B | Advanced | 90 min |
-| Code Refactoring & Tech Debt | [Code Refactoring](../../modules/architecture-design/code-refactoring-tech-debt.md) | Any | C | Intermediate | 45 min |
-| API Documentation | [API Documentation](../../modules/technical-documentation/api-documentation.md) | Any | C | Beginner | 30 min |
+| Challenge | Module | Repo | Track | Difficulty |
+|-----------|--------|------|-------|------------|
+| Data Source Migration | [Data Source Migration](../../modules/data-engineering/data-source-migration.md) | uc-data-source-migration-legacy-to-modern | B | Intermediate |
+| Event-Driven SAST Pipeline | [Event-Driven SAST Remediation](../../modules/security/event-driven-sast-remediation.md) | uc-cve-remediation-regulatory-compliance | A | Advanced |
+| Monolith Decomposition (.NET) | [.NET Monolith Decomposition](../../modules/migration-modernization/dotnet-monolith-decomposition.md) | dotnet-modular-monolith | B | Advanced |
+| Code Refactoring & Tech Debt | [Code Refactoring](../../modules/architecture-design/code-refactoring-tech-debt.md) | Any | C | Intermediate |
+| API Documentation | [API Documentation](../../modules/technical-documentation/api-documentation.md) | Any | C | Beginner |
 
-## Duration Variants
+## Suggested Formats
 
-| Duration | Recommended Format |
-|----------|-------------------|
-| 6 hours (full day) | All 3 tracks: Track A (morning) + Track B (midday) + Track C (afternoon) |
-| 4 hours | 2 tracks: Choose any two tracks based on audience interest |
-| 3 hours | 1 full track + 1 lab from another track |
-| 2 hours | Pick 1 lab from each track (e.g., A1 + B2 + C1) for breadth |
-| 1 hour | Single lab — A1 (security) or C1 (feature dev) recommended for impact |
+| Format | Recommended Approach |
+|--------|---------------------|
+| Full day | All 3 tracks: Track A (morning) + Track B (midday) + Track C (afternoon) |
+| Half day | 2 tracks: Choose any two tracks based on audience interest |
+| Short session | 1 full track + 1 lab from another track |
+| Sampler | Pick 1 lab from each track (e.g., A1 + B2 + C1) for breadth |
+| Single lab | A1 (security) or C1 (feature dev) recommended for impact |
 
 ## Repos Required
 
