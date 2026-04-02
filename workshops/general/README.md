@@ -224,7 +224,13 @@ While Devin works on step 1, open **AskDevin** and explore:
 
 #### Step 3 (Optional): Set Up a Scheduled Session
 
-Once you're happy with the output from step 1, turn it into a recurring task. Navigate to **Devin > Schedules** and create a new weekly schedule using the same prompt. Set it to run **weekly on Monday mornings** and select the repository `uc-cve-remediation-regulatory-compliance`. This way Devin will automatically open a dependency bump PR every week without human intervention.
+Once you're happy with the output from step 1, turn it into a recurring task. Open a new Devin session and ask it to create a schedule:
+
+```
+Create a Devin scheduled session that runs weekly on Monday mornings against uc-cve-remediation-regulatory-compliance. The schedule should use this prompt: "Check all dependencies for available minor and patch version updates. Upgrade to the latest minor versions. Run the full test suite and build to verify nothing is broken. If any upgrade breaks the build, revert that specific upgrade and note it. Open a PR with the upgrades and a summary in DEPENDENCY_UPDATES.md."
+```
+
+This way Devin will automatically open a dependency bump PR every week without human intervention.
 
 #### Step 4 (Optional): Extend to Multiple Repos
 
