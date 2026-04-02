@@ -714,8 +714,7 @@ Participants who finish early or want to explore further can attempt any challen
 ### Track B (Modernization)
 - [ ] uc-framework-upgrade-monolith-to-microservices
 - [ ] app_petclinic-angular
-- [ ] ts-angular-realworld-example-app (optional, for parallel comparison)
-- [ ] uc-legacy-modernization-cobol-to-java
+- [ ] ts-angular-realworld-example-app (Lab B3 translation target reference; also useful for parallel comparison)
 
 ### Track C (Feature Development & Testing)
 - [ ] app_timesheet
@@ -725,7 +724,6 @@ Participants who finish early or want to explore further can attempt any challen
 ## Repo Duplication Notes
 
 - `uc-framework-upgrade-monolith-to-microservices` and `uc-cve-remediation-regulatory-compliance` both originate from `spring-boot-realworld-example-app` (Cluster C1 in [catalog](../../catalog/repos.md)). They are intentionally separate repos so each use case gets an isolated starting point.
-- `uc-legacy-modernization-cobol-to-java` originates from `aws-mainframe-modernization-carddemo` (Cluster C2).
 
 ## Context
 
