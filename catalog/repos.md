@@ -223,7 +223,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Real-world application built with Angular. |
 | **Tech Stack** | Angular, TypeScript |
 | **License** | — |
-| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md) |
+| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md), [Test Framework Migration](../modules/testing-qa/test-framework-migration.md) |
 
 ### ts-angular-springboot-jhipster-sample
 | | |
@@ -284,7 +284,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | Angular, TypeScript |
 | **License** | — |
 | **Cluster** | C3 (PetClinic ecosystem) |
-| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md) |
+| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md), [Test Framework Migration](../modules/testing-qa/test-framework-migration.md), [Continuous Quality Engineering](../modules/testing-qa/continuous-quality-engineering.md) |
 
 ### app_petclinic-backend
 | | |
