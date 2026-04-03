@@ -1,6 +1,6 @@
 # Application Development
 
-Challenges focused on requirements gathering, test-driven development, bug fixing, new feature implementation, and database schema evolution.
+Challenges focused on requirements gathering, greenfield development, test-driven development, bug fixing, new feature implementation, and database schema evolution.
 
 > **Job titles:** Software Developer, Full-Stack Engineer, Backend Engineer, Frontend Engineer
 
@@ -9,6 +9,7 @@ Challenges focused on requirements gathering, test-driven development, bug fixin
 | Module | Difficulty | Time |
 |--------|-----------|------|
 | [Gather Requirements](gather-requirements.md) | Beginner | 30 min |
+| [Greenfield Application Development](greenfield-application-development.md) | Intermediate | 60 min |
 | [Test-Driven Development](test-driven-development.md) | Intermediate | 60 min |
 | [Fix Runtime Bug](fix-runtime-bug.md) | Intermediate | 45 min |
 | [Fix UI Bug](fix-ui-bug.md) | Beginner–Intermediate | 30 min |
@@ -30,6 +31,7 @@ Challenges focused on requirements gathering, test-driven development, bug fixin
 - Developer-focused audiences who want to see Devin as a coding partner
 - Workshops showing Devin's interactive capabilities (follow-up questions, clarifications)
 - Good mix of difficulty levels for diverse audiences
+- Greenfield Application Development is the standout module — Devin builds an entire app from a spec with no starting codebase
 - Fix UI Bug and Fix Data Bug have specific, verifiable bugs — good for "see the fix live" walkthroughs
 - Gather Requirements and TDD showcase Devin's planning and reasoning, not just code generation
 - For API documentation, see [Technical Documentation](../technical-documentation/)
