@@ -178,7 +178,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | MIT |
 | **Default Branch** | `main` |
 | **Cluster** | None (imported from RedFroggy/spring-cucumber-rest-api) |
-| **Challenges** | [BDD Test Generation](../modules/testing-qa/bdd-test-generation.md) |
+| **Challenges** | [BDD Test Generation](../modules/testing-qa/bdd-test-generation.md), [Continuous Quality Engineering](../modules/testing-qa/continuous-quality-engineering.md) |
 
 ### uc-volume-anomaly-detection
 | | |
@@ -223,7 +223,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | Real-world application built with Angular. |
 | **Tech Stack** | Angular, TypeScript |
 | **License** | — |
-| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md) |
+| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md), [Test Framework Migration](../modules/testing-qa/test-framework-migration.md) |
 
 ### ts-angular-springboot-jhipster-sample
 | | |
@@ -284,7 +284,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | Angular, TypeScript |
 | **License** | — |
 | **Cluster** | C3 (PetClinic ecosystem) |
-| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md) |
+| **Challenges** | [Framework Upgrade](../modules/migration-modernization/framework-upgrade.md), [Repetitive Framework Upgrades](../modules/migration-modernization/repetitive-framework-upgrades.md), [Test Framework Migration](../modules/testing-qa/test-framework-migration.md), [Continuous Quality Engineering](../modules/testing-qa/continuous-quality-engineering.md) |
 
 ### app_petclinic-backend
 | | |
@@ -402,7 +402,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Tech Stack** | React 19, TypeScript, Node.js, Express, SQLite, Material-UI, Vite |
 | **License** | — |
 | **Renamed From** | `client-timesheet-app` (applied `app_` prefix for multi-repo application) |
-| **Challenges** | [Linting & Static Analysis](../modules/testing-qa/linting-static-analysis.md), [Upgrade Dependencies](../modules/security/upgrade-dependencies.md), [Event-Driven SAST Remediation](../modules/security/event-driven-sast-remediation.md), [Mass Security Backlog Remediation](../modules/security/mass-security-backlog-remediation.md), [Fix UI Bug](../modules/application-development/fix-ui-bug.md), [Fix Data Bug](../modules/application-development/fix-data-bug.md), [New Feature Development](../modules/application-development/new-feature-development.md), [CI/CD Pipeline](../modules/devops-cicd/cicd-pipeline.md) |
+| **Challenges** | [Linting & Static Analysis](../modules/testing-qa/linting-static-analysis.md), [Upgrade Dependencies](../modules/security/upgrade-dependencies.md), [Event-Driven SAST Remediation](../modules/security/event-driven-sast-remediation.md), [Mass Security Backlog Remediation](../modules/security/mass-security-backlog-remediation.md), [Fix UI Bug](../modules/application-development/fix-ui-bug.md), [Fix Data Bug](../modules/application-development/fix-data-bug.md), [New Feature Development](../modules/application-development/new-feature-development.md), [CI/CD Pipeline](../modules/devops-cicd/cicd-pipeline.md), [Continuous Quality Engineering](../modules/testing-qa/continuous-quality-engineering.md) |
 
 ---
 
