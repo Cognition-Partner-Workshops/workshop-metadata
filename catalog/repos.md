@@ -216,6 +216,20 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Key Legacy Characteristics** | Multi-layer architecture (Forms triggers + PLL libraries + PL/SQL packages + DB triggers), validation drift between client/server, circular package dependencies, cursor-loop batch processing, CONNECT BY performance anti-pattern, hard-coded encryption keys |
 | **Challenges** | [Oracle Forms System Understanding](../modules/migration-modernization/oracle-forms-system-understanding.md), [Oracle Forms to Java](../modules/migration-modernization/oracle-forms-to-java.md), [Oracle Forms Migration Planning](../modules/migration-modernization/oracle-forms-migration-planning.md) |
 
+### ts-java-mulesoft-employee-service-api
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/ts-java-mulesoft-employee-service-api |
+| **Description** | MuleSoft Mule 4 Employee Service REST API with OAuth2 token management, PostgreSQL database integration, and APIKit router. Demonstrates MuleSoft development patterns including API-led connectivity, database connectors, and CloudHub 2.0 deployment configuration. |
+| **Tech Stack** | Java 17, MuleSoft Mule 4 (4.9.7), Maven, APIKit, PostgreSQL, OAuth2 |
+| **License** | — |
+| **Default Branch** | `main` |
+| **Cluster** | None (imported from sf-partner-solutions/hrm-service-api) |
+| **Workflows Removed** | None (source had no workflows) |
+| **Key Contents** | Mule XML flows (employee CRUD, OAuth2 token management), RAML API spec, PostgreSQL schema + seed data, mule-artifact.json, Maven build with mule-maven-plugin 4.0.0, CloudHub 2.0 deployment config |
+| **Build Notes** | Requires Java 17 + Maven 3.9.6+ (Maven 3.6.x incompatible with mule-maven-plugin 4.0.0 due to Aether API changes). Build verified on Linux: `mvn clean package -DskipTests` produces `mule-application.jar`. |
+| **Challenges** | MuleSoft development demos, API-led integration patterns, OAuth2 implementation |
+
 ### ts-angular-realworld-example-app
 | | |
 |---|---|
