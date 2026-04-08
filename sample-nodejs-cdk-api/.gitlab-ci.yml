@@ -1,0 +1,100 @@
+# ──────────────────────────────────────────────────────────────
+# GitLab CI/CD — Node.js REST API with AWS CDK
+# Deploys EC2 + API Gateway HTTP API (zero latency)
+# ──────────────────────────────────────────────────────────────
+
+stages:
+  - validate
+  - test
+  - build
+  - deploy
+
+variables:
+  NODE_VERSION: "20"
+  CDK_DEFAULT_REGION: "us-east-1"
+
+# ── Base image ─────────────────────────────────────────────
+.node_base:
+  image: node:${NODE_VERSION}-alpine
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+  before_script:
+    - npm ci --prefer-offline
+
+# ── Validate ───────────────────────────────────────────────
+lint:
+  extends: .node_base
+  stage: validate
+  script:
+    - npm run lint
+
+# ── Test ───────────────────────────────────────────────────
+unit_tests:
+  extends: .node_base
+  stage: test
+  script:
+    - npm test -- --ci --coverage
+  artifacts:
+    when: always
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+
+# ── CDK Synth ─────────────────────────────────────────────
+cdk_synth:
+  extends: .node_base
+  stage: build
+  script:
+    - npx cdk synth
+  artifacts:
+    paths:
+      - cdk.out/
+
+# ── Deploy to Dev ─────────────────────────────────────────
+deploy_dev:
+  extends: .node_base
+  stage: deploy
+  needs: ["cdk_synth", "unit_tests", "lint"]
+  script:
+    - npm install -g aws-cdk
+    - cdk deploy --all --require-approval never --context env=dev
+  environment:
+    name: dev
+    url: $DEV_API_URL
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: manual
+
+# ── Deploy to Staging ─────────────────────────────────────
+deploy_staging:
+  extends: .node_base
+  stage: deploy
+  needs: ["cdk_synth", "unit_tests", "lint"]
+  script:
+    - npm install -g aws-cdk
+    - cdk deploy --all --require-approval never --context env=staging
+  environment:
+    name: staging
+    url: $STAGING_API_URL
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: manual
+
+# ── Deploy to Production ──────────────────────────────────
+deploy_production:
+  extends: .node_base
+  stage: deploy
+  needs: ["deploy_staging"]
+  script:
+    - npm install -g aws-cdk
+    - cdk deploy --all --require-approval never --context env=prod
+  environment:
+    name: production
+    url: $PROD_API_URL
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: manual
