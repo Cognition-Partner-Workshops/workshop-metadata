@@ -30,6 +30,7 @@ Reusable workshop definitions that can be instantiated as events. Each workshop 
 | [Platform Microservice Decomposition](platform-microservice-decomposition/) | Monolith → platform-conformant microservices with IaC | 1.5-2 hours | 1 | DA8 |
 | [Agentic AI](agentic-ai/) | Multi-agent systems, document processing, anomaly detection | 2-4 hours | 2-4 | DA9, DA10, QE8, QE9 |
 | [Feature Development](feature-development/) | New features on existing applications | 1-2 hours | 1-2 | Application Development modules |
+| [Greenfield Application Development](greenfield-application-development/) | Building complete apps from specifications — full SDLC | 2-3 hours | 1-4 | Greenfield App Dev, Gather Requirements, TDD |
 | [Quality Engineering](quality-engineering/) | Testing, documentation, code review automation | 2-4 hours | 2-4 | Testing & QA modules |
 | [General](general/) | Security, modernization, and feature development — 3-track broad tour | 4-6 hours | 9 (3 tracks × 3 labs) | Security, Migration-Modernization, Application Development, Testing & QA modules |
 
