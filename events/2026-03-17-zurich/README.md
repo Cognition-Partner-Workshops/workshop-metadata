@@ -1,11 +1,11 @@
-# Workshop: Hands-on Devin Workshop — Zurich
+# Workshop: Hands-on Devin Workshop — Enablement
 
 ## Event Details
 
 | | |
 |---|---|
 | **Date** | 2026-03-17 |
-| **Location** | Zurich |
+| **Location** | Virtual |
 | **Host Organization** | *(customer)* |
 | **Duration** | N/A |
 | **Facilitator** | Sachet Agarwal, sachet.agarwal@cognition.ai |
