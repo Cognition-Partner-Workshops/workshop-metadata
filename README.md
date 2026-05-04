@@ -106,7 +106,9 @@ workshop-metadata/
 │   │   ├── data-source-migration.md
 │   │   ├── etl-pipeline-modernization.md
 │   │   ├── data-quality-validation.md
-│   │   └── sas-to-python-snowflake.md
+│   │   ├── sas-to-python-snowflake.md
+│   │   ├── informatica-powercenter-analysis.md       ← NEW
+│   │   └── informatica-to-snowflake-migration.md     ← NEW
 │   ├── architecture-design/               ← Solution Architect, Enterprise Architect
 │   │   ├── README.md
 │   │   ├── architecture-decision-records.md
@@ -176,7 +178,7 @@ workshop-metadata/
     └── facilitator-guide.md
 ```
 
-## Module Categories (77 modules across 12 disciplines)
+## Module Categories (79 modules across 12 disciplines)
 
 | Category | Count | Discipline / Job Title |
 |----------|-------|----------------------|
@@ -187,7 +189,7 @@ workshop-metadata/
 | [DevOps & CI/CD](modules/devops-cicd/) | 5 | DevOps Engineer, Release Engineer |
 | [Cloud & Infrastructure](modules/cloud-infrastructure/) | 6 | Cloud Engineer, Platform Engineer |
 | [Observability & SRE](modules/observability-sre/) | 4 | SRE, Observability Engineer |
-| [Data Engineering](modules/data-engineering/) | 5 | Data Engineer, Analytics Engineer |
+| [Data Engineering](modules/data-engineering/) | 7 | Data Engineer, Analytics Engineer |
 | [Architecture & Design](modules/architecture-design/) | 5 | Solution Architect, Enterprise Architect |
 | [AI & ML Engineering](modules/ai-ml-engineering/) | 3 | ML Engineer, AI Engineer |
 | [Technical Documentation](modules/technical-documentation/) | 6 | Technical Writer, Documentation Engineer |

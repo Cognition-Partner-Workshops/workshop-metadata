@@ -13,6 +13,8 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 | [ETL Pipeline Modernization](etl-pipeline-modernization.md) | Intermediate–Advanced | 60 min |
 | [Data Quality & Validation](data-quality-validation.md) | Intermediate | 45 min |
 | [SAS to Python/Snowflake](sas-to-python-snowflake.md) | Intermediate–Advanced | 60 min |
+| [Informatica PowerCenter Analysis](informatica-powercenter-analysis.md) | Intermediate | 45 min |
+| [Informatica PowerCenter to Snowflake Migration](informatica-to-snowflake-migration.md) | Advanced | 75 min |
 
 ## Repositories
 
@@ -20,6 +22,7 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 |------------|--------------------|
 | uc-dw-migration-teradata-to-snowflake | [DW Migration: Teradata to Snowflake](dw-migration-teradata-to-snowflake.md), [ETL Pipeline Modernization](etl-pipeline-modernization.md), [Data Quality & Validation](data-quality-validation.md) |
 | uc-data-source-migration-legacy-to-modern | [Data Source Migration](data-source-migration.md) |
+| ts-informatica-powercenter | [Informatica PowerCenter Analysis](informatica-powercenter-analysis.md), [Informatica PowerCenter to Snowflake Migration](informatica-to-snowflake-migration.md) |
 
 ## When to Use This Category
 
@@ -28,3 +31,4 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 - DW Migration and SAS to Python/Snowflake are particularly relevant for enterprises migrating off legacy analytics platforms
 - Data Quality & Validation pairs well with any data migration module as a validation step
 - The `uc-dw-migration-teradata-to-snowflake` repo was specifically curated for these challenges
+- Informatica PowerCenter modules are ideal for enterprises migrating from on-prem Informatica ETL to cloud-native Snowflake architectures
