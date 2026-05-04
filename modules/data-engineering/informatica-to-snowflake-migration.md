@@ -73,7 +73,7 @@ Advanced
 
 ---
 
-## <a id="informatica-demo"></a>ts-informatica-powercenter
+## <a id="ts-informatica-powercenter"></a>ts-informatica-powercenter
 
 **Repository:** [ts-informatica-powercenter](https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter)
 
