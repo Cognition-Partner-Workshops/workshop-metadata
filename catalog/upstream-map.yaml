@@ -199,6 +199,14 @@ repos:
     upstream_url: https://github.com/HHS/Informatica
     import_method: github-fork
     cluster: null
+    note: "Legacy name — superseded by ts-informatica-powercenter"
+
+  ts-informatica-powercenter:
+    upstream: HHS/Informatica
+    upstream_url: https://github.com/HHS/Informatica
+    import_method: clone-and-push
+    cluster: null
+    note: "Renamed from Informatica-Demo per naming convention. Informatica PowerCenter 9.6.1 XML exports for EHRP-to-BIIS data integration."
 
   Online-Banking-System-using-Java:
     upstream: mishrkavita/Online-Banking-System-using-Java

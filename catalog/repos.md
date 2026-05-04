@@ -109,7 +109,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Default Branch** | `initial-code` |
 | **Cluster** | None (scaffolded from scratch) |
 | **Key Teradata Features** | SET/MULTISET, PI/PPI, COMPRESS, CASESPECIFIC, QUALIFY, ZEROIFNULL, CSUM, MAVG, HASHROW, VOLATILE TABLE, MACRO |
-| **Challenges** | [DW Migration: Teradata to Snowflake](../modules/data-engineering/dw-migration-teradata-to-snowflake.md) |
+| **Challenges** | [DW Migration: Teradata to Snowflake](../modules/data-engineering/dw-migration-teradata-to-snowflake.md), [Informatica PowerCenter to Snowflake Migration](../modules/data-engineering/informatica-to-snowflake-migration.md) (reference) |
 
 ### uc-data-migration-sas-to-snowflake
 | | |
@@ -203,6 +203,19 @@ Some repos are intentionally duplicated from the same upstream source so that di
 ---
 
 ## Technology Stack Repos (`ts-`)
+
+### ts-informatica-powercenter
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter |
+| **Description** | Informatica PowerCenter 9.6.1 XML exports for a government HR data integration system (EHRP-to-BIIS). 12 mapping exports (CPM, CPM_AFPS, CPM_CDC, CPM_NIH, CPM_OIG, LES, FDA_Leave, EHRP2BIIS_UPDATE, Pay_Calendar, Pseudossn, COMPTIME) totaling 117K lines of XML. Includes Oracle SQL pre/post-load scripts and shell-based `pmcmd` orchestration. |
+| **Tech Stack** | Informatica PowerCenter 9.6.1, Oracle, Shell (ksh) |
+| **License** | Unlicense (public domain) |
+| **Default Branch** | `main` |
+| **Cluster** | None (imported from HHS/Informatica) |
+| **Key Contents** | PowerCenter XML exports with SOURCE/TARGET/MAPPING/TRANSFORMATION/SESSION/WORKFLOW definitions, Oracle schemas (HISTDBA, NKNIGHT, EHRP), flat-file sources (VSAM/CSV), shell transfer scripts, SQL pre/post-load logic |
+| **Also Known As** | Previously `Informatica-Demo` (legacy name) |
+| **Challenges** | [Informatica PowerCenter Analysis](../modules/data-engineering/informatica-powercenter-analysis.md), [Informatica PowerCenter to Snowflake Migration](../modules/data-engineering/informatica-to-snowflake-migration.md) |
 
 ### ts-plsql-oracle-forms-legacy-codebase
 | | |
@@ -508,7 +521,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | [amazon-personalize-immersion-day](https://github.com/Cognition-Partner-Workshops/amazon-personalize-immersion-day) | AWS Personalize ML workshop | Python, AWS |
 | [angular-1.x-bootstrap-admin-dashboard](https://github.com/Cognition-Partner-Workshops/angular-1.x-bootstrap-admin-dashboard) | AngularJS 1.x admin panel | AngularJS, Bootstrap |
 | [angular-1.x-dashboard](https://github.com/Cognition-Partner-Workshops/angular-1.x-dashboard) | AngularJS dashboard widgets | AngularJS |
-| [Informatica-Demo](https://github.com/Cognition-Partner-Workshops/Informatica-Demo) | Informatica PowerCenter data exchanges | Informatica |
+| [ts-informatica-powercenter](https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter) | Informatica PowerCenter 9.6.1 XML exports (12 mappings, 117K lines), Oracle SQL, shell orchestration — see [full entry](#ts-informatica-powercenter) | Informatica PowerCenter, Oracle, Shell |
 | [katalon-web-automation](https://github.com/Cognition-Partner-Workshops/katalon-web-automation) | Katalon web automation sample | Katalon |
 | [keycloak](https://github.com/Cognition-Partner-Workshops/keycloak) | Identity and Access Management | Java |
 | [liferay-portal](https://github.com/Cognition-Partner-Workshops/liferay-portal) | Liferay Portal | Java |
