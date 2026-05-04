@@ -25,7 +25,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 |---------|-------|----------------|-------|--------|
 | **C1** | Spring Boot RealWorld | [`gothinkster/spring-boot-realworld-example-app`](https://github.com/gothinkster/spring-boot-realworld-example-app) | `ts-java-spring-boot-realworld-example-app`, `uc-framework-upgrade-monolith-to-microservices`, `uc-cve-remediation-regulatory-compliance` | Labs 2 and 3 start from the same Spring Boot 2.6.3 monolith but have different objectives (upgrade vs. CVE remediation). Original import retained with `ts-` prefix. |
 | **C2** | AWS CardDemo (COBOL) | [`aws-samples/aws-mainframe-modernization-carddemo`](https://github.com/aws-samples/aws-mainframe-modernization-carddemo) | `aws-mainframe-modernization-carddemo`, `uc-legacy-modernization-cobol-to-java` | Lab 1 uses a dedicated copy for COBOL-to-Java migration. Original fork retained. |
-| **C3** | Spring PetClinic | [`spring-projects/spring-petclinic`](https://github.com/spring-projects/spring-petclinic) (family) | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices` | Three repos for the same application ecosystem (Angular frontend, backend monolith, microservices variant). |
+| **C3** | Spring PetClinic | [`spring-projects/spring-petclinic`](https://github.com/spring-projects/spring-petclinic) (family) | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices`, `ts-java-spring-petclinic-rest-api` | Four repos for the same application ecosystem (Angular frontend, backend monolith, microservices variant, REST API with OpenAPI spec). |
 | **C4** | Modular Monolith DDD | [`kgrzybek/modular-monolith-with-ddd`](https://github.com/kgrzybek/modular-monolith-with-ddd) | `dotnet-modular-monolith`, `dotnet-modular-monolith-fe-react` | Backend (.NET) + frontend (React) from the same upstream DDD project. |
 | **C5** | Cal.com ecosystem | [`calcom/cal.com`](https://github.com/calcom/cal.com) | `cal.com`, `cal.com-infra`, `cal.com-dataeng` | Main app (fork) plus infra and data-eng repos built around it. |
 | **C6** | EventFlow demo | *original* | `app_eventflow-order-service`, `app_eventflow-payment-service`, `app_eventflow-infra`, `app_eventflow-devin-integration` | Four-repo event-driven architecture demo (scaffolded from scratch). |
@@ -297,6 +297,19 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Renamed From** | `spring-boot-realworld-example-app` (applied `ts-java-` prefix to clarify tech stack) |
 | **Cluster** | C1 (upstream for Labs 2 and 3) |
 | **Challenges** | [Unit Testing](../modules/testing-qa/unit-testing.md), [Inline Documentation](../modules/technical-documentation/inline-documentation.md), [PR Review Automation](../modules/devops-cicd/pr-review-automation.md) (prefer using the `uc-` copies for labs) |
+
+### ts-java-spring-petclinic-rest-api
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/ts-java-spring-petclinic-rest-api |
+| **Description** | Spring PetClinic REST API variant — ships a rich, standalone OpenAPI 3.0 specification (2,168 lines, 35 operations, 15 schemas, 8 domain areas) with bean validation rules, entity relationships, and full CRUD. Input for API-first microservice code generation workshops. |
+| **Tech Stack** | Java 17, Spring Boot 3.x, Spring Data JPA, Maven, Hibernate, HSQLDB/PostgreSQL/MySQL, SpringDoc OpenAPI |
+| **License** | Apache 2.0 |
+| **Default Branch** | `master` |
+| **Cluster** | C3 (Spring PetClinic ecosystem) |
+| **Workflows Removed** | `docker-build.yml`, `maven-build-master.yml`, `maven-build-pull-request.yml`, `newman-pipeline.yml` (PAT lacked `workflow` scope) |
+| **Key Contents** | OpenAPI 3.0 spec (`src/main/resources/openapi.yml`) with 35 operations across 8 domains (owner, pet, vet, visit, pettypes, specialty, user, failing), 15 schemas with minLength/maxLength/pattern validation, Postman test collection, Docker Compose |
+| **Challenges** | API-first microservice code generation, contract-first development, OpenAPI-driven scaffolding |
 
 ---
 

@@ -73,12 +73,14 @@ clusters:
     upstream: spring-projects/spring-petclinic (family)
     shared_initial_commit: 349fdef18bcf (backend + microservices; angular differs)
     reason: >
-      Three repos for the same application ecosystem: Angular frontend,
-      Spring Boot backend monolith, and distributed microservices variant.
+      Four repos for the same application ecosystem: Angular frontend,
+      Spring Boot backend monolith, distributed microservices variant,
+      and REST API variant with rich OpenAPI 3.0 specification.
     repos:
       - app_petclinic-angular        # from spring-petclinic/spring-petclinic-angular
       - app_petclinic-backend        # from spring-projects/spring-petclinic
       - app_petclinic-microservices  # from spring-petclinic/spring-petclinic-microservices
+      - ts-java-spring-petclinic-rest-api  # from spring-petclinic/spring-petclinic-rest
 
   C4:
     label: "Modular Monolith with DDD (kgrzybek)"
@@ -492,6 +494,13 @@ repos:
     import_method: github-fork
     cluster: C1
     note: "Original import; renamed from spring-boot-realworld-example-app"
+
+  ts-java-spring-petclinic-rest-api:
+    upstream: spring-petclinic/spring-petclinic-rest
+    upstream_url: https://github.com/spring-petclinic/spring-petclinic-rest
+    import_method: clone-and-push
+    cluster: C3
+    note: "REST API variant with rich OpenAPI 3.0 spec (35 ops, 15 schemas, 8 domains). Input for API-first microservice code generation workshops."
 
   ts-sas-legacy-codebase:
     upstream: scottbass/SAS
