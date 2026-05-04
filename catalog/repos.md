@@ -274,6 +274,19 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | Apache 2.0 |
 | **Challenges** | API documentation/testing demos |
 
+### ts-java-spring-boot-internet-banking-microservices
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking-microservices |
+| **Description** | Internet Banking Concept — Java 21 / Spring Boot 3.2.4 microservices architecture with 6 services: core-banking, fund-transfer, user-service, utility-payment, API gateway, and service registry. Keycloak auth, RabbitMQ messaging, MySQL/PostgreSQL, Zipkin tracing, Docker Compose orchestration. |
+| **Tech Stack** | Java 21, Spring Boot 3.2.4, Spring Cloud 2023.0.0, Gradle, Keycloak, RabbitMQ, MySQL, PostgreSQL, Docker |
+| **License** | MIT |
+| **Default Branch** | `main` |
+| **Cluster** | None (imported from JavatoDev-com/internet-banking-concept-microservices) |
+| **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
+| **Key Contents** | 6 Spring Boot microservices (131 Java files), Docker Compose with full infra (Keycloak, Zipkin, RabbitMQ, MySQL), Postman collection, Feign inter-service communication, audit configurations |
+| **Challenges** | Target application for: Application Knowledge Base Generation, FSE Gap Analysis, Jira Epic/Story Creation, Code Impact Analysis |
+
 ### ts-java-spring-boot-realworld-example-app
 | | |
 |---|---|
