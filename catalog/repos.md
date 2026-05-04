@@ -496,11 +496,11 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | | |
 |---|---|
 | **URL** | https://github.com/Cognition-Partner-Workshops/aws-mainframe-modernization-carddemo |
-| **Description** | Original import of AWS CardDemo COBOL mainframe app. |
+| **Description** | Original import of AWS CardDemo COBOL mainframe app. 62 copybooks, 9 ASCII feed files, 30+ batch programs. |
 | **Tech Stack** | COBOL, JCL, DB2 |
 | **License** | Apache 2.0 |
 | **Cluster** | C2 (upstream for Lab 1) |
-| **Challenges** | General COBOL demos (prefer using the `uc-` copy for labs) |
+| **Challenges** | [COBOL Copybook to PySpark/JSON](../modules/data-engineering/cobol-copybook-to-pyspark-json.md), General COBOL demos (prefer using the `uc-` copy for migration labs) |
 
 ### jpetstore-6
 | | |
