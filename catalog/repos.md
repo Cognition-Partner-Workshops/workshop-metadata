@@ -87,6 +87,19 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
 | **Challenges** | [Upgrade Dependencies](../modules/security/upgrade-dependencies.md), [Remediate Vulnerabilities](../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../modules/security/shift-left-security.md), [Security Antipatterns](../modules/security/security-antipatterns.md), [Event-Driven SAST Remediation](../modules/security/event-driven-sast-remediation.md), [Mass Security Backlog Remediation](../modules/security/mass-security-backlog-remediation.md), [One-Shot Tech Debt Remediation](../modules/migration-modernization/one-shot-tech-debt-remediation.md) |
 
+### uc-appsec-nodegoat
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-appsec-nodegoat |
+| **Description** | OWASP NodeGoat — intentionally vulnerable Node.js/Express web application covering all OWASP Top 10 risks. Serves as a target for AppSec scanning (SAST, DAST, SCA, Pen Test) and automated vulnerability remediation workshops. Includes built-in tutorials explaining each vulnerability and its fix. |
+| **Tech Stack** | Node.js, Express 4, MongoDB, Swig (templating), Cypress (E2E), Grunt, OWASP ZAP (devDependency) |
+| **License** | Apache 2.0 |
+| **Default Branch** | `master` |
+| **Cluster** | None |
+| **Workflows Removed** | `e2e-test.yml`, `lint.yml` (PAT lacked `workflow` scope) |
+| **Key Contents** | Intentionally vulnerable routes (injection, XSS, SSRF, broken auth, insecure components), OWASP Top 10 tutorial pages, security test suite, outdated npm dependencies (ideal for SCA), Dockerfile + docker-compose for local MongoDB, seed data with default user accounts |
+| **Challenges** | — |
+
 ### uc-data-source-migration-legacy-to-modern
 | | |
 |---|---|
