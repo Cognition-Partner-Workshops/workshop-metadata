@@ -509,6 +509,13 @@ repos:
     import_method: original
     cluster: null
 
+  uc-appsec-mern-marketplace:
+    upstream: shamahoque/mern-marketplace
+    upstream_url: https://github.com/shamahoque/mern-marketplace
+    import_method: clone-and-push
+    cluster: null
+    note: "MERN stack e-commerce app with natural security debt — target for SAST/DAST/SCA/Pen Test scanning and automated remediation"
+
   uc-bdd-test-generation-rest-api:
     upstream: RedFroggy/spring-cucumber-rest-api
     upstream_url: https://github.com/RedFroggy/spring-cucumber-rest-api

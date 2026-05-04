@@ -87,6 +87,18 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Workflows Removed** | `gradle.yml` (PAT lacked `workflow` scope) |
 | **Challenges** | [Upgrade Dependencies](../modules/security/upgrade-dependencies.md), [Remediate Vulnerabilities](../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../modules/security/shift-left-security.md), [Security Antipatterns](../modules/security/security-antipatterns.md), [Event-Driven SAST Remediation](../modules/security/event-driven-sast-remediation.md), [Mass Security Backlog Remediation](../modules/security/mass-security-backlog-remediation.md), [One-Shot Tech Debt Remediation](../modules/migration-modernization/one-shot-tech-debt-remediation.md) |
 
+### uc-appsec-mern-marketplace
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-appsec-mern-marketplace |
+| **Description** | MERN stack e-commerce marketplace application (React + Express + MongoDB + Stripe). A real full-stack app with natural security debt — outdated npm dependencies with known CVEs, unvalidated file uploads, JWT auth patterns, and NoSQL query construction. Target for Devin to run SAST, DAST, SCA, and Pen Test scanning and perform automated vulnerability remediation. |
+| **Tech Stack** | Node.js 13, React 16, Express 4.17.1, MongoDB (Mongoose 5.9.7), Webpack 4, Stripe, Socket.io 2.3.0, JWT (express-jwt 5.3.1) |
+| **License** | MIT |
+| **Default Branch** | `second-edition` |
+| **Cluster** | None |
+| **Key Contents** | Full-stack marketplace with user auth (JWT), shop/product/order/auction CRUD, file uploads (formidable 1.2.2), Stripe payments, WebSocket bidding, 854 npm dependencies including deprecated `request` package and `lodash` 4.17.15 (prototype pollution CVE) |
+| **Challenges** | — |
+
 ### uc-data-source-migration-legacy-to-modern
 | | |
 |---|---|
