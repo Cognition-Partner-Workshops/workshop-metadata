@@ -191,6 +191,17 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Cluster** | None (scaffolded from scratch) |
 | **Challenges** | [Volume Anomaly Detection](../modules/observability-sre/volume-anomaly-detection.md) |
 
+### uc-self-healing-data-pipeline
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-self-healing-data-pipeline |
+| **Description** | Self-healing data pipeline with autonomous anomaly detection and remediation. Kafka/Spark/Snowflake ingestion pipeline monitored by a LangChain decision agent that detects schema drift, late arrivals, and data quality failures, then autonomously remediates (Airflow retrigger, schema remap, quarantine) with full incident tracking. |
+| **Tech Stack** | Python, LangChain, Apache Kafka, Apache Spark, Apache Airflow, Great Expectations, Docker Compose, PostgreSQL |
+| **License** | MIT |
+| **Default Branch** | `main` |
+| **Cluster** | None (imported from AbdulSohail018/Autonomous-Orchestrator-Ai) |
+| **Challenges** | Data pipeline anomaly detection, self-healing remediation, Jira integration extension |
+
 ### uc-Quality-Engineering-and-Assurance
 | | |
 |---|---|

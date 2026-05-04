@@ -581,6 +581,13 @@ repos:
     import_method: original
     cluster: null
 
+  uc-self-healing-data-pipeline:
+    upstream: AbdulSohail018/Autonomous-Orchestrator-Ai
+    upstream_url: https://github.com/AbdulSohail018/Autonomous-Orchestrator-Ai
+    import_method: clone-and-push
+    cluster: null
+    note: "Self-healing Kafka/Spark/Snowflake pipeline with LangChain decision agent (MIT)"
+
   uc-volume-anomaly-detection:
     upstream: null
     import_method: original
