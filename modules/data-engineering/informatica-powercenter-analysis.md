@@ -43,7 +43,7 @@ Analyze an Informatica PowerCenter estate exported as XML to produce a comprehen
 - Complex XML parsing and metadata extraction
 - Data lineage analysis and documentation generation
 - Dependency graph construction
-- Large-file analysis (21 MB of XML across 12 exports)
+- Large-file analysis (21 MB of XML across 11 exports)
 - PR creation with structured assessment documentation
 
 ## Difficulty
@@ -67,7 +67,7 @@ Intermediate
 
 **Repository:** [ts-informatica-powercenter](https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter)
 
-Informatica PowerCenter 9.6.1 XML exports for a government HR data integration system (EHRP-to-BIIS). Contains 12 mapping exports (CPM, CPM_AFPS, CPM_CDC, CPM_NIH, CPM_OIG, LES, FDA_Leave, EHRP2BIIS_UPDATE, Pay_Calendar, Pseudossn, COMPTIME) totaling 117K lines of XML, plus Oracle SQL pre/post-load scripts and shell transfer workflows.
+Informatica PowerCenter 9.6.1 XML exports for a government HR data integration system (EHRP-to-BIIS). Contains 11 mapping exports (CPM, CPM_AFPS, CPM_CDC, CPM_NIH, CPM_OIG, LES, FDA_Leave, EHRP2BIIS_UPDATE, Pay_Calendar, Pseudossn, COMPTIME) totaling 117K lines of XML, plus Oracle SQL pre/post-load scripts and shell transfer workflows.
 
 ### Step 1: Paste into Devin
 

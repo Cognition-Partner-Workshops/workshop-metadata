@@ -208,7 +208,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | | |
 |---|---|
 | **URL** | https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter |
-| **Description** | Informatica PowerCenter 9.6.1 XML exports for a government HR data integration system (EHRP-to-BIIS). 12 mapping exports (CPM, CPM_AFPS, CPM_CDC, CPM_NIH, CPM_OIG, LES, FDA_Leave, EHRP2BIIS_UPDATE, Pay_Calendar, Pseudossn, COMPTIME) totaling 117K lines of XML. Includes Oracle SQL pre/post-load scripts and shell-based `pmcmd` orchestration. |
+| **Description** | Informatica PowerCenter 9.6.1 XML exports for a government HR data integration system (EHRP-to-BIIS). 11 mapping exports (CPM, CPM_AFPS, CPM_CDC, CPM_NIH, CPM_OIG, LES, FDA_Leave, EHRP2BIIS_UPDATE, Pay_Calendar, Pseudossn, COMPTIME) totaling 117K lines of XML. Includes Oracle SQL pre/post-load scripts and shell-based `pmcmd` orchestration. |
 | **Tech Stack** | Informatica PowerCenter 9.6.1, Oracle, Shell (ksh) |
 | **License** | Unlicense (public domain) |
 | **Default Branch** | `main` |
@@ -521,7 +521,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | [amazon-personalize-immersion-day](https://github.com/Cognition-Partner-Workshops/amazon-personalize-immersion-day) | AWS Personalize ML workshop | Python, AWS |
 | [angular-1.x-bootstrap-admin-dashboard](https://github.com/Cognition-Partner-Workshops/angular-1.x-bootstrap-admin-dashboard) | AngularJS 1.x admin panel | AngularJS, Bootstrap |
 | [angular-1.x-dashboard](https://github.com/Cognition-Partner-Workshops/angular-1.x-dashboard) | AngularJS dashboard widgets | AngularJS |
-| [ts-informatica-powercenter](https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter) | Informatica PowerCenter 9.6.1 XML exports (12 mappings, 117K lines), Oracle SQL, shell orchestration — see [full entry](#ts-informatica-powercenter) | Informatica PowerCenter, Oracle, Shell |
+| [ts-informatica-powercenter](https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter) | Informatica PowerCenter 9.6.1 XML exports (11 mappings, 117K lines), Oracle SQL, shell orchestration — see [full entry](#ts-informatica-powercenter) | Informatica PowerCenter, Oracle, Shell |
 | [katalon-web-automation](https://github.com/Cognition-Partner-Workshops/katalon-web-automation) | Katalon web automation sample | Katalon |
 | [keycloak](https://github.com/Cognition-Partner-Workshops/keycloak) | Identity and Access Management | Java |
 | [liferay-portal](https://github.com/Cognition-Partner-Workshops/liferay-portal) | Liferay Portal | Java |

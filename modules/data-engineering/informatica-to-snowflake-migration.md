@@ -77,7 +77,7 @@ Advanced
 
 **Repository:** [ts-informatica-powercenter](https://github.com/Cognition-Partner-Workshops/ts-informatica-powercenter)
 
-Informatica PowerCenter 9.6.1 XML exports for a government HR data integration system (EHRP-to-BIIS). Contains 12 mapping exports totaling 117K lines of XML with Oracle source/target definitions, Expression/Filter/Lookup/Aggregator transformations, sessions, and workflows. Also includes Oracle SQL pre/post-load scripts and shell-based `pmcmd` orchestration.
+Informatica PowerCenter 9.6.1 XML exports for a government HR data integration system (EHRP-to-BIIS). Contains 11 mapping exports totaling 117K lines of XML with Oracle source/target definitions, Expression/Filter/Lookup/Aggregator transformations, sessions, and workflows. Also includes Oracle SQL pre/post-load scripts and shell-based `pmcmd` orchestration.
 
 ### Step 1: Paste into Devin
 
