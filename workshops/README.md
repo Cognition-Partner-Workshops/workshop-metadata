@@ -29,8 +29,10 @@ Reusable workshop definitions that can be instantiated as events. Each workshop 
 | [Security & Compliance](security-compliance/) | CVE remediation, SAST, shift-left security | 1-2 hours | 1-3 | SEC1-SEC7 |
 | [Platform Microservice Decomposition](platform-microservice-decomposition/) | Monolith → platform-conformant microservices with IaC | 1.5-2 hours | 1 | DA8 |
 | [Agentic AI](agentic-ai/) | Multi-agent systems, document processing, anomaly detection | 2-4 hours | 2-4 | DA9, DA10, QE8, QE9 |
+| [Application Development & Maintenance](application-development-maintenance/) | Feature development, bug fixing, and code maintenance — full app lifecycle | 4-6 hours | 9 (3 tracks × 3 labs) | Application Development, Architecture Design, Security modules |
+| [Digital Engineering](digital-engineering/) | CI/CD, cloud infrastructure, observability, and platform engineering | 4-6 hours | 9 (3 tracks × 3 labs) | DevOps-CICD, Cloud Infrastructure, Observability-SRE modules |
 | [Feature Development](feature-development/) | New features on existing applications | 1-2 hours | 1-2 | Application Development modules |
-| [Quality Engineering](quality-engineering/) | Testing, documentation, code review automation | 2-4 hours | 2-4 | Testing & QA modules |
+| [Quality Engineering & Assurance](quality-engineering/) | Test automation, E2E testing, continuous quality, and code review | 4-6 hours | 9 (3 tracks × 3 labs) | Testing & QA, DevOps-CICD, Technical Documentation modules |
 | [General](general/) | Security, modernization, and feature development — 3-track broad tour | 4-6 hours | 9 (3 tracks × 3 labs) | Security, Migration-Modernization, Application Development, Testing & QA modules |
 
 ## Creating a New Workshop
