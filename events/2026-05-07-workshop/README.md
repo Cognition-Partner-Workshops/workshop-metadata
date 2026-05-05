@@ -4,19 +4,19 @@
 
 | | |
 |---|---|
-| **Date** | 2026-05-06 |
+| **Date** | 2026-05-07 |
 | **Location** | Virtual |
 | **Host Organization** | *(customer)* |
-| **Duration** | ~3.5 hours (half day) |
+| **Duration** | 2 hours |
 | **Audience** | Development teams experiencing Devin hands-on for the first time |
-| **Tracks** | Single progressive track: Analyze → Generate → Integrate → Explore |
+| **Tracks** | Single progressive track: Analyze → Generate → Integrate |
 | **Event Site** | TBD |
 
 ## Workshop Overview
 
-This is a hands-on workshop for teams getting their first experience with Devin. The labs are structured as a progressive ramp — starting with low-risk analysis tasks and building toward code generation, tool integration, and domain-specific automation. By the end, participants will have used Devin to analyze a codebase, generate a microservice from an API spec, detect data anomalies with Jira ticket creation, and explore advanced use cases aligned to their interests.
+This is a hands-on workshop for teams getting their first experience with Devin. The three labs are structured as a progressive ramp — starting with low-risk analysis, building to code generation, and finishing with tool integration. By the end, participants will have used Devin to analyze a codebase, generate a microservice from an API spec, and detect data anomalies with Jira ticket creation.
 
-The workshop uses Java/Spring Boot repositories throughout, with additional COBOL and Python repos available in the final choose-your-adventure lab.
+The workshop uses Java/Spring Boot repositories throughout. Additional use cases (COBOL copybook config generation, security remediation, payment gap analysis) are provided as post-session exercises participants can try on their own.
 
 > **Note:** This workshop runs against an external GitHub organization. All repos listed below must be forked or cloned into the target org before the event. Jira integration runs through Devin's Atlassian MCP and is independent of the GitHub org.
 
@@ -26,11 +26,10 @@ The workshop uses Java/Spring Boot repositories throughout, with additional COBO
 
 A few tips to maximize your hands-on time:
 
-- **Start sessions early, review later.** Each lab has a "Paste into Devin" step and a separate "Review & Give Feedback" step. Kick off the session first, then use the wait time for Ask Devin research or reading DeepWiki — Devin will keep working in the background.
-- **Try parallel sessions.** Several labs suggest running multiple Devin sessions at once. This mirrors real enterprise usage where Devin handles repetitive work across many services.
-- **Use Ask Devin to refine requirements before creating a session.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem first so Devin can execute with less back-and-forth.
-- **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item during a session, accept it — this is how teams build a shared context layer that makes Devin smarter over time.
-- **Leave PR comments to steer Devin.** After Devin opens a PR, the PR Review agent and CI checks provide automatic feedback loops. You can also leave comments directly on the PR and Devin will wake up and address them — this is the core workflow for iterating with Devin in production.
+- **Start sessions early, review later.** Each lab has a "Paste into Devin" step and a separate "Review & Give Feedback" step. Kick off the session first, then use the wait time for Ask Devin research — Devin will keep working in the background.
+- **Overlap sessions.** Kick off Lab 2's Devin session while reviewing Lab 1's PR. Devin works in the background — there's no reason to wait. This is how teams use Devin in production.
+- **Use Ask Devin to refine requirements.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem first so Devin can execute with less back-and-forth.
+- **Leave PR comments to steer Devin.** After Devin opens a PR, you can leave comments directly and Devin will wake up and address them — this is the core workflow for iterating with Devin in production.
 
 ---
 
@@ -39,16 +38,16 @@ A few tips to maximize your hands-on time:
 | Time | Activity | Lab |
 |------|----------|-----|
 | 0:00 | Welcome, Devin overview, platform walkthrough | — |
-| 0:20 | **Lab 1:** Gap Analysis on Banking Microservices | Lab 1 |
-| 1:00 | **Lab 2:** API-Spec-Driven Microservice Generation | Lab 2 |
-| 1:45 | Break | — |
-| 2:00 | **Lab 3:** Data Anomaly Detection & Jira Ticket Creation | Lab 3 |
-| 2:45 | **Lab 4:** Choose Your Adventure | Lab 4 |
-| 3:30 | Wrap-up, showcase results, Q&A | — |
+| 0:15 | **Lab 1:** Gap Analysis on Banking Microservices | Lab 1 |
+| 0:45 | **Lab 2:** API-Spec-Driven Microservice Generation | Lab 2 |
+| 1:15 | **Lab 3:** Data Anomaly Detection & Jira Ticket Creation | Lab 3 |
+| 1:45 | Wrap-up, showcase results, Q&A | — |
+
+> **Pacing tip for facilitators:** Each lab is designed so participants kick off the Devin session in the first 5 minutes, then use Ask Devin / DeepWiki while waiting. When transitioning to the next lab, participants should start the new session immediately — they can review earlier PRs during any downtime. By the wrap-up, participants will have 3 Devin sessions running or completed.
 
 ---
 
-## Lab 1 — Gap Analysis on Banking Microservices (40 min)
+## Lab 1 — Gap Analysis on Banking Microservices (30 min)
 
 **Value driver:** *Devin reads an entire codebase and produces structured technical documentation — the kind of assessment that normally takes a senior engineer a week.*
 
@@ -95,25 +94,23 @@ Open a PR with all three documents.
 Open **Ask Devin** and explore the repo:
 - *"What communication patterns do the banking microservices use? Are there any single points of failure?"*
 - *"How does the fund-transfer service validate transactions? Are there any edge cases that could cause incorrect transfers?"*
-- *"What would it take to add a new payment channel (e.g., cryptocurrency) to this architecture?"*
 
 ### Review the PR
 
 When Devin opens a PR:
 - Does the knowledge base accurately describe the architecture?
 - Are the gap analysis findings legitimate? Would your team agree with the severity ratings?
-- **Leave a comment** asking Devin to add a specific gap you care about (e.g., "Also assess the API versioning strategy and backward compatibility approach") — watch Devin respond and push a follow-up commit
+- **Leave a comment** asking Devin to add a specific gap you care about — watch Devin respond and push a follow-up commit
 
 ### Key Takeaways
 
 - **"Instant technical knowledge base"** — Devin reads the entire codebase and produces structured documentation that would take days to write manually
 - **"Standards-based gap analysis"** — Devin evaluates the codebase against engineering best practices and quantifies the gaps
 - **"Actionable roadmap"** — the remediation plan includes effort estimates and ready-to-use Devin prompts, turning the analysis into immediate next steps
-- **"PR feedback loop"** — leaving a comment on the PR and having Devin respond is the core workflow for iterating with Devin in production
 
 ---
 
-## Lab 2 — API-Spec-Driven Microservice Generation (45 min)
+## Lab 2 — API-Spec-Driven Microservice Generation (30 min)
 
 **Value driver:** *Give Devin an API specification, get back a complete production-ready Spring Boot microservice with controllers, services, validation, configuration, and 90% test coverage.*
 
@@ -143,26 +140,24 @@ Use an H2 in-memory database for dev/test. Structure the project in a new `vet-s
 ### While Devin works: try Ask Devin
 
 - *"How many domain areas does the PetClinic OpenAPI spec cover? Which domain would be the best candidate for extraction as a standalone microservice and why?"*
-- *"What validation rules does the OpenAPI spec define for vet and specialty entities? Are there any constraints that would affect the service layer logic?"*
-- Use the refined analysis as context for your next Devin session
+- *"What validation rules does the OpenAPI spec define for vet and specialty entities?"*
 
 ### Review the PR
 
 When Devin opens a PR:
 - Does the generated code follow Spring Boot conventions your team uses?
-- Are the tests meaningful, or just boilerplate that asserts `assertNotNull`?
-- **Leave a comment** asking Devin to add Swagger UI configuration and a Docker Compose file for the new service — watch Devin respond
+- Are the tests meaningful, or just boilerplate?
+- **Leave a comment** asking Devin to add Swagger UI configuration and a Docker Compose file — watch Devin respond
 
 ### Key Takeaways
 
 - **"Spec-to-service in one session"** — Devin generates a fully layered microservice from an API contract, complete with validation, error handling, and database migrations
-- **"Convention over configuration"** — Devin follows Spring Boot best practices for project structure, naming, and separation of concerns
 - **"Test coverage is built in"** — generating tests alongside the code ensures quality from the start, not as an afterthought
 - **"Iterative refinement via PR comments"** — the first pass isn't the final pass; PR comments let you steer Devin toward your team's conventions
 
 ---
 
-## Lab 3 — Data Anomaly Detection & Jira Ticket Creation (45 min)
+## Lab 3 — Data Anomaly Detection & Jira Ticket Creation (30 min)
 
 **Value driver:** *Devin doesn't just find problems — it creates actionable Jira tickets. This shows Devin integrated into your team's workflow tools, not just producing code.*
 
@@ -197,7 +192,7 @@ Open a PR with the anomaly report, root cause analysis, validation code, and tes
 ### While Devin works: try Ask Devin
 
 - *"What data quality issues are most common in CDW-to-modern migrations? What validation patterns should the service layer implement?"*
-- *"How does the column mapping in uc-data-source-migration-legacy-to-modern translate legacy column names to modern field names? Are there any mappings that could lose data?"*
+- *"How does the column mapping in uc-data-source-migration-legacy-to-modern translate legacy column names to modern field names?"*
 
 ### Review the PR
 
@@ -205,24 +200,20 @@ When Devin opens a PR:
 - Are the anomalies it found legitimate? Check a few against the actual seed data
 - Does the validation code handle edge cases (null values, empty strings, boundary values)?
 - Check Jira — did the tickets get created with proper formatting and priority?
-- **Leave a comment** asking Devin to also add a data quality dashboard endpoint that returns anomaly counts by category
 
 ### Key Takeaways
 
 - **"Detect, document, triage, fix"** — Devin follows the full data quality workflow, from finding anomalies to implementing validation that prevents them
 - **"Jira integration"** — Devin creates structured, actionable tickets in your team's issue tracker, not just markdown files
 - **"Data issues have code root causes"** — Devin traces data quality problems through the application layers to find where they originate
-- **"Structured issue reporting"** — the anomaly report format is immediately useful for team triage and prioritization
 
 ---
 
-## Lab 4 — Choose Your Adventure (45 min)
+## Post-Session Exercises
 
-**Value driver:** *Now that you understand Devin's workflow, pick the use case most relevant to your work. Each option showcases a different Devin capability.*
+Participants who want to keep exploring after the workshop can try these additional use cases on their own. Each is self-contained with a copy-pasteable prompt.
 
-By this point you've used Devin for analysis, code generation, and tool integration. Pick the option that most interests you — or try multiple in parallel sessions.
-
-### Option A: COBOL Copybook to PySpark/JSON Config Generation
+### Exercise A: COBOL Copybook to PySpark/JSON Config Generation
 
 - **Repository:** [aws-mainframe-modernization-carddemo](https://github.com/Cognition-Partner-Workshops/aws-mainframe-modernization-carddemo)
 - **Module:** [COBOL Copybook to PySpark/JSON](../../modules/data-engineering/cobol-copybook-to-pyspark-json.md)
@@ -243,15 +234,9 @@ Then repeat for `CUSTREC.cpy` → `custdata.txt` and `CVACT02Y.cpy` → `carddat
 Open a PR with all generated artifacts and a `COPYBOOK_PARSING_NOTES.md` documenting your type-mapping decisions (e.g., COMP-3 → DecimalType, PIC X → StringType).
 ```
 
-#### Key Takeaways
-
-- **"Legacy knowledge, modern output"** — Devin reads COBOL copybooks and produces PySpark/JSON artifacts without any manual mainframe knowledge
-- **"Automated schema generation"** — byte offsets, field types, and lengths are extracted automatically from PIC clauses
-- **"Repeatable across copybooks"** — the same pattern works for any copybook/feed file pair
-
 ---
 
-### Option B: Automated Security Remediation & Vulnerability Reporting
+### Exercise B: Automated Security Remediation & Vulnerability Reporting
 
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Modules:** [Remediate Vulnerabilities](../../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../../modules/security/shift-left-security.md)
@@ -275,15 +260,9 @@ Produce a unified `SECURITY_POSTURE_REPORT.md` that includes:
 Open a PR with the report and the fixes.
 ```
 
-#### Key Takeaways
-
-- **"Multi-tool analysis"** — Devin combines dependency scanning, code review, and configuration audit into one workflow
-- **"Prioritized remediation"** — Devin doesn't just list findings, it recommends what to fix first based on risk
-- **"Executive-ready output"** — the report format is useful for compliance, audits, and leadership visibility
-
 ---
 
-### Option C: Payment Payload Gap Analysis & Business Capability Decomposition
+### Exercise C: Payment Payload Gap Analysis & Business Capability Decomposition
 
 - **Repository:** [ts-java-spring-boot-internet-banking-microservices](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking-microservices)
 - **Modules:** [API Design Review](../../modules/architecture-design/api-design-review.md), [Dependency Graph Analysis](../../modules/architecture-design/dependency-graph-analysis.md)
@@ -317,23 +296,20 @@ Deliverables:
 Open a PR with all three documents.
 ```
 
-#### Key Takeaways
-
-- **"Domain-aware analysis"** — Devin understands payment industry standards and can compare code against them
-- **"Business capability mapping"** — Devin identifies whether service boundaries align to business domains or technical concerns
-- **"Actionable decomposition plan"** — the recommendations are specific enough to turn into engineering work items
-
 ---
 
 ## Prerequisites
 
 ### Repos Required (must be available in the target GitHub org)
 
-- [ ] ts-java-spring-boot-internet-banking-microservices (Labs 1, 4C)
+**Core labs (required):**
+- [ ] ts-java-spring-boot-internet-banking-microservices (Lab 1)
 - [ ] ts-java-spring-petclinic-rest-api (Lab 2)
 - [ ] uc-data-source-migration-legacy-to-modern (Lab 3)
-- [ ] aws-mainframe-modernization-carddemo (Lab 4A)
-- [ ] uc-cve-remediation-regulatory-compliance (Lab 4B)
+
+**Post-session exercises (optional):**
+- [ ] aws-mainframe-modernization-carddemo (Exercise A)
+- [ ] uc-cve-remediation-regulatory-compliance (Exercise B)
 
 ### Integration Requirements
 
@@ -352,7 +328,7 @@ Open a PR with all three documents.
 
 This workshop runs against an external GitHub organization (not Cognition-Partner-Workshops). Before the event:
 
-1. **Fork or clone repos** — All 5 repos listed above must be available in the target org. Use `git clone --bare` + `git push --mirror` to preserve full history, or fork if the target org has access to the source.
+1. **Fork or clone repos** — All repos listed above must be available in the target org. Use `git clone --bare` + `git push --mirror` to preserve full history, or fork if the target org has access to the source.
 2. **Remove workflows** — If the target org's GitHub Actions runners differ, review `.github/workflows/` in each repo and adjust or remove as needed.
 3. **Devin GitHub App** — Ensure the Devin GitHub App is installed on the target org with access to the relevant repos.
 4. **Jira integration** — The Atlassian MCP connects to Jira independently of GitHub. Verify the MCP is configured with the correct Jira cloud instance and project key. Test with a simple Devin session that creates a test ticket before the event.
@@ -360,10 +336,10 @@ This workshop runs against an external GitHub organization (not Cognition-Partne
 
 ## Notes
 
-- **First-time audience:** Labs are ordered from lowest risk (analysis/documentation) to highest complexity (code generation, tool integration, domain-specific automation). This builds confidence before asking participants to evaluate generated code.
-- **Parallel sessions:** Encourage participants to kick off Lab N+1's Devin session while reviewing Lab N's PR. Devin works in the background — there's no reason to wait.
+- **First-time audience:** Labs are ordered from lowest risk (analysis/documentation) to highest complexity (code generation, tool integration). This builds confidence before asking participants to evaluate generated code.
+- **2-hour pacing:** The key to fitting 3 labs in 2 hours is overlapping sessions. Participants kick off Lab N+1 while reviewing Lab N. By the wrap-up, all 3 sessions should be running or completed. Facilitators should keep transitions tight — 2 minutes max between labs.
 - **Ask Devin throughout:** Every lab includes Ask Devin prompts. Emphasize that Ask Devin is a research tool for scoping tasks before creating sessions — better prompts lead to better results.
-- **Lab 4 flexibility:** If the audience has a strong preference, the facilitator can guide everyone to the same Lab 4 option for a shared discussion. Otherwise, let people choose based on interest.
+- **Post-session exercises:** The three additional use cases (COBOL copybook, security remediation, payment gap analysis) are provided as self-service exercises. Share the workshop README with participants so they can try these on their own time.
 - **Jira fallback:** If Jira integration is not available for Lab 3, the lab still works — Devin produces the anomaly report, RCA, and code fixes. The Jira step is additive, not required.
 
 ## Post-Event
