@@ -41,7 +41,7 @@ A few tips to maximize your hands-on time:
 | 0:15 | **Lab 1:** Gap Analysis on Banking Microservices | Lab 1 |
 | 0:45 | **Lab 2:** API-Spec-Driven Microservice Generation | Lab 2 |
 | 1:15 | **Lab 3a:** Data Anomaly Detection | Lab 3a |
-| 1:30 | **Lab 3b:** Data Source Migration (Legacy → Modern) | Lab 3b |
+| 1:30 | **Lab 3b:** Legacy CDW to Databricks Migration | Lab 3b |
 | 1:45 | Wrap-up, showcase results, Q&A | — |
 
 > **Pacing tip for facilitators:** Each lab is designed so participants kick off the Devin session in the first 5 minutes, then use Ask Devin / DeepWiki while waiting. When transitioning to the next lab, participants should start the new session immediately — they can review earlier PRs during any downtime. Lab 3 has two parts (3a and 3b) — participants should kick off both sessions back-to-back, then use the remaining time to review PRs from all labs. By the wrap-up, participants will have 4 Devin sessions running or completed.
@@ -192,52 +192,60 @@ Open a PR with the anomaly report, root cause analysis, validation code, and tes
 
 ---
 
-## Lab 3b — Data Source Migration: Legacy to Modern (15 min)
+## Lab 3b — Legacy CDW to Databricks Migration (15 min)
 
-**Value driver:** *Devin migrates an entire data layer — transforming legacy schemas with cryptic names and all-VARCHAR typing into a modern normalized schema with proper types, foreign keys, and clear naming — while proving correctness through golden-file validation.*
+**Value driver:** *Your loan data is trapped in a legacy Corporate Data Warehouse with all-VARCHAR columns and cryptic names. Devin generates a complete Databricks-ready migration — PySpark ingestion scripts, Delta Lake table definitions, transformation logic, and a data quality validation framework.*
 
 - **Repository:** [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern)
 - **Module:** [Data Source Migration](../../modules/data-engineering/data-source-migration.md)
 
-Same repo, different story. Where Lab 3a finds what's wrong with the data, Lab 3b actually migrates the data layer to fix the structural problems. Devin will create modern JPA entities, write a migration service that transforms legacy records, rewire the service layer, and validate that all API endpoints return identical results.
+Same repo, different story. Where Lab 3a finds what's wrong with the data, Lab 3b generates the migration pipeline to move it to a modern platform. Devin will read the legacy schema and column mappings, then produce PySpark scripts, Delta Lake table definitions, and validation code — everything a data engineering team needs to execute the migration in Databricks.
 
 ### Paste into Devin
 
 ```
-Review the legacy CDW schema in uc-data-source-migration-legacy-to-modern. This Spring Boot 3.2 / Java 17 loan application reads from legacy tables with all-VARCHAR columns, cryptic names (BORR_FST_NM, LN_CURR_BAL, PMT_ESCROW_AMT), no foreign keys, and status code abbreviations (ACT, CLO, DFT, FRB).
+Analyze the legacy CDW schema in uc-data-source-migration-legacy-to-modern. This loan management application reads from legacy tables with all-VARCHAR columns, cryptic names (BORR_FST_NM, LN_CURR_BAL, PMT_ESCROW_AMT), no foreign keys, and status code abbreviations (ACT, CLO, DFT, FRB). Review the schema in `src/main/resources/schema-legacy.sql`, the seed data in `src/main/resources/data-legacy.sql`, and the column mappings in `data/mappings/column_mappings.md`.
 
-Migrate the data layer to a modern schema:
+Generate a complete Databricks/PySpark migration pipeline:
 
-1. **Modern JPA Entities:** Create entities matching the target schema in `data/modern-schema/modern_tables.sql`. Use proper Java types (LocalDate, BigDecimal, enums), meaningful field names, audit fields (createdAt, updatedAt), and proper relationship mapping with foreign keys.
+1. **Delta Lake Table Definitions** (`databricks/ddl/`): Create Delta Lake `CREATE TABLE` statements for the modern target schema. Use proper Spark SQL types (DATE, DECIMAL, STRING with constraints), meaningful column names mapped from the legacy cryptic names, and partitioning strategy appropriate for loan data (e.g., partition by status or origination year).
 
-2. **Migration Service:** Write a data migration service that reads from legacy tables, transforms each record (parse date strings to LocalDate, parse amount strings to BigDecimal, expand code abbreviations per `data/mappings/column_mappings.md`, split denormalized borrower fields into a separate entity), and inserts into modern tables.
+2. **PySpark Ingestion Scripts** (`databricks/ingestion/`): Write PySpark scripts that read from the legacy tables (simulate as CSV/Parquet source files) and transform the data:
+   - Parse date strings (MM/DD/YYYY) to DateType
+   - Parse amount strings ("285,000") to DecimalType
+   - Expand status code abbreviations (ACT→Active, CLO→Closed, DFT→Default, FRB→Forbearance) per the column mappings
+   - Split denormalized borrower fields into a separate borrower dimension table
+   - Handle nulls, malformed values, and edge cases with logging (don't silently drop records)
 
-3. **Service Layer Rewiring:** Update LoanService.java to read from the new modern repositories instead of the legacy ones. Remove all string-parsing workarounds from the service layer — the modern schema has proper types.
+3. **Data Quality Framework** (`databricks/quality/`): Create a PySpark-based validation module that runs after ingestion and checks:
+   - Row count reconciliation (source vs. target)
+   - Null checks on required fields
+   - Referential integrity between loan and borrower tables
+   - Business rule validation (e.g., loan balance > 0 for active loans, closed date required for closed loans)
+   - Generate a `DATA_QUALITY_REPORT.md` summarizing pass/fail results
 
-4. **Golden-File Validation:** Capture the API responses from all endpoints BEFORE the migration. After rewiring to modern tables, verify all endpoints return identical data. Create a test that compares pre- and post-migration API output.
+4. **Migration Runbook** (`docs/DATABRICKS_MIGRATION_RUNBOOK.md`): Document every transformation decision, the mapping from legacy column names to modern names, type conversion choices, partitioning rationale, and the recommended execution order in Databricks.
 
-5. **Migration Documentation:** Create `docs/DATA_SOURCE_MIGRATION_NOTES.md` documenting every transformation decision, edge cases encountered, and validation results.
-
-Open a PR with the modern entities, migration service, rewired service layer, validation tests, and migration notes.
+Open a PR with all generated artifacts.
 ```
 
 ### While Devin works on 3a and 3b: try Ask Devin
 
-- *"What data quality issues are most common in CDW-to-modern migrations? What validation patterns should the service layer implement?"*
-- *"How does the column mapping in uc-data-source-migration-legacy-to-modern translate legacy column names to modern field names?"*
-- *"What are the riskiest data type conversions in this migration — where could data loss or truncation occur?"*
+- *"What data quality issues are most common in CDW-to-modern migrations? What validation patterns should the ingestion pipeline implement?"*
+- *"How does the column mapping in uc-data-source-migration-legacy-to-modern translate legacy column names to modern field names? Which transformations are riskiest?"*
+- *"What's the best Delta Lake partitioning strategy for loan data — by status, origination date, or something else?"*
 
 ### Review the PRs
 
 When Devin opens PRs for 3a and 3b:
 - **Lab 3a:** Are the anomalies legitimate? Check a few against the actual seed data. Does the validation code handle edge cases?
-- **Lab 3b:** Are the data type conversions correct? Does the migration handle edge cases (null values, malformed dates)? Do the golden-file tests pass?
-- **Leave a comment** on the 3b PR asking Devin to add a dual-read feature flag that can switch between legacy and modern data sources at runtime
+- **Lab 3b:** Do the PySpark transformations correctly handle the type conversions? Is the Delta Lake schema well-designed? Does the data quality framework catch real issues?
+- **Leave a comment** on the 3b PR asking Devin to add a Databricks notebook version of the ingestion scripts with markdown cells explaining each transformation step
 
 ### Key Takeaways
 
-- **"End-to-end data migration"** — Devin handles the full migration lifecycle: schema design, data transformation, service rewiring, and validation
-- **"Golden-file testing"** — comparing API responses before and after migration proves correctness without manual spot-checking
+- **"Legacy to modern platform"** — Devin generates a complete migration pipeline from a legacy CDW to Databricks, including ingestion, transformation, and validation
+- **"Cross-language generation"** — Devin reads a Java/SQL application and produces PySpark/Delta Lake artifacts, showing it works across technology boundaries
 - **"Two sessions, one repo, two stories"** — Labs 3a and 3b show how different Devin sessions can tackle complementary aspects of the same codebase independently
 
 ---
