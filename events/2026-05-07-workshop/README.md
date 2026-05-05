@@ -9,16 +9,16 @@
 | **Host Organization** | *(customer)* |
 | **Duration** | 2 hours |
 | **Audience** | Development teams experiencing Devin hands-on for the first time |
-| **Tracks** | Single progressive track: Analyze → Generate → Integrate |
+| **Tracks** | Single progressive track: Analyze → Generate → Detect & Migrate |
 | **Event Site** | TBD |
 
 ## Workshop Overview
 
-This is a hands-on workshop for teams getting their first experience with Devin. The three labs are structured as a progressive ramp — starting with low-risk analysis, building to code generation, and finishing with tool integration. By the end, participants will have used Devin to analyze a codebase, generate a microservice from an API spec, and detect data anomalies with Jira ticket creation.
+This is a hands-on workshop for teams getting their first experience with Devin. The labs are structured as a progressive ramp — starting with low-risk analysis, building to code generation, and finishing with data quality and migration. By the end, participants will have used Devin to analyze a codebase, generate a microservice from an API spec, detect data anomalies, and migrate a legacy data layer to a modern schema.
 
 The workshop uses Java/Spring Boot repositories throughout. Additional use cases (COBOL copybook config generation, security remediation, payment gap analysis) are provided as post-session exercises participants can try on their own.
 
-> **Note:** This workshop runs against an external GitHub organization. All repos listed below must be forked or cloned into the target org before the event. Jira integration runs through Devin's Atlassian MCP and is independent of the GitHub org.
+> **Note:** This workshop runs against an external GitHub organization. All repos listed below must be forked or cloned into the target org before the event.
 
 ## Getting the Most from This Workshop
 
@@ -40,10 +40,11 @@ A few tips to maximize your hands-on time:
 | 0:00 | Welcome, Devin overview, platform walkthrough | — |
 | 0:15 | **Lab 1:** Gap Analysis on Banking Microservices | Lab 1 |
 | 0:45 | **Lab 2:** API-Spec-Driven Microservice Generation | Lab 2 |
-| 1:15 | **Lab 3:** Data Anomaly Detection & Jira Ticket Creation | Lab 3 |
+| 1:15 | **Lab 3a:** Data Anomaly Detection | Lab 3a |
+| 1:25 | **Lab 3b:** Data Source Migration (Legacy → Modern) | Lab 3b |
 | 1:45 | Wrap-up, showcase results, Q&A | — |
 
-> **Pacing tip for facilitators:** Each lab is designed so participants kick off the Devin session in the first 5 minutes, then use Ask Devin / DeepWiki while waiting. When transitioning to the next lab, participants should start the new session immediately — they can review earlier PRs during any downtime. By the wrap-up, participants will have 3 Devin sessions running or completed.
+> **Pacing tip for facilitators:** Each lab is designed so participants kick off the Devin session in the first 5 minutes, then use Ask Devin / DeepWiki while waiting. When transitioning to the next lab, participants should start the new session immediately — they can review earlier PRs during any downtime. Lab 3 has two parts (3a and 3b) — participants should kick off both sessions back-to-back, then use the remaining time to review PRs from all labs. By the wrap-up, participants will have 4 Devin sessions running or completed.
 
 ---
 
@@ -157,14 +158,14 @@ When Devin opens a PR:
 
 ---
 
-## Lab 3 — Data Anomaly Detection & Jira Ticket Creation (30 min)
+## Lab 3a — Data Anomaly Detection (15 min)
 
-**Value driver:** *Devin doesn't just find problems — it creates actionable Jira tickets. This shows Devin integrated into your team's workflow tools, not just producing code.*
+**Value driver:** *Devin analyzes legacy data for quality issues, documents every anomaly with business impact, and implements validation code that prevents them — turning a week of data profiling into a single session.*
 
 - **Repository:** [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern)
-- **Modules:** [Data Quality & Validation](../../modules/data-engineering/data-quality-validation.md), [Data Source Migration](../../modules/data-engineering/data-source-migration.md)
+- **Module:** [Data Quality & Validation](../../modules/data-engineering/data-quality-validation.md)
 
-This lab layers on tool integration. The repo is a Spring Boot 3.2 / Java 17 loan management application that reads from legacy CDW (Corporate Data Warehouse) tables with known data quality issues: all-VARCHAR typing, cryptic column names, no foreign keys, code abbreviations. Devin will analyze the data for anomalies, document findings, and create Jira tickets for each issue found.
+The repo is a Spring Boot 3.2 / Java 17 loan management application that reads from legacy CDW (Corporate Data Warehouse) tables with known data quality issues: all-VARCHAR typing, cryptic column names, no foreign keys, code abbreviations. Devin will analyze the data for anomalies, trace root causes through the code, and implement validation to catch them.
 
 ### Paste into Devin
 
@@ -175,37 +176,69 @@ Analyze the data layer in uc-data-source-migration-legacy-to-modern for data qua
 
 2. **Issue Documentation:** For each anomaly found, create a structured entry in `docs/DATA_ANOMALY_REPORT.md` with: title, severity (Critical/High/Medium/Low), affected table and column, example bad records, business impact, and recommended fix.
 
-3. **Root Cause Analysis:** For the top 3 most critical anomalies, trace through the code (LoanService.java, the repository layer, and the column mappings in `data/mappings/column_mappings.md`) to identify where the anomaly would cause a runtime failure or incorrect API response. Document the root cause.
+3. **Root Cause Analysis:** For the top 3 most critical anomalies, trace through the code (LoanService.java, the repository layer, and the column mappings in `data/mappings/column_mappings.md`) to identify where the anomaly would cause a runtime failure or incorrect API response. Document the root cause in `docs/ROOT_CAUSE_ANALYSIS.md`.
 
-4. **Jira Tickets:** For each anomaly found, create a Jira ticket in the project with:
-   - Title: "[Data Anomaly] {short description}"
-   - Description: The full anomaly details including affected table/column, example records, severity, business impact, and recommended fix
-   - Priority: mapped from your severity rating (Critical→Highest, High→High, Medium→Medium, Low→Low)
-
-5. **Fix:** Implement data validation in the service layer that catches these anomalies at ingestion time — add input validation, type coercion with error handling, and fallback defaults where appropriate. Add tests that verify the validation catches each anomaly type.
+4. **Fix:** Implement data validation in the service layer that catches these anomalies at ingestion time — add input validation, type coercion with error handling, and fallback defaults where appropriate. Add tests that verify the validation catches each anomaly type.
 
 Open a PR with the anomaly report, root cause analysis, validation code, and tests.
 ```
 
-> **Note:** For the Jira ticket creation to work, ensure the Devin session has access to the Atlassian MCP integration and the correct Jira project is configured. If Jira access is not available, Devin will still produce the anomaly report, RCA, and code fixes — the Jira step will be skipped gracefully.
-
-### While Devin works: try Ask Devin
-
-- *"What data quality issues are most common in CDW-to-modern migrations? What validation patterns should the service layer implement?"*
-- *"How does the column mapping in uc-data-source-migration-legacy-to-modern translate legacy column names to modern field names?"*
-
-### Review the PR
-
-When Devin opens a PR:
-- Are the anomalies it found legitimate? Check a few against the actual seed data
-- Does the validation code handle edge cases (null values, empty strings, boundary values)?
-- Check Jira — did the tickets get created with proper formatting and priority?
+> **Tip:** Kick off this session and immediately move to Lab 3b below — both use the same repo but are independent Devin sessions.
 
 ### Key Takeaways
 
 - **"Detect, document, triage, fix"** — Devin follows the full data quality workflow, from finding anomalies to implementing validation that prevents them
-- **"Jira integration"** — Devin creates structured, actionable tickets in your team's issue tracker, not just markdown files
 - **"Data issues have code root causes"** — Devin traces data quality problems through the application layers to find where they originate
+
+---
+
+## Lab 3b — Data Source Migration: Legacy to Modern (15 min)
+
+**Value driver:** *Devin migrates an entire data layer — transforming legacy schemas with cryptic names and all-VARCHAR typing into a modern normalized schema with proper types, foreign keys, and clear naming — while proving correctness through golden-file validation.*
+
+- **Repository:** [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern)
+- **Module:** [Data Source Migration](../../modules/data-engineering/data-source-migration.md)
+
+Same repo, different story. Where Lab 3a finds what's wrong with the data, Lab 3b actually migrates the data layer to fix the structural problems. Devin will create modern JPA entities, write a migration service that transforms legacy records, rewire the service layer, and validate that all API endpoints return identical results.
+
+### Paste into Devin
+
+```
+Review the legacy CDW schema in uc-data-source-migration-legacy-to-modern. This Spring Boot 3.2 / Java 17 loan application reads from legacy tables with all-VARCHAR columns, cryptic names (BORR_FST_NM, LN_CURR_BAL, PMT_ESCROW_AMT), no foreign keys, and status code abbreviations (ACT, CLO, DFT, FRB).
+
+Migrate the data layer to a modern schema:
+
+1. **Modern JPA Entities:** Create entities matching the target schema in `data/modern-schema/modern_tables.sql`. Use proper Java types (LocalDate, BigDecimal, enums), meaningful field names, audit fields (createdAt, updatedAt), and proper relationship mapping with foreign keys.
+
+2. **Migration Service:** Write a data migration service that reads from legacy tables, transforms each record (parse date strings to LocalDate, parse amount strings to BigDecimal, expand code abbreviations per `data/mappings/column_mappings.md`, split denormalized borrower fields into a separate entity), and inserts into modern tables.
+
+3. **Service Layer Rewiring:** Update LoanService.java to read from the new modern repositories instead of the legacy ones. Remove all string-parsing workarounds from the service layer — the modern schema has proper types.
+
+4. **Golden-File Validation:** Capture the API responses from all endpoints BEFORE the migration. After rewiring to modern tables, verify all endpoints return identical data. Create a test that compares pre- and post-migration API output.
+
+5. **Migration Documentation:** Create `docs/DATA_SOURCE_MIGRATION_NOTES.md` documenting every transformation decision, edge cases encountered, and validation results.
+
+Open a PR with the modern entities, migration service, rewired service layer, validation tests, and migration notes.
+```
+
+### While Devin works on 3a and 3b: try Ask Devin
+
+- *"What data quality issues are most common in CDW-to-modern migrations? What validation patterns should the service layer implement?"*
+- *"How does the column mapping in uc-data-source-migration-legacy-to-modern translate legacy column names to modern field names?"*
+- *"What are the riskiest data type conversions in this migration — where could data loss or truncation occur?"*
+
+### Review the PRs
+
+When Devin opens PRs for 3a and 3b:
+- **Lab 3a:** Are the anomalies legitimate? Check a few against the actual seed data. Does the validation code handle edge cases?
+- **Lab 3b:** Are the data type conversions correct? Does the migration handle edge cases (null values, malformed dates)? Do the golden-file tests pass?
+- **Leave a comment** on the 3b PR asking Devin to add a dual-read feature flag that can switch between legacy and modern data sources at runtime
+
+### Key Takeaways
+
+- **"End-to-end data migration"** — Devin handles the full migration lifecycle: schema design, data transformation, service rewiring, and validation
+- **"Golden-file testing"** — comparing API responses before and after migration proves correctness without manual spot-checking
+- **"Two sessions, one repo, two stories"** — Labs 3a and 3b show how different Devin sessions can tackle complementary aspects of the same codebase independently
 
 ---
 
@@ -305,7 +338,7 @@ Open a PR with all three documents.
 **Core labs (required):**
 - [ ] ts-java-spring-boot-internet-banking-microservices (Lab 1)
 - [ ] ts-java-spring-petclinic-rest-api (Lab 2)
-- [ ] uc-data-source-migration-legacy-to-modern (Lab 3)
+- [ ] uc-data-source-migration-legacy-to-modern (Lab 3a & 3b)
 
 **Post-session exercises (optional):**
 - [ ] aws-mainframe-modernization-carddemo (Exercise A)
@@ -314,7 +347,6 @@ Open a PR with all three documents.
 ### Integration Requirements
 
 - [ ] Devin installed on the target GitHub org (GitHub App)
-- [ ] Atlassian MCP configured with access to a Jira project (for Lab 3 Jira ticket creation)
 - [ ] Participant Devin accounts provisioned
 
 ### Participant Requirements
@@ -322,7 +354,6 @@ Open a PR with all three documents.
 - [ ] Devin account access
 - [ ] GitHub access to the target org
 - [ ] Browser (Chrome recommended)
-- [ ] Access to the Jira project (to verify ticket creation in Lab 3)
 
 ## External GitHub Considerations
 
@@ -331,16 +362,15 @@ This workshop runs against an external GitHub organization (not Cognition-Partne
 1. **Fork or clone repos** — All repos listed above must be available in the target org. Use `git clone --bare` + `git push --mirror` to preserve full history, or fork if the target org has access to the source.
 2. **Remove workflows** — If the target org's GitHub Actions runners differ, review `.github/workflows/` in each repo and adjust or remove as needed.
 3. **Devin GitHub App** — Ensure the Devin GitHub App is installed on the target org with access to the relevant repos.
-4. **Jira integration** — The Atlassian MCP connects to Jira independently of GitHub. Verify the MCP is configured with the correct Jira cloud instance and project key. Test with a simple Devin session that creates a test ticket before the event.
-5. **Branch protection** — Ensure Devin can create branches and open PRs. If branch protection rules require reviews, configure Devin as an allowed bypass or ensure facilitators can approve quickly during labs.
+4. **Branch protection** — Ensure Devin can create branches and open PRs. If branch protection rules require reviews, configure Devin as an allowed bypass or ensure facilitators can approve quickly during labs.
 
 ## Notes
 
-- **First-time audience:** Labs are ordered from lowest risk (analysis/documentation) to highest complexity (code generation, tool integration). This builds confidence before asking participants to evaluate generated code.
-- **2-hour pacing:** The key to fitting 3 labs in 2 hours is overlapping sessions. Participants kick off Lab N+1 while reviewing Lab N. By the wrap-up, all 3 sessions should be running or completed. Facilitators should keep transitions tight — 2 minutes max between labs.
+- **First-time audience:** Labs are ordered from lowest risk (analysis/documentation) to highest complexity (code generation, data migration). This builds confidence before asking participants to evaluate generated code.
+- **2-hour pacing:** The key to fitting the labs in 2 hours is overlapping sessions. Participants kick off Lab N+1 while reviewing Lab N. Labs 3a and 3b are kicked off back-to-back — they use the same repo but are independent Devin sessions. By the wrap-up, all 4 sessions should be running or completed. Facilitators should keep transitions tight — 2 minutes max between labs.
 - **Ask Devin throughout:** Every lab includes Ask Devin prompts. Emphasize that Ask Devin is a research tool for scoping tasks before creating sessions — better prompts lead to better results.
 - **Post-session exercises:** The three additional use cases (COBOL copybook, security remediation, payment gap analysis) are provided as self-service exercises. Share the workshop README with participants so they can try these on their own time.
-- **Jira fallback:** If Jira integration is not available for Lab 3, the lab still works — Devin produces the anomaly report, RCA, and code fixes. The Jira step is additive, not required.
+- **Jira integration (facilitator talking point):** Devin supports Jira ticket creation via the Atlassian MCP — for example, Lab 3a could be extended to have Devin create a Jira ticket for each anomaly found. This is a good topic to mention during the wrap-up or when discussing production workflows, but it is not included in the hands-on prompts for this workshop.
 
 ## Post-Event
 
