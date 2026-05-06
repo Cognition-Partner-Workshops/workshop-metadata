@@ -446,6 +446,12 @@ repos:
     import_method: github-fork
     cluster: null
 
+  etl-workflow:
+    upstream: null
+    upstream_url: null
+    import_method: original
+    cluster: null
+
   streamify-data-engineering:
     upstream: ankurchavda/streamify
     upstream_url: https://github.com/ankurchavda/streamify

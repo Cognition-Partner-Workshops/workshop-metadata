@@ -561,6 +561,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | [ruby-redmine](https://github.com/Cognition-Partner-Workshops/ruby-redmine) | Redmine project management | Ruby |
 | [sample-serverless-digital-asset-payments](https://github.com/Cognition-Partner-Workshops/sample-serverless-digital-asset-payments) | Serverless digital asset payments | AWS, Serverless |
 | [serverless-eda-insurance-claims-processing](https://github.com/Cognition-Partner-Workshops/serverless-eda-insurance-claims-processing) | Event-driven insurance claims | AWS, Serverless |
-| [streamify-data-engineering](https://github.com/Cognition-Partner-Workshops/streamify-data-engineering) | Data engineering with Kafka, Spark, dbt | Python, Kafka, Spark, dbt |
+| [etl-workflow](https://github.com/Cognition-Partner-Workshops/etl-workflow) | Full-stack ETL workflow with YAML mapping specs, PostgreSQL source/target, FastAPI web UI, optional IICS integration. Used for Databricks Platform Migration (SQL ETL → PySpark notebooks). | Python, FastAPI, PostgreSQL, YAML |
+| [streamify-data-engineering](https://github.com/Cognition-Partner-Workshops/streamify-data-engineering) | Music streaming data pipeline — PySpark Structured Streaming (Kafka → Spark → Parquet), Airflow batch DAGs, dbt star schema on BigQuery. Primary repo for Databricks Platform Migration workshop. | Python, PySpark, Kafka, Airflow, dbt, BigQuery, GCP, Terraform |
 | [todo-app-sandbox-infra](https://github.com/Cognition-Partner-Workshops/todo-app-sandbox-infra) | Todo app sandbox infrastructure | IaC |
 | [traderXCognitiondemos](https://github.com/Cognition-Partner-Workshops/traderXCognitiondemos) | TraderX fork for Devin demos | Java |

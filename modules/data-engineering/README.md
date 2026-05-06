@@ -16,6 +16,7 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 | [Informatica PowerCenter Analysis](informatica-powercenter-analysis.md) | Intermediate | 45 min |
 | [Informatica PowerCenter to Snowflake Migration](informatica-to-snowflake-migration.md) | Advanced | 75 min |
 | [COBOL Copybook to PySpark/JSON](cobol-copybook-to-pyspark-json.md) | Intermediate | 45 min |
+| [Databricks Platform Migration](databricks-platform-migration.md) | Intermediate–Advanced | 60 min |
 
 ## Repositories
 
@@ -25,6 +26,8 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 | uc-data-source-migration-legacy-to-modern | [Data Source Migration](data-source-migration.md) |
 | ts-informatica-powercenter | [Informatica PowerCenter Analysis](informatica-powercenter-analysis.md), [Informatica PowerCenter to Snowflake Migration](informatica-to-snowflake-migration.md) |
 | aws-mainframe-modernization-carddemo | [COBOL Copybook to PySpark/JSON](cobol-copybook-to-pyspark-json.md) |
+| streamify-data-engineering | [Databricks Platform Migration](databricks-platform-migration.md) |
+| etl-workflow | [Databricks Platform Migration](databricks-platform-migration.md) |
 
 ## When to Use This Category
 
@@ -34,3 +37,4 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 - Data Quality & Validation pairs well with any data migration module as a validation step
 - The `uc-dw-migration-teradata-to-snowflake` repo was specifically curated for these challenges
 - Informatica PowerCenter modules are ideal for enterprises migrating from on-prem Informatica ETL to cloud-native Snowflake architectures
+- Databricks Platform Migration is designed for Databricks-user audiences — converts standard PySpark/Airflow/dbt stacks to Databricks Notebooks, Workflows, and Delta Lake. Supports parallel Devin sessions for a live parallelization showcase.
