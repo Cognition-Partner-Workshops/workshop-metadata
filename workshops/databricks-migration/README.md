@@ -330,6 +330,44 @@ These can be assigned as follow-up exercises after the main labs:
 
 ---
 
+## Scheduled Maintenance: Ongoing Databricks O&M
+
+These prompts are designed for **scheduled Devin sessions** — recurring tasks that run daily or weekly to maintain Databricks estate health. Set them up as scheduled sessions and review the PRs each morning.
+
+### Delta Lake Table Maintenance (Weekly)
+
+```
+Run OPTIMIZE and VACUUM on all Delta tables in the catalog. Check for tables with >1000 small files, run OPTIMIZE with Z-ORDER on high-query columns. Run VACUUM with 7-day retention. Generate a TABLE_MAINTENANCE_REPORT.md with before/after file counts and sizes. Open a PR if any table definitions need TBLPROPERTIES updates.
+```
+
+### dbt Model Drift Detection (Daily)
+
+```
+Compare the dbt models in databricks/dbt/ against the actual Delta Lake table schemas in Unity Catalog. Flag any schema drift (columns added/removed in the warehouse but not in the dbt model, type mismatches, stale materializations). Generate a DRIFT_REPORT.md and fix any dbt models that are out of sync. Open a PR.
+```
+
+### Notebook Code Quality & Linting (Weekly)
+
+```
+Scan all Databricks notebooks in databricks/notebooks/ for code quality issues: hardcoded credentials, deprecated Spark APIs (e.g., spark.sql.legacy.*), missing error handling, inefficient patterns (collect() on large DataFrames, UDFs that could be native functions). Generate a CODE_QUALITY_REPORT.md with findings and severity. Fix all HIGH severity issues. Open a PR.
+```
+
+### Dependency & Runtime Hygiene (Weekly)
+
+```
+Audit the cluster library dependencies and init scripts. Check for outdated PyPI packages, deprecated Spark configs, and unused libraries. Compare against the latest Databricks Runtime LTS version and flag incompatibilities. Generate an UPGRADE_PLAN.md. Open a PR updating requirements files.
+```
+
+### Data Quality Monitoring (Daily)
+
+```
+Run the data quality framework in databricks/quality/ against all Delta tables. Check row counts vs expected ranges, null rates, freshness (last update timestamp), referential integrity. Generate a weekly DATA_QUALITY_REPORT.md. If any check fails, open a PR with a fix or flag for human review.
+```
+
+**The narrative:** "5 scheduled Devin sessions run overnight, each maintaining a different aspect of the Databricks estate. You come in the morning to PRs." This demonstrates Devin as an always-on platform engineer, not just a migration tool.
+
+---
+
 ## Suggested Formats
 
 | Format | Duration | Labs | Notes |
