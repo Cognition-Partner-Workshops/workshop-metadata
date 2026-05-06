@@ -4,6 +4,7 @@
 
 - [streamify-data-engineering](#streamify-data-engineering)
 - [uc-data-source-migration-legacy-to-modern](#uc-data-source-migration-legacy-to-modern)
+- [etl-workflow](#etl-workflow)
 
 ---
 
@@ -138,3 +139,41 @@ Open the repo's DeepWiki page to understand the domain model, legacy schema quir
 
 - **Review the diff** — are the Delta Lake types appropriate? Does the ingestion handle all edge cases in the seed data?
 - **Leave a comment** asking Devin to add Databricks notebook versions with markdown cells explaining each transformation
+
+---
+
+## <a id="etl-workflow"></a>etl-workflow
+
+**Repository:** [etl-workflow](https://github.com/Cognition-Partner-Workshops/etl-workflow)
+
+Full-stack ETL workflow application with YAML mapping specs defining five data transformations (employee directory enrichment, department roster, salary analytics, manager hierarchy, title progression) that execute as PostgreSQL INSERT...SELECT statements. FastAPI web UI with optional Informatica IICS integration.
+
+### Step 1: Paste into Devin
+
+> Analyze the ETL mapping specifications in etl-workflow/mapping_specs/. These YAML files define five data transformations that currently execute as PostgreSQL INSERT...SELECT statements.
+>
+> Convert each mapping to a Databricks notebook:
+>
+> 1. **Databricks Notebooks** (`databricks/notebooks/`): For each YAML spec, create a PySpark notebook that reads from Delta Lake source tables, applies the same joins/filters/aggregations/window functions, and writes to Delta Lake target tables. Add markdown cells documenting the transformation logic.
+>
+> 2. **Delta Lake DDL** (`databricks/ddl/`): Create source and target table definitions in Spark SQL with appropriate types and partitioning.
+>
+> 3. **Databricks Workflow** (`databricks/workflows/workflow.json`): Define a Workflow that runs the notebooks in dependency order.
+>
+> 4. **Migration Notes** (`docs/ETL_TO_DATABRICKS.md`): Document the PostgreSQL → Spark SQL translation decisions.
+>
+> Open a PR.
+
+### Step 2: Research with Ask Devin
+
+- *"What SQL patterns in the etl-workflow mapping specs are PostgreSQL-specific and need Spark SQL equivalents?"*
+- *"How do the YAML mapping specs define joins, filters, and expressions? What's the most complex transformation?"*
+
+### Step 3 (Optional): Read the DeepWiki
+
+Review the mapping spec format, the PostgreSQL source schema (employees database), and the transformation patterns (window functions, self-joins, aggregations).
+
+### Step 4 (Optional): Review & Give Feedback
+
+- **Review the diff** — do the PySpark notebooks produce equivalent results to the SQL versions? Are window functions correctly translated?
+- **Leave a comment** asking Devin to add data profiling statistics comparing source and target row counts

@@ -358,7 +358,6 @@ repos:
 
   etl-workflow:
     upstream: null
-    upstream_url: null
     import_method: original
     cluster: null
 
