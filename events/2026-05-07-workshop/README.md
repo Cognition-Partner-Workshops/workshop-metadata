@@ -339,6 +339,116 @@ Open a PR with all three documents.
 
 ---
 
+### Exercise D: SAS to Python/Snowflake Migration
+
+- **Repositories:** [ts-sas-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-codebase), [uc-data-migration-sas-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-snowflake)
+- **Module:** [SAS to Python/Snowflake](../../modules/data-engineering/sas-to-python-snowflake.md)
+- **Shows:** Devin reading legacy SAS programs and producing equivalent Python (pandas) functions and Snowflake SQL — cross-language ETL migration
+- **Audience:** SAS developers, ETL engineers, data platform teams
+
+#### Paste into Devin
+
+```
+Analyze the SAS macros in ts-sas-legacy-codebase/Macro/ — focus on the data transformation macros: transpose.sas, subset_data.sas, compare.sas, dedup_string.sas, dedup_mstring.sas, and the export family (export_csv.sas, export_xlsx.sas, export_dbms.sas).
+
+For each macro:
+1. Understand the SAS logic (DATA steps, PROC operations, macro variables, BY-group processing)
+2. Translate into an equivalent Python function using pandas, preserving the same function signature (input dataset, parameters, output dataset)
+3. Create pytest tests that validate the Python functions produce the same results as the SAS originals for sample inputs
+
+Then analyze the sample datasets in uc-data-migration-sas-to-snowflake/sample_data/ (CUST_ACCOUNTS.csv, DAILY_BALANCE.csv, MONTHLY_AMB.csv). Create Snowflake-compatible DDL for each dataset with proper column types, constraints, and clustering keys. Write `COPY INTO` statements for bulk loading and validation queries comparing row counts and checksums.
+
+Document all translation decisions in `SAS_MIGRATION_NOTES.md` — especially how SAS-specific constructs (macro variables, formats, informats, missing value handling) map to Python/Snowflake equivalents.
+
+Open a PR with the Python functions, tests, Snowflake DDL, and migration notes.
+```
+
+---
+
+### Exercise E: Monolith-to-Microservices Extraction (Spring Boot Upgrade)
+
+- **Repository:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
+- **Module:** [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md), [Containerization & Microservice Extraction](../../modules/migration-modernization/containerization-microservice-extraction.md)
+- **Shows:** Devin upgrading a Spring Boot 2.x monolith to 3.x (javax→jakarta namespace migration) and extracting a bounded context into a standalone microservice with Docker Compose
+- **Audience:** Java/Spring Boot developers, monolith-to-microservices teams
+
+#### Paste into Devin
+
+```
+Analyze uc-framework-upgrade-monolith-to-microservices — this is a Spring Boot monolith implementing the RealWorld blogging platform (articles, users, comments, tags, favorites).
+
+Perform a two-phase modernization:
+
+1. **Framework Upgrade (Spring Boot 2 → 3):**
+   - Upgrade Spring Boot from 2.x to 3.x in build.gradle
+   - Migrate all javax.* imports to jakarta.* (JPA, Servlet, Validation)
+   - Update Spring Security configuration to the new SecurityFilterChain pattern
+   - Resolve any deprecated API usage
+   - Ensure all tests pass after the upgrade
+
+2. **Microservice Extraction:**
+   - Identify the "Article" bounded context (articles, tags, favorites, comments)
+   - Extract it as a standalone Spring Boot 3 microservice in a new `article-service/` directory
+   - Create proper DTOs and a REST client for cross-service communication (article-service ↔ user-service)
+   - Add a Docker Compose configuration that runs both the main app and the extracted article-service
+   - Add health check endpoints and document the API contracts between services
+
+3. **Documentation:**
+   - Create `docs/UPGRADE_NOTES.md` with every breaking change encountered and how it was resolved
+   - Create `docs/EXTRACTION_DECISIONS.md` explaining the domain boundary choices
+
+Open a PR with the upgraded monolith, extracted microservice, Docker Compose, and documentation.
+```
+
+---
+
+### Exercise F: Ab Initio ETL Framework → Databricks Migration
+
+- **Repository:** [ts-python-abinitio-etl-framework](https://github.com/Cognition-Partner-Workshops/ts-python-abinitio-etl-framework)
+- **Shows:** Devin reading an enterprise Ab Initio ETL estate (DML schemas, graph patterns, PSET configs, KornShell orchestration, CDC processing) and generating a complete Databricks Lakehouse migration — PySpark notebooks, Delta Lake DDL, Databricks Workflows, and Delta MERGE for CDC
+- **Audience:** Ab Initio developers, ETL engineers, data platform migration teams
+
+#### Paste into Devin
+
+```
+Analyze the Ab Initio ETL framework in ts-python-abinitio-etl-framework. This is an enterprise ETL estate with:
+- DML record layouts in `dml/` (Ab Initio schema definitions)
+- Graph execution patterns in `graphs/` (parallel loader, CDC processor)
+- PSET templates in `psets/pset_templates/` (environment-aware configuration)
+- KornShell orchestration in `scripts/` (AutoSys-triggered batch pipelines)
+- Monitoring in `monitoring/` (job status, SLA tracking)
+
+Migrate this estate to Databricks Lakehouse architecture:
+
+1. **DML → Delta Lake Schemas** (`databricks/schemas/`): Convert each `.dml` file in `dml/` to:
+   - A PySpark StructType definition
+   - A Delta Lake `CREATE TABLE` DDL statement with proper types (map Ab Initio decimal/string/packed to Spark types)
+   - Document the type mapping decisions
+
+2. **Graphs → PySpark Notebooks** (`databricks/notebooks/`): Convert the graph patterns:
+   - `parallel_loader.py` → PySpark notebook with partition-based parallel ingestion
+   - `cdc_processor.py` → Delta Lake MERGE statement using Change Data Feed
+   - Add proper Spark session management, error handling, and logging
+
+3. **KornShell → Databricks Workflows** (`databricks/workflows/`): Convert the orchestration scripts:
+   - `run_daily_orders.ksh` → Databricks Workflow JSON definition with task dependencies (extract → CDC → staging → production)
+   - `run_customer_cdc.ksh` → Scheduled workflow running every 4 hours
+   - Map PSET parameters to Databricks job parameters and widget defaults
+
+4. **Monitoring → Databricks Alerts** (`databricks/monitoring/`): Convert the AutoSys monitoring to:
+   - Databricks SQL alert definitions for job failure detection
+   - SLA compliance dashboard query
+
+5. **Migration Runbook** (`docs/ABINITIO_TO_DATABRICKS_RUNBOOK.md`): Document:
+   - Complete concept mapping table (Graph→Notebook, DML→StructType, PSET→Parameters, etc.)
+   - Execution order for the migration
+   - Risks and mitigations (e.g., packed decimal handling, partition strategy differences)
+
+Open a PR with all Databricks artifacts and the migration runbook.
+```
+
+---
+
 ## Prerequisites
 
 ### Repos Required (must be available in the target GitHub org)
@@ -351,6 +461,10 @@ Open a PR with all three documents.
 **Post-session exercises (optional):**
 - [ ] aws-mainframe-modernization-carddemo (Exercise A)
 - [ ] uc-cve-remediation-regulatory-compliance (Exercise B)
+- [ ] ts-sas-legacy-codebase (Exercise D)
+- [ ] uc-data-migration-sas-to-snowflake (Exercise D)
+- [ ] uc-framework-upgrade-monolith-to-microservices (Exercise E)
+- [ ] ts-python-abinitio-etl-framework (Exercise F)
 
 ### Integration Requirements
 
@@ -377,7 +491,7 @@ This workshop runs against an external GitHub organization (not Cognition-Partne
 - **First-time audience:** Labs are ordered from lowest risk (analysis/documentation) to highest complexity (code generation, data migration). This builds confidence before asking participants to evaluate generated code.
 - **2-hour pacing:** The key to fitting the labs in 2 hours is overlapping sessions. Participants kick off Lab N+1 while reviewing Lab N. Labs 3a and 3b are kicked off back-to-back — they use the same repo but are independent Devin sessions. By the wrap-up, all 4 sessions should be running or completed. Facilitators should keep transitions tight — 2 minutes max between labs.
 - **Ask Devin throughout:** Every lab includes Ask Devin prompts. Emphasize that Ask Devin is a research tool for scoping tasks before creating sessions — better prompts lead to better results.
-- **Post-session exercises:** The three additional use cases (COBOL copybook, security remediation, payment gap analysis) are provided as self-service exercises. Share the workshop README with participants so they can try these on their own time.
+- **Post-session exercises:** Six additional exercises cover the full audience: COBOL copybook (Exercise A), security remediation (B), payment gap analysis (C), SAS→Snowflake (D), monolith→microservices (E), Ab Initio→Databricks (F). Share the workshop README with participants so they can try the ones most relevant to their role.
 - **Jira integration (facilitator talking point):** Devin supports Jira ticket creation via the Atlassian MCP — for example, Lab 3a could be extended to have Devin create a Jira ticket for each anomaly found. This is a good topic to mention during the wrap-up or when discussing production workflows, but it is not included in the hands-on prompts for this workshop.
 
 ## Post-Event
