@@ -118,7 +118,9 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | SAS to Snowflake migration validation app — sample SAS data (.sas7bdat), lineage mapping, transformation scenarios, validation configs. Streamlit UI with Gemini LLM integration. |
 | **Tech Stack** | Python, Streamlit, SAS data files |
 | **License** | — |
-| **Challenges** | General data migration demos |
+| **Cluster** | C10 (SAS to Snowflake) |
+| **Key Contents** | SAS lineage metadata (Collibra-style JSON), SAS DIS Lineage Generator script, sample banking datasets (.sas7bdat + CSV), migration scenario snapshots (Scenario1/Scenario2), Streamlit validation app |
+| **Challenges** | [SAS Migration Analysis](../modules/data-engineering/sas-migration-analysis.md), [SAS to Python/Snowflake](../modules/data-engineering/sas-to-python-snowflake.md) |
 
 ### uc-data-migration-airflow
 | | |
@@ -251,10 +253,12 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | | |
 |---|---|
 | **URL** | https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-codebase |
-| **Description** | Legacy SAS programs and macros — represents a legacy SAS analytics environment for migration demos. |
+| **Description** | Legacy SAS programs and macros — represents a legacy SAS analytics environment for migration analysis and code translation. 92 macros, Enterprise Guide projects (.egp), deployment packages (.spk), batch orchestration programs. |
 | **Tech Stack** | SAS |
 | **License** | Unlicense |
-| **Challenges** | SAS-to-Snowflake migration demos |
+| **Cluster** | C10 (SAS to Snowflake) |
+| **Key Contents** | 92 macros (data transformation, I/O utilities, batch orchestration), Enterprise Guide project (.egp), deployment package (.spk), RunAll/ControlTable batch orchestration |
+| **Challenges** | [SAS Migration Analysis](../modules/data-engineering/sas-migration-analysis.md), [SAS to Python/Snowflake](../modules/data-engineering/sas-to-python-snowflake.md), [ETL Pipeline Modernization](../modules/data-engineering/etl-pipeline-modernization.md) |
 
 ### ts-selenium-simple
 | | |
