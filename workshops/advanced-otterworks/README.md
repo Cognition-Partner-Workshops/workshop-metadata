@@ -28,6 +28,30 @@ Unlike previous workshops where participants are given prompts to paste, this wo
 
 ---
 
+## Getting Oriented (10 min — do this first)
+
+OtterWorks is a large polyglot codebase. Before jumping into a lab, spend 10 minutes using **Ask Devin** to explore the repo and build a mental model. Open Ask Devin, point it at the otterworks repo, and try these prompts:
+
+> **"What does OtterWorks do? Describe the high-level architecture — what are the services, what language is each one written in, and how do they connect?"**
+
+This gives you the map. You will learn that there is an API gateway (Go) routing to backend services, two frontends, and infrastructure like PostgreSQL, Redis, MeiliSearch, and DynamoDB via LocalStack.
+
+> **"Walk me through what happens when a user creates a document. Which services are involved and what does the request flow look like?"**
+
+This grounds the architecture in a concrete flow. You will see the api-gateway route the request to the document-service (Python/FastAPI), which writes to DynamoDB and publishes an event to SNS. The collab-service (Node.js) picks up the event for real-time sync, and the search-service (Python/Flask) indexes it in MeiliSearch.
+
+> **"What observability tools does OtterWorks use? Where are the Grafana dashboards, Prometheus alerts, and Jaeger tracing configured?"**
+
+This is especially useful if you are planning Track B (Incident Response), but helps everyone understand how the system is monitored.
+
+> **"What parts of this codebase look like they need work? Are there legacy scripts, outdated dependencies, incomplete docs, or known issues?"**
+
+This is the discovery prompt. Devin will surface the ETL legacy scripts, the outdated report-service, the incomplete runbooks, the planted security vulnerabilities, and the drifting API contracts — which are exactly the problems the labs address.
+
+Once you have a sense of the codebase, pick your track and start a lab.
+
+---
+
 ## Track A: Modernization & Migration
 
 Focus: Taking legacy or outdated parts of the codebase and bringing them to modern standards.
