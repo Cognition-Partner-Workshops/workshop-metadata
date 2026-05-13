@@ -1,4 +1,4 @@
-# Workshop: Advanced OtterWorks
+# Workshop: OtterWorks
 
 ## Overview
 
