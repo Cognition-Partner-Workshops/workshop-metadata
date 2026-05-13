@@ -129,7 +129,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B1 — Investigate Production Incident (45-60 min)
 
-- **Lab Guide:** [B1-incident-response.md](B1-incident-response.md)
+- **Lab Guide:** [B1-investigate-incident.md](B1-investigate-incident.md)
 - **Objective:** Trigger a chaos scenario, investigate the resulting incident using Grafana and Jaeger, and identify the root cause
 
 **Key Takeaways:**
@@ -141,7 +141,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B2 — Complete the Runbooks (45-60 min)
 
-- **Lab Guide:** [B1-incident-response.md](B1-incident-response.md) (continued)
+- **Lab Guide:** [B2-complete-runbooks.md](B2-complete-runbooks.md)
 - **Objective:** Use Devin to fill in incomplete incident runbooks based on codebase knowledge
 
 **Key Takeaways:**
@@ -153,7 +153,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B3 — Add Observability to Under-Instrumented Services (45-60 min)
 
-- **Lab Guide:** [B1-incident-response.md](B1-incident-response.md) (extended)
+- **Lab Guide:** [B3-add-observability.md](B3-add-observability.md)
 - **Objective:** Identify services with weak observability coverage and add structured logging, metrics, or tracing
 
 **Key Takeaways:**
@@ -181,7 +181,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C2 — API Contract Audit (45-60 min)
 
-- **Lab Guide:** [C2-test-and-contract-audit.md](C2-test-and-contract-audit.md)
+- **Lab Guide:** [C2-contract-audit.md](C2-contract-audit.md)
 - **Objective:** Find and fix mismatches between OpenAPI specs, event schemas, and actual service implementations
 
 **Key Takeaways:**
@@ -193,7 +193,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C3 — Test Coverage Blitz (45-60 min)
 
-- **Lab Guide:** [C2-test-and-contract-audit.md](C2-test-and-contract-audit.md) (continued)
+- **Lab Guide:** [C3-test-coverage.md](C3-test-coverage.md)
 - **Objective:** Identify the service with weakest test coverage and add meaningful tests
 
 **Key Takeaways:**
