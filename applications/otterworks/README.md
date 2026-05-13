@@ -6,21 +6,24 @@
 |---|---|
 | **Focus** | Directing Devin on messy, interconnected enterprise problems across a polyglot microservices platform |
 | **Duration** | 4-6 hours (participants choose a track and complete 2-3 labs) |
-| **Audience** | Engineers who have completed a General or domain-specific Devin workshop |
-| **Prerequisite** | Participants should be comfortable with Devin basics (prompting, PR review, iterative feedback) |
+| **Audience** | Engineers who have completed a General Devin workshop |
+| **Prerequisite** | 200-level Devin proficiency — comfortable with prompting, PR review, iterative feedback, and Ask Devin |
+| **Level** | 300 — application-specific, multi-lab composition |
 | **Tracks** | **Modernization & Migration** - **Incident Response & Reliability** - **Security & Quality** |
 
 ## Workshop Narrative
 
 ```
-General Workshop --> Domain Workshop --> Advanced OtterWorks Workshop
-(learn Devin)       (go deep on one      (direct Devin on messy,
-                     area)                interconnected enterprise problems)
+General Workshop (200)  ──>  OtterWorks Workshop (300)
+(learn Devin basics)         (direct Devin on messy, interconnected
+                              enterprise problems in a real codebase)
 ```
+
+This is a **300-level** workshop. Participants are expected to have completed at least one General Devin workshop (200-level) and be comfortable with core workflows: creating sessions, reviewing PRs, giving feedback, and using Ask Devin for research.
 
 OtterWorks is a polyglot microservices platform for real-time collaborative document editing and file management. It has **10 backend services** (Go, Java, Rust, Python x2, Node.js, Kotlin, Scala, Ruby, C#), **2 frontends** (React, Angular), and a full observability stack (Prometheus, Grafana, Jaeger). It is intentionally messy: legacy ETL scripts, outdated dependencies, incomplete runbooks, drifting API contracts, and planted security vulnerabilities.
 
-Unlike previous workshops where participants are given prompts to paste, this workshop requires participants to **craft their own prompts**. Each lab describes what is wrong, where to look, and what done looks like. Participants must figure out how to direct Devin to fix it.
+Unlike the General workshop where participants paste provided prompts, this workshop requires participants to **craft their own prompts**. Each lab describes what is wrong, where to look, and what done looks like. Participants must decompose the problem and figure out how to direct Devin to fix it.
 
 ## Repository
 
@@ -58,7 +61,7 @@ Focus: Taking legacy or outdated parts of the codebase and bringing them to mode
 
 ### Lab A1 — ETL Pipeline Modernization (60-90 min)
 
-- **Lab Guide:** [etl-modernization.md](labs/etl-modernization.md)
+- **Lab Guide:** [etl-modernization.md](etl-modernization.md)
 - **Objective:** Migrate legacy cron-based ETL scripts to Apache Airflow DAGs
 
 **Key Takeaways:**
@@ -68,13 +71,13 @@ Focus: Taking legacy or outdated parts of the codebase and bringing them to mode
 
 ---
 
-### Lab A2 — Report Service Dependency Upgrade (60-90 min)
+### Lab A2 — Report Service Framework Upgrade (60-90 min)
 
-- **Lab Guide:** [dependency-upgrade.md](labs/dependency-upgrade.md)
+- **Lab Guide:** [framework-upgrade.md](framework-upgrade.md)
 - **Objective:** Upgrade a Java 8 / Spring Boot 2.5 service to Java 17 / Spring Boot 3.2+
 
 **Key Takeaways:**
-- Devin can execute multi-axis dependency upgrades (Java version, Spring Boot, javax-to-jakarta, test framework, PDF library, etc.) in a single session
+- Devin can execute multi-axis framework upgrades (Java version, Spring Boot, javax-to-jakarta, test framework, PDF library, etc.) in a single session
 - Having a robust test suite before upgrading is critical — the tests serve as the verification harness
 - Enterprise Java upgrades involve cascading changes that Devin tracks systematically
 
@@ -82,7 +85,7 @@ Focus: Taking legacy or outdated parts of the codebase and bringing them to mode
 
 ### Lab A3 — Language Translation (60-90 min)
 
-- **Lab Guide:** [language-translation.md](labs/language-translation.md)
+- **Lab Guide:** [language-translation.md](language-translation.md)
 - **Objective:** Translate the search-service from Flask (synchronous) to FastAPI (async)
 
 **Key Takeaways:**
@@ -98,7 +101,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B1 — Investigate Production Incident (45-60 min)
 
-- **Lab Guide:** [incident-response.md](labs/incident-response.md)
+- **Lab Guide:** [incident-response.md](incident-response.md)
 - **Objective:** Trigger a chaos scenario, investigate the resulting incident using Grafana and Jaeger, and identify the root cause
 
 **Key Takeaways:**
@@ -110,7 +113,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B2 — Complete the Runbooks (45-60 min)
 
-- **Lab Guide:** [incident-response.md](labs/incident-response.md) (continued)
+- **Lab Guide:** [incident-response.md](incident-response.md) (continued)
 - **Objective:** Use Devin to fill in incomplete incident runbooks based on codebase knowledge
 
 **Key Takeaways:**
@@ -122,7 +125,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B3 — Add Observability to Under-Instrumented Services (45-60 min)
 
-- **Lab Guide:** [incident-response.md](labs/incident-response.md) (extended)
+- **Lab Guide:** [incident-response.md](incident-response.md) (extended)
 - **Objective:** Identify services with weak observability coverage and add structured logging, metrics, or tracing
 
 **Key Takeaways:**
@@ -138,7 +141,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C1 — Monorepo Security Sprint (60-90 min)
 
-- **Lab Guide:** [security-sprint.md](labs/security-sprint.md)
+- **Lab Guide:** [security-sprint.md](security-sprint.md)
 - **Objective:** Run security scans, triage findings, and remediate CRITICAL/HIGH CVEs using parallel Devin sessions
 
 **Key Takeaways:**
@@ -150,7 +153,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C2 — API Contract Audit (45-60 min)
 
-- **Lab Guide:** [test-and-contract-audit.md](labs/test-and-contract-audit.md)
+- **Lab Guide:** [test-and-contract-audit.md](test-and-contract-audit.md)
 - **Objective:** Find and fix mismatches between OpenAPI specs, event schemas, and actual service implementations
 
 **Key Takeaways:**
@@ -162,7 +165,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C3 — Test Coverage Blitz (45-60 min)
 
-- **Lab Guide:** [test-and-contract-audit.md](labs/test-and-contract-audit.md) (continued)
+- **Lab Guide:** [test-and-contract-audit.md](test-and-contract-audit.md) (continued)
 - **Objective:** Identify the service with weakest test coverage and add meaningful tests
 
 **Key Takeaways:**

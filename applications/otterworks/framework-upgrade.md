@@ -1,4 +1,4 @@
-# Lab: Report Service Dependency Upgrade
+# Lab: Report Service Framework Upgrade
 
 ## Objective
 
