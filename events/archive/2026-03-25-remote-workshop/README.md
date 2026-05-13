@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Variant Name** | Platform-Conformant Microservice Decomposition (60 min) |
-| **Based On** | [workshops/platform-microservice-decomposition](../../workshops/platform-microservice-decomposition/) |
+| **Based On** | [workshops/platform-microservice-decomposition](../../../workshops/platform-microservice-decomposition/) |
 | **Focus** | Monolith-to-microservices decomposition with IaC conformance on Kubernetes |
 | **Duration** | 60 minutes |
 | **Audience** | General |
@@ -281,7 +281,7 @@ For the full version with bonus challenges, see [platform-microservice-decomposi
 | Resource | Link |
 |----------|------|
 | Full 90-min event | [platform-microservice-decomposition](../platform-microservice-decomposition/) |
-| Core module | [Platform-Conformant Microservice Decomposition](../../modules/cloud-infrastructure/platform-conformant-microservice-decomposition.md) |
-| Workshop template | [workshops/platform-microservice-decomposition](../../workshops/platform-microservice-decomposition/) |
-| Facilitator guide | [shared/facilitator-guide.md](../../shared/facilitator-guide.md) |
-| Devin Features Appendix | [modules/devin-features](../../modules/devin-features/README.md) |
+| Core module | [Platform-Conformant Microservice Decomposition](../../../modules/cloud-infrastructure/platform-conformant-microservice-decomposition.md) |
+| Workshop template | [workshops/platform-microservice-decomposition](../../../workshops/platform-microservice-decomposition/) |
+| Facilitator guide | [shared/facilitator-guide.md](../../../shared/facilitator-guide.md) |
+| Devin Features Appendix | [modules/devin-features](../../../modules/devin-features/README.md) |
