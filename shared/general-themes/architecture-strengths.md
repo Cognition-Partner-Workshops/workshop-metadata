@@ -2,9 +2,9 @@
 
 ## Clean-Room Execution
 
-Each Devin session runs on its own isolated VM. By default, a session has access to nothing — no ambient credentials, no inherited permissions. This isolation is a security feature, not a limitation.
+Each Devin session runs on its own isolated VM — a controlled environment where workers are separated from each other and from systems they have not been granted access to. This isolation model preserves your existing security posture while adding autonomous engineering capacity.
 
-- **Security by default** — Devin cannot access resources you have not explicitly granted. No lateral movement risk between sessions or systems
+- **Security by default** — Devin operates within your existing access control and governance mechanisms. No lateral movement risk between sessions or systems — each worker is scoped to exactly the resources you provision
 - **Service account friendly** — Organizations provision scoped credentials (API keys, PATs, cloud IAM roles) that Devin uses to access exactly the systems it needs. This mirrors how you would onboard any new team member — with least-privilege access
 - **Ephemeral testing environments** — Devin can deploy into throwaway environments (containers, cloud sandboxes) for integration testing, then tear them down. No persistent state leaks between sessions
 - **Reproducible from scratch** — Every session starts from the same base. No "works on my machine" drift. Environment configuration is codified and versioned
@@ -15,9 +15,9 @@ While each session's runtime is isolated, Devin does not start from scratch. A s
 
 - **Environment configurations (VM blueprints)** — Pre-built machine images with dependencies, language runtimes, tools, and startup scripts baked in. Sessions boot ready to build, not waiting for `npm install`
 - **Knowledge notes** — Persistent, human-curated context (coding standards, architecture decisions, team conventions, domain glossary) that Devin retrieves automatically based on the task at hand
-- **Playbooks** — Repeatable procedures that encode institutional methodology. Every session that invokes a playbook follows the same proven steps
+- **Playbooks** — Repeatable procedures that encode institutional methodology. Every session that invokes a playbook follows the same proven steps — this is what enables you to scale how many workers you kick off, because each one executes the same validated process
 - **MCP servers** — Pre-configured integrations (Jira, Datadog, Confluence, Azure DevOps) available to every session in the org without per-session setup
-- **Secrets** — Scoped credentials injected into the environment at session start. No credentials embedded in prompts or code — they flow through the platform's secrets management layer
+- **Secrets** — Scoped credentials tied to a service account identity, not individual user permissions. This separates who the agent is and what it can access from any specific user's identity — credentials flow through the platform's secrets management layer, never embedded in prompts or code
 - **Git connections** — Repository access configured at the org level. All sessions can clone and push to connected repos immediately
 
 This design gives you both: **clean-room isolation for security** and a **shared context layer for productivity**. Each worker VM is sandboxed, but the organization's accumulated knowledge and configuration flow into every session automatically.

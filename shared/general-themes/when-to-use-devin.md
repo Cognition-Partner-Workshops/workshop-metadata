@@ -26,7 +26,7 @@ Devin divides and conquers work that would take a team of engineers weeks. A par
 |----------|---------|-----------|
 | **Codebase modernization** | Translate COBOL → Java across 200 copybooks | Each child agent handles one copybook. Humans review the PRs. Volume that would take months becomes weeks. Reduces ongoing mainframe licensing costs |
 | **Framework migration** | Upgrade Spring Boot 2.x → 3.x across 50 microservices | Each service gets its own agent. Jakarta namespace migration, dependency bumps, and test verification — all parallelized |
-| **Language/framework translation** | Migrate SAS → Python/Snowflake for 300 ETL jobs, or Oracle Forms → modern web frameworks | Devin translates each job, generates equivalence tests, and validates output parity. Eliminates expensive per-seat or per-CPU licensing |
+| **Language/framework translation** | Migrate SAS → Python/Snowflake for 300 ETL jobs, or Oracle Forms → modern web frameworks | Devin translates each job, generates equivalence tests, and validates output parity. Offers a pathway away from products with burdensome licensing models |
 | **Dependency hygiene** | Bump all transitive dependencies across an org's repos | Scheduled weekly. Devin opens PRs, CI validates, humans merge |
 | **Security backlog** | Remediate 500 open Snyk findings across 80 repos | Each finding gets its own agent session. Devin reads the advisory, applies the fix, runs tests |
 | **Test coverage** | Generate unit tests for 200 uncovered modules | Devin analyzes each module, writes tests following existing conventions, achieves target coverage |
@@ -52,7 +52,7 @@ Give Devin work that you would otherwise not have done — because of constraine
 3. **Lower priority but valuable** — work humans would do if they had unlimited time
 4. **Automatable end-to-end** — Devin can fetch context, implement, test, and submit for review without manual intervention
 5. **Safe to iterate** — Devin works on branches, never pushes to main, and humans always approve the merge
-6. **Cost-motivated** — migrations away from expensive proprietary platforms (COBOL, SAS, Informatica, Oracle Forms) where the engineering effort to migrate has been the blocker, not the business case
+6. **Urgency-oriented** — work driven by deadlines: license sunset timelines, compliance mandates, platform end-of-life, or cost pressure from burdensome licensing models (COBOL, SAS, Informatica, Oracle Forms). The business case is already approved — you need the extra engineering capacity to execute
 
 ## What Devin Needs to Succeed
 

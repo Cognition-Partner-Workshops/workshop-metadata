@@ -6,7 +6,7 @@ Proven patterns for structuring work, codebases, and processes so that Devin del
 
 **Principle:** If a human developer can clone the repo and run `make test` (or equivalent) with no external dependencies, Devin can too.
 
-**Why it matters:** Devin verifies its own changes by running your build and test suite on its VM. If the build requires a VPN, a licensed IDE, a proprietary database, or manual setup steps that cannot be automated, Devin cannot complete the feedback loop. The more self-contained your build is, the tighter Devin's verify-and-iterate cycle becomes.
+**Why it matters:** Devin verifies its own changes by running your build and test suite on its VM. The more self-contained your build is, the tighter Devin's verify-and-iterate cycle becomes. Even when local execution is not fully possible, Devin can delegate verification to off-machine runners — CI pipelines, external test systems, or cloud-hosted build environments — that still close the feedback loop.
 
 **How to apply:**
 - Containerize dependencies (Docker Compose for databases, message brokers, caches)

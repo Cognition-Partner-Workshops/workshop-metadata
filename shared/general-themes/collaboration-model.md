@@ -37,7 +37,7 @@ Multiple team members can interact with the same Devin session through PR commen
 - Devin reads both comments, addresses both requests in subsequent commits
 - Both reviewers see Devin's response and can continue the conversation
 
-This works because Devin monitors its PRs for new comments. When any comment arrives, Devin resumes from its hibernated state, reads the full conversation context, and responds. The session persists across the entire lifecycle of the task — there is no context loss between interactions.
+This works because Devin monitors its PRs for new comments. When any comment arrives, Devin resumes from its hibernated state and responds with its full conversation context retained — no re-reading from scratch. The session persists across the entire lifecycle of the task with no context loss between interactions.
 
 ## CI Check Monitoring
 

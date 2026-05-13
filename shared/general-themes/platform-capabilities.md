@@ -46,7 +46,7 @@ Devin can create child sessions to parallelize work. A parent agent breaks a lar
 
 ## Team-Based Operation
 
-Devin is not a per-user tool. It operates as a shared team resource with organizational context.
+Devin is not an individual user's AI assistant — it is a team-based coworker agent that operates as a shared resource with organizational context. This distinction matters: configuration, knowledge, and integrations belong to the team, not to any single user's session.
 
 **Shared configuration (the context layer):**
 - **Environment configurations (VM blueprints)** — Pre-built machine images with dependencies, runtimes, and tools baked in. Sessions boot ready to build
