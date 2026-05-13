@@ -89,7 +89,7 @@ Focus: Taking legacy or outdated parts of the codebase and bringing them to mode
 
 ### Lab A1 — ETL Pipeline Modernization (60-90 min)
 
-- **Lab Guide:** [etl-modernization.md](etl-modernization.md)
+- **Lab Guide:** [A1-etl-modernization.md](A1-etl-modernization.md)
 - **Objective:** Migrate legacy cron-based ETL scripts to Apache Airflow DAGs
 
 **Key Takeaways:**
@@ -101,7 +101,7 @@ Focus: Taking legacy or outdated parts of the codebase and bringing them to mode
 
 ### Lab A2 — Report Service Framework Upgrade (60-90 min)
 
-- **Lab Guide:** [framework-upgrade.md](framework-upgrade.md)
+- **Lab Guide:** [A2-framework-upgrade.md](A2-framework-upgrade.md)
 - **Objective:** Upgrade a Java 8 / Spring Boot 2.5 service to Java 17 / Spring Boot 3.2+
 
 **Key Takeaways:**
@@ -113,7 +113,7 @@ Focus: Taking legacy or outdated parts of the codebase and bringing them to mode
 
 ### Lab A3 — Language Translation (60-90 min)
 
-- **Lab Guide:** [language-translation.md](language-translation.md)
+- **Lab Guide:** [A3-language-translation.md](A3-language-translation.md)
 - **Objective:** Translate the search-service from Flask (synchronous) to FastAPI (async)
 
 **Key Takeaways:**
@@ -129,7 +129,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B1 — Investigate Production Incident (45-60 min)
 
-- **Lab Guide:** [incident-response.md](incident-response.md)
+- **Lab Guide:** [B1-incident-response.md](B1-incident-response.md)
 - **Objective:** Trigger a chaos scenario, investigate the resulting incident using Grafana and Jaeger, and identify the root cause
 
 **Key Takeaways:**
@@ -141,7 +141,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B2 — Complete the Runbooks (45-60 min)
 
-- **Lab Guide:** [incident-response.md](incident-response.md) (continued)
+- **Lab Guide:** [B1-incident-response.md](B1-incident-response.md) (continued)
 - **Objective:** Use Devin to fill in incomplete incident runbooks based on codebase knowledge
 
 **Key Takeaways:**
@@ -153,7 +153,7 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 
 ### Lab B3 — Add Observability to Under-Instrumented Services (45-60 min)
 
-- **Lab Guide:** [incident-response.md](incident-response.md) (extended)
+- **Lab Guide:** [B1-incident-response.md](B1-incident-response.md) (extended)
 - **Objective:** Identify services with weak observability coverage and add structured logging, metrics, or tracing
 
 **Key Takeaways:**
@@ -169,7 +169,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C1 — Monorepo Security Sprint (60-90 min)
 
-- **Lab Guide:** [security-sprint.md](security-sprint.md)
+- **Lab Guide:** [C1-security-sprint.md](C1-security-sprint.md)
 - **Objective:** Run security scans, triage findings, and remediate CRITICAL/HIGH CVEs using parallel Devin sessions
 
 **Key Takeaways:**
@@ -181,7 +181,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C2 — API Contract Audit (45-60 min)
 
-- **Lab Guide:** [test-and-contract-audit.md](test-and-contract-audit.md)
+- **Lab Guide:** [C2-test-and-contract-audit.md](C2-test-and-contract-audit.md)
 - **Objective:** Find and fix mismatches between OpenAPI specs, event schemas, and actual service implementations
 
 **Key Takeaways:**
@@ -193,7 +193,7 @@ Focus: Finding and fixing security vulnerabilities, contract drift, and test cov
 
 ### Lab C3 — Test Coverage Blitz (45-60 min)
 
-- **Lab Guide:** [test-and-contract-audit.md](test-and-contract-audit.md) (continued)
+- **Lab Guide:** [C2-test-and-contract-audit.md](C2-test-and-contract-audit.md) (continued)
 - **Objective:** Identify the service with weakest test coverage and add meaningful tests
 
 **Key Takeaways:**
