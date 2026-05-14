@@ -101,7 +101,7 @@ clusters:
       The main calcom app plus infrastructure and data engineering repos
       built around it for workshop demos.
     repos:
-      - calcom           # fork of calcom/calcom
+      - calcom           # fork of calcom/cal.com
       - calcom-infra     # original — AWS CDK infra for calcom
       - calcom-dataeng   # original — data engineering for calcom
 
