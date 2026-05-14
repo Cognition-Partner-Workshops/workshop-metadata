@@ -4,8 +4,6 @@
 
 Trigger a chaos scenario in the OtterWorks platform and investigate the resulting incident across three escalation levels: manual investigation with Grafana/Jaeger, one-click Devin session from the Incidents page, and fully automatic alert-driven Devin investigation.
 
-> **Branch:** Participants should be on the `Harness` branch to access the incident response and event-driven investigation functionality.
-
 ## What's Wrong
 
 OtterWorks has a chaos engineering framework that injects failures into production-like services. When chaos is active, services exhibit real failure modes: 500 errors on search suggestions, file upload rejections, notification processing failures, or document-service latency spikes. The admin dashboard has "Trigger Chaos" buttons for each scenario.

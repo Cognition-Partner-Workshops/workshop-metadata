@@ -45,7 +45,6 @@ Before diving into prompts and labs, get the OtterWorks platform running and cli
 # Clone and start the full stack
 git clone https://github.com/Cognition-Partner-Workshops/otterworks.git
 cd otterworks
-git checkout Harness
 docker compose up -d
 ```
 
