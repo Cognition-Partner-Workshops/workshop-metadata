@@ -54,7 +54,7 @@ Four labs that build on each other in a progressive arc:
 ### Lab 1 — System Understanding & Reverse Engineering (60 min)
 
 - **Module:** [Oracle Forms System Understanding & Reverse Engineering](../../modules/migration-modernization/oracle-forms-system-understanding.md)
-- **Repository:** [ts-plsql-oracle-forms-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-legacy-codebase)
+- **Repository:** [ts-plsql-oracle-forms-hrms](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-hrms)
 - **Objective:** Produce a complete application inventory, data dictionary, multi-layer dependency map, and technical debt report for an Oracle Forms/PL/SQL application
 
 #### What to Try
@@ -85,7 +85,7 @@ Four labs that build on each other in a progressive arc:
 ### Lab 2 — Migration Planning & Strategy (60 min)
 
 - **Module:** [Oracle Forms Migration Planning & Strategy](../../modules/migration-modernization/oracle-forms-migration-planning.md)
-- **Repositories:** [ts-plsql-oracle-forms-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-legacy-codebase), [uc-legacy-modernization-oracle-forms-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-oracle-forms-to-java)
+- **Repositories:** [ts-plsql-oracle-forms-hrms](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-hrms), [uc-legacy-modernization-oracle-forms-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-oracle-forms-to-java)
 - **Objective:** Produce a modernization blueprint with strategy evaluation, component mapping, migration ordering, and risk register
 
 #### What to Try
@@ -147,7 +147,7 @@ Four labs that build on each other in a progressive arc:
 ### Lab 4 — Oracle Forms to Java Code Migration (60 min)
 
 - **Module:** [Oracle Forms to Java](../../modules/migration-modernization/oracle-forms-to-java.md)
-- **Repositories:** [ts-plsql-oracle-forms-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-legacy-codebase), [uc-legacy-modernization-oracle-forms-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-oracle-forms-to-java)
+- **Repositories:** [ts-plsql-oracle-forms-hrms](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-hrms), [uc-legacy-modernization-oracle-forms-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-oracle-forms-to-java)
 - **Objective:** Translate selected PL/SQL packages to Java Spring Boot with REST APIs, JPA entities, unified validation, and parity tests
 
 #### What to Try
@@ -205,7 +205,7 @@ Participants who finish early or want to go deeper may attempt:
 
 ## Repos Required on Devin's Machine
 
-- [ ] ts-plsql-oracle-forms-legacy-codebase
+- [ ] ts-plsql-oracle-forms-hrms
 - [ ] uc-legacy-modernization-oracle-forms-to-java
 
 ### Optional (for extended challenges)

@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-cve-remediation-regulatory-compliance](#uc-cve-remediation-regulatory-compliance)
 
 ---
@@ -40,19 +40,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Has existing `security-scan.yml` and `sonar-devin-fix.yml` workflows — good for studying and enhancing existing security CI.
 
 ### Step 1: Paste into Devin
 
-> Review the existing security scanning workflows in app_timesheet (.github/workflows/). Enhance them by adding: SBOM generation in CycloneDX format, a dependency-review step on PRs, and a Trivy container scan if Dockerfiles exist. The workflow should fail the PR on CRITICAL severity findings. Open a PR with the enhanced workflows.
+> Review the existing security scanning workflows in timesheet-app (.github/workflows/). Enhance them by adding: SBOM generation in CycloneDX format, a dependency-review step on PRs, and a Trivy container scan if Dockerfiles exist. The workflow should fail the PR on CRITICAL severity findings. Open a PR with the enhanced workflows.
 
 ### Step 2: Research with Ask Devin
 
-- *"What security scanning is already configured in app_timesheet's CI? What gaps exist?"*
+- *"What security scanning is already configured in timesheet-app's CI? What gaps exist?"*
 - *"How does the sonar-devin-fix.yml workflow trigger Devin to auto-fix issues? Can this pattern be extended to other tools?"*
 - Study the existing automated remediation pattern to understand the Devin API integration
 

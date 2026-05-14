@@ -63,8 +63,8 @@ Track A demonstrates Devin as a test automation engineer. Participants will gene
 - **Module:** [Unit Testing](../../modules/testing-qa/unit-testing.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot app with existing JUnit infrastructure
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app with Jest (alternative)
-  - [uc-Quality-Engineering-and-Assurance](https://github.com/Cognition-Partner-Workshops/uc-Quality-Engineering-and-Assurance) — Dedicated QE use-case repo (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app with Jest (alternative)
+  - [uc-quality-engineering-assurance](https://github.com/Cognition-Partner-Workshops/uc-quality-engineering-assurance) — Dedicated QE use-case repo (alternative)
 - **Objective:** Analyze existing test coverage, identify under-tested modules, and generate meaningful unit tests that verify real behavior — not just padding coverage
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -78,12 +78,12 @@ Analyze the current test coverage of uc-framework-upgrade-monolith-to-microservi
 
 **Option B — Jest Tests (Node.js):**
 ```
-Analyze the test coverage of app_timesheet's backend. Run `npm test -- --coverage` to see current coverage. Identify the 5 least-tested API routes and service modules. Write Jest tests for each: (1) Unit tests for service functions with mocked dependencies, (2) Integration tests for API routes using supertest, (3) Edge case tests for error handling, empty inputs, and boundary conditions. Follow existing test patterns. Open a PR with the new tests and updated coverage report.
+Analyze the test coverage of timesheet-app's backend. Run `npm test -- --coverage` to see current coverage. Identify the 5 least-tested API routes and service modules. Write Jest tests for each: (1) Unit tests for service functions with mocked dependencies, (2) Integration tests for API routes using supertest, (3) Edge case tests for error handling, empty inputs, and boundary conditions. Follow existing test patterns. Open a PR with the new tests and updated coverage report.
 ```
 
 **Option C — Multi-layer Testing:**
 ```
-Add comprehensive tests to uc-Quality-Engineering-and-Assurance following the test pyramid: (1) Unit tests for all business logic functions with edge cases, (2) Integration tests for database interactions, (3) Contract tests for any API endpoints. Use the existing test framework. Generate a coverage report. Document the testing strategy in a `TEST_STRATEGY.md`. Open a PR.
+Add comprehensive tests to uc-quality-engineering-assurance following the test pyramid: (1) Unit tests for all business logic functions with edge cases, (2) Integration tests for database interactions, (3) Contract tests for any API endpoints. Use the existing test framework. Generate a coverage report. Document the testing strategy in a `TEST_STRATEGY.md`. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -198,7 +198,7 @@ Once Devin opens a PR, focus your review on **BDD quality**:
 - **Module:** [Mutation Testing](../../modules/testing-qa/mutation-testing.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot app with existing JUnit tests
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — Node.js app with Jest tests (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — Node.js app with Jest tests (alternative)
 - **Objective:** Use mutation testing to evaluate test quality — mutants that survive indicate tests that pass without actually verifying behavior. Kill surviving mutants by adding meaningful assertions.
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -210,7 +210,7 @@ Set up PIT mutation testing for uc-framework-upgrade-monolith-to-microservices. 
 
 **Option B — Stryker Mutation Testing (JavaScript):**
 ```
-Set up Stryker mutation testing for app_timesheet's backend. Configure Stryker to run on the service layer modules. Run mutation testing and analyze which mutants survive. For surviving mutants, add or improve test assertions to kill them. Focus on: (1) Conditional mutations (if statements changed), (2) Return value mutations (return true changed to return false), (3) Arithmetic mutations (+ changed to -). Document findings in a `MUTATION_TESTING_REPORT.md`. Open a PR.
+Set up Stryker mutation testing for timesheet-app's backend. Configure Stryker to run on the service layer modules. Run mutation testing and analyze which mutants survive. For surviving mutants, add or improve test assertions to kill them. Focus on: (1) Conditional mutations (if statements changed), (2) Return value mutations (return true changed to return false), (3) Arithmetic mutations (+ changed to -). Document findings in a `MUTATION_TESTING_REPORT.md`. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -262,26 +262,26 @@ Track B demonstrates Devin as a system tester. Participants will write and run E
 
 - **Module:** [End-to-End Testing](../../modules/testing-qa/end-to-end-testing.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
-  - [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) — Angular RealWorld app with existing Playwright tests (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
+  - [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld) — Angular RealWorld app with existing Playwright tests (alternative)
 - **Objective:** Write and run E2E tests against a running application — exercise real user workflows through the browser, discover issues through testing, and fix what you find
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-**Option A — Full E2E Suite (app_timesheet):**
+**Option A — Full E2E Suite (timesheet-app):**
 ```
-Set up and run app_timesheet locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the core user workflows: (1) Login flow — valid credentials succeed, invalid credentials show error, (2) Client management — create, edit, delete a client, (3) Work entry lifecycle — create entry for a client, verify it appears in list, edit hours, delete, (4) Reporting — verify reports show correct totals after creating entries, (5) Edge cases — submit empty forms, special characters in names, very long text. Run the tests and take a screen recording. If any tests fail because of application bugs, fix the bugs too. Open a PR with the test files and any bug fixes.
+Set up and run timesheet-app locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the core user workflows: (1) Login flow — valid credentials succeed, invalid credentials show error, (2) Client management — create, edit, delete a client, (3) Work entry lifecycle — create entry for a client, verify it appears in list, edit hours, delete, (4) Reporting — verify reports show correct totals after creating entries, (5) Edge cases — submit empty forms, special characters in names, very long text. Run the tests and take a screen recording. If any tests fail because of application bugs, fix the bugs too. Open a PR with the test files and any bug fixes.
 ```
 
 **Option B — Extend Existing E2E Tests (Angular):**
 ```
-Review the existing Playwright tests in ts-angular-realworld-example-app (in the e2e/ directory). Run the existing tests to verify they pass. Then extend the test suite with: (1) Article lifecycle — create, read, update, delete an article, (2) Social features — follow a user, favorite an article, comment on an article, (3) Tag filtering — create articles with tags and verify tag-based filtering works, (4) Error scenarios — verify graceful handling of 401, 404, 500 responses. Take a screen recording of the full test run. Open a PR.
+Review the existing Playwright tests in ts-angular-realworld (in the e2e/ directory). Run the existing tests to verify they pass. Then extend the test suite with: (1) Article lifecycle — create, read, update, delete an article, (2) Social features — follow a user, favorite an article, comment on an article, (3) Tag filtering — create articles with tags and verify tag-based filtering works, (4) Error scenarios — verify graceful handling of 401, 404, 500 responses. Take a screen recording of the full test run. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
 
 While Devin works on step 1, open **AskDevin** and explore:
-- *"What are the main user workflows in app_timesheet that would benefit from E2E tests?"*
+- *"What are the main user workflows in timesheet-app that would benefit from E2E tests?"*
 - *"What Playwright best practices should be followed — proper selectors, waiting strategies, test isolation?"*
 - *"What are the most common causes of flaky E2E tests and how can they be prevented?"*
 - Use insights to write tests for additional workflows (CSV/PDF export, bulk operations)
@@ -326,20 +326,20 @@ Once Devin opens a PR, focus your review on **test robustness**:
 
 - **Module:** [Cross-Service Integration Testing](../../modules/testing-qa/cross-service-integration-testing.md)
 - **Repositories:**
-  - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices) — .NET microservices (Identity, Customer, Order, Product, Notification)
-  - [app_petclinic-microservices](https://github.com/Cognition-Partner-Workshops/app_petclinic-microservices) — Spring Boot microservices (alternative)
+  - [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices) — .NET microservices (Identity, Customer, Order, Product, Notification)
+  - [petclinic-microservices](https://github.com/Cognition-Partner-Workshops/petclinic-microservices) — Spring Boot microservices (alternative)
 - **Objective:** Write integration tests that verify multiple microservices work correctly together — testing the contracts, data flow, and error handling between services
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 **Option A — .NET Microservices Integration:**
 ```
-Write cross-service integration tests for app_dotnet_angular_containerized_decomposition_microservices. Focus on the Order → Product → Notification flow: (1) Create a product via the Product service, (2) Place an order via the Order service referencing that product, (3) Verify the Notification service receives the order-placed event with correct data, (4) Verify the Order service correctly validates product existence before accepting orders, (5) Test error scenarios — order for non-existent product, order with invalid customer. Use Docker Compose to run all services together. Open a PR with the integration test project and docker-compose test configuration.
+Write cross-service integration tests for quickapp-microservices. Focus on the Order → Product → Notification flow: (1) Create a product via the Product service, (2) Place an order via the Order service referencing that product, (3) Verify the Notification service receives the order-placed event with correct data, (4) Verify the Order service correctly validates product existence before accepting orders, (5) Test error scenarios — order for non-existent product, order with invalid customer. Use Docker Compose to run all services together. Open a PR with the integration test project and docker-compose test configuration.
 ```
 
 **Option B — Spring Boot Microservices Integration:**
 ```
-Write cross-service integration tests for app_petclinic-microservices. Test the full workflow: (1) Register a new pet owner via the customers-service, (2) Add a pet via the customers-service, (3) Schedule a visit via the visits-service, (4) Verify the API gateway correctly routes and aggregates data from both services, (5) Test circuit breaker behavior — what happens when the visits-service is down? Use Docker Compose to run the services and write tests using RestAssured or similar. Open a PR.
+Write cross-service integration tests for petclinic-microservices. Test the full workflow: (1) Register a new pet owner via the customers-service, (2) Add a pet via the customers-service, (3) Schedule a visit via the visits-service, (4) Verify the API gateway correctly routes and aggregates data from both services, (5) Test circuit breaker behavior — what happens when the visits-service is down? Use Docker Compose to run the services and write tests using RestAssured or similar. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -387,7 +387,7 @@ Focus on **integration quality**:
 
 - **Modules:** [Performance Testing](../../modules/testing-qa/performance-testing.md) + [Load Testing & Benchmarking](../../modules/testing-qa/load-testing-benchmarking.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app (establish baseline and identify bottlenecks)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app (establish baseline and identify bottlenecks)
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot app (alternative)
 - **Objective:** Create performance tests that establish baselines, identify bottlenecks, and verify the application handles expected load — demonstrating Devin building load testing infrastructure
 
@@ -395,7 +395,7 @@ Focus on **integration quality**:
 
 **Option A — k6 Load Testing (Node.js):**
 ```
-Set up k6 load testing for app_timesheet. Create load test scripts that: (1) Simulate 50 concurrent users performing typical workflows (login, create entry, view reports), (2) Run a ramp-up test from 1 to 100 users over 5 minutes, (3) Establish performance baselines (p95 latency, error rate, throughput), (4) Identify the breaking point — at what concurrency does the application start failing? Document findings in a `PERFORMANCE_REPORT.md` including baseline metrics, bottleneck analysis, and recommendations. If you identify a performance bottleneck (e.g., missing database index, N+1 query), fix it and re-run to show improvement. Open a PR.
+Set up k6 load testing for timesheet-app. Create load test scripts that: (1) Simulate 50 concurrent users performing typical workflows (login, create entry, view reports), (2) Run a ramp-up test from 1 to 100 users over 5 minutes, (3) Establish performance baselines (p95 latency, error rate, throughput), (4) Identify the breaking point — at what concurrency does the application start failing? Document findings in a `PERFORMANCE_REPORT.md` including baseline metrics, bottleneck analysis, and recommendations. If you identify a performance bottleneck (e.g., missing database index, N+1 query), fix it and re-run to show improvement. Open a PR.
 ```
 
 **Option B — Gatling Load Testing (Java):**
@@ -452,8 +452,8 @@ Track C demonstrates Devin as a quality advocate. Participants will set up linti
 
 - **Module:** [Linting & Static Analysis](../../modules/testing-qa/linting-static-analysis.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js (ESLint, Prettier)
-  - [hosting-client-timesheet-app](https://github.com/Cognition-Partner-Workshops/hosting-client-timesheet-app) — Terraform (terraform fmt, tflint)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js (ESLint, Prettier)
+  - [timesheet-infra](https://github.com/Cognition-Partner-Workshops/timesheet-infra) — Terraform (terraform fmt, tflint)
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Java/Gradle (Spotless, Checkstyle) (alternative)
 - **Objective:** Set up and enforce code quality standards through automated linting, formatting, and static analysis — catch issues before they reach code review
 
@@ -463,12 +463,12 @@ Run these as **parallel sessions** for different tech stacks:
 
 **Session A — JavaScript/TypeScript Linting:**
 ```
-Set up comprehensive linting for app_timesheet: (1) Configure ESLint with TypeScript rules for both frontend and backend, (2) Add Prettier for consistent formatting, (3) Create a pre-commit hook (using Husky + lint-staged) that auto-formats and lints on every commit, (4) Fix all existing lint errors and warnings, (5) Add a CI step that fails the build on lint violations. Document the lint configuration choices in a `CODING_STANDARDS.md`. Open a PR.
+Set up comprehensive linting for timesheet-app: (1) Configure ESLint with TypeScript rules for both frontend and backend, (2) Add Prettier for consistent formatting, (3) Create a pre-commit hook (using Husky + lint-staged) that auto-formats and lints on every commit, (4) Fix all existing lint errors and warnings, (5) Add a CI step that fails the build on lint violations. Document the lint configuration choices in a `CODING_STANDARDS.md`. Open a PR.
 ```
 
 **Session B — Terraform Linting:**
 ```
-Set up Terraform quality enforcement for hosting-client-timesheet-app: (1) Run `terraform fmt -check` and fix any formatting issues, (2) Add tflint with the AWS ruleset for Terraform best practices, (3) Add checkov or tfsec for security scanning of Terraform configurations, (4) Create a CI pipeline that runs fmt check + tflint + security scan on PRs, (5) Fix any security findings. Document IaC standards in an `IAC_STANDARDS.md`. Open a PR.
+Set up Terraform quality enforcement for timesheet-infra: (1) Run `terraform fmt -check` and fix any formatting issues, (2) Add tflint with the AWS ruleset for Terraform best practices, (3) Add checkov or tfsec for security scanning of Terraform configurations, (4) Create a CI pipeline that runs fmt check + tflint + security scan on PRs, (5) Fix any security findings. Document IaC standards in an `IAC_STANDARDS.md`. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -518,7 +518,7 @@ Focus on **enforcement value**:
 - **Modules:** [PR Review Automation](../../modules/devops-cicd/pr-review-automation.md) + [Inline Documentation](../../modules/technical-documentation/inline-documentation.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot (Javadoc)
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js (JSDoc/TSDoc) (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js (JSDoc/TSDoc) (alternative)
 - **Objective:** Use Devin to generate comprehensive documentation for public APIs and key modules, and observe how PR Review automatically provides quality feedback on the documentation PR itself
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -530,7 +530,7 @@ Review the codebase of uc-framework-upgrade-monolith-to-microservices and add Ja
 
 **Option B — JSDoc/TSDoc Generation (Node.js/React):**
 ```
-Review app_timesheet's codebase and add JSDoc/TSDoc documentation to all exported functions, React components, and API route handlers that are currently undocumented. For React components, document the props interface. For API routes, document the request/response shapes and error codes. For utility functions, document parameters, return values, and edge cases. Also create a `CODE_REVIEW.md` listing architectural concerns and tech debt items. Open a PR.
+Review timesheet-app's codebase and add JSDoc/TSDoc documentation to all exported functions, React components, and API route handlers that are currently undocumented. For React components, document the props interface. For API routes, document the request/response shapes and error codes. For utility functions, document parameters, return values, and edge cases. Also create a `CODE_REVIEW.md` listing architectural concerns and tech debt items. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -576,14 +576,14 @@ Once Devin opens a PR, observe how **PR Review** handles documentation changes:
 
 - **Module:** [Continuous Quality Engineering](../../modules/testing-qa/continuous-quality-engineering.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app
-  - [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular) — Angular frontend (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app
+  - [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular) — Angular frontend (alternative)
 - **Objective:** Build a continuous quality pipeline that automatically enforces standards — lint, test, coverage gates, security scan, and documentation checks — so quality is maintained without manual effort
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 ```
-Build a comprehensive continuous quality pipeline for app_timesheet using GitHub Actions. The pipeline should enforce these quality gates on every PR: (1) Linting passes (ESLint + Prettier), (2) All unit tests pass, (3) Code coverage does not drop below the current baseline (fail if new code has < 80% coverage), (4) No new security vulnerabilities (npm audit), (5) No TypeScript type errors (tsc --noEmit), (6) Bundle size does not increase by more than 10% (for frontend). Add a quality dashboard comment on each PR showing the results of each gate (pass/fail with metrics). Create a `QUALITY_GATES.md` documenting each gate, its threshold, and how to fix failures. Open a PR.
+Build a comprehensive continuous quality pipeline for timesheet-app using GitHub Actions. The pipeline should enforce these quality gates on every PR: (1) Linting passes (ESLint + Prettier), (2) All unit tests pass, (3) Code coverage does not drop below the current baseline (fail if new code has < 80% coverage), (4) No new security vulnerabilities (npm audit), (5) No TypeScript type errors (tsc --noEmit), (6) Bundle size does not increase by more than 10% (for frontend). Add a quality dashboard comment on each PR showing the results of each gate (pass/fail with metrics). Create a `QUALITY_GATES.md` documenting each gate, its threshold, and how to fix failures. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -635,10 +635,10 @@ Participants who finish early or want to explore further can attempt any challen
 
 | Challenge | Module | Repo | Track | Difficulty |
 |-----------|--------|------|-------|------------|
-| Visual Regression Testing | [Visual Regression](../../modules/testing-qa/visual-regression-testing.md) | app_timesheet | B | Intermediate |
-| Accessibility Compliance | [Accessibility](../../modules/testing-qa/accessibility-compliance.md) | app_timesheet | B | Intermediate |
-| Contract Testing | [Contract Testing](../../modules/testing-qa/contract-testing.md) | app_dotnet_angular_containerized_decomposition_microservices | B | Advanced |
-| Test Framework Migration | [Test Framework Migration](../../modules/testing-qa/test-framework-migration.md) | ts-selenium-simple | A | Intermediate |
+| Visual Regression Testing | [Visual Regression](../../modules/testing-qa/visual-regression-testing.md) | timesheet-app | B | Intermediate |
+| Accessibility Compliance | [Accessibility](../../modules/testing-qa/accessibility-compliance.md) | timesheet-app | B | Intermediate |
+| Contract Testing | [Contract Testing](../../modules/testing-qa/contract-testing.md) | quickapp-microservices | B | Advanced |
+| Test Framework Migration | [Test Framework Migration](../../modules/testing-qa/test-framework-migration.md) | ts-java-selenium-testng | A | Intermediate |
 | API Documentation | [API Documentation](../../modules/technical-documentation/api-documentation.md) | Any | C | Beginner |
 
 ## Suggested Formats
@@ -655,21 +655,21 @@ Participants who finish early or want to explore further can attempt any challen
 
 ### Track A (Test Automation & Coverage)
 - [ ] uc-framework-upgrade-monolith-to-microservices
-- [ ] app_timesheet (optional alternative for Labs A1, A3)
+- [ ] timesheet-app (optional alternative for Labs A1, A3)
 - [ ] uc-bdd-test-generation-rest-api (for Lab A2)
-- [ ] uc-Quality-Engineering-and-Assurance (optional alternative for Lab A1)
+- [ ] uc-quality-engineering-assurance (optional alternative for Lab A1)
 
 ### Track B (End-to-End & Integration Testing)
-- [ ] app_timesheet (for Lab B1, B3)
-- [ ] ts-angular-realworld-example-app (optional, for Lab B1 Option B)
-- [ ] app_dotnet_angular_containerized_decomposition_microservices (for Lab B2 Option A)
-- [ ] app_petclinic-microservices (optional, for Lab B2 Option B)
+- [ ] timesheet-app (for Lab B1, B3)
+- [ ] ts-angular-realworld (optional, for Lab B1 Option B)
+- [ ] quickapp-microservices (for Lab B2 Option A)
+- [ ] petclinic-microservices (optional, for Lab B2 Option B)
 
 ### Track C (Continuous Quality & Code Review)
-- [ ] app_timesheet (for Labs C1, C3)
-- [ ] hosting-client-timesheet-app (for Lab C1 Session B)
+- [ ] timesheet-app (for Labs C1, C3)
+- [ ] timesheet-infra (for Lab C1 Session B)
 - [ ] uc-framework-upgrade-monolith-to-microservices (for Lab C2 Option A)
-- [ ] app_petclinic-angular (optional, for Lab C3 alternative)
+- [ ] petclinic-angular (optional, for Lab C3 alternative)
 
 ## Context
 

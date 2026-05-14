@@ -3,7 +3,7 @@
 ## Repositories
 
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
-- [cal.com](#calcom)
+- [calcom](#calcom)
 
 ---
 
@@ -69,19 +69,19 @@ Open the repo's DeepWiki page to understand the package structure and how the RE
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Large TypeScript monorepo with dozens of packages under `packages/` and `apps/` — an advanced target for cross-package dependency analysis at scale.
 
 ### Step 1: Paste into Devin
 
-> Analyze the dependency graph of the cal.com monorepo. Focus on the packages under `packages/` and their relationships to `apps/web/`. Map which packages depend on each other, identify: (1) circular dependencies between packages, (2) packages with excessive fan-out (importing from too many other packages), (3) packages that are tightly coupled and could benefit from clearer interface boundaries. Produce a dependency analysis report in `docs/dependency-analysis.md` with a structured dependency matrix, coupling hotspots, and prioritized refactoring recommendations. If there are quick-win decoupling opportunities (e.g., extracting shared types or breaking a circular import), implement one and open a PR with the report and changes.
+> Analyze the dependency graph of the calcom monorepo. Focus on the packages under `packages/` and their relationships to `apps/web/`. Map which packages depend on each other, identify: (1) circular dependencies between packages, (2) packages with excessive fan-out (importing from too many other packages), (3) packages that are tightly coupled and could benefit from clearer interface boundaries. Produce a dependency analysis report in `docs/dependency-analysis.md` with a structured dependency matrix, coupling hotspots, and prioritized refactoring recommendations. If there are quick-win decoupling opportunities (e.g., extracting shared types or breaking a circular import), implement one and open a PR with the report and changes.
 
 ### Step 2: Research with Ask Devin
 
-- *"Which packages in the cal.com monorepo have the most cross-package imports? Are there any circular dependency chains?"*
+- *"Which packages in the calcom monorepo have the most cross-package imports? Are there any circular dependency chains?"*
 - *"How do the packages under packages/features/ depend on packages/lib/ and packages/prisma/? Is there a clean dependency hierarchy or are there cycles?"*
 
 ### Step 3 (Optional): Read the DeepWiki

@@ -62,28 +62,28 @@ Track A demonstrates Devin as a feature developer. Participants will build full-
 
 - **Module:** [New Feature Development](../../modules/application-development/new-feature-development.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React 19 + Node.js/Express + SQLite full-stack application
-  - [ts-angular-springboot-jhipster-sample](https://github.com/Cognition-Partner-Workshops/ts-angular-springboot-jhipster-sample) — Angular + Spring Boot JHipster monolith (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React 19 + Node.js/Express + SQLite full-stack application
+  - [ts-java-angular-jhipster](https://github.com/Cognition-Partner-Workshops/ts-java-angular-jhipster) — Angular + Spring Boot JHipster monolith (alternative)
 - **Objective:** Build a complete new feature — backend API, database schema, frontend UI, and tests — following existing codebase conventions
 
 #### Step 1: Start with Ask Devin (recommended)
 
 Before creating a session, try using **Ask Devin** to scope the feature:
-- *"What existing patterns does app_timesheet use for CRUD features? What data model, API structure, and React component conventions should a new feature follow?"*
+- *"What existing patterns does timesheet-app use for CRUD features? What data model, API structure, and React component conventions should a new feature follow?"*
 - *"What database migration approach does the app use? How are new tables created?"*
 
 Then use what you learn to refine the prompt before pasting it into a Devin session:
 
 #### Step 2: Paste into Devin (copy-paste this prompt into Devin)
 
-**Option A — React + Node.js (app_timesheet):**
+**Option A — React + Node.js (timesheet-app):**
 ```
-Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
+Add a "Projects" management feature to timesheet-app. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
 ```
 
 **Option B — Angular + Spring Boot (JHipster):**
 ```
-Add an "Invoice" management feature to ts-angular-springboot-jhipster-sample. Users should be able to create, view, edit, and delete invoices. Each invoice has a number, date, due date, amount, status (draft/sent/paid/overdue), and is linked to a bank account. Add both the Spring Boot backend (JPA entity, REST controller, service layer) and the Angular frontend (list view, create/edit form, detail view). Follow JHipster conventions for entity generation patterns. Write JUnit tests for the backend. Open a PR.
+Add an "Invoice" management feature to ts-java-angular-jhipster. Users should be able to create, view, edit, and delete invoices. Each invoice has a number, date, due date, amount, status (draft/sent/paid/overdue), and is linked to a bank account. Add both the Spring Boot backend (JPA entity, REST controller, service layer) and the Angular frontend (list view, create/edit form, detail view). Follow JHipster conventions for entity generation patterns. Write JUnit tests for the backend. Open a PR.
 ```
 
 #### Step 3 (Optional): Read the DeepWiki
@@ -187,7 +187,7 @@ Once Devin opens a PR, focus your review on **TDD discipline**:
 
 - **Modules:** [Gather Requirements](../../modules/application-development/gather-requirements.md) + [New Feature Development](../../modules/application-development/new-feature-development.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
   - [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) — Spring Boot loan management service (alternative)
 - **Objective:** Start from vague business requirements, use Ask Devin to refine them into technical specifications, then have Devin implement the feature — demonstrating the full requirements-to-code pipeline
 
@@ -195,7 +195,7 @@ Once Devin opens a PR, focus your review on **TDD discipline**:
 
 This lab starts with requirements gathering. Open **Ask Devin** and work through these prompts to build up a specification:
 
-1. *"A manager wants to see which team members are overloaded this week. What data does app_timesheet already have that could power a 'team workload' dashboard? What's missing?"*
+1. *"A manager wants to see which team members are overloaded this week. What data does timesheet-app already have that could power a 'team workload' dashboard? What's missing?"*
 2. *"Based on the existing data model, design a 'Team Workload Dashboard' feature. What API endpoints are needed? What calculations should the backend perform? What should the UI show?"*
 3. *"Write a detailed technical specification for the workload dashboard — include the data model, API contract (request/response shapes), and UI wireframe description."*
 
@@ -204,7 +204,7 @@ This lab starts with requirements gathering. Open **Ask Devin** and work through
 Take the technical specification from Ask Devin and paste it into a new Devin session:
 
 ```
-Implement the following feature for app_timesheet based on this specification:
+Implement the following feature for timesheet-app based on this specification:
 
 [Paste the technical spec from Ask Devin here]
 
@@ -214,7 +214,7 @@ Follow existing code patterns. Add backend API endpoints, frontend React compone
 Alternatively, if you want to try a less-refined approach:
 
 ```
-A manager wants a "Team Workload Dashboard" in app_timesheet. They should be able to see: which team members have logged the most hours this week, who has upcoming deadlines, and which clients have the most active work entries. Figure out the best way to implement this given the existing data model and codebase patterns. Add backend calculations, an API endpoint, and a frontend dashboard page. Open a PR.
+A manager wants a "Team Workload Dashboard" in timesheet-app. They should be able to see: which team members have logged the most hours this week, who has upcoming deadlines, and which clients have the most active work entries. Figure out the best way to implement this given the existing data model and codebase patterns. Add backend calculations, an API endpoint, and a frontend dashboard page. Open a PR.
 ```
 
 #### Step 3 (Optional): Read the DeepWiki
@@ -256,21 +256,21 @@ Track B demonstrates Devin as a debugger and investigator. Participants will hun
 
 - **Module:** [Fix Runtime Bug](../../modules/application-development/fix-runtime-bug.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
-  - [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com) — Open-source scheduling platform (alternative, more complex)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
+  - [calcom](https://github.com/Cognition-Partner-Workshops/calcom) — Open-source scheduling platform (alternative, more complex)
 - **Objective:** Start a running application, explore it to find bugs or unexpected behavior, then have Devin fix what it finds — demonstrating exploratory testing and debugging
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 ```
-Start app_timesheet locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features, test edge cases (empty inputs, special characters, date boundaries, concurrent operations). Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Write a `ROOT_CAUSE_ANALYSIS.md` explaining the bug, why it happened, and how you fixed it. Open a PR.
+Start timesheet-app locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features, test edge cases (empty inputs, special characters, date boundaries, concurrent operations). Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Write a `ROOT_CAUSE_ANALYSIS.md` explaining the bug, why it happened, and how you fixed it. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
 
 While Devin works on step 1, open **AskDevin** and explore:
 - *"What are the most common types of bugs in Express + React applications? What should I look for?"*
-- *"What error handling patterns does app_timesheet use? Are there any gaps?"*
+- *"What error handling patterns does timesheet-app use? Are there any gaps?"*
 - *"What edge cases are most likely to have bugs — date handling, number formatting, empty states, concurrent access?"*
 - Use the analysis to start a **second session** targeting a different area of the application
 
@@ -317,20 +317,20 @@ Once Devin opens a PR, focus your review on the **root cause analysis**:
 
 - **Module:** [Fix Runtime Bug](../../modules/application-development/fix-runtime-bug.md) + [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md)
 - **Repositories:**
-  - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices) — decomposed .NET microservices with a planted cross-service bug
-  - [app_eventflow-order-service](https://github.com/Cognition-Partner-Workshops/app_eventflow-order-service) + [app_eventflow-payment-service](https://github.com/Cognition-Partner-Workshops/app_eventflow-payment-service) — EventFlow multi-service demo (alternative)
+  - [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices) — decomposed .NET microservices with a planted cross-service bug
+  - [eventflow-order-service](https://github.com/Cognition-Partner-Workshops/eventflow-order-service) + [eventflow-payment-service](https://github.com/Cognition-Partner-Workshops/eventflow-payment-service) — EventFlow multi-service demo (alternative)
 - **Objective:** Investigate a bug that manifests in one service but has its root cause in another — demonstrating Devin's ability to trace issues across service boundaries
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 **Option A — .NET Microservices (notification amount bug):**
 ```
-Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices. To reproduce: run the notification-service locally, POST to `http://localhost:5005/api/notification/events/order-placed` with `{"orderId": "11111111-1111-1111-1111-111111111111", "customerId": "22222222-2222-2222-2222-222222222222", "totalAmount": 149.99, "placedAt": "2026-03-17T12:00:00Z"}`, then open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR with your fix and root cause analysis.
+Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in quickapp-microservices. To reproduce: run the notification-service locally, POST to `http://localhost:5005/api/notification/events/order-placed` with `{"orderId": "11111111-1111-1111-1111-111111111111", "customerId": "22222222-2222-2222-2222-222222222222", "totalAmount": 149.99, "placedAt": "2026-03-17T12:00:00Z"}`, then open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR with your fix and root cause analysis.
 ```
 
 **Option B — EventFlow (currency precision bug):**
 ```
-The EventFlow payment service is incorrectly processing JPY (Japanese Yen) orders. JPY is a zero-decimal currency but the payment service is dividing by 100 like other currencies, resulting in incorrect amounts. Investigate the payment processing logic in app_eventflow-payment-service, identify where zero-decimal currency handling should be added, fix the bug, and add unit tests covering JPY, USD, and EUR. Open a PR with a root cause analysis.
+The EventFlow payment service is incorrectly processing JPY (Japanese Yen) orders. JPY is a zero-decimal currency but the payment service is dividing by 100 like other currencies, resulting in incorrect amounts. Investigate the payment processing logic in eventflow-payment-service, identify where zero-decimal currency handling should be added, fix the bug, and add unit tests covering JPY, USD, and EUR. Open a PR with a root cause analysis.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -379,7 +379,7 @@ Focus your review on whether the fix is complete:
 - **Modules:** [Fix Data Bug](../../modules/application-development/fix-data-bug.md) + [Database Schema Evolution](../../modules/application-development/database-schema-evolution.md)
 - **Repositories:**
   - [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) — Spring Boot loan service with legacy CDW-style tables
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app with SQLite (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app with SQLite (alternative)
 - **Objective:** Investigate and fix a data-related bug — incorrect query results, type conversion errors, or schema inconsistencies — and evolve the schema to prevent recurrence
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -391,7 +391,7 @@ The loan service in uc-data-source-migration-legacy-to-modern is reading from le
 
 **Option B — SQLite Type Issues (timesheet app):**
 ```
-Investigate the date handling in app_timesheet's backend. SQLite stores dates as text, which can cause issues with date range queries, sorting, and timezone handling. Find any bugs related to date storage or retrieval (e.g., work entries on boundary dates not appearing in reports, timezone-related off-by-one errors). Fix the issues and add tests that verify correct behavior across date boundaries. Open a PR.
+Investigate the date handling in timesheet-app's backend. SQLite stores dates as text, which can cause issues with date range queries, sorting, and timezone handling. Find any bugs related to date storage or retrieval (e.g., work entries on boundary dates not appearing in reports, timezone-related off-by-one errors). Fix the issues and add tests that verify correct behavior across date boundaries. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -444,7 +444,7 @@ Track C demonstrates Devin as a maintenance engineer. Participants will set up a
 - **Modules:** [Upgrade Dependencies](../../modules/security/upgrade-dependencies.md)
 - **Repositories:**
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — Spring Boot app with Gradle
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — Node.js app with npm (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — Node.js app with npm (alternative)
 - **Objective:** Upgrade dependencies to latest minor/patch versions, verify the build passes, and set up a recurring Devin scheduled session for automated weekly maintenance
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -471,10 +471,10 @@ Create a Devin scheduled session that runs weekly on Monday mornings against uc-
 
 #### Step 4 (Optional): Extend to Multiple Repos
 
-Try running the same pattern for **app_timesheet** with an npm-flavored prompt:
+Try running the same pattern for **timesheet-app** with an npm-flavored prompt:
 
 ```
-Check all npm dependencies in app_timesheet for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works. Open a PR with the upgrades and a `DEPENDENCY_UPDATES.md`.
+Check all npm dependencies in timesheet-app for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works. Open a PR with the upgrades and a `DEPENDENCY_UPDATES.md`.
 ```
 
 - **Key Takeaways:**
@@ -496,7 +496,7 @@ Check all npm dependencies in app_timesheet for available minor and patch versio
 - **Module:** [Database Schema Evolution](../../modules/application-development/database-schema-evolution.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot with Flyway migrations and SQLite
-  - [ts-angular-springboot-jhipster-sample](https://github.com/Cognition-Partner-Workshops/ts-angular-springboot-jhipster-sample) — JHipster app with Liquibase (alternative)
+  - [ts-java-angular-jhipster](https://github.com/Cognition-Partner-Workshops/ts-java-angular-jhipster) — JHipster app with Liquibase (alternative)
 - **Objective:** Evolve a database schema safely — add new tables, modify existing columns, migrate data, and ensure backward compatibility with the application layer
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -508,7 +508,7 @@ Evolve the database schema of uc-framework-upgrade-monolith-to-microservices to 
 
 **Option B — Liquibase Changesets (JHipster):**
 ```
-Add a "transaction categories" feature to ts-angular-springboot-jhipster-sample. Create Liquibase changesets that: (1) Add a `category` table with id, name, color, icon, and user_id, (2) Add a category_id foreign key to the operation table, (3) Create seed data with default categories (Income, Groceries, Transport, Entertainment). Update the JPA entities, Spring Data repositories, and REST controllers to support CRUD on categories and category assignment to operations. Open a PR.
+Add a "transaction categories" feature to ts-java-angular-jhipster. Create Liquibase changesets that: (1) Add a `category` table with id, name, color, icon, and user_id, (2) Add a category_id foreign key to the operation table, (3) Create seed data with default categories (Income, Groceries, Transport, Entertainment). Update the JPA entities, Spring Data repositories, and REST controllers to support CRUD on categories and category assignment to operations. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -557,7 +557,7 @@ Focus on **migration safety**:
 - **Module:** [Code Refactoring & Tech Debt](../../modules/architecture-design/code-refactoring-tech-debt.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot monolith with identifiable tech debt
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app (alternative)
 - **Objective:** Identify and refactor tech debt in an existing codebase — extract methods, improve naming, reduce duplication, and improve testability — while preserving behavior
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -569,7 +569,7 @@ Analyze uc-framework-upgrade-monolith-to-microservices for code quality issues. 
 
 **Option B — React/Node.js Refactoring:**
 ```
-Analyze app_timesheet for code quality issues. Focus on: duplicated API call patterns that could use a shared utility, React components that are too large (> 200 lines) that should be split, inconsistent error handling across API routes, and any remaining TODO comments in the code. Refactor the top 5 most impactful issues while keeping all existing behavior intact. Run tests to verify nothing broke. Document changes in a `REFACTORING_LOG.md`. Open a PR.
+Analyze timesheet-app for code quality issues. Focus on: duplicated API call patterns that could use a shared utility, React components that are too large (> 200 lines) that should be split, inconsistent error handling across API routes, and any remaining TODO comments in the code. Refactor the top 5 most impactful issues while keeping all existing behavior intact. Run tests to verify nothing broke. Document changes in a `REFACTORING_LOG.md`. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -619,9 +619,9 @@ Participants who finish early or want to explore further can attempt any challen
 
 | Challenge | Module | Repo | Track | Difficulty |
 |-----------|--------|------|-------|------------|
-| Fix UI Bug | [Fix UI Bug](../../modules/application-development/fix-ui-bug.md) | app_timesheet | B | Beginner |
+| Fix UI Bug | [Fix UI Bug](../../modules/application-development/fix-ui-bug.md) | timesheet-app | B | Beginner |
 | Test-Driven Development | [TDD](../../modules/application-development/test-driven-development.md) | uc-framework-upgrade-monolith-to-microservices | A | Intermediate |
-| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | app_timesheet | C | Intermediate |
+| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | timesheet-app | C | Intermediate |
 | PR Review Automation | [PR Review](../../modules/devops-cicd/pr-review-automation.md) | Any | A | Beginner |
 | API Documentation | [API Documentation](../../modules/technical-documentation/api-documentation.md) | Any | C | Beginner |
 
@@ -638,23 +638,23 @@ Participants who finish early or want to explore further can attempt any challen
 ## Repos Required
 
 ### Track A (Feature Development)
-- [ ] app_timesheet
+- [ ] timesheet-app
 - [ ] uc-framework-upgrade-monolith-to-microservices
-- [ ] ts-angular-springboot-jhipster-sample (optional, for Lab A1 Option B)
+- [ ] ts-java-angular-jhipster (optional, for Lab A1 Option B)
 - [ ] uc-bdd-test-generation-rest-api (optional, for Lab A2 Option B)
 - [ ] uc-data-source-migration-legacy-to-modern (optional, for Lab A3)
 
 ### Track B (Bug Fixing & Root Cause Analysis)
-- [ ] app_timesheet
-- [ ] app_dotnet_angular_containerized_decomposition_microservices (for Lab B2 Option A)
-- [ ] app_eventflow-order-service + app_eventflow-payment-service (optional, for Lab B2 Option B)
+- [ ] timesheet-app
+- [ ] quickapp-microservices (for Lab B2 Option A)
+- [ ] eventflow-order-service + eventflow-payment-service (optional, for Lab B2 Option B)
 - [ ] uc-data-source-migration-legacy-to-modern (for Lab B3)
 
 ### Track C (Maintenance & Evolution)
 - [ ] uc-cve-remediation-regulatory-compliance
-- [ ] app_timesheet (optional, for Lab C1 npm variant)
+- [ ] timesheet-app (optional, for Lab C1 npm variant)
 - [ ] uc-framework-upgrade-monolith-to-microservices (for Labs C2, C3)
-- [ ] ts-angular-springboot-jhipster-sample (optional, for Lab C2 Option B)
+- [ ] ts-java-angular-jhipster (optional, for Lab C2 Option B)
 
 ## Context
 

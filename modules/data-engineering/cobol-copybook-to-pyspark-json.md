@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [aws-mainframe-modernization-carddemo](#aws-mainframe-modernization-carddemo)
+- [ts-cobol-carddemo](#ts-cobol-carddemo)
 
 ---
 
@@ -65,25 +65,25 @@ Intermediate
 
 ---
 
-## <a id="aws-mainframe-modernization-carddemo"></a>aws-mainframe-modernization-carddemo
+## <a id="ts-cobol-carddemo"></a>ts-cobol-carddemo
 
-**Repository:** [aws-mainframe-modernization-carddemo](https://github.com/Cognition-Partner-Workshops/aws-mainframe-modernization-carddemo)
+**Repository:** [ts-cobol-carddemo](https://github.com/Cognition-Partner-Workshops/ts-cobol-carddemo)
 
 AWS CardDemo — a simulated mainframe credit card management system (Apache 2.0). Contains 62 COBOL copybooks defining record layouts, 9 ASCII fixed-width feed files, 30+ COBOL batch programs, and JCL job definitions. The copybook → feed file pairs provide clean raw material for PySpark schema and ingestion code generation.
 
 ### Step 1: Paste into Devin
 
-> Analyze the COBOL copybook `app/cpy/CVACT01Y.cpy` in aws-mainframe-modernization-carddemo. This defines the ACCOUNT-RECORD layout (300 bytes) with fields like ACCT-ID (PIC 9(11)), ACCT-CURR-BAL (PIC S9(10)V99), dates (PIC X(10)), and FILLER. Generate: (1) a PySpark script that reads `app/data/ASCII/acctdata.txt` as a fixed-width file using the copybook-derived schema, (2) a JSON schema file describing each field's name, COBOL PIC clause, PySpark type, byte offset, and length. Validate by printing the DataFrame schema and first 5 rows. Then repeat for `CUSTREC.cpy` → `custdata.txt` and `CVACT02Y.cpy` → `carddata.txt`. Open a PR with all generated artifacts and a `COPYBOOK_PARSING_NOTES.md` documenting your type-mapping decisions.
+> Analyze the COBOL copybook `app/cpy/CVACT01Y.cpy` in ts-cobol-carddemo. This defines the ACCOUNT-RECORD layout (300 bytes) with fields like ACCT-ID (PIC 9(11)), ACCT-CURR-BAL (PIC S9(10)V99), dates (PIC X(10)), and FILLER. Generate: (1) a PySpark script that reads `app/data/ASCII/acctdata.txt` as a fixed-width file using the copybook-derived schema, (2) a JSON schema file describing each field's name, COBOL PIC clause, PySpark type, byte offset, and length. Validate by printing the DataFrame schema and first 5 rows. Then repeat for `CUSTREC.cpy` → `custdata.txt` and `CVACT02Y.cpy` → `carddata.txt`. Open a PR with all generated artifacts and a `COPYBOOK_PARSING_NOTES.md` documenting your type-mapping decisions.
 
 ### Step 2: Research with Ask Devin
 
-- *"What COBOL data types are used across the copybooks in aws-mainframe-modernization-carddemo/app/cpy/? Which copybooks use signed numerics (S9), implied decimals (V99), or COMP/COMP-3 packed fields?"*
-- *"Which copybooks in aws-mainframe-modernization-carddemo have corresponding feed files in app/data/ASCII/? Map each copybook to its feed file and record length."*
+- *"What COBOL data types are used across the copybooks in ts-cobol-carddemo/app/cpy/? Which copybooks use signed numerics (S9), implied decimals (V99), or COMP/COMP-3 packed fields?"*
+- *"Which copybooks in ts-cobol-carddemo have corresponding feed files in app/data/ASCII/? Map each copybook to its feed file and record length."*
 - Use the analysis to identify which copybook → feed file pairs to prioritize
 
 ### Step 3 (Optional): Read the DeepWiki
 
-Open the DeepWiki page for aws-mainframe-modernization-carddemo to understand the application domain (credit card management), how copybooks relate to COBOL programs, and which batch programs read which feed files. This context helps validate whether the generated PySpark schemas capture the right business semantics.
+Open the DeepWiki page for ts-cobol-carddemo to understand the application domain (credit card management), how copybooks relate to COBOL programs, and which batch programs read which feed files. This context helps validate whether the generated PySpark schemas capture the right business semantics.
 
 ### Step 4 (Optional): Review and Give Feedback
 

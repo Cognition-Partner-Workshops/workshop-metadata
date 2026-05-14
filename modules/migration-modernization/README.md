@@ -28,16 +28,16 @@ Challenges focused on language migrations, framework upgrades, containerization,
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_petclinic-angular | [Framework Upgrade](framework-upgrade.md), [Repetitive Framework Upgrades](repetitive-framework-upgrades.md) |
-| app_petclinic-microservices | [Containerization & Microservice Extraction](containerization-microservice-extraction.md) |
-| app_timesheet | [Cloud-Native Refactor](cloud-native-refactor.md) |
-| app_dotnet_angular_containerized_decomposition_monolith | [.NET Monolith Decomposition](dotnet-monolith-decomposition.md) |
-| app_dotnet_angular_containerized_decomposition_microservices | [.NET Monolith Decomposition](dotnet-monolith-decomposition.md), [Cross-Service Bug Investigation](cross-service-bug-investigation.md) |
-| ts-angular-realworld-example-app | [Framework Upgrade](framework-upgrade.md), [Repetitive Framework Upgrades](repetitive-framework-upgrades.md) |
+| petclinic-angular | [Framework Upgrade](framework-upgrade.md), [Repetitive Framework Upgrades](repetitive-framework-upgrades.md) |
+| petclinic-microservices | [Containerization & Microservice Extraction](containerization-microservice-extraction.md) |
+| timesheet-app | [Cloud-Native Refactor](cloud-native-refactor.md) |
+| quickapp-monolith | [.NET Monolith Decomposition](dotnet-monolith-decomposition.md) |
+| quickapp-microservices | [.NET Monolith Decomposition](dotnet-monolith-decomposition.md), [Cross-Service Bug Investigation](cross-service-bug-investigation.md) |
+| ts-angular-realworld | [Framework Upgrade](framework-upgrade.md), [Repetitive Framework Upgrades](repetitive-framework-upgrades.md) |
 | uc-cve-remediation-regulatory-compliance | [One-Shot Tech Debt Remediation](one-shot-tech-debt-remediation.md) |
 | uc-framework-upgrade-monolith-to-microservices | [Framework Upgrade](framework-upgrade.md), [Containerization & Microservice Extraction](containerization-microservice-extraction.md), [Cloud-Native Refactor](cloud-native-refactor.md), [Repetitive Framework Upgrades](repetitive-framework-upgrades.md), [Legacy Modernization Combined](legacy-modernization-combined.md), [One-Shot Tech Debt Remediation](one-shot-tech-debt-remediation.md) |
 | uc-legacy-modernization-cobol-to-java | [COBOL to Java](cobol-to-java.md), [Legacy Modernization Combined](legacy-modernization-combined.md), [COBOL System Understanding](cobol-system-understanding.md), [COBOL Migration Planning](cobol-migration-planning.md), [Migration Test Harness](migration-test-harness.md) |
-| ts-plsql-oracle-forms-legacy-codebase | [Oracle Forms System Understanding](oracle-forms-system-understanding.md), [Oracle Forms Migration Planning](oracle-forms-migration-planning.md), [Oracle Forms to Java](oracle-forms-to-java.md) |
+| ts-plsql-oracle-forms-hrms | [Oracle Forms System Understanding](oracle-forms-system-understanding.md), [Oracle Forms Migration Planning](oracle-forms-migration-planning.md), [Oracle Forms to Java](oracle-forms-to-java.md) |
 | uc-legacy-modernization-oracle-forms-to-java | [Oracle Forms to Java](oracle-forms-to-java.md), [Oracle Forms Migration Planning](oracle-forms-migration-planning.md), [Migration Test Harness](migration-test-harness.md) |
 
 ## When to Use This Category

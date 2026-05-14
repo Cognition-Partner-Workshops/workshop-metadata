@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [ts-plsql-oracle-forms-legacy-codebase](#ts-plsql-oracle-forms-legacy-codebase)
+- [ts-plsql-oracle-forms-hrms](#ts-plsql-oracle-forms-hrms)
 - [uc-legacy-modernization-oracle-forms-to-java](#uc-legacy-modernization-oracle-forms-to-java)
 
 ---
@@ -53,9 +53,9 @@ Intermediate–Advanced
 
 ---
 
-## <a id="ts-plsql-oracle-forms-legacy-codebase"></a>ts-plsql-oracle-forms-legacy-codebase
+## <a id="ts-plsql-oracle-forms-hrms"></a>ts-plsql-oracle-forms-hrms
 
-**Repository:** [ts-plsql-oracle-forms-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-legacy-codebase)
+**Repository:** [ts-plsql-oracle-forms-hrms](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-hrms)
 
 Oracle Forms 11g/12c HRMS legacy application — the source system being migrated.
 
@@ -67,7 +67,7 @@ Migration use-case repo with reference planning artifacts, target Java Spring Bo
 
 ### Step 1: Paste into Devin
 
-> Analyze the Oracle Forms/PL/SQL HRMS application in ts-plsql-oracle-forms-legacy-codebase and produce a migration plan. Create:
+> Analyze the Oracle Forms/PL/SQL HRMS application in ts-plsql-oracle-forms-hrms and produce a migration plan. Create:
 >
 > 1. **MIGRATION_STRATEGY.md** — Evaluate three approaches: (a) Strangler Fig (migrate module-by-module behind an API gateway), (b) Big-Bang Rewrite (build complete replacement in parallel), (c) Re-platform to Oracle APEX. For each approach, analyze pros, cons, risk level, timeline estimate, and suitability for each functional area (employee management, payroll, leave, performance reviews, security, reporting, integration). Recommend the best approach with reasoning.
 > 2. **COMPONENT_MAPPING.md** — Map every Forms element to its Java/React equivalent: Forms canvases/tabs → React components, Forms triggers (WHEN-VALIDATE-ITEM, PRE-INSERT, POST-QUERY) → Spring validation/JPA callbacks/React hooks, PLL library functions → Java utility classes, PL/SQL package procedures → Spring service methods, Oracle Reports → reporting solution, UTL_FILE integration → Spring Integration.

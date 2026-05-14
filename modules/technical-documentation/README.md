@@ -19,14 +19,14 @@ Challenges focused on inline code documentation, API documentation, runbooks, on
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet | [Inline Documentation](inline-documentation.md), [API Documentation](api-documentation.md) |
-| ts-java-spring-boot-realworld-example-app | [Inline Documentation](inline-documentation.md) |
+| timesheet-app | [Inline Documentation](inline-documentation.md), [API Documentation](api-documentation.md) |
+| ts-java-spring-boot-realworld | [Inline Documentation](inline-documentation.md) |
 | uc-dw-migration-teradata-to-snowflake | [Inline Documentation](inline-documentation.md) |
 | uc-framework-upgrade-monolith-to-microservices | [API Documentation](api-documentation.md) |
 | uc-data-source-migration-legacy-to-modern | [API Documentation](api-documentation.md) |
 | uc-document-review-automation | [Document Review Automation](document-review-automation.md) |
 | platform-engineering-shared-services | [Runbook Generation](runbook-generation.md) |
-| app_eventflow-infra | [Runbook Generation](runbook-generation.md) |
+| eventflow-infra | [Runbook Generation](runbook-generation.md) |
 
 ## When to Use This Category
 

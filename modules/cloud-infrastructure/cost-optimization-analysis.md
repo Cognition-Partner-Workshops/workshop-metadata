@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [hosting-client-timesheet-app](#hosting-client-timesheet-app)
-- [cal.com-infra](#calcom-infra)
+- [timesheet-infra](#timesheet-infra)
+- [calcom-infra](#calcom-infra)
 
 ---
 
@@ -42,19 +42,19 @@ Intermediate
 
 ---
 
-## <a id="hosting-client-timesheet-app"></a>hosting-client-timesheet-app
+## <a id="timesheet-infra"></a>timesheet-infra
 
-**Repository:** [hosting-client-timesheet-app](https://github.com/Cognition-Partner-Workshops/hosting-client-timesheet-app)
+**Repository:** [timesheet-infra](https://github.com/Cognition-Partner-Workshops/timesheet-infra)
 
 AWS infrastructure (EC2, ECR, VPC) for a Node.js application — review resource sizing and identify optimization opportunities.
 
 ### Step 1: Paste into Devin
 
-> Analyze the AWS infrastructure defined in hosting-client-timesheet-app's Terraform configurations. Create a cost optimization report that includes: a current resource inventory with estimated monthly costs, right-sizing recommendations for EC2 instances based on the application's workload profile, identification of any over-provisioned or unused resources, and specific Terraform changes to implement the optimizations. Consider alternatives like Fargate vs EC2, reserved instances vs on-demand, and S3 lifecycle policies. Open a PR with an optimized Terraform configuration and a detailed cost analysis document (COST_ANALYSIS.md) showing current vs recommended costs.
+> Analyze the AWS infrastructure defined in timesheet-infra's Terraform configurations. Create a cost optimization report that includes: a current resource inventory with estimated monthly costs, right-sizing recommendations for EC2 instances based on the application's workload profile, identification of any over-provisioned or unused resources, and specific Terraform changes to implement the optimizations. Consider alternatives like Fargate vs EC2, reserved instances vs on-demand, and S3 lifecycle policies. Open a PR with an optimized Terraform configuration and a detailed cost analysis document (COST_ANALYSIS.md) showing current vs recommended costs.
 
 ### Step 2: Research with Ask Devin
 
-- *"What EC2 instance types and sizes are used in hosting-client-timesheet-app? Are they appropriate for a Node.js Express application?"*
+- *"What EC2 instance types and sizes are used in timesheet-infra? Are they appropriate for a Node.js Express application?"*
 - *"Are there any resources defined in Terraform that might be over-provisioned for a timesheet application's typical workload?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -69,19 +69,19 @@ Open the repo's DeepWiki page to understand the infrastructure architecture. Pay
 
 ---
 
-## <a id="calcom-infra"></a>cal.com-infra
+## <a id="calcom-infra"></a>calcom-infra
 
-**Repository:** [cal.com-infra](https://github.com/Cognition-Partner-Workshops/cal.com-infra)
+**Repository:** [calcom-infra](https://github.com/Cognition-Partner-Workshops/calcom-infra)
 
-Infrastructure configuration for deploying cal.com — a more complex cloud setup with database, caching, and application tiers to analyze for cost efficiency.
+Infrastructure configuration for deploying calcom — a more complex cloud setup with database, caching, and application tiers to analyze for cost efficiency.
 
 ### Step 1: Paste into Devin
 
-> Analyze the infrastructure configurations in cal.com-infra and create a comprehensive cost optimization report. Review: compute resource sizing for the application tier, database instance sizing and storage allocation, caching layer configuration, network transfer costs, and any unused or redundant resources. Provide specific recommendations with estimated monthly savings for each optimization. Consider managed vs self-hosted tradeoffs, auto-scaling configurations, and storage tier optimization. Open a PR with a COST_ANALYSIS.md report and any Terraform changes that implement quick-win optimizations.
+> Analyze the infrastructure configurations in calcom-infra and create a comprehensive cost optimization report. Review: compute resource sizing for the application tier, database instance sizing and storage allocation, caching layer configuration, network transfer costs, and any unused or redundant resources. Provide specific recommendations with estimated monthly savings for each optimization. Consider managed vs self-hosted tradeoffs, auto-scaling configurations, and storage tier optimization. Open a PR with a COST_ANALYSIS.md report and any Terraform changes that implement quick-win optimizations.
 
 ### Step 2: Research with Ask Devin
 
-- *"What cloud resources are provisioned in cal.com-infra? What are the most expensive components based on the resource types and sizes?"*
+- *"What cloud resources are provisioned in calcom-infra? What are the most expensive components based on the resource types and sizes?"*
 - *"Are there any auto-scaling configurations? Could the infrastructure benefit from scaling to zero during off-peak hours?"*
 
 ### Step 3 (Optional): Read the DeepWiki

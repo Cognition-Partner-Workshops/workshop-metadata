@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [hosting-client-timesheet-app](#hosting-client-timesheet-app)
+- [timesheet-app](#timesheet-app)
+- [timesheet-infra](#timesheet-infra)
 
 ---
 
@@ -39,19 +39,19 @@ Beginner
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React 19 + Node.js/Express timesheet application with ESLint and Prettier configured.
 
 ### Step 1: Paste into Devin
 
-> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/app_timesheet/issues/3 — fix all ESLint linting errors in the codebase, run the linter to verify all issues are resolved, and open a PR with the fixes.
+> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/timesheet-app/issues/3 — fix all ESLint linting errors in the codebase, run the linter to verify all issues are resolved, and open a PR with the fixes.
 
 ### Step 2: Research with Ask Devin
 
-- *"What linting rules are configured in app_timesheet? Are there any disabled rules that should be re-enabled?"*
+- *"What linting rules are configured in timesheet-app? Are there any disabled rules that should be re-enabled?"*
 - *"Are there any inconsistencies between the ESLint config and the Prettier config?"*
 - Use insights to start a second session with a more comprehensive lint cleanup approach
 
@@ -67,19 +67,19 @@ Open the repo's DeepWiki page to understand the codebase structure and identify 
 
 ---
 
-## <a id="hosting-client-timesheet-app"></a>hosting-client-timesheet-app
+## <a id="timesheet-infra"></a>timesheet-infra
 
-**Repository:** [hosting-client-timesheet-app](https://github.com/Cognition-Partner-Workshops/hosting-client-timesheet-app)
+**Repository:** [timesheet-infra](https://github.com/Cognition-Partner-Workshops/timesheet-infra)
 
 Terraform infrastructure code for hosting the timesheet application.
 
 ### Step 1: Paste into Devin
 
-> Fix all Terraform formatting issues in hosting-client-timesheet-app using `terraform fmt`. Run `terraform validate` to confirm the configuration is still valid after formatting. Open a PR with the fixes.
+> Fix all Terraform formatting issues in timesheet-infra using `terraform fmt`. Run `terraform validate` to confirm the configuration is still valid after formatting. Open a PR with the fixes.
 
 ### Step 2: Research with Ask Devin
 
-- *"Are there any Terraform best practice violations in hosting-client-timesheet-app beyond formatting — such as missing descriptions on variables, hardcoded values, or missing tags?"*
+- *"Are there any Terraform best practice violations in timesheet-infra beyond formatting — such as missing descriptions on variables, hardcoded values, or missing tags?"*
 - Use insights to start a second session addressing Terraform quality beyond just formatting
 
 ### Step 3 (Optional): Read the DeepWiki

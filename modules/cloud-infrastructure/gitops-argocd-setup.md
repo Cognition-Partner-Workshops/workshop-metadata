@@ -3,7 +3,7 @@
 ## Repositories
 
 - [platform-engineering-shared-services](#platform-engineering-shared-services)
-- [app_dotnet-angular-microservices](#app_dotnet-angular-microservices)
+- [ordermanager-microservices](#ordermanager-microservices)
 
 ---
 
@@ -69,19 +69,19 @@ Open the repo's DeepWiki page to understand the existing infrastructure and serv
 
 ---
 
-## <a id="app_dotnet-angular-microservices"></a>app_dotnet-angular-microservices
+## <a id="ordermanager-microservices"></a>ordermanager-microservices
 
-**Repository:** [app_dotnet-angular-microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-microservices)
+**Repository:** [ordermanager-microservices](https://github.com/Cognition-Partner-Workshops/ordermanager-microservices)
 
 .NET and Angular microservices application — a multi-service deployment target for GitOps configuration.
 
 ### Step 1: Paste into Devin
 
-> Create ArgoCD Application manifests for deploying app_dotnet-angular-microservices using GitOps. Set up a deployment directory with Kustomize bases for each microservice (frontend, backend API, database). Configure ArgoCD sync policies with automated sync for dev, manual sync for production, and sync waves to control deployment ordering. Add health checks and resource hooks for database migrations. Open a PR with the complete GitOps configuration and a README explaining the deployment workflow.
+> Create ArgoCD Application manifests for deploying ordermanager-microservices using GitOps. Set up a deployment directory with Kustomize bases for each microservice (frontend, backend API, database). Configure ArgoCD sync policies with automated sync for dev, manual sync for production, and sync waves to control deployment ordering. Add health checks and resource hooks for database migrations. Open a PR with the complete GitOps configuration and a README explaining the deployment workflow.
 
 ### Step 2: Research with Ask Devin
 
-- *"What microservices make up app_dotnet-angular-microservices? What are the deployment dependencies between them?"*
+- *"What microservices make up ordermanager-microservices? What are the deployment dependencies between them?"*
 - *"How should we handle database migrations in a GitOps workflow — sync waves, resource hooks, or a separate Job?"*
 
 ### Step 3 (Optional): Read the DeepWiki

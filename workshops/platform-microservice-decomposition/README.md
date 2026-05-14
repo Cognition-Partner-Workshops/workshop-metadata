@@ -32,10 +32,10 @@ A single lab with four phases:
 
 All four repos must be added via **Settings > Machine configuration > Add repository** before the lab:
 
-- [x] [app_dotnet-angular-monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith) — .NET 8 + Angular 17 monolith (source)
-- [x] [app_dotnet-angular-monolith-iac](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac) — Helm chart, Dockerfile, ArgoCD patterns (context)
+- [x] [ordermanager-monolith](https://github.com/Cognition-Partner-Workshops/ordermanager-monolith) — .NET 8 + Angular 17 monolith (source)
+- [x] [ordermanager-iac](https://github.com/Cognition-Partner-Workshops/ordermanager-iac) — Helm chart, Dockerfile, ArgoCD patterns (context)
 - [x] [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — EKS cluster, namespaces, monitoring (context)
-- [x] [app_dotnet-angular-microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-microservices) — landing repo for decomposed services + service-level IaC
+- [x] [ordermanager-microservices](https://github.com/Cognition-Partner-Workshops/ordermanager-microservices) — landing repo for decomposed services + service-level IaC
 
 ### Branch Convention
 
@@ -55,25 +55,25 @@ Each participant works on a dedicated branch: **`workshop-<participant>`** (e.g.
 
 Create a new Devin session and paste the following prompt. Replace `<participant>` with your name (e.g., `workshop-alice`):
 
-> Decompose the Inventory module from `app_dotnet-angular-monolith` into a standalone microservice.
+> Decompose the Inventory module from `ordermanager-monolith` into a standalone microservice.
 >
 > Work on branch `workshop-<participant>` in both repos.
 >
 > Use these repos as context for platform patterns and IaC standards:
 > - `platform-engineering-shared-services` — defines the platform standard (namespaces, network policies, monitoring, ArgoCD)
-> - `app_dotnet-angular-monolith-iac` — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
+> - `ordermanager-iac` — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
 >
 > Deliverables:
 > 1. **New .NET 8 Web API** for the inventory-service with its own models, controllers, services, and EF Core DbContext
 > 2. **Angular 17 frontend components** for inventory management
-> 3. **Dockerfile** — multi-stage build following the pattern in `app_dotnet-angular-monolith-iac/docker/Dockerfile`
-> 4. **Helm chart** — deployment, service, network policy, service monitor, HPA (follow `app_dotnet-angular-monolith-iac/helm/`)
-> 5. **ArgoCD application manifests** for dev and staging (follow `app_dotnet-angular-monolith-iac/argocd/`)
+> 3. **Dockerfile** — multi-stage build following the pattern in `ordermanager-iac/docker/Dockerfile`
+> 4. **Helm chart** — deployment, service, network policy, service monitor, HPA (follow `ordermanager-iac/helm/`)
+> 5. **ArgoCD application manifests** for dev and staging (follow `ordermanager-iac/argocd/`)
 > 6. **GitHub Actions CI/CD pipeline** — build, test, push to ECR, trigger ArgoCD sync
 > 7. **Monolith refactoring** — replace in-process Inventory calls with an HTTP client that calls the new service
 >
-> Push the new inventory-service code and all service-level IaC to `app_dotnet-angular-microservices` on branch `workshop-<participant>`. Create a PR.
-> Push the monolith refactoring changes to `app_dotnet-angular-monolith` on branch `workshop-<participant>`. Create a PR.
+> Push the new inventory-service code and all service-level IaC to `ordermanager-microservices` on branch `workshop-<participant>`. Create a PR.
+> Push the monolith refactoring changes to `ordermanager-monolith` on branch `workshop-<participant>`. Create a PR.
 > Build and test both services locally to verify they work together.
 
 **What to expect:** Devin will read all four repos, analyze the domain boundaries, create a task plan, and begin extracting the Inventory module. This typically takes 10–15 minutes to produce initial PRs.
@@ -84,17 +84,17 @@ While Devin is working autonomously, use these features to deepen your understan
 
 #### AskDevin
 
-- *"Analyze the domain boundaries in app_dotnet-angular-monolith. Which modules are tightly coupled and which have clean boundaries? What shared code exists between the Inventory module and other modules?"*
-- *"Look at the Helm chart in app_dotnet-angular-monolith-iac and the namespace provisioning in platform-engineering-shared-services. What Kubernetes resources does a new microservice need to conform to the platform standard?"*
+- *"Analyze the domain boundaries in ordermanager-monolith. Which modules are tightly coupled and which have clean boundaries? What shared code exists between the Inventory module and other modules?"*
+- *"Look at the Helm chart in ordermanager-iac and the namespace provisioning in platform-engineering-shared-services. What Kubernetes resources does a new microservice need to conform to the platform standard?"*
 - *"What's the best HTTP client pattern in .NET 8 for service-to-service communication? Should we use IHttpClientFactory with typed clients or Refit?"*
 
 #### DeepWiki
 
 Open each repo's DeepWiki page to understand the architecture:
 
-1. **app_dotnet-angular-monolith** — Understand the module structure, shared models, dependency graph between Orders/Products/Customers/Inventory. Identify what code belongs exclusively to Inventory vs. what is shared.
+1. **ordermanager-monolith** — Understand the module structure, shared models, dependency graph between Orders/Products/Customers/Inventory. Identify what code belongs exclusively to Inventory vs. what is shared.
 2. **platform-engineering-shared-services** — Understand the namespace provisioning pattern, network policy defaults, and monitoring setup. This defines what the new service must conform to.
-3. **app_dotnet-angular-monolith-iac** — Understand the Helm chart structure, Dockerfile build stages, ArgoCD application configuration, and CI/CD pipeline. The new service's IaC should mirror these patterns.
+3. **ordermanager-iac** — Understand the Helm chart structure, Dockerfile build stages, ArgoCD application configuration, and CI/CD pipeline. The new service's IaC should mirror these patterns.
 
 #### Monitor Devin's Progress
 
@@ -122,9 +122,9 @@ Once Devin creates PRs, review them on GitHub:
 - Does the ArgoCD manifest target the correct namespace (`decomposition-dev`, `decomposition-staging`)?
 - Does the directory structure match the expected layout?
 
-**Expected directory structure in app_dotnet-angular-microservices:**
+**Expected directory structure in ordermanager-microservices:**
 ```
-app_dotnet-angular-microservices/
+ordermanager-microservices/
 ├── inventory-service/
 │   ├── src/                          <- .NET 8 Web API + Angular frontend
 │   ├── tests/                        <- Unit and integration tests
@@ -155,7 +155,7 @@ Try leaving one of these PR comments and watch Devin respond:
 
 If time permits, extend the session with these follow-up prompts:
 
-- *"Extract the Customers module next, following the same pattern you used for Inventory. Add it to app_dotnet-angular-microservices on the same workshop branch with its own Helm chart and ArgoCD manifests."*
+- *"Extract the Customers module next, following the same pattern you used for Inventory. Add it to ordermanager-microservices on the same workshop branch with its own Helm chart and ArgoCD manifests."*
 - *"Add OpenTelemetry distributed tracing to both the monolith and inventory-service so we can trace requests across the HTTP boundary."*
 - *"Create a Grafana dashboard JSON that shows inventory-service request rate, error rate, and p95 latency using the ServiceMonitor metrics."*
 
@@ -203,7 +203,7 @@ If time permits, extend the session with these follow-up prompts:
 | Layer | What It Contains | Where It Lives |
 |-------|-----------------|----------------|
 | **Platform-level** | EKS cluster, VPC, namespaces, monitoring stack, ArgoCD, ingress controller | `platform-engineering-shared-services` |
-| **Service-level** | Dockerfile, Helm chart, ArgoCD app manifest, CI/CD pipeline | `app_dotnet-angular-microservices` (per-service directory) |
+| **Service-level** | Dockerfile, Helm chart, ArgoCD app manifest, CI/CD pipeline | `ordermanager-microservices` (per-service directory) |
 
 The platform team owns the platform-level infrastructure. Each service team owns their service-level infrastructure but must conform to the platform standard (namespace placement, network policies, resource quotas, monitoring labels).
 
@@ -211,10 +211,10 @@ The platform team owns the platform-level infrastructure. Each service team owns
 
 | Repo | Role | Modified? |
 |------|------|-----------|
-| `app_dotnet-angular-monolith` | Source — extract the Inventory module from here | Yes — refactored to use HTTP client |
-| `app_dotnet-angular-microservices` | Landing — new service code + service-level IaC goes here | Yes — new inventory-service directory |
+| `ordermanager-monolith` | Source — extract the Inventory module from here | Yes — refactored to use HTTP client |
+| `ordermanager-microservices` | Landing — new service code + service-level IaC goes here | Yes — new inventory-service directory |
 | `platform-engineering-shared-services` | Context — defines what the platform expects | No — read-only reference |
-| `app_dotnet-angular-monolith-iac` | Context — provides IaC patterns to follow | No — read-only reference |
+| `ordermanager-iac` | Context — provides IaC patterns to follow | No — read-only reference |
 
 ## Key Takeaways
 
@@ -241,7 +241,7 @@ The platform team owns the platform-level infrastructure. Each service team owns
 
 ### Common Issues
 
-- **Devin creates a separate repo instead of pushing to the landing repo:** The prompt explicitly says to push to `app_dotnet-angular-microservices`. If Devin tries to create a new repo, leave a comment redirecting it.
+- **Devin creates a separate repo instead of pushing to the landing repo:** The prompt explicitly says to push to `ordermanager-microservices`. If Devin tries to create a new repo, leave a comment redirecting it.
 - **Branch conflicts between participants:** Each participant uses their own `workshop-<participant>` branch, so conflicts should not occur. If they do, it means two participants used the same name.
 - **IaC doesn't match platform standard:** This is a good teaching moment. Have the participant leave a PR comment asking Devin to fix the conformance issue.
 

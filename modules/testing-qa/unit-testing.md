@@ -2,9 +2,9 @@
 
 ## Repositories
 
-- [app_petclinic-backend](#app_petclinic-backend)
-- [app_timesheet](#app_timesheet)
-- [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
+- [petclinic-backend](#petclinic-backend)
+- [timesheet-app](#timesheet-app)
+- [ts-java-spring-boot-realworld](#ts-java-spring-boot-realworld)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -43,19 +43,19 @@ Beginner to Intermediate
 
 ---
 
-## <a id="app_petclinic-backend"></a>app_petclinic-backend
+## <a id="petclinic-backend"></a>petclinic-backend
 
-**Repository:** [app_petclinic-backend](https://github.com/Cognition-Partner-Workshops/app_petclinic-backend)
+**Repository:** [petclinic-backend](https://github.com/Cognition-Partner-Workshops/petclinic-backend)
 
 Canonical Spring Boot application with an existing JUnit test suite.
 
 ### Step 1: Paste into Devin
 
-> Analyze the current test coverage of app_petclinic-backend. Add missing unit tests to increase coverage to at least 80%. Generate a JaCoCo coverage report and fix any failing tests. Open a PR with the changes.
+> Analyze the current test coverage of petclinic-backend. Add missing unit tests to increase coverage to at least 80%. Generate a JaCoCo coverage report and fix any failing tests. Open a PR with the changes.
 
 ### Step 2: Research with Ask Devin
 
-- *"Which classes in app_petclinic-backend have the lowest test coverage? What business logic is most critical to test?"*
+- *"Which classes in petclinic-backend have the lowest test coverage? What business logic is most critical to test?"*
 - *"Are there any edge cases in the service layer that aren't covered by existing tests?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -70,19 +70,19 @@ Open the repo's DeepWiki page to understand the domain model and identify which 
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React + Node.js/Express application with Jest tests in `backend/src/__tests__/`.
 
 ### Step 1: Paste into Devin
 
-> Analyze the current test coverage of app_timesheet. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Open a PR with the changes.
+> Analyze the current test coverage of timesheet-app. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Open a PR with the changes.
 
 ### Step 2: Research with Ask Devin
 
-- *"What backend routes in app_timesheet have no test coverage? Which ones handle the most critical business logic?"*
+- *"What backend routes in timesheet-app have no test coverage? Which ones handle the most critical business logic?"*
 - *"Should the frontend React components also have unit tests? What testing library would be appropriate?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -96,15 +96,15 @@ Open the repo's DeepWiki page to understand the API routes and data model. Ident
 
 ---
 
-## <a id="ts-java-spring-boot-realworld-example-app"></a>ts-java-spring-boot-realworld-example-app
+## <a id="ts-java-spring-boot-realworld"></a>ts-java-spring-boot-realworld
 
-**Repository:** [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app)
+**Repository:** [ts-java-spring-boot-realworld](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld)
 
 Spring Boot RealWorld example app with existing JUnit tests.
 
 ### Step 1: Paste into Devin
 
-> Analyze the current test coverage of ts-java-spring-boot-realworld-example-app. Add missing unit tests to increase coverage to at least 80%. Generate a JaCoCo coverage report. Open a PR with the changes.
+> Analyze the current test coverage of ts-java-spring-boot-realworld. Add missing unit tests to increase coverage to at least 80%. Generate a JaCoCo coverage report. Open a PR with the changes.
 
 ### Step 2: Research with Ask Devin
 

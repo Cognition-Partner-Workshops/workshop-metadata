@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [cal.com](#calcom)
+- [timesheet-app](#timesheet-app)
+- [calcom](#calcom)
 
 ---
 
@@ -52,15 +52,15 @@ The application must be running (locally or hosted). See [runtime-resources.md](
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Backend on port 3001, frontend on port 5173. Login with any email (no password required).
 
 ### Step 1: Paste into Devin
 
-> Start app_timesheet locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Open a PR.
+> Start timesheet-app locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
@@ -78,19 +78,19 @@ Open the repo's DeepWiki page to understand the data flow and identify component
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Complex scheduling application. `yarn dev` starts on port 3000. See [runtime-resources.md](../../shared/runtime-resources.md) for sample credentials.
 
 ### Step 1: Paste into Devin
 
-> Start cal.com locally with `yarn dev`. Explore the booking flow — create event types, test the public booking page, try different scheduling options. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take a screen recording of the bug and the fix. Open a PR.
+> Start calcom locally with `yarn dev`. Explore the booking flow — create event types, test the public booking page, try different scheduling options. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take a screen recording of the bug and the fix. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the most complex user flows in cal.com that are likely to have edge case bugs?"*
+- *"What are the most complex user flows in calcom that are likely to have edge case bugs?"*
 - *"Are there known issues in the GitHub Issues tab that I could try to reproduce and fix?"*
 
 ### Step 3 (Optional): Read the DeepWiki

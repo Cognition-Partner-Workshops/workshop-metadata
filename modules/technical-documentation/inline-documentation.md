@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
+- [timesheet-app](#timesheet-app)
+- [ts-java-spring-boot-realworld](#ts-java-spring-boot-realworld)
 - [uc-dw-migration-teradata-to-snowflake](#uc-dw-migration-teradata-to-snowflake)
 
 ---
@@ -41,19 +41,19 @@ Beginner
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Moderate codebase with a mix of frontend (React) and backend (Express) — benefits from JSDoc comments and API documentation.
 
 ### Step 1: Paste into Devin
 
-> Review app_timesheet and add comprehensive inline documentation (JSDoc) to all public functions in the backend API routes and service layer. Also add TSDoc comments to the main React components. Focus on explaining the "why" not just the "what". Open a PR with the changes.
+> Review timesheet-app and add comprehensive inline documentation (JSDoc) to all public functions in the backend API routes and service layer. Also add TSDoc comments to the main React components. Focus on explaining the "why" not just the "what". Open a PR with the changes.
 
 ### Step 2: Research with Ask Devin
 
-- *"Which parts of app_timesheet are most confusing for a new developer? Where would documentation have the highest impact?"*
+- *"Which parts of timesheet-app are most confusing for a new developer? Where would documentation have the highest impact?"*
 - *"Should the README be updated with an architecture diagram or setup guide?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -67,15 +67,15 @@ Open the repo's DeepWiki page — compare the auto-generated documentation with 
 
 ---
 
-## <a id="ts-java-spring-boot-realworld-example-app"></a>ts-java-spring-boot-realworld-example-app
+## <a id="ts-java-spring-boot-realworld"></a>ts-java-spring-boot-realworld
 
-**Repository:** [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app)
+**Repository:** [ts-java-spring-boot-realworld](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld)
 
 Java Spring Boot codebase — benefits from Javadoc comments on services, controllers, and domain models.
 
 ### Step 1: Paste into Devin
 
-> Review ts-java-spring-boot-realworld-example-app and add comprehensive Javadoc comments to all public classes and methods in the service and controller layers. Include parameter descriptions, return values, and exception documentation. Open a PR with the changes.
+> Review ts-java-spring-boot-realworld and add comprehensive Javadoc comments to all public classes and methods in the service and controller layers. Include parameter descriptions, return values, and exception documentation. Open a PR with the changes.
 
 ### Step 2: Research with Ask Devin
 

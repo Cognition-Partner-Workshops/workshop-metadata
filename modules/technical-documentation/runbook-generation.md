@@ -3,7 +3,7 @@
 ## Repositories
 
 - [platform-engineering-shared-services](#platform-engineering-shared-services)
-- [app_eventflow-infra](#app_eventflow-infra)
+- [eventflow-infra](#eventflow-infra)
 
 ---
 
@@ -76,19 +76,19 @@ Open the repo's DeepWiki page to understand the infrastructure architecture and 
 
 ---
 
-## <a id="app_eventflow-infra"></a>app_eventflow-infra
+## <a id="eventflow-infra"></a>eventflow-infra
 
-**Repository:** [app_eventflow-infra](https://github.com/Cognition-Partner-Workshops/app_eventflow-infra)
+**Repository:** [eventflow-infra](https://github.com/Cognition-Partner-Workshops/eventflow-infra)
 
 Infrastructure-as-code repository for the EventFlow application platform with deployment manifests and environment configurations.
 
 ### Step 1: Paste into Devin
 
-> Analyze the infrastructure code in app_eventflow-infra and generate operational runbooks. Create the following in `docs/runbooks/`: (1) `deployment-runbook.md` — step-by-step guide for deploying the EventFlow platform including dependency ordering, (2) `scaling-runbook.md` — procedures for scaling services up/down with capacity planning guidelines, (3) `incident-response.md` — troubleshooting guide with a decision tree covering service failures, network issues, and data problems, and (4) `environment-setup.md` — guide for provisioning a new environment from scratch. Reference actual IaC files, variable names, and commands from the repo. Open a PR.
+> Analyze the infrastructure code in eventflow-infra and generate operational runbooks. Create the following in `docs/runbooks/`: (1) `deployment-runbook.md` — step-by-step guide for deploying the EventFlow platform including dependency ordering, (2) `scaling-runbook.md` — procedures for scaling services up/down with capacity planning guidelines, (3) `incident-response.md` — troubleshooting guide with a decision tree covering service failures, network issues, and data problems, and (4) `environment-setup.md` — guide for provisioning a new environment from scratch. Reference actual IaC files, variable names, and commands from the repo. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What infrastructure components are defined in app_eventflow-infra? What are the service dependencies and deployment ordering requirements?"*
+- *"What infrastructure components are defined in eventflow-infra? What are the service dependencies and deployment ordering requirements?"*
 - *"What environment variables and secrets are required for deployment? How are they currently managed?"*
 
 ### Step 3 (Optional): Read the DeepWiki

@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-document-review-automation](#uc-document-review-automation)
 
 ---
@@ -49,19 +49,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React + Node.js/Express timesheet application — add LLM-powered smart categorization or description summarization for timesheet entries.
 
 ### Step 1: Paste into Devin
 
-> Add an LLM-powered feature to app_timesheet that automatically categorizes and summarizes timesheet entries. Create a backend service that: (1) accepts a timesheet entry description and returns a suggested category (development, meeting, review, admin, etc.) and a one-line summary, (2) uses an OpenAI-compatible API with the model and API key configurable via environment variables, (3) includes a fallback that returns a default category and the original description if the LLM is unavailable, (4) implements rate limiting (max 10 requests/minute per user), and (5) exposes this as POST /api/entries/:id/categorize. Add a simple UI button that triggers categorization. Include a README section explaining configuration. Open a PR.
+> Add an LLM-powered feature to timesheet-app that automatically categorizes and summarizes timesheet entries. Create a backend service that: (1) accepts a timesheet entry description and returns a suggested category (development, meeting, review, admin, etc.) and a one-line summary, (2) uses an OpenAI-compatible API with the model and API key configurable via environment variables, (3) includes a fallback that returns a default category and the original description if the LLM is unavailable, (4) implements rate limiting (max 10 requests/minute per user), and (5) exposes this as POST /api/entries/:id/categorize. Add a simple UI button that triggers categorization. Include a README section explaining configuration. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What is the structure of timesheet entries in app_timesheet? What fields are available as input for LLM-based categorization?"*
+- *"What is the structure of timesheet entries in timesheet-app? What fields are available as input for LLM-based categorization?"*
 - *"What categories or tags already exist in the app? Should the LLM use existing categories or suggest new ones?"*
 
 ### Step 3 (Optional): Read the DeepWiki

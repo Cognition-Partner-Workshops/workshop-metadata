@@ -2,12 +2,12 @@
 
 ## Repositories
 
-- [app_dotnet-angular-monolith](#app_dotnet-angular-monolith) — source monolith (refactored in-place)
-- [app_dotnet-angular-microservices](#app_dotnet-angular-microservices) — landing repo for all decomposed services + service-level IaC
+- [ordermanager-monolith](#ordermanager-monolith) — source monolith (refactored in-place)
+- [ordermanager-microservices](#ordermanager-microservices) — landing repo for all decomposed services + service-level IaC
 
 **Context Repositories** (added to Devin's machine, not modified):
 - [platform-engineering-shared-services](#platform-engineering-shared-services)
-- [app_dotnet-angular-monolith-iac](#app_dotnet-angular-monolith-iac)
+- [ordermanager-iac](#ordermanager-iac)
 
 ---
 
@@ -25,7 +25,7 @@ Decompose a bounded context from a monolith into a standalone microservice that 
 - GitHub Actions CI/CD pipeline (build, test, push to ECR, ArgoCD sync)
 - All IaC conforming to the platform-engineering-shared-services standard (namespaces, resource quotas, network policies)
 - PR in the monolith repo with the refactored code
-- PR in app_dotnet-angular-microservices with the new service code and service-level IaC
+- PR in ordermanager-microservices with the new service code and service-level IaC
 
 ## What Participants Will Learn
 
@@ -59,9 +59,9 @@ Advanced
 
 The following repos must be added to the Devin machine via Settings > Repositories:
 - `platform-engineering-shared-services` — the platform standard (EKS, namespaces, network policies, monitoring)
-- `app_dotnet-angular-monolith` — the .NET 8 + Angular 17 monolith to decompose
-- `app_dotnet-angular-monolith-iac` — the existing IaC patterns (Helm chart, Dockerfile, ArgoCD manifests)
-- `app_dotnet-angular-microservices` — landing repo where decomposed services and service-level IaC are pushed
+- `ordermanager-monolith` — the .NET 8 + Angular 17 monolith to decompose
+- `ordermanager-iac` — the existing IaC patterns (Helm chart, Dockerfile, ArgoCD manifests)
+- `ordermanager-microservices` — landing repo where decomposed services and service-level IaC are pushed
 
 All four repos are in the [Cognition-Partner-Workshops](https://github.com/Cognition-Partner-Workshops) GitHub org.
 
@@ -74,61 +74,61 @@ Include the branch name in your Devin session prompt so that PRs target the corr
 ## Notes
 
 - This challenge uses .NET 8 and Angular 17 — a different tech stack from the Java/Spring Boot decomposition in [Containerization & Microservice Extraction](../migration-modernization/containerization-microservice-extraction.md)
-- The key differentiator is **platform conformance** — the extracted service must follow the patterns in `platform-engineering-shared-services` and `app_dotnet-angular-monolith-iac`
+- The key differentiator is **platform conformance** — the extracted service must follow the patterns in `platform-engineering-shared-services` and `ordermanager-iac`
 - The Inventory bounded context is recommended as the extraction target because it has clear boundaries and moderate complexity
-- All new service code and service-level IaC goes into `app_dotnet-angular-microservices` — no need to create separate repos per service
+- All new service code and service-level IaC goes into `ordermanager-microservices` — no need to create separate repos per service
 - Each participant uses their own `workshop-<participant>` branch to avoid conflicts
 
 ---
 
-## <a id="app_dotnet-angular-monolith"></a>app_dotnet-angular-monolith
+## <a id="ordermanager-monolith"></a>ordermanager-monolith
 
-**Repository:** [app_dotnet-angular-monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith)
+**Repository:** [ordermanager-monolith](https://github.com/Cognition-Partner-Workshops/ordermanager-monolith)
 
 .NET 8 + Angular 17 monolith (OrderManager) with four tightly coupled modules: Orders, Products, Customers, and Inventory. All modules share a single SQLite database via Entity Framework Core. The Inventory module manages stock levels, warehouse locations, and low-stock alerts.
 
 **Context Repositories:**
 - [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — Terraform modules for EKS, Helm values for ArgoCD/Prometheus/Grafana, namespace provisioning with resource quotas and network policies
-- [app_dotnet-angular-monolith-iac](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac) — Helm chart, multi-stage Dockerfile, ArgoCD application manifests, CI/CD pipeline for the monolith
+- [ordermanager-iac](https://github.com/Cognition-Partner-Workshops/ordermanager-iac) — Helm chart, multi-stage Dockerfile, ArgoCD application manifests, CI/CD pipeline for the monolith
 
 ### Step 1: Paste into Devin
 
-> **Decompose the Inventory module from app_dotnet-angular-monolith into a standalone microservice.**
+> **Decompose the Inventory module from ordermanager-monolith into a standalone microservice.**
 >
 > Work on branch `workshop-<participant>` in both repos.
 >
 > Use these repos as context for platform patterns and IaC standards:
 > - `platform-engineering-shared-services` — defines the platform standard (namespaces, network policies, monitoring, ArgoCD)
-> - `app_dotnet-angular-monolith-iac` — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
+> - `ordermanager-iac` — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
 >
 > Deliverables:
 > 1. **New .NET 8 Web API** for the inventory-service with its own models, controllers, services, and EF Core DbContext
 > 2. **Angular 17 frontend components** for inventory management
-> 3. **Dockerfile** — multi-stage build following the pattern in `app_dotnet-angular-monolith-iac/docker/Dockerfile`
-> 4. **Helm chart** — deployment, service, network policy, service monitor, HPA (follow `app_dotnet-angular-monolith-iac/helm/`)
-> 5. **ArgoCD application manifests** for dev and staging (follow `app_dotnet-angular-monolith-iac/argocd/`)
+> 3. **Dockerfile** — multi-stage build following the pattern in `ordermanager-iac/docker/Dockerfile`
+> 4. **Helm chart** — deployment, service, network policy, service monitor, HPA (follow `ordermanager-iac/helm/`)
+> 5. **ArgoCD application manifests** for dev and staging (follow `ordermanager-iac/argocd/`)
 > 6. **GitHub Actions CI/CD pipeline** — build, test, push to ECR, trigger ArgoCD sync
 > 7. **Monolith refactoring** — replace in-process Inventory calls with an HTTP client that calls the new service
 >
-> Push the new inventory-service code and all service-level IaC to `app_dotnet-angular-microservices` on branch `workshop-<participant>`. Create a PR.
-> Push the monolith refactoring changes to `app_dotnet-angular-monolith` on branch `workshop-<participant>`. Create a PR.
+> Push the new inventory-service code and all service-level IaC to `ordermanager-microservices` on branch `workshop-<participant>`. Create a PR.
+> Push the monolith refactoring changes to `ordermanager-monolith` on branch `workshop-<participant>`. Create a PR.
 > Build and test both services locally to verify they work together.
 
 ### Step 2: Research with Ask Devin
 
 Use these questions before or during the session to improve results:
 
-- *"Analyze the domain boundaries in app_dotnet-angular-monolith. Which modules are tightly coupled and which have clean boundaries? What shared code exists between the Inventory module and other modules?"*
-- *"Look at the Helm chart in app_dotnet-angular-monolith-iac and the namespace provisioning in platform-engineering-shared-services. What Kubernetes resources does a new microservice need to conform to the platform standard?"*
+- *"Analyze the domain boundaries in ordermanager-monolith. Which modules are tightly coupled and which have clean boundaries? What shared code exists between the Inventory module and other modules?"*
+- *"Look at the Helm chart in ordermanager-iac and the namespace provisioning in platform-engineering-shared-services. What Kubernetes resources does a new microservice need to conform to the platform standard?"*
 - *"What's the best HTTP client pattern in .NET 8 for service-to-service communication? Should we use IHttpClientFactory with typed clients or Refit?"*
 
 ### Step 3 (Optional): Read the DeepWiki
 
 Open each repo's DeepWiki page to understand the architecture before starting:
 
-1. **app_dotnet-angular-monolith** — Understand the module structure, shared models, dependency graph between Orders/Products/Customers/Inventory. Identify what code belongs exclusively to Inventory vs. what is shared.
+1. **ordermanager-monolith** — Understand the module structure, shared models, dependency graph between Orders/Products/Customers/Inventory. Identify what code belongs exclusively to Inventory vs. what is shared.
 2. **platform-engineering-shared-services** — Understand the namespace provisioning pattern, network policy defaults, and monitoring setup. This defines what the new service must conform to.
-3. **app_dotnet-angular-monolith-iac** — Understand the Helm chart structure, Dockerfile build stages, ArgoCD application configuration, and CI/CD pipeline. The new service's IaC should mirror these patterns.
+3. **ordermanager-iac** — Understand the Helm chart structure, Dockerfile build stages, ArgoCD application configuration, and CI/CD pipeline. The new service's IaC should mirror these patterns.
 
 ### Step 4 (Optional): Review & Give Feedback
 
@@ -144,21 +144,21 @@ Open each repo's DeepWiki page to understand the architecture before starting:
 
 If time permits, extend the session with these follow-up prompts:
 
-- *"Extract the Customers module next, following the same pattern you used for Inventory. Add it to app_dotnet-angular-microservices on the same workshop branch with its own Helm chart and ArgoCD manifests."*
+- *"Extract the Customers module next, following the same pattern you used for Inventory. Add it to ordermanager-microservices on the same workshop branch with its own Helm chart and ArgoCD manifests."*
 - *"Add OpenTelemetry distributed tracing to both the monolith and inventory-service so we can trace requests across the HTTP boundary."*
 - *"Create a Grafana dashboard JSON that shows inventory-service request rate, error rate, and p95 latency using the ServiceMonitor metrics."*
 
 ---
 
-## <a id="app_dotnet-angular-microservices"></a>app_dotnet-angular-microservices
+## <a id="ordermanager-microservices"></a>ordermanager-microservices
 
-**Repository:** [app_dotnet-angular-microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-microservices)
+**Repository:** [ordermanager-microservices](https://github.com/Cognition-Partner-Workshops/ordermanager-microservices)
 
 This is the **landing repository** for all decomposed microservices and their service-level IaC. Each service lives in its own directory with source code, Dockerfile, Helm chart, ArgoCD manifests, and CI/CD pipeline.
 
 **Expected directory structure after decomposition:**
 ```
-app_dotnet-angular-microservices/
+ordermanager-microservices/
 ├── inventory-service/
 │   ├── src/                          ← .NET 8 Web API + Angular frontend
 │   ├── tests/                        ← Unit and integration tests
@@ -195,9 +195,9 @@ This is a **context repository** — it is not modified during the challenge. It
 
 ---
 
-## <a id="app_dotnet-angular-monolith-iac"></a>app_dotnet-angular-monolith-iac
+## <a id="ordermanager-iac"></a>ordermanager-iac
 
-**Repository:** [app_dotnet-angular-monolith-iac](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac)
+**Repository:** [ordermanager-iac](https://github.com/Cognition-Partner-Workshops/ordermanager-iac)
 
 This is a **context repository** — it provides the IaC patterns that the new service's infrastructure should follow.
 

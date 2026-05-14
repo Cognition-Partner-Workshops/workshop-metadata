@@ -2,9 +2,9 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [cal.com](#calcom)
-- [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
+- [timesheet-app](#timesheet-app)
+- [calcom](#calcom)
+- [ts-java-spring-boot-realworld](#ts-java-spring-boot-realworld)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -44,19 +44,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React + Express application with opportunities for backend route handler refactoring and frontend component decomposition.
 
 ### Step 1: Paste into Devin
 
-> Analyze app_timesheet for code smells and tech debt. Focus on the backend route handlers and service layer — identify long functions, duplicated logic, and poor naming. Refactor the top 5 most impactful issues without changing any external behavior. Run all existing tests to verify no regressions. Open a PR documenting each refactoring.
+> Analyze timesheet-app for code smells and tech debt. Focus on the backend route handlers and service layer — identify long functions, duplicated logic, and poor naming. Refactor the top 5 most impactful issues without changing any external behavior. Run all existing tests to verify no regressions. Open a PR documenting each refactoring.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the most complex functions in app_timesheet? Which ones have the highest cyclomatic complexity?"*
+- *"What are the most complex functions in timesheet-app? Which ones have the highest cyclomatic complexity?"*
 - *"Are there any duplicated patterns across the backend route handlers that could be extracted into shared utilities?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -70,19 +70,19 @@ Open the repo's DeepWiki page to understand the architecture. Identify modules w
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Large TypeScript monorepo with many opportunities for component decomposition and utility extraction.
 
 ### Step 1: Paste into Devin
 
-> Analyze the cal.com codebase for code smells in the packages/features/ directory. Identify components that are too large (>300 lines), functions with high cyclomatic complexity, and duplicated patterns. Refactor the top 5 most impactful issues. Run tests to verify. Open a PR.
+> Analyze the calcom codebase for code smells in the packages/features/ directory. Identify components that are too large (>300 lines), functions with high cyclomatic complexity, and duplicated patterns. Refactor the top 5 most impactful issues. Run tests to verify. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"Which packages in cal.com have the most code duplication across them?"*
+- *"Which packages in calcom have the most code duplication across them?"*
 - *"Are there any circular dependencies between packages that should be resolved?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -96,15 +96,15 @@ Open the repo's DeepWiki page to understand the package dependency graph. Target
 
 ---
 
-## <a id="ts-java-spring-boot-realworld-example-app"></a>ts-java-spring-boot-realworld-example-app
+## <a id="ts-java-spring-boot-realworld"></a>ts-java-spring-boot-realworld
 
-**Repository:** [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app)
+**Repository:** [ts-java-spring-boot-realworld](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld)
 
 Spring Boot application with potential for service layer refactoring, DTO pattern improvements, and exception handling cleanup.
 
 ### Step 1: Paste into Devin
 
-> Analyze ts-java-spring-boot-realworld-example-app for code smells. Focus on: long service methods, duplicated data mapping logic, inconsistent error handling patterns, and missing separation of concerns. Refactor the top 5 issues. Ensure all tests pass. Open a PR.
+> Analyze ts-java-spring-boot-realworld for code smells. Focus on: long service methods, duplicated data mapping logic, inconsistent error handling patterns, and missing separation of concerns. Refactor the top 5 issues. Ensure all tests pass. Open a PR.
 
 ### Step 2: Research with Ask Devin
 

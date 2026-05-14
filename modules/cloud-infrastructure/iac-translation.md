@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [hosting-client-timesheet-app](#hosting-client-timesheet-app)
+- [timesheet-infra](#timesheet-infra)
 
 ---
 
@@ -40,19 +40,19 @@ Intermediate
 
 ---
 
-## <a id="hosting-client-timesheet-app"></a>hosting-client-timesheet-app
+## <a id="timesheet-infra"></a>timesheet-infra
 
-**Repository:** [hosting-client-timesheet-app](https://github.com/Cognition-Partner-Workshops/hosting-client-timesheet-app)
+**Repository:** [timesheet-infra](https://github.com/Cognition-Partner-Workshops/timesheet-infra)
 
 Terraform infrastructure code for hosting the timesheet application. Translate to AWS CDK, CloudFormation, or Pulumi.
 
 ### Step 1: Paste into Devin
 
-> Convert the Terraform configuration in hosting-client-timesheet-app to AWS CDK using TypeScript. Preserve all resource definitions, outputs, and variable handling. Create a new cdk/ directory with the translated code. Verify it synthesizes correctly with `cdk synth`. Open a PR.
+> Convert the Terraform configuration in timesheet-infra to AWS CDK using TypeScript. Preserve all resource definitions, outputs, and variable handling. Create a new cdk/ directory with the translated code. Verify it synthesizes correctly with `cdk synth`. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What Terraform resources are defined in hosting-client-timesheet-app? What AWS services do they provision?"*
+- *"What Terraform resources are defined in timesheet-infra? What AWS services do they provision?"*
 - *"What's the best CDK pattern for translating Terraform modules — L1 constructs (raw CloudFormation) or L2 constructs (higher-level abstractions)?"*
 - Try a different translation target (Pulumi, CloudFormation) and compare the output
 

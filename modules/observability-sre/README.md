@@ -17,10 +17,10 @@ Challenges focused on monitoring, incident response, reliability engineering, an
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet | [Observability & Monitoring](observability-monitoring.md), [Incident Response & Triage](incident-response-triage.md) |
+| timesheet-app | [Observability & Monitoring](observability-monitoring.md), [Incident Response & Triage](incident-response-triage.md) |
 | uc-framework-upgrade-monolith-to-microservices | [Observability & Monitoring](observability-monitoring.md), [Incident Response & Triage](incident-response-triage.md) |
-| app_dotnet-angular-monolith | [Incident Response & Triage](incident-response-triage.md) |
-| app_eventflow-storefront | [Incident Response & Triage](incident-response-triage.md) |
+| ordermanager-monolith | [Incident Response & Triage](incident-response-triage.md) |
+| eventflow-storefront | [Incident Response & Triage](incident-response-triage.md) |
 | uc-pod-remediation-credential-rotation | [Pod Remediation After Credential Rotation](pod-remediation-credential-rotation.md) |
 | uc-volume-anomaly-detection | [Volume Anomaly Detection](volume-anomaly-detection.md) |
 

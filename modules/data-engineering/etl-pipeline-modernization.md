@@ -3,7 +3,7 @@
 ## Repositories
 
 - [uc-data-migration-airflow](#uc-data-migration-airflow)
-- [ts-sas-legacy-codebase](#ts-sas-legacy-codebase)
+- [ts-sas-legacy-analytics](#ts-sas-legacy-analytics)
 
 ---
 
@@ -51,17 +51,17 @@ Docker Compose-based Apache Airflow 2.0 environment with PostgreSQL backend, con
 
 ### Step 1: Paste into Devin
 
-> Analyze the SAS macro library in ts-sas-legacy-codebase/Macro/ — focus on the data transformation macros (export_csv.sas, transpose.sas, subset_data.sas, compare.sas, dedup_string.sas). For each macro, understand the input/output data flow and transformation logic. Then create equivalent Airflow DAGs in uc-data-migration-airflow/dags/ that replicate the same data transformations using Python operators. Include a validation task in each DAG that compares input/output row counts and checksums. Create an ETL_MIGRATION_NOTES.md documenting each SAS-to-Airflow translation decision. Open a PR.
+> Analyze the SAS macro library in ts-sas-legacy-analytics/Macro/ — focus on the data transformation macros (export_csv.sas, transpose.sas, subset_data.sas, compare.sas, dedup_string.sas). For each macro, understand the input/output data flow and transformation logic. Then create equivalent Airflow DAGs in uc-data-migration-airflow/dags/ that replicate the same data transformations using Python operators. Include a validation task in each DAG that compares input/output row counts and checksums. Create an ETL_MIGRATION_NOTES.md documenting each SAS-to-Airflow translation decision. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the most complex SAS macros in ts-sas-legacy-codebase/Macro/ and what data transformations do they perform? Which ones have dependencies on other macros?"*
+- *"What are the most complex SAS macros in ts-sas-legacy-analytics/Macro/ and what data transformations do they perform? Which ones have dependencies on other macros?"*
 - *"What's the best Airflow DAG structure for orchestrating the SAS macro equivalents — one monolithic DAG or separate DAGs per transformation with cross-DAG dependencies?"*
 - Use the analysis to plan a DAG dependency graph before starting the migration session
 
 ### Step 3 (Optional): Read the DeepWiki
 
-Open the repo's DeepWiki page for both uc-data-migration-airflow and ts-sas-legacy-codebase. Understand the Airflow infrastructure setup (executor type, connections, volume mounts) and map out which SAS macros perform ETL-style operations vs utility functions.
+Open the repo's DeepWiki page for both uc-data-migration-airflow and ts-sas-legacy-analytics. Understand the Airflow infrastructure setup (executor type, connections, volume mounts) and map out which SAS macros perform ETL-style operations vs utility functions.
 
 ### Step 4 (Optional): Review & Give Feedback
 
@@ -71,25 +71,25 @@ Open the repo's DeepWiki page for both uc-data-migration-airflow and ts-sas-lega
 
 ---
 
-## <a id="ts-sas-legacy-codebase"></a>ts-sas-legacy-codebase
+## <a id="ts-sas-legacy-analytics"></a>ts-sas-legacy-analytics
 
-**Repository:** [ts-sas-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-codebase)
+**Repository:** [ts-sas-legacy-analytics](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-analytics)
 
 Legacy SAS codebase containing 90+ macros in the Macro/ directory, Enterprise Guide projects, and batch processing programs. Represents a typical legacy analytics environment with macro-driven ETL workflows.
 
 ### Step 1: Paste into Devin
 
-> Analyze the batch orchestration pattern in ts-sas-legacy-codebase — examine RunAll.sas and RunAll_ControlTable.sas in the Macro/ directory to understand how SAS orchestrates multi-step ETL workflows using control tables. Then create a modern Airflow DAG in uc-data-migration-airflow/dags/ that replicates this control-table-driven execution pattern using Airflow's task dependencies and XCom for inter-task data passing. Include Python equivalents of the key utility macros (loop.sas, loop_control.sas, execute_macro.sas). Open a PR with the DAG and a CONTROL_TABLE_MIGRATION.md explaining the translation.
+> Analyze the batch orchestration pattern in ts-sas-legacy-analytics — examine RunAll.sas and RunAll_ControlTable.sas in the Macro/ directory to understand how SAS orchestrates multi-step ETL workflows using control tables. Then create a modern Airflow DAG in uc-data-migration-airflow/dags/ that replicates this control-table-driven execution pattern using Airflow's task dependencies and XCom for inter-task data passing. Include Python equivalents of the key utility macros (loop.sas, loop_control.sas, execute_macro.sas). Open a PR with the DAG and a CONTROL_TABLE_MIGRATION.md explaining the translation.
 
 ### Step 2: Research with Ask Devin
 
-- *"How does RunAll_ControlTable.sas in ts-sas-legacy-codebase/Macro/ manage execution ordering and dependencies between SAS macros? What's the control table schema?"*
+- *"How does RunAll_ControlTable.sas in ts-sas-legacy-analytics/Macro/ manage execution ordering and dependencies between SAS macros? What's the control table schema?"*
 - *"What SAS-specific features in the batch_submit.sas and stp_batch_submit.sas macros would need special handling when converting to Airflow task execution?"*
 - Use these insights to design a more robust Airflow orchestration pattern
 
 ### Step 3 (Optional): Read the DeepWiki
 
-Open the DeepWiki page for ts-sas-legacy-codebase to understand the full macro dependency graph. Identify which macros are orchestration-level (RunAll, loop, batch_submit) vs data transformation (transpose, subset_data, export) to prioritize the migration scope.
+Open the DeepWiki page for ts-sas-legacy-analytics to understand the full macro dependency graph. Identify which macros are orchestration-level (RunAll, loop, batch_submit) vs data transformation (transpose, subset_data, export) to prioritize the migration scope.
 
 ### Step 4 (Optional): Review & Give Feedback
 

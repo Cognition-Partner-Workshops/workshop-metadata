@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -48,15 +48,15 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js application — diagnose npm-related CI failures (dependency conflicts, missing scripts, test failures).
 
 ### Step 1: Paste into Devin
 
-> The CI pipeline for app_timesheet is failing. Look at the GitHub Actions workflow logs, identify the root cause, and fix it. If the failure is a dependency issue, update the lockfile. If it's a test failure, investigate and fix the test or the code. If it's a configuration issue, fix the workflow YAML. Open a PR with the fix and add a comment explaining the root cause.
+> The CI pipeline for timesheet-app is failing. Look at the GitHub Actions workflow logs, identify the root cause, and fix it. If the failure is a dependency issue, update the lockfile. If it's a test failure, investigate and fix the test or the code. If it's a configuration issue, fix the workflow YAML. Open a PR with the fix and add a comment explaining the root cause.
 
 ### Step 2: Research with Ask Devin
 

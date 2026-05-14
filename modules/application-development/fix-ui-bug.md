@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 
 ---
 
@@ -50,9 +50,9 @@ Application must be running to see the bug visually. Backend: `cd backend && npm
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 **Bug:** The Client dropdown's label text has a strikethrough when you create an hour entry on the running app's `/work-entries` page.
 
@@ -63,7 +63,7 @@ Application must be running to see the bug visually. Backend: `cd backend && npm
 
 ### Step 1: Paste into Devin
 
-> There's a UI bug in app_timesheet: on the /work-entries page, the Client dropdown label has a strikethrough. Investigate the CSS/styling causing this issue and fix it. Take a screenshot before and after the fix. Open a PR.
+> There's a UI bug in timesheet-app: on the /work-entries page, the Client dropdown label has a strikethrough. Investigate the CSS/styling causing this issue and fix it. Take a screenshot before and after the fix. Open a PR.
 
 ### Step 2: Research with Ask Devin
 

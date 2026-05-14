@@ -3,7 +3,7 @@
 ## Repositories
 
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 
 ---
 
@@ -69,20 +69,20 @@ Open the repo's DeepWiki page to understand both the REST controller structure a
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Express REST API with route handlers for timesheet management — a focused target for evaluating REST API design quality in a Node.js context.
 
 ### Step 1: Paste into Devin
 
-> Perform an API design review of app_timesheet. Audit all Express route handlers for: (1) RESTful naming conventions and HTTP method correctness, (2) error handling — are errors returned with consistent status codes and response shapes? (3) input validation — is request data validated before processing? (4) pagination and filtering support for list endpoints, and (5) API documentation. Produce a review report in `docs/api-review.md` with findings rated by severity. Generate an OpenAPI/Swagger spec for the existing endpoints. Open a PR with the report, the generated spec, and fixes for any critical issues.
+> Perform an API design review of timesheet-app. Audit all Express route handlers for: (1) RESTful naming conventions and HTTP method correctness, (2) error handling — are errors returned with consistent status codes and response shapes? (3) input validation — is request data validated before processing? (4) pagination and filtering support for list endpoints, and (5) API documentation. Produce a review report in `docs/api-review.md` with findings rated by severity. Generate an OpenAPI/Swagger spec for the existing endpoints. Open a PR with the report, the generated spec, and fixes for any critical issues.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are all the API routes defined in app_timesheet? Do they follow consistent naming and HTTP method conventions?"*
-- *"How does app_timesheet handle errors — is there a centralized error handler, or do individual routes handle errors differently?"*
+- *"What are all the API routes defined in timesheet-app? Do they follow consistent naming and HTTP method conventions?"*
+- *"How does timesheet-app handle errors — is there a centralized error handler, or do individual routes handle errors differently?"*
 
 ### Step 3 (Optional): Read the DeepWiki
 

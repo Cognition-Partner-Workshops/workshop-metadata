@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_dotnet_angular_containerized_decomposition_monolith](#app_dotnet_angular_containerized_decomposition_monolith) — refactored monolith (from MM15)
-- [app_dotnet_angular_containerized_decomposition_microservices](#app_dotnet_angular_containerized_decomposition_microservices) — extracted microservice (from MM15)
+- [quickapp-monolith](#quickapp-monolith) — refactored monolith (from MM15)
+- [quickapp-microservices](#quickapp-microservices) — extracted microservice (from MM15)
 
 ---
 
@@ -58,9 +58,9 @@ Intermediate
 
 ---
 
-## <a id="app_dotnet_angular_containerized_decomposition_monolith"></a>app_dotnet_angular_containerized_decomposition_monolith
+## <a id="quickapp-monolith"></a>quickapp-monolith
 
-**Repository:** [app_dotnet_angular_containerized_decomposition_monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_monolith)
+**Repository:** [quickapp-monolith](https://github.com/Cognition-Partner-Workshops/quickapp-monolith)
 
 The monolith should have been refactored in MM15 to call the Order service via HTTP. The integration tests validate this HTTP boundary.
 
@@ -71,8 +71,8 @@ The monolith should have been refactored in MM15 to call the Order service via H
 > Work on branch `workshop-<attendee_id>`.
 >
 > Context:
-> - The monolith in `app_dotnet_angular_containerized_decomposition_monolith` now calls the Order service via an HTTP client (refactored in the previous lab)
-> - The Order service in `app_dotnet_angular_containerized_decomposition_microservices` exposes REST endpoints for order management
+> - The monolith in `quickapp-monolith` now calls the Order service via an HTTP client (refactored in the previous lab)
+> - The Order service in `quickapp-microservices` exposes REST endpoints for order management
 > - Both services share contract DTOs from `Shared.Contracts`
 >
 > Deliverables:
@@ -107,8 +107,8 @@ Review both repos to understand the HTTP contract:
 
 ---
 
-## <a id="app_dotnet_angular_containerized_decomposition_microservices"></a>app_dotnet_angular_containerized_decomposition_microservices
+## <a id="quickapp-microservices"></a>quickapp-microservices
 
-**Repository:** [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
+**Repository:** [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices)
 
 The extracted Order service with REST endpoints. Integration tests validate the contract from the monolith's perspective.

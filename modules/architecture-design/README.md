@@ -18,9 +18,9 @@ Challenges focused on architecture decision records, API design review, dependen
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet | [Code Refactoring & Tech Debt](code-refactoring-tech-debt.md) |
-| cal.com | [Code Refactoring & Tech Debt](code-refactoring-tech-debt.md) |
-| ts-java-spring-boot-realworld-example-app | [Code Refactoring & Tech Debt](code-refactoring-tech-debt.md) |
+| timesheet-app | [Code Refactoring & Tech Debt](code-refactoring-tech-debt.md) |
+| calcom | [Code Refactoring & Tech Debt](code-refactoring-tech-debt.md) |
+| ts-java-spring-boot-realworld | [Code Refactoring & Tech Debt](code-refactoring-tech-debt.md) |
 | uc-framework-upgrade-monolith-to-microservices | [API Consolidation](api-consolidation.md) |
 
 ## When to Use This Category

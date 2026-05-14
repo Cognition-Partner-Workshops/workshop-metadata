@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [ts-sas-legacy-codebase](#ts-sas-legacy-codebase)
+- [ts-sas-legacy-analytics](#ts-sas-legacy-analytics)
 - [uc-data-migration-sas-to-snowflake](#uc-data-migration-sas-to-snowflake)
 
 ---
@@ -42,25 +42,25 @@ Intermediate to Advanced
 
 ---
 
-## <a id="ts-sas-legacy-codebase"></a>ts-sas-legacy-codebase
+## <a id="ts-sas-legacy-analytics"></a>ts-sas-legacy-analytics
 
-**Repository:** [ts-sas-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-codebase)
+**Repository:** [ts-sas-legacy-analytics](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-analytics)
 
 Legacy SAS codebase with 90+ macros covering data export, transformation, deduplication, and formatting operations. The Macro/ directory contains production-style SAS macros that represent typical enterprise analytics workflows.
 
 ### Step 1: Paste into Devin
 
-> Analyze the SAS macros in ts-sas-legacy-codebase/Macro/ — focus on the data transformation macros: transpose.sas, subset_data.sas, compare.sas, dedup_string.sas, dedup_mstring.sas, and the export family (export_csv.sas, export_xlsx.sas, export_dbms.sas). For each macro, translate the SAS logic into equivalent Python functions using pandas. Preserve the same function signatures (input dataset, parameters, output dataset). Create pytest tests that validate the Python functions produce the same results as the SAS originals for sample inputs. Document each translation decision in a SAS_TO_PYTHON_TRANSLATION.md. Open a PR.
+> Analyze the SAS macros in ts-sas-legacy-analytics/Macro/ — focus on the data transformation macros: transpose.sas, subset_data.sas, compare.sas, dedup_string.sas, dedup_mstring.sas, and the export family (export_csv.sas, export_xlsx.sas, export_dbms.sas). For each macro, translate the SAS logic into equivalent Python functions using pandas. Preserve the same function signatures (input dataset, parameters, output dataset). Create pytest tests that validate the Python functions produce the same results as the SAS originals for sample inputs. Document each translation decision in a SAS_TO_PYTHON_TRANSLATION.md. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What SAS-specific features are used in the Macro/ directory of ts-sas-legacy-codebase? Which macros use SAS-only constructs like PROC TRANSPOSE, BY-group processing, or macro variable resolution that need special handling in Python?"*
+- *"What SAS-specific features are used in the Macro/ directory of ts-sas-legacy-analytics? Which macros use SAS-only constructs like PROC TRANSPOSE, BY-group processing, or macro variable resolution that need special handling in Python?"*
 - *"What's the best Python library strategy for converting these SAS macros — pandas for everything, or should some use polars or PySpark for better performance with large datasets?"*
 - Use the analysis to prioritize which macros to convert first based on complexity and reusability
 
 ### Step 3 (Optional): Read the DeepWiki
 
-Open the DeepWiki page for ts-sas-legacy-codebase to understand the macro library organization. Identify which macros are data transformation primitives (transpose, subset, dedup) vs I/O utilities (export, import) to plan the conversion in dependency order.
+Open the DeepWiki page for ts-sas-legacy-analytics to understand the macro library organization. Identify which macros are data transformation primitives (transpose, subset, dedup) vs I/O utilities (export, import) to plan the conversion in dependency order.
 
 ### Step 4 (Optional): Review & Give Feedback
 

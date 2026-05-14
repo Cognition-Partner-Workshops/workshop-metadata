@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [cal.com](#calcom)
+- [timesheet-app](#timesheet-app)
+- [calcom](#calcom)
 
 ---
 
@@ -42,19 +42,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React + Material-UI frontend with multiple pages (Dashboard, Clients, Work Entries, Reports) — suitable for visual regression testing.
 
 ### Step 1: Paste into Devin
 
-> Set up Playwright visual regression tests for the app_timesheet frontend. Create visual comparison tests that capture baseline screenshots for: the login page, dashboard with stats cards, clients table, work entries form, and reports page with export buttons. Configure tests for both desktop (1280x720) and mobile (375x667) viewports. Set a pixel diff threshold of 0.2%. Open a PR with the Playwright config, visual test files, baseline screenshots, and a README explaining how to update baselines.
+> Set up Playwright visual regression tests for the timesheet-app frontend. Create visual comparison tests that capture baseline screenshots for: the login page, dashboard with stats cards, clients table, work entries form, and reports page with export buttons. Configure tests for both desktop (1280x720) and mobile (375x667) viewports. Set a pixel diff threshold of 0.2%. Open a PR with the Playwright config, visual test files, baseline screenshots, and a README explaining how to update baselines.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the key pages and UI states in app_timesheet that should have visual regression coverage? Are there any dynamic elements that need to be masked or stabilized?"*
+- *"What are the key pages and UI states in timesheet-app that should have visual regression coverage? Are there any dynamic elements that need to be masked or stabilized?"*
 - *"How should we handle authentication in the visual tests — should we use a test fixture that pre-authenticates, or capture the login flow?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -69,20 +69,20 @@ Open the repo's DeepWiki page to understand the frontend page structure and Mate
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Full-featured scheduling platform with a complex UI — extensive visual surfaces including booking flows, event type configuration, and availability management.
 
 ### Step 1: Paste into Devin
 
-> Set up Playwright visual regression tests for the cal.com web application. Create visual comparison tests covering: the public booking page (date picker and time slot selection), the event types listing page, the availability/schedule editor, and the settings page. Configure viewport testing for desktop and mobile. Use Playwright's toHaveScreenshot with a maxDiffPixelRatio threshold. Open a PR with the visual test suite, baseline screenshots, and documentation for updating baselines.
+> Set up Playwright visual regression tests for the calcom web application. Create visual comparison tests covering: the public booking page (date picker and time slot selection), the event types listing page, the availability/schedule editor, and the settings page. Configure viewport testing for desktop and mobile. Use Playwright's toHaveScreenshot with a maxDiffPixelRatio threshold. Open a PR with the visual test suite, baseline screenshots, and documentation for updating baselines.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the most visually complex pages in cal.com that would benefit from visual regression testing? Which components change most frequently?"*
-- *"Does cal.com already have Playwright configured? How should we integrate visual tests with the existing E2E test setup?"*
+- *"What are the most visually complex pages in calcom that would benefit from visual regression testing? Which components change most frequently?"*
+- *"Does calcom already have Playwright configured? How should we integrate visual tests with the existing E2E test setup?"*
 
 ### Step 3 (Optional): Read the DeepWiki
 

@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_petclinic-microservices](#app_petclinic-microservices)
+- [petclinic-microservices](#petclinic-microservices)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -42,19 +42,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_petclinic-microservices"></a>app_petclinic-microservices
+## <a id="petclinic-microservices"></a>petclinic-microservices
 
-**Repository:** [app_petclinic-microservices](https://github.com/Cognition-Partner-Workshops/app_petclinic-microservices)
+**Repository:** [petclinic-microservices](https://github.com/Cognition-Partner-Workshops/petclinic-microservices)
 
 Spring Cloud microservices (API Gateway, Customers, Visits, Vets, Config Server, Discovery Server) — each service needs its own K8s manifest set.
 
 ### Step 1: Paste into Devin
 
-> Analyze the microservices in app_petclinic-microservices and generate Kubernetes manifests for deploying them. For each service (api-gateway, customers-service, visits-service, vets-service, config-server, discovery-server), create: Deployment with health checks (liveness and readiness probes using Spring Actuator endpoints), Service, ConfigMap for application properties, and HPA configured based on the service's role. Create an Ingress resource routing external traffic through the API gateway. Use Kustomize with a base and overlays for dev and prod environments. Open a PR with the complete K8s manifests and a deployment guide.
+> Analyze the microservices in petclinic-microservices and generate Kubernetes manifests for deploying them. For each service (api-gateway, customers-service, visits-service, vets-service, config-server, discovery-server), create: Deployment with health checks (liveness and readiness probes using Spring Actuator endpoints), Service, ConfigMap for application properties, and HPA configured based on the service's role. Create an Ingress resource routing external traffic through the API gateway. Use Kustomize with a base and overlays for dev and prod environments. Open a PR with the complete K8s manifests and a deployment guide.
 
 ### Step 2: Research with Ask Devin
 
-- *"What ports do each of the services in app_petclinic-microservices expose? What health check endpoints are available via Spring Actuator?"*
+- *"What ports do each of the services in petclinic-microservices expose? What health check endpoints are available via Spring Actuator?"*
 - *"What are the startup dependencies between services? Should we use init containers or readiness gates to enforce ordering?"*
 
 ### Step 3 (Optional): Read the DeepWiki

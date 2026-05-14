@@ -58,7 +58,7 @@ Track A demonstrates Devin as a security and reliability agent. Participants wil
 ### Lab A1 — SAST Scans & Vulnerability Remediation
 
 - **Modules:** [Remediate Vulnerabilities](../../../modules/security/remediate-vulnerabilities.md) + [Shift Left Security](../../../modules/security/shift-left-security.md)
-- **Repositories:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+- **Repositories:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 - **Objective:** Run SAST tools to identify vulnerabilities, remediate the most critical findings, and add security scanning to CI
 
 See [general workshop Lab A1](../../../workshops/general/README.md#lab-a1--sast-scans--vulnerability-remediation) for full instructions.
@@ -66,7 +66,7 @@ See [general workshop Lab A1](../../../workshops/general/README.md#lab-a1--sast-
 ### Lab A2 — Bug Fixes & Root Cause Analysis
 
 - **Modules:** [Fix Runtime Bug](../../../modules/application-development/fix-runtime-bug.md) + [Cross-Service Bug Investigation](../../../modules/migration-modernization/cross-service-bug-investigation.md)
-- **Repositories:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
+- **Repositories:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices)
 - **Objective:** Find and fix bugs in running applications, perform root cause analysis
 
 See [general workshop Lab A2](../../../workshops/general/README.md#lab-a2--bug-fixes--root-cause-analysis) for full instructions.
@@ -74,7 +74,7 @@ See [general workshop Lab A2](../../../workshops/general/README.md#lab-a2--bug-f
 ### Lab A3 — Scheduled Dependency Hygiene
 
 - **Modules:** [Upgrade Dependencies](../../../modules/security/upgrade-dependencies.md)
-- **Repositories:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+- **Repositories:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 - **Objective:** Set up recurring Devin scheduled sessions for automated dependency upgrades
 
 See [general workshop Lab A3](../../../workshops/general/README.md#lab-a3--scheduled-dependency-hygiene) for full instructions.
@@ -134,14 +134,14 @@ See [general workshop Lab B1](../../../workshops/general/README.md#lab-b1--rearc
 ### Lab B2 — Upgrading EOL Systems to LTS Versions
 
 - **Modules:** [Framework Upgrade](../../../modules/migration-modernization/framework-upgrade.md) + [Repetitive Framework Upgrades](../../../modules/migration-modernization/repetitive-framework-upgrades.md)
-- **Repositories:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices), [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular), [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app)
+- **Repositories:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices), [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular), [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld)
 - **Objective:** Run parallel Devin sessions upgrading frameworks across multiple repos
 
 See [general workshop Lab B2](../../../workshops/general/README.md#lab-b2--upgrading-eol-systems-to-lts-versions) for full instructions.
 
 ### Lab B3 — Language Translation
 
-- **Repositories:** [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app), [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
+- **Repositories:** [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld), [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
 - **Objective:** Translate code between languages (e.g., Java to Kotlin, Ruby to Java) while maintaining functional parity
 
 See [general workshop Lab B3](../../../workshops/general/README.md#lab-b3--language-translation) for full instructions.
@@ -235,7 +235,7 @@ Track C demonstrates Devin as a day-to-day development partner. Participants wil
 ### Lab C1 — Add a Feature + PR Review Feedback
 
 - **Module:** [New Feature Development](../../../modules/application-development/new-feature-development.md)
-- **Repositories:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
+- **Repositories:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices)
 - **Objective:** Build a new feature from requirements, see PR Review in action, and iterate via comments
 
 See [general workshop Lab C1](../../../workshops/general/README.md#lab-c1--add-a-feature--pr-review-feedback) for full instructions.
@@ -243,7 +243,7 @@ See [general workshop Lab C1](../../../workshops/general/README.md#lab-c1--add-a
 ### Lab C2 — Add Test Coverage
 
 - **Modules:** [Unit Testing](../../../modules/testing-qa/unit-testing.md) + [BDD Test Generation](../../../modules/testing-qa/bdd-test-generation.md)
-- **Repositories:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices), [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api)
+- **Repositories:** [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices), [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api)
 - **Objective:** Increase test coverage with meaningful unit and BDD tests
 
 See [general workshop Lab C2](../../../workshops/general/README.md#lab-c2--add-test-coverage) for full instructions.
@@ -251,7 +251,7 @@ See [general workshop Lab C2](../../../workshops/general/README.md#lab-c2--add-t
 ### Lab C3 — Perform E2E Tests & Fix Issues
 
 - **Modules:** [End-to-End Testing](../../../modules/testing-qa/end-to-end-testing.md) + [Fix Runtime Bug](../../../modules/application-development/fix-runtime-bug.md)
-- **Repositories:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api)
+- **Repositories:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api)
 - **Objective:** Write and run E2E tests, discover issues through testing, and fix them
 
 See [general workshop Lab C3](../../../workshops/general/README.md#lab-c3--perform-e2e-tests--fix-issues) for full instructions.
@@ -299,7 +299,7 @@ This spotlight demonstrates Devin as a technical analyst — reading an entire c
 #### Paste into Devin
 
 ```
-Perform a comprehensive technical assessment of app_timesheet. Produce the following deliverables:
+Perform a comprehensive technical assessment of timesheet-app. Produce the following deliverables:
 
 1. **Application Knowledge Base** (`docs/KNOWLEDGE_BASE.md`):
    - Architecture overview (frontend framework, backend framework, database, key libraries)
@@ -350,7 +350,7 @@ Participants who finish early or want to explore further can try any challenge f
 | Data Source Migration | [Data Source Migration](../../../modules/data-engineering/data-source-migration.md) | uc-data-source-migration-legacy-to-modern | B | Intermediate |
 | Data Quality Validation | [Data Quality & Validation](../../../modules/data-engineering/data-quality-validation.md) | uc-data-source-migration-legacy-to-modern | B | Intermediate |
 | Event-Driven SAST Pipeline | [Event-Driven SAST Remediation](../../../modules/security/event-driven-sast-remediation.md) | uc-cve-remediation-regulatory-compliance | A | Advanced |
-| Monolith Decomposition (.NET) | [.NET Monolith Decomposition](../../../modules/migration-modernization/dotnet-monolith-decomposition.md) | dotnet-modular-monolith | B | Advanced |
+| Monolith Decomposition (.NET) | [.NET Monolith Decomposition](../../../modules/migration-modernization/dotnet-monolith-decomposition.md) | modular-monolith-ddd | B | Advanced |
 | Code Refactoring & Tech Debt | [Code Refactoring](../../../modules/architecture-design/code-refactoring-tech-debt.md) | Any | C | Intermediate |
 | API Design Review | [API Design Review](../../../modules/architecture-design/api-design-review.md) | Any | C | Intermediate |
 | API Documentation | [API Documentation](../../../modules/technical-documentation/api-documentation.md) | Any | C | Beginner |
@@ -381,16 +381,16 @@ The spotlight prompts are industry-inspired bonus activities that can be used al
 
 ### Track A (Security & Issue Triage)
 - [ ] uc-cve-remediation-regulatory-compliance
-- [ ] app_timesheet
-- [ ] app_dotnet_angular_containerized_decomposition_microservices (optional, for Lab A2 Option B)
+- [ ] timesheet-app
+- [ ] quickapp-microservices (optional, for Lab A2 Option B)
 
 ### Track B (Modernization)
 - [ ] uc-framework-upgrade-monolith-to-microservices
-- [ ] app_petclinic-angular
-- [ ] ts-angular-realworld-example-app
+- [ ] petclinic-angular
+- [ ] ts-angular-realworld
 
 ### Track C (Feature Development & Testing)
-- [ ] app_timesheet
+- [ ] timesheet-app
 - [ ] uc-framework-upgrade-monolith-to-microservices (optional, for Lab C1 Option B)
 - [ ] uc-bdd-test-generation-rest-api (optional, for Lab C2 Option C / Lab C3 Option B)
 

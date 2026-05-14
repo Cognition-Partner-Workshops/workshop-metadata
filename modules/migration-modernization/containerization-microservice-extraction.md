@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_petclinic-microservices](#app_petclinic-microservices)
+- [petclinic-microservices](#petclinic-microservices)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -54,15 +54,15 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_petclinic-microservices"></a>app_petclinic-microservices
+## <a id="petclinic-microservices"></a>petclinic-microservices
 
-**Repository:** [app_petclinic-microservices](https://github.com/Cognition-Partner-Workshops/app_petclinic-microservices)
+**Repository:** [petclinic-microservices](https://github.com/Cognition-Partner-Workshops/petclinic-microservices)
 
 Reference architecture showing what a fully decomposed microservices application looks like. Use this as a comparison target or as a starting point for further containerization improvements.
 
 ### Step 1: Paste into Devin
 
-> Analyze the microservices architecture of app_petclinic-microservices. Add Docker health checks to all services, create a unified Docker Compose file with proper networking, and add a reverse proxy (nginx or Traefik) in front of the services. Ensure all services start and communicate correctly. Open a PR.
+> Analyze the microservices architecture of petclinic-microservices. Add Docker health checks to all services, create a unified Docker Compose file with proper networking, and add a reverse proxy (nginx or Traefik) in front of the services. Ensure all services start and communicate correctly. Open a PR.
 
 ### Step 2: Research with Ask Devin
 

@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_petclinic-angular](#app_petclinic-angular)
-- [ts-angular-realworld-example-app](#ts-angular-realworld-example-app)
+- [petclinic-angular](#petclinic-angular)
+- [ts-angular-realworld](#ts-angular-realworld)
 
 ---
 
@@ -46,15 +46,15 @@ Intermediate
 
 ---
 
-## <a id="app_petclinic-angular"></a>app_petclinic-angular
+## <a id="petclinic-angular"></a>petclinic-angular
 
-**Repository:** [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular)
+**Repository:** [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular)
 
 Angular frontend using Karma + Jasmine for unit tests and Protractor for E2E tests — both deprecated. Migrate to modern Angular testing with Jest/Vitest and Playwright.
 
 ### Step 1: Paste into Devin
 
-> Analyze the test infrastructure in app_petclinic-angular. The project currently uses Karma + Jasmine for unit tests and Protractor for E2E tests — both are deprecated in the Angular ecosystem.
+> Analyze the test infrastructure in petclinic-angular. The project currently uses Karma + Jasmine for unit tests and Protractor for E2E tests — both are deprecated in the Angular ecosystem.
 >
 > Phase 1 — Unit test migration:
 > Replace Karma + Jasmine with Jest (or Vitest). Update the test configuration, convert all `.spec.ts` files to use the new test runner's API, and ensure all unit tests pass. Remove the Karma dependencies and configuration files.
@@ -66,9 +66,9 @@ Angular frontend using Karma + Jasmine for unit tests and Protractor for E2E tes
 
 ### Step 2: Research with Ask Devin
 
-- *"What Karma/Jasmine patterns in app_petclinic-angular will be hardest to convert to Jest — are there any custom matchers, async test helpers, or TestBed configurations that need special handling?"*
+- *"What Karma/Jasmine patterns in petclinic-angular will be hardest to convert to Jest — are there any custom matchers, async test helpers, or TestBed configurations that need special handling?"*
 - *"What is the recommended Jest or Vitest configuration for Angular 16? Are there specific Angular testing utilities that need to be updated?"*
-- *"How does ts-angular-realworld-example-app structure its Vitest + Playwright setup? Can we use it as a reference for the migration target?"*
+- *"How does ts-angular-realworld structure its Vitest + Playwright setup? Can we use it as a reference for the migration target?"*
 - Use the analysis to plan the migration before Devin starts — this is the **Ask Devin for requirement gathering** pattern
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -80,7 +80,7 @@ Open the repo's **DeepWiki** page to understand the test file structure and test
 
 Try different approaches:
 - Run **parallel Devin sessions** — one for unit test migration (Phase 1) and one for E2E migration (Phase 2). Each session gets its own VM, so they don't interfere
-- Have Devin use `ts-angular-realworld-example-app` as a **reference repo** — it already uses Vitest + Playwright, so Devin can learn the target patterns from a working example
+- Have Devin use `ts-angular-realworld` as a **reference repo** — it already uses Vitest + Playwright, so Devin can learn the target patterns from a working example
 - After the migration succeeds, ask Devin to **create a Playbook** capturing the migration steps so the same pattern can be applied to other Angular repos with one click
 
 ### Step 4 (Optional): Review & Give Feedback
@@ -97,26 +97,26 @@ Once Devin opens a PR, focus your review on:
 
 ---
 
-## <a id="ts-angular-realworld-example-app"></a>ts-angular-realworld-example-app
+## <a id="ts-angular-realworld"></a>ts-angular-realworld
 
-**Repository:** [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app)
+**Repository:** [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld)
 
 Angular app that already uses Vitest + Playwright — use as a **reference target** for the migration, or as a second repo for parallel comparison.
 
 ### Step 1: Paste into Devin
 
-> Review the test infrastructure in ts-angular-realworld-example-app. This repo already uses Vitest for unit tests and Playwright for E2E tests. Analyze the test configuration patterns, helper utilities, and test structure. Then apply what you learn to app_petclinic-angular — use this repo as the reference implementation for the migration target.
+> Review the test infrastructure in ts-angular-realworld. This repo already uses Vitest for unit tests and Playwright for E2E tests. Analyze the test configuration patterns, helper utilities, and test structure. Then apply what you learn to petclinic-angular — use this repo as the reference implementation for the migration target.
 >
 > Specifically:
 > 1. Document the Vitest configuration pattern (vitest.config.ts, test setup files, Angular-specific configuration)
 > 2. Document the Playwright configuration pattern (playwright.config.ts, test helpers, authentication fixtures)
-> 3. Create a migration guide comparing the Karma/Jasmine patterns in app_petclinic-angular to the equivalent Vitest/Playwright patterns in this repo
+> 3. Create a migration guide comparing the Karma/Jasmine patterns in petclinic-angular to the equivalent Vitest/Playwright patterns in this repo
 >
 > Open a PR with the migration guide.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the key differences between the Karma+Jasmine configuration in app_petclinic-angular and the Vitest configuration in ts-angular-realworld-example-app?"*
+- *"What are the key differences between the Karma+Jasmine configuration in petclinic-angular and the Vitest configuration in ts-angular-realworld?"*
 - *"Are there any Angular-specific testing utilities that differ between the two setups?"*
 
 ### Step 3 (Optional): Read the DeepWiki

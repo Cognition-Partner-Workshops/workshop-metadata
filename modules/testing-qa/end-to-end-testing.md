@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [cal.com](#calcom)
+- [timesheet-app](#timesheet-app)
+- [calcom](#calcom)
 
 ---
 
@@ -45,19 +45,19 @@ The application must be running locally on Devin's machine or hosted externally.
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Simpler application — good for first-timers with E2E testing. Backend on port 3001, frontend on port 5173. Login with any email (no password required).
 
 ### Step 1: Paste into Devin
 
-> Set up and run app_timesheet locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the work entries workflow: login, create a work entry, verify it appears in the list, edit it, and delete it. Run the tests and take a screen recording. Open a PR with the test files.
+> Set up and run timesheet-app locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the work entries workflow: login, create a work entry, verify it appears in the list, edit it, and delete it. Run the tests and take a screen recording. Open a PR with the test files.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the main user workflows in app_timesheet that would benefit from E2E tests?"*
+- *"What are the main user workflows in timesheet-app that would benefit from E2E tests?"*
 - *"Does the app already have any test infrastructure (Playwright config, test utilities) that I should build on?"*
 - Use insights to write tests for additional workflows (client management, reporting)
 
@@ -73,19 +73,19 @@ Open the repo's DeepWiki page to understand the frontend routes and components. 
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Rich scheduling application with existing Playwright configuration. `yarn dev` starts on port 3000.
 
 ### Step 1: Paste into Devin
 
-> Start cal.com locally with `yarn dev`. Write Playwright E2E tests for the booking flow: navigate to a public booking page, select a time slot, fill in attendee details, and confirm the booking. Use the existing Playwright config in the repo. Run the tests and take a screen recording. Open a PR with the test files.
+> Start calcom locally with `yarn dev`. Write Playwright E2E tests for the booking flow: navigate to a public booking page, select a time slot, fill in attendee details, and confirm the booking. Use the existing Playwright config in the repo. Run the tests and take a screen recording. Open a PR with the test files.
 
 ### Step 2: Research with Ask Devin
 
-- *"What Playwright tests already exist in cal.com? What workflows are untested?"*
+- *"What Playwright tests already exist in calcom? What workflows are untested?"*
 - *"What are the most common user-reported issues in scheduling apps that E2E tests should catch?"*
 - Use insights to target gaps in the existing test suite
 

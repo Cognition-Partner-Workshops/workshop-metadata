@@ -18,10 +18,10 @@ Challenges focused on CI/CD pipelines, PR review automation, build failure resol
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| app_timesheet | [CI/CD Pipeline](cicd-pipeline.md), [PR Review Automation](pr-review-automation.md), [CI Failure Resolution](ci-failure-resolution.md), [Release Management](release-management.md), [Configuration Management & Feature Flags](configuration-management-feature-flags.md) |
-| ts-java-spring-boot-realworld-example-app | [PR Review Automation](pr-review-automation.md) |
+| timesheet-app | [CI/CD Pipeline](cicd-pipeline.md), [PR Review Automation](pr-review-automation.md), [CI Failure Resolution](ci-failure-resolution.md), [Release Management](release-management.md), [Configuration Management & Feature Flags](configuration-management-feature-flags.md) |
+| ts-java-spring-boot-realworld | [PR Review Automation](pr-review-automation.md) |
 | uc-framework-upgrade-monolith-to-microservices | [CI/CD Pipeline](cicd-pipeline.md), [PR Review Automation](pr-review-automation.md), [CI Failure Resolution](ci-failure-resolution.md), [Release Management](release-management.md), [Configuration Management & Feature Flags](configuration-management-feature-flags.md) |
-| app_dotnet-angular-monolith | [Release Management](release-management.md) |
+| ordermanager-monolith | [Release Management](release-management.md) |
 
 ## When to Use This Category
 

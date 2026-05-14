@@ -44,10 +44,10 @@
 
 | Repo | Role | Modified? |
 |------|------|-----------|
-| `app_dotnet-angular-monolith` | Source — extract the Inventory module from here | Yes — refactored to use HTTP client |
-| `app_dotnet-angular-microservices` | Landing — new service code + service-level IaC goes here | Yes — new inventory-service directory |
+| `ordermanager-monolith` | Source — extract the Inventory module from here | Yes — refactored to use HTTP client |
+| `ordermanager-microservices` | Landing — new service code + service-level IaC goes here | Yes — new inventory-service directory |
 | `platform-engineering-shared-services` | Context — defines what the platform expects | No — read-only reference |
-| `app_dotnet-angular-monolith-iac` | Context — provides IaC patterns to follow | No — read-only reference |
+| `ordermanager-iac` | Context — provides IaC patterns to follow | No — read-only reference |
 
 4. Set expectations: Devin will take 10-15 minutes to produce initial PRs — that's normal for a complex multi-repo task
 
@@ -55,24 +55,24 @@
 
 Create a new Devin session and paste the following prompt. Replace `<participant>` with your name:
 
-> Decompose the Inventory module from @Cognition-Partner-Workshops/app_dotnet-angular-monolith into a standalone microservice.
+> Decompose the Inventory module from @Cognition-Partner-Workshops/ordermanager-monolith into a standalone microservice.
 >
 > Work on branch workshop-mason in both repos.
 >
 > Use these repos as context for platform patterns and IaC standards:
 > - @Cognition-Partner-Workshops/platform-engineering-shared-services — defines the platform standard (namespaces, network policies, monitoring, ArgoCD)
-> - @Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
+> - @Cognition-Partner-Workshops/ordermanager-iac — contains the existing Helm chart, Dockerfile, and ArgoCD patterns to follow
 >
 > Deliverables:
 > - New .NET 8 Web API for the inventory-service with its own models, controllers, services, and EF Core DbContext
 > - Angular 17 frontend components for inventory management
-> - Dockerfile — multi-stage build following the pattern in app_dotnet-angular-monolith-iac/docker/Dockerfile
-> - Helm chart — deployment, service, network policy, service monitor, HPA (follow app_dotnet-angular-monolith-iac/helm/)
-> - ArgoCD application manifests for dev and staging (follow app_dotnet-angular-monolith-iac/argocd/)
+> - Dockerfile — multi-stage build following the pattern in ordermanager-iac/docker/Dockerfile
+> - Helm chart — deployment, service, network policy, service monitor, HPA (follow ordermanager-iac/helm/)
+> - ArgoCD application manifests for dev and staging (follow ordermanager-iac/argocd/)
 > - GitHub Actions CI/CD pipeline — build, test, push to ECR, trigger ArgoCD sync
 > - Monolith refactoring — replace in-process Inventory calls with an HTTP client that calls the new service
 >
-> Push the new inventory-service code and all service-level IaC to @Cognition-Partner-Workshops/app_dotnet-angular-microservices on branch workshop-mason. Create a PR. Push the monolith refactoring changes to app_dotnet-angular-monolith on branch workshop-mason. Create a PR. Build and test both services locally to verify they work together.
+> Push the new inventory-service code and all service-level IaC to @Cognition-Partner-Workshops/ordermanager-microservices on branch workshop-mason. Create a PR. Push the monolith refactoring changes to ordermanager-monolith on branch workshop-mason. Create a PR. Build and test both services locally to verify they work together.
 
 ### Phase 2 — Explore While Devin Works (15 min)
 
@@ -82,8 +82,8 @@ While Devin works autonomously, use these features to deepen your understanding:
 
 Open a new AskDevin conversation and try:
 
-- *"Analyze the domain boundaries in app_dotnet-angular-monolith. Which modules have clean boundaries and which are tightly coupled?"*
-- *"Look at the Helm chart in app_dotnet-angular-monolith-iac and the namespace provisioning in platform-engineering-shared-services. What Kubernetes resources does a new microservice need to conform to the platform standard?"*
+- *"Analyze the domain boundaries in ordermanager-monolith. Which modules have clean boundaries and which are tightly coupled?"*
+- *"Look at the Helm chart in ordermanager-iac and the namespace provisioning in platform-engineering-shared-services. What Kubernetes resources does a new microservice need to conform to the platform standard?"*
 
 AskDevin uses advanced code search to produce detailed, accurately cited answers grounded in your codebase. Notice how it references specific files and line numbers in its responses.
 
@@ -93,7 +93,7 @@ AskDevin uses advanced code search to produce detailed, accurately cited answers
 
 Open each repo's DeepWiki page. Focus on:
 
-1. **app_dotnet-angular-monolith** — module structure, shared models, dependency graph between Orders/Products/Customers/Inventory
+1. **ordermanager-monolith** — module structure, shared models, dependency graph between Orders/Products/Customers/Inventory
 2. **platform-engineering-shared-services** — namespace provisioning pattern, network policy defaults, monitoring setup
 
 #### View Devin's Machine
@@ -133,7 +133,7 @@ Notice how Devin incorporates your feedback into its current work without starti
 
 Now that you've seen what Devin produces, use AskDevin to craft a **better** version of the original prompt:
 
-- *"Based on what you know about app_dotnet-angular-monolith and platform-engineering-shared-services, write me an optimized Devin session prompt to extract the Customers module as a microservice. Include specific file paths and patterns to follow."*
+- *"Based on what you know about ordermanager-monolith and platform-engineering-shared-services, write me an optimized Devin session prompt to extract the Customers module as a microservice. Include specific file paths and patterns to follow."*
 
 Compare the generated prompt to the one you used in Phase 1 — is it more specific? Would it produce better results?
 
@@ -147,7 +147,7 @@ Create a Knowledge entry in Devin that captures the platform conformance rules:
 2. Send this prompt to Devin:
 
 > Create a new Knowledge item titled "Platform Conformance Standard"
-> Include rules like: *"All new microservices must include a Helm chart with network policy, service monitor, and HPA. ArgoCD manifests must target decomposition-dev and decomposition-staging namespaces. Dockerfiles must use multi-stage builds following the pattern in app_dotnet-angular-monolith-iac."*
+> Include rules like: *"All new microservices must include a Helm chart with network policy, service monitor, and HPA. ArgoCD manifests must target decomposition-dev and decomposition-staging namespaces. Dockerfiles must use multi-stage builds following the pattern in ordermanager-iac."*
 
 3. Navigate to **Setting > Knowledge** and see the new knowledge items once Devin completes the task.
 
@@ -167,7 +167,7 @@ Open **Session Insights** for your running session:
 
 Start a **second Devin session** with a different task against the same repos:
 
-- *"Analyze the domain boundaries in app_dotnet-angular-monolith and produce a decomposition roadmap. For each module (Orders, Products, Customers, Inventory), assess coupling, shared models, and extraction difficulty. Output a markdown report with a recommended extraction order."*
+- *"Analyze the domain boundaries in ordermanager-monolith and produce a decomposition roadmap. For each module (Orders, Products, Customers, Inventory), assess coupling, shared models, and extraction difficulty. Output a markdown report with a recommended extraction order."*
 
 This demonstrates running parallel sessions — one doing code work, one doing analysis.
 
@@ -270,7 +270,7 @@ For the full version with bonus challenges, see [platform-microservice-decomposi
 
 ### Common Issues
 
-- **Devin creates a separate repo instead of pushing to the landing repo:** The prompt explicitly says to push to `app_dotnet-angular-microservices`. If Devin tries to create a new repo, have the participant leave a comment redirecting it.
+- **Devin creates a separate repo instead of pushing to the landing repo:** The prompt explicitly says to push to `ordermanager-microservices`. If Devin tries to create a new repo, have the participant leave a comment redirecting it.
 - **Branch conflicts between participants:** Each participant uses their own `workshop-<participant>` branch, so conflicts should not occur.
 - **IaC doesn't match platform standard:** Good teaching moment — have the participant leave a PR comment asking Devin to fix it.
 

@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-cve-remediation-regulatory-compliance](#uc-cve-remediation-regulatory-compliance)
 
 ---
@@ -46,19 +46,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js application with Trivy scanning already configured.
 
 ### Step 1: Paste into Devin
 
-> Run `npm audit` on app_timesheet to identify dependency vulnerabilities. Then run Trivy (install if needed) to scan for additional issues. Remediate all critical and high severity findings. Re-run scans to verify fixes. Create a `SECURITY_REMEDIATION.md` with before/after evidence. Open a PR.
+> Run `npm audit` on timesheet-app to identify dependency vulnerabilities. Then run Trivy (install if needed) to scan for additional issues. Remediate all critical and high severity findings. Re-run scans to verify fixes. Create a `SECURITY_REMEDIATION.md` with before/after evidence. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What security scanning tools are already configured in app_timesheet? How can their coverage be expanded?"*
+- *"What security scanning tools are already configured in timesheet-app? How can their coverage be expanded?"*
 - *"Beyond dependency vulnerabilities, are there any code-level security issues (SQL injection, XSS, etc.)?"*
 
 ### Step 3 (Optional): Read the DeepWiki

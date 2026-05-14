@@ -63,7 +63,7 @@ Track A demonstrates Devin as a security and reliability agent. Participants wil
 - **Modules:** [Remediate Vulnerabilities](../../modules/security/remediate-vulnerabilities.md) + [Shift Left Security](../../modules/security/shift-left-security.md)
 - **Repositories:**
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — Spring Boot 2.6.3 with known CVEs and pre-configured OWASP Dependency-Check
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — Node.js app with npm audit and Trivy scanning (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — Node.js app with npm audit and Trivy scanning (alternative)
 - **Objective:** Run SAST tools to identify vulnerabilities, remediate the most critical findings, and add security scanning to the CI pipeline so future PRs are automatically checked
 
 This lab has two parts: (1) find and fix existing vulnerabilities, and (2) shift left by adding security scanning to CI so new vulnerabilities are caught automatically.
@@ -130,8 +130,8 @@ See the full challenge details for [Remediate Vulnerabilities](../../modules/sec
 
 - **Modules:** [Fix Runtime Bug](../../modules/application-development/fix-runtime-bug.md) + [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
-  - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices) — decomposed .NET microservices with a planted cross-service bug (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
+  - [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices) — decomposed .NET microservices with a planted cross-service bug (alternative)
 - **Objective:** Find and fix bugs in running applications, perform root cause analysis, and demonstrate Devin's ability to trace issues across service boundaries
 
 This lab shows two dimensions of bug investigation: (1) exploratory testing where Devin discovers and fixes bugs in a running app, and (2) cross-service debugging where a symptom in one service has its root cause in another.
@@ -140,14 +140,14 @@ This lab shows two dimensions of bug investigation: (1) exploratory testing wher
 
 Choose one or both:
 
-**Option A — Exploratory Bug Hunting (app_timesheet):**
+**Option A — Exploratory Bug Hunting (timesheet-app):**
 ```
-Start app_timesheet locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Write a `ROOT_CAUSE_ANALYSIS.md` explaining the bug, why it happened, and how you fixed it. Open a PR.
+Start timesheet-app locally (backend: `cd backend && npm run dev`, frontend: `cd frontend && npm run dev`). Explore the application — create work entries, manage clients, try the reporting features. Find and document any bugs or unexpected behavior. Fix the most impactful bug you find. Take before/after screenshots. Write a `ROOT_CAUSE_ANALYSIS.md` explaining the bug, why it happened, and how you fixed it. Open a PR.
 ```
 
 **Option B — Cross-Service Bug Investigation (.NET microservices):**
 ```
-Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices. To reproduce: run the notification-service locally, POST to `http://localhost:5005/api/notification/events/order-placed` with `{"orderId": "11111111-1111-1111-1111-111111111111", "customerId": "22222222-2222-2222-2222-222222222222", "totalAmount": 149.99, "placedAt": "2026-03-17T12:00:00Z"}`, then open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR with your fix and root cause analysis.
+Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in quickapp-microservices. To reproduce: run the notification-service locally, POST to `http://localhost:5005/api/notification/events/order-placed` with `{"orderId": "11111111-1111-1111-1111-111111111111", "customerId": "22222222-2222-2222-2222-222222222222", "totalAmount": 149.99, "placedAt": "2026-03-17T12:00:00Z"}`, then open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR with your fix and root cause analysis.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -161,8 +161,8 @@ While Devin works on step 1, open **AskDevin** and explore:
 #### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's **DeepWiki** page to understand the application architecture:
-- **app_timesheet** — Understand the data flow and identify components that might have bugs (complex state management, API error handling, date/time logic)
-- **app_dotnet_angular_containerized_decomposition_microservices** — Understand the event flow from Order service to Notification service, the `Shared.Contracts` library, and the `NotificationRenderer`
+- **timesheet-app** — Understand the data flow and identify components that might have bugs (complex state management, API error handling, date/time logic)
+- **quickapp-microservices** — Understand the event flow from Order service to Notification service, the `Shared.Contracts` library, and the `NotificationRenderer`
 
 Try different approaches:
 - Have Devin add a **regression test** for any bug it finds
@@ -203,7 +203,7 @@ See the full challenge details for [Fix Runtime Bug](../../modules/application-d
 - **Modules:** [Upgrade Dependencies](../../modules/security/upgrade-dependencies.md)
 - **Repositories:**
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — Spring Boot app with Gradle
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — Node.js app with npm (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — Node.js app with npm (alternative)
 - **Objective:** Set up a recurring Devin scheduled session that automatically upgrades dependencies to the latest minor/patch versions on a weekly cadence — demonstrating Devin as an always-on maintenance agent
 
 This lab introduces **Devin Scheduled Sessions** — recurring automated tasks that run without human intervention. Dependency version bumps are a perfect use case: low-risk, high-volume, and easy to verify via CI.
@@ -234,10 +234,10 @@ This way Devin will automatically open a dependency bump PR every week without h
 
 #### Step 4 (Optional): Extend to Multiple Repos
 
-Try running the same pattern for **app_timesheet** with an npm-flavored prompt:
+Try running the same pattern for **timesheet-app** with an npm-flavored prompt:
 
 ```
-Check all npm dependencies in app_timesheet for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works. Open a PR with the upgrades and a `DEPENDENCY_UPDATES.md`.
+Check all npm dependencies in timesheet-app for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works. Open a PR with the upgrades and a `DEPENDENCY_UPDATES.md`.
 ```
 
 This demonstrates how the same maintenance pattern scales across different tech stacks and repositories — each scheduled session runs independently on its own VM.
@@ -265,7 +265,7 @@ Track B demonstrates Devin handling large-scale structural changes to codebases.
 - **Module:** [Containerization & Microservice Extraction](../../modules/migration-modernization/containerization-microservice-extraction.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot 2.6.3 monolith with three clear bounded contexts (Articles, Users/Profiles, Comments)
-  - [app_petclinic-microservices](https://github.com/Cognition-Partner-Workshops/app_petclinic-microservices) — Reference microservices architecture for comparison (optional)
+  - [petclinic-microservices](https://github.com/Cognition-Partner-Workshops/petclinic-microservices) — Reference microservices architecture for comparison (optional)
 - **Objective:** Analyze domain boundaries in a monolith, extract a bounded context as a standalone microservice with its own API, Dockerfile, and database, and wire the services together with Docker Compose
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -289,7 +289,7 @@ While Devin works on step 1, open **AskDevin** and explore:
 Open the repo's **DeepWiki** page to understand the module structure, domain model, and dependency graph:
 1. Identify which bounded contexts exist and how tightly coupled they are
 2. Look at the test coverage — which domains have the best tests to serve as a safety net during extraction?
-3. Compare with **app_petclinic-microservices** to see what a fully decomposed architecture looks like
+3. Compare with **petclinic-microservices** to see what a fully decomposed architecture looks like
 
 Try different approaches:
 - Extract **two bounded contexts in parallel** using separate Devin sessions
@@ -330,8 +330,8 @@ See the full challenge details for [Containerization & Microservice Extraction](
 - **Modules:** [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md) + [Repetitive Framework Upgrades](../../modules/migration-modernization/repetitive-framework-upgrades.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot 2.6.3 / Java 11 (EOL) → Spring Boot 3.x / Java 17+ (LTS)
-  - [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular) — Angular version upgrade
-  - [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) — Angular version upgrade (second repo for parallel comparison)
+  - [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular) — Angular version upgrade
+  - [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld) — Angular version upgrade (second repo for parallel comparison)
 - **Objective:** Run parallel Devin sessions upgrading frameworks and language versions across multiple repos — demonstrating how Devin handles repetitive upgrade tasks at enterprise scale
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -345,20 +345,20 @@ Upgrade uc-framework-upgrade-monolith-to-microservices from Java 11 + Spring Boo
 
 **Session B — Angular Upgrade (PetClinic):**
 ```
-Upgrade app_petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Document every breaking change encountered. Open a PR.
+Upgrade petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Document every breaking change encountered. Open a PR.
 ```
 
 **Session C — Angular Upgrade (RealWorld, optional for comparison):**
 ```
-Upgrade ts-angular-realworld-example-app to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
+Upgrade ts-angular-realworld to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
 
 While Devin works on the upgrades, open **AskDevin** and explore:
 - *"What are the biggest risks when upgrading from Spring Boot 2 to 3? Which javax to jakarta changes are most likely to break?"*
-- *"What Angular version is app_petclinic-angular currently on? What are the breaking changes between that version and the latest?"*
-- *"Compare the Angular upgrade paths for app_petclinic-angular and ts-angular-realworld-example-app — are the same breaking changes expected?"*
+- *"What Angular version is petclinic-angular currently on? What are the breaking changes between that version and the latest?"*
+- *"Compare the Angular upgrade paths for petclinic-angular and ts-angular-realworld — are the same breaking changes expected?"*
 - Use the analysis to plan a **repeatable upgrade runbook** that could be applied across dozens of similar services
 - Once you have a runbook you like, consider turning it into a **Devin Playbook** — a reusable set of instructions that any team member can trigger for future upgrades without re-engineering the prompt
 
@@ -366,8 +366,8 @@ While Devin works on the upgrades, open **AskDevin** and explore:
 
 Open each repo's **DeepWiki** page to understand the codebase before the upgrade:
 1. **uc-framework-upgrade-monolith-to-microservices** — Understand the build configuration, Spring Security setup, and dependency graph. These are the areas most affected by the Spring Boot 2 to 3 migration.
-2. **app_petclinic-angular** — Understand the component hierarchy and module structure. Identify deprecated Angular patterns (NgModules vs. standalone components).
-3. **ts-angular-realworld-example-app** — Compare with the PetClinic Angular app. Different codebases may hit different breaking changes for the same upgrade.
+2. **petclinic-angular** — Understand the component hierarchy and module structure. Identify deprecated Angular patterns (NgModules vs. standalone components).
+3. **ts-angular-realworld** — Compare with the PetClinic Angular app. Different codebases may hit different breaking changes for the same upgrade.
 
 Try different approaches:
 - Run both Angular upgrades in **parallel** and compare the upgrade PRs side-by-side
@@ -410,7 +410,7 @@ See the full challenge details for [Framework Upgrade](../../modules/migration-m
 - **Module:** [Language Translation](../../modules/migration-modernization/legacy-modernization-combined.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot (Java) RealWorld app — source language
-  - [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) — Angular (TypeScript) RealWorld app — reference for alternative target
+  - [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld) — Angular (TypeScript) RealWorld app — reference for alternative target
 - **Objective:** Translate a Java Spring Boot service layer into an equivalent Python (Flask/FastAPI) application, preserving API contracts and proving functional equivalence with parity tests. Both source and target compile and run on Ubuntu.
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -486,7 +486,7 @@ Track C demonstrates Devin as a day-to-day development partner. Participants wil
 
 - **Module:** [New Feature Development](../../modules/application-development/new-feature-development.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot RealWorld app (alternative)
 - **Objective:** Build a new feature on an existing application, then observe how PR Review automatically flags potential bugs and issues in the implementation — and have Devin address the feedback
 
@@ -494,13 +494,13 @@ Track C demonstrates Devin as a day-to-day development partner. Participants wil
 
 Before creating a session, try using **Ask Devin** to scope the feature. The more specific your requirements, the better Devin's output — and Ask Devin helps you think through the details before Devin starts writing code.
 
-For example, ask: *"What existing patterns does app_timesheet use for CRUD features? What data model, API structure, and React component conventions should a new 'Projects' feature follow?"*
+For example, ask: *"What existing patterns does timesheet-app use for CRUD features? What data model, API structure, and React component conventions should a new 'Projects' feature follow?"*
 
 Then use what you learn to refine one of these prompts before pasting it into a Devin session:
 
-**Option A — Full-Stack CRUD Feature (app_timesheet):**
+**Option A — Full-Stack CRUD Feature (timesheet-app):**
 ```
-Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
+Add a "Projects" management feature to timesheet-app. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
 ```
 
 **Option B — API Feature (Spring Boot RealWorld app):**
@@ -552,7 +552,7 @@ See the full challenge details for [New Feature Development](../../modules/appli
 - **Modules:** [Unit Testing](../../modules/testing-qa/unit-testing.md) + [BDD Test Generation](../../modules/testing-qa/bdd-test-generation.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot app with existing JUnit infrastructure
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app with Jest tests (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app with Jest tests (alternative)
   - [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api) — Spring Boot + Cucumber BDD framework (alternative)
 - **Objective:** Analyze existing test coverage, generate meaningful tests for under-tested modules, and optionally create BDD test scenarios for REST APIs
 
@@ -567,7 +567,7 @@ Analyze the current test coverage of uc-framework-upgrade-monolith-to-microservi
 
 **Option B — Unit Test Coverage (Node.js):**
 ```
-Analyze the current test coverage of app_timesheet. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Aim for at least 80% coverage on each tested module. Open a PR with the new tests.
+Analyze the current test coverage of timesheet-app. Add missing Jest unit tests for the backend API routes and service layer. Generate a coverage report and fix any failing tests. Aim for at least 80% coverage on each tested module. Open a PR with the new tests.
 ```
 
 **Option C — BDD Test Generation (Cucumber):**
@@ -625,7 +625,7 @@ See the full challenge details for [Unit Testing](../../modules/testing-qa/unit-
 
 - **Module:** [End-to-End Testing](../../modules/testing-qa/end-to-end-testing.md) + [Fix Runtime Bug](../../modules/application-development/fix-runtime-bug.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
   - [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api) — Spring Boot + Cucumber BDD framework (alternative)
 - **Objective:** Write and run E2E tests against a running application, discover issues through testing, and fix them — demonstrating the full test-discover-fix cycle
 
@@ -633,9 +633,9 @@ This lab completes the testing story: after adding unit tests (Lab C2), now run 
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-**Option A — Playwright E2E Tests (app_timesheet):**
+**Option A — Playwright E2E Tests (timesheet-app):**
 ```
-Set up and run app_timesheet locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the core user workflows: (1) Login flow, (2) Create a client, (3) Create a work entry for that client, (4) Verify the work entry appears in the list, (5) Edit the work entry, (6) Delete the work entry, (7) Check the reports page shows correct totals. Run the tests and take a screen recording. If any tests fail because of application bugs, fix the bugs too. Open a PR with the test files and any bug fixes.
+Set up and run timesheet-app locally (backend on port 3001, frontend on port 5173). Write Playwright E2E tests for the core user workflows: (1) Login flow, (2) Create a client, (3) Create a work entry for that client, (4) Verify the work entry appears in the list, (5) Edit the work entry, (6) Delete the work entry, (7) Check the reports page shows correct totals. Run the tests and take a screen recording. If any tests fail because of application bugs, fix the bugs too. Open a PR with the test files and any bug fixes.
 ```
 
 **Option B — API E2E Tests (BDD framework):**
@@ -646,7 +646,7 @@ Review the uc-bdd-test-generation-rest-api codebase. Run `mvn test` to verify th
 #### Step 2: Research with Ask Devin
 
 While Devin works on step 1, open **AskDevin** and explore:
-- *"What are the main user workflows in app_timesheet that would benefit from E2E tests?"*
+- *"What are the main user workflows in timesheet-app that would benefit from E2E tests?"*
 - *"What Playwright best practices should be followed — proper selectors, waiting strategies, test isolation?"*
 - *"What are the most common causes of flaky E2E tests and how can they be prevented?"*
 - Use insights to write tests for additional workflows (client management, reporting, CSV/PDF export)
@@ -696,7 +696,7 @@ Participants who finish early or want to explore further can attempt any challen
 |-----------|--------|------|-------|------------|
 | Data Source Migration | [Data Source Migration](../../modules/data-engineering/data-source-migration.md) | uc-data-source-migration-legacy-to-modern | B | Intermediate |
 | Event-Driven SAST Pipeline | [Event-Driven SAST Remediation](../../modules/security/event-driven-sast-remediation.md) | uc-cve-remediation-regulatory-compliance | A | Advanced |
-| Monolith Decomposition (.NET) | [.NET Monolith Decomposition](../../modules/migration-modernization/dotnet-monolith-decomposition.md) | dotnet-modular-monolith | B | Advanced |
+| Monolith Decomposition (.NET) | [.NET Monolith Decomposition](../../modules/migration-modernization/dotnet-monolith-decomposition.md) | modular-monolith-ddd | B | Advanced |
 | Code Refactoring & Tech Debt | [Code Refactoring](../../modules/architecture-design/code-refactoring-tech-debt.md) | Any | C | Intermediate |
 | API Documentation | [API Documentation](../../modules/technical-documentation/api-documentation.md) | Any | C | Beginner |
 
@@ -714,16 +714,16 @@ Participants who finish early or want to explore further can attempt any challen
 
 ### Track A (Security & Issue Triage)
 - [ ] uc-cve-remediation-regulatory-compliance
-- [ ] app_timesheet
-- [ ] app_dotnet_angular_containerized_decomposition_microservices (optional, for Lab A2 Option B)
+- [ ] timesheet-app
+- [ ] quickapp-microservices (optional, for Lab A2 Option B)
 
 ### Track B (Modernization)
 - [ ] uc-framework-upgrade-monolith-to-microservices
-- [ ] app_petclinic-angular
-- [ ] ts-angular-realworld-example-app (Lab B3 translation target reference; also useful for parallel comparison)
+- [ ] petclinic-angular
+- [ ] ts-angular-realworld (Lab B3 translation target reference; also useful for parallel comparison)
 
 ### Track C (Feature Development & Testing)
-- [ ] app_timesheet
+- [ ] timesheet-app
 - [ ] uc-framework-upgrade-monolith-to-microservices (optional, for Lab C1 Option B)
 - [ ] uc-bdd-test-generation-rest-api (optional, for Lab C2 Option C / Lab C3 Option B)
 

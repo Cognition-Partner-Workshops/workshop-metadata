@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -42,19 +42,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express application with npm dependencies — ideal for license auditing with npm-native tooling.
 
 ### Step 1: Paste into Devin
 
-> Scan all dependencies in app_timesheet for license compliance. Use `npm sbom --sbom-format cyclonedx` (or install @cyclonedx/cyclonedx-npm if needed) to generate an SBOM in CycloneDX format. Then analyze all dependency licenses — identify any copyleft (GPL, AGPL, LGPL) or restrictive licenses that could create legal issues for commercial use. Produce a `LICENSE_COMPLIANCE_REPORT.md` with: a summary of all license types found, a list of flagged dependencies with risk ratings, and recommended replacements for any problematic dependencies. Open a PR with the SBOM file and compliance report.
+> Scan all dependencies in timesheet-app for license compliance. Use `npm sbom --sbom-format cyclonedx` (or install @cyclonedx/cyclonedx-npm if needed) to generate an SBOM in CycloneDX format. Then analyze all dependency licenses — identify any copyleft (GPL, AGPL, LGPL) or restrictive licenses that could create legal issues for commercial use. Produce a `LICENSE_COMPLIANCE_REPORT.md` with: a summary of all license types found, a list of flagged dependencies with risk ratings, and recommended replacements for any problematic dependencies. Open a PR with the SBOM file and compliance report.
 
 ### Step 2: Research with Ask Devin
 
-- *"What licenses are used by app_timesheet's dependencies? Are any of them copyleft or incompatible with commercial use?"*
+- *"What licenses are used by timesheet-app's dependencies? Are any of them copyleft or incompatible with commercial use?"*
 - *"What tools exist for automated license compliance checking in Node.js projects? How do they compare?"*
 
 ### Step 3 (Optional): Read the DeepWiki

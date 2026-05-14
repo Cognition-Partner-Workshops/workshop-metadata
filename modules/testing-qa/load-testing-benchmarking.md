@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -42,19 +42,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express API with authentication, CRUD operations, and report generation — ideal for k6 load testing.
 
 ### Step 1: Paste into Devin
 
-> Create a k6 load test suite for app_timesheet. Write load test scripts that cover: authentication flow, client CRUD operations, work entry creation, and report generation (including CSV/PDF export). Define realistic load profiles with ramp-up, sustained load, and ramp-down stages. Include performance thresholds (p95 latency < 500ms, error rate < 1%). Document the baseline results. Open a PR with the k6 scripts, a README explaining how to run them, and the baseline performance report.
+> Create a k6 load test suite for timesheet-app. Write load test scripts that cover: authentication flow, client CRUD operations, work entry creation, and report generation (including CSV/PDF export). Define realistic load profiles with ramp-up, sustained load, and ramp-down stages. Include performance thresholds (p95 latency < 500ms, error rate < 1%). Document the baseline results. Open a PR with the k6 scripts, a README explaining how to run them, and the baseline performance report.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the critical API endpoints in app_timesheet that should be load tested? Which endpoints are likely to be the bottlenecks?"*
+- *"What are the critical API endpoints in timesheet-app that should be load tested? Which endpoints are likely to be the bottlenecks?"*
 - *"What realistic load profile should we use? How many concurrent users and requests per second would stress this Express.js app?"*
 
 ### Step 3 (Optional): Read the DeepWiki

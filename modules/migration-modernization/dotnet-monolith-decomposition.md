@@ -2,11 +2,11 @@
 
 ## Repositories
 
-- [app_dotnet_angular_containerized_decomposition_monolith](#app_dotnet_angular_containerized_decomposition_monolith) — source monolith
-- [app_dotnet_angular_containerized_decomposition_microservices](#app_dotnet_angular_containerized_decomposition_microservices) — target microservices (reference/landing repo)
+- [quickapp-monolith](#quickapp-monolith) — source monolith
+- [quickapp-microservices](#quickapp-microservices) — target microservices (reference/landing repo)
 
 **Context Repositories** (added to Devin's machine, not modified):
-- [app_dotnet_angular_containerized_decomposition_iac](#app_dotnet_angular_containerized_decomposition_iac)
+- [quickapp-iac](#quickapp-iac)
 - [platform-engineering-shared-services](#platform-engineering-shared-services)
 
 ---
@@ -54,9 +54,9 @@ Intermediate to Advanced
 ## Prerequisites
 
 The following repos must be added to the Devin machine via Settings > Repositories:
-- `app_dotnet_angular_containerized_decomposition_monolith` — the .NET + Angular monolith (QuickApp)
-- `app_dotnet_angular_containerized_decomposition_microservices` — scaffold with target architecture
-- `app_dotnet_angular_containerized_decomposition_iac` — Helm chart patterns (context)
+- `quickapp-monolith` — the .NET + Angular monolith (QuickApp)
+- `quickapp-microservices` — scaffold with target architecture
+- `quickapp-iac` — Helm chart patterns (context)
 - `platform-engineering-shared-services` — EKS cluster, namespaces, monitoring (context)
 
 All repos are in the [Cognition-Partner-Workshops](https://github.com/Cognition-Partner-Workshops) GitHub org.
@@ -82,25 +82,25 @@ Replace `<attendee_id>` with a unique identifier (e.g., `workshop-alice`, `works
 
 ---
 
-## <a id="app_dotnet_angular_containerized_decomposition_monolith"></a>app_dotnet_angular_containerized_decomposition_monolith
+## <a id="quickapp-monolith"></a>quickapp-monolith
 
-**Repository:** [app_dotnet_angular_containerized_decomposition_monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_monolith)
+**Repository:** [quickapp-monolith](https://github.com/Cognition-Partner-Workshops/quickapp-monolith)
 
 .NET + Angular monolith (QuickApp) with 5 tightly coupled bounded contexts: Identity (authentication, authorization, user/role management), Customer (CRUD, lookup), Order (creation, status, fulfillment), Product (catalog, pricing, categories), and Notification (email, in-app). All contexts share a single database via Entity Framework Core.
 
 **Context Repositories:**
-- [app_dotnet_angular_containerized_decomposition_iac](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_iac) — Helm charts per service for K8s deployment
+- [quickapp-iac](https://github.com/Cognition-Partner-Workshops/quickapp-iac) — Helm charts per service for K8s deployment
 - [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — EKS, namespaces, network policies, monitoring
 
 ### Step 1: Paste into Devin
 
-> **Extract the Order bounded context from app_dotnet_angular_containerized_decomposition_monolith into a standalone .NET microservice.**
+> **Extract the Order bounded context from quickapp-monolith into a standalone .NET microservice.**
 >
 > Work on branch `workshop-<attendee_id>` in both repos.
 >
 > Use these repos as context for the target architecture and IaC patterns:
-> - `app_dotnet_angular_containerized_decomposition_microservices` — reference scaffold showing the target service structure
-> - `app_dotnet_angular_containerized_decomposition_iac` — Helm chart patterns for K8s deployment
+> - `quickapp-microservices` — reference scaffold showing the target service structure
+> - `quickapp-iac` — Helm chart patterns for K8s deployment
 >
 > Deliverables:
 > 1. **New .NET Web API** for the order-service with its own models, controllers, services, and EF Core DbContext
@@ -110,8 +110,8 @@ Replace `<attendee_id>` with a unique identifier (e.g., `workshop-alice`, `works
 > 5. **Monolith refactoring** — replace in-process Order calls with an HTTP client that calls the new service
 > 6. **Integration smoke test** — verify order creation flows through both services
 >
-> Push the new order-service to `app_dotnet_angular_containerized_decomposition_microservices` on branch `workshop-<attendee_id>`. Create a PR.
-> Push the monolith refactoring to `app_dotnet_angular_containerized_decomposition_monolith` on branch `workshop-<attendee_id>`. Create a PR.
+> Push the new order-service to `quickapp-microservices` on branch `workshop-<attendee_id>`. Create a PR.
+> Push the monolith refactoring to `quickapp-monolith` on branch `workshop-<attendee_id>`. Create a PR.
 
 ### Step 2: Research with Ask Devin
 
@@ -123,9 +123,9 @@ Replace `<attendee_id>` with a unique identifier (e.g., `workshop-alice`, `works
 
 Open each repo's DeepWiki page to understand the architecture:
 
-1. **app_dotnet_angular_containerized_decomposition_monolith** — Understand the QuickApp module structure, shared models, DbContext, and dependency graph between bounded contexts
-2. **app_dotnet_angular_containerized_decomposition_microservices** — Study the target scaffold to understand the expected service structure, YARP gateway config, and shared contracts
-3. **app_dotnet_angular_containerized_decomposition_iac** — Understand Helm chart structure per service for future K8s deployment
+1. **quickapp-monolith** — Understand the QuickApp module structure, shared models, DbContext, and dependency graph between bounded contexts
+2. **quickapp-microservices** — Study the target scaffold to understand the expected service structure, YARP gateway config, and shared contracts
+3. **quickapp-iac** — Understand Helm chart structure per service for future K8s deployment
 
 ### Step 4 (Optional): Review & Give Feedback
 
@@ -138,9 +138,9 @@ Open each repo's DeepWiki page to understand the architecture:
 
 ---
 
-## <a id="app_dotnet_angular_containerized_decomposition_microservices"></a>app_dotnet_angular_containerized_decomposition_microservices
+## <a id="quickapp-microservices"></a>quickapp-microservices
 
-**Repository:** [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
+**Repository:** [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices)
 
 Target-state scaffold with 5 microservices (Identity, Customer, Order, Product, Notification) + YARP API Gateway. Each service follows Clean Architecture (API/Domain/Infrastructure layers). Includes docker-compose for local development with PostgreSQL and RabbitMQ.
 

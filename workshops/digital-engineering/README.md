@@ -62,7 +62,7 @@ Track A demonstrates Devin building and managing delivery pipelines. Participant
 
 - **Module:** [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack app (no existing CI)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack app (no existing CI)
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot app with Gradle (alternative)
 - **Objective:** Create a production-ready CI/CD pipeline from scratch — build, test, lint, security scan, and deploy stages — using GitHub Actions
 
@@ -70,9 +70,9 @@ Track A demonstrates Devin building and managing delivery pipelines. Participant
 
 Run these as **parallel sessions** — one for the backend pipeline, one for the frontend:
 
-**Session A — Full Pipeline (app_timesheet):**
+**Session A — Full Pipeline (timesheet-app):**
 ```
-Create a GitHub Actions CI/CD pipeline for app_timesheet that handles both the backend and frontend. The pipeline should: (1) Install dependencies for both backend and frontend, (2) Run linting (ESLint), (3) Run unit tests with coverage reporting, (4) Build the production bundles, (5) Run a security audit (npm audit), (6) Upload test coverage as a build artifact. The pipeline should trigger on PRs to main and on push to main. Use a matrix strategy to test on Node 18 and Node 20. Open a PR with the workflow file.
+Create a GitHub Actions CI/CD pipeline for timesheet-app that handles both the backend and frontend. The pipeline should: (1) Install dependencies for both backend and frontend, (2) Run linting (ESLint), (3) Run unit tests with coverage reporting, (4) Build the production bundles, (5) Run a security audit (npm audit), (6) Upload test coverage as a build artifact. The pipeline should trigger on PRs to main and on push to main. Use a matrix strategy to test on Node 18 and Node 20. Open a PR with the workflow file.
 ```
 
 **Session B — Gradle Pipeline (Spring Boot):**
@@ -127,7 +127,7 @@ Once Devin opens a PR, focus your review on **pipeline quality**:
 
 - **Module:** [CI Failure Resolution](../../modules/devops-cicd/ci-failure-resolution.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app
   - [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) — Spring Boot app (alternative)
 - **Objective:** Investigate and fix a failing CI pipeline — read logs, identify the root cause, and implement a fix that gets CI back to green
 
@@ -135,7 +135,7 @@ Once Devin opens a PR, focus your review on **pipeline quality**:
 
 **Option A — Fix Failing Tests (Node.js):**
 ```
-The CI pipeline for app_timesheet is failing on the test step. Investigate the CI logs, identify which tests are failing and why, fix the underlying issues (not the tests unless the tests themselves are wrong), and get the pipeline back to green. Document what was wrong and how you fixed it in the PR description. Open a PR.
+The CI pipeline for timesheet-app is failing on the test step. Investigate the CI logs, identify which tests are failing and why, fix the underlying issues (not the tests unless the tests themselves are wrong), and get the pipeline back to green. Document what was wrong and how you fixed it in the PR description. Open a PR.
 ```
 
 **Option B — Fix Security Scan Failures (Gradle):**
@@ -188,20 +188,20 @@ Focus on **root cause accuracy**:
 
 - **Modules:** [Release Management](../../modules/devops-cicd/release-management.md) + [Configuration Management & Feature Flags](../../modules/devops-cicd/configuration-management-feature-flags.md)
 - **Repositories:**
-  - [app_dotnet-angular-monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith) — .NET 8 + Angular 17 OrderManager with IaC support
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app (alternative)
+  - [ordermanager-monolith](https://github.com/Cognition-Partner-Workshops/ordermanager-monolith) — .NET 8 + Angular 17 OrderManager with IaC support
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app (alternative)
 - **Objective:** Implement release management practices — semantic versioning, changelogs, release branches — and add feature flags for gradual rollout of new functionality
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 **Option A — Release Pipeline (.NET):**
 ```
-Add release management to app_dotnet-angular-monolith: (1) Create a GitHub Actions workflow that automatically generates a CHANGELOG.md from conventional commits, (2) Implement semantic versioning using git tags, (3) Create a release workflow that builds a Docker image, tags it with the version, and creates a GitHub Release with release notes. Add a `RELEASING.md` documenting the release process. Open a PR.
+Add release management to ordermanager-monolith: (1) Create a GitHub Actions workflow that automatically generates a CHANGELOG.md from conventional commits, (2) Implement semantic versioning using git tags, (3) Create a release workflow that builds a Docker image, tags it with the version, and creates a GitHub Release with release notes. Add a `RELEASING.md` documenting the release process. Open a PR.
 ```
 
 **Option B — Feature Flags (Node.js):**
 ```
-Add a feature flag system to app_timesheet. Implement a simple feature flag service that reads flags from a JSON config file. Add flags for: (1) 'enable_csv_export' — gates the CSV export feature, (2) 'enable_dark_mode' — gates a UI theme toggle, (3) 'enable_bulk_operations' — gates batch operations on work entries. Add a feature flag admin endpoint (GET /api/flags, PUT /api/flags/:name) and integrate flag checks into the relevant frontend components and API routes. Write tests for the feature flag service. Open a PR.
+Add a feature flag system to timesheet-app. Implement a simple feature flag service that reads flags from a JSON config file. Add flags for: (1) 'enable_csv_export' — gates the CSV export feature, (2) 'enable_dark_mode' — gates a UI theme toggle, (3) 'enable_bulk_operations' — gates batch operations on work entries. Add a feature flag admin endpoint (GET /api/flags, PUT /api/flags/:name) and integrate flag checks into the relevant frontend components and API routes. Write tests for the feature flag service. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -253,7 +253,7 @@ Track B demonstrates Devin managing infrastructure as code. Participants will tr
 
 - **Module:** [IaC Translation](../../modules/cloud-infrastructure/iac-translation.md)
 - **Repositories:**
-  - [hosting-client-timesheet-app](https://github.com/Cognition-Partner-Workshops/hosting-client-timesheet-app) — Terraform-based hosting infrastructure
+  - [timesheet-infra](https://github.com/Cognition-Partner-Workshops/timesheet-infra) — Terraform-based hosting infrastructure
   - [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — AWS CDK (TypeScript) platform infrastructure (alternative)
 - **Objective:** Translate infrastructure definitions between IaC tools — Terraform to AWS CDK, CloudFormation to Terraform, or Helm to Kustomize — demonstrating Devin's ability to work across infrastructure tooling
 
@@ -261,7 +261,7 @@ Track B demonstrates Devin managing infrastructure as code. Participants will tr
 
 **Option A — Terraform to CDK:**
 ```
-Translate the Terraform infrastructure in hosting-client-timesheet-app to AWS CDK (TypeScript). Preserve all resources, security groups, IAM roles, and networking configuration. The CDK stack should produce the same infrastructure as the Terraform code. Add a `MIGRATION_NOTES.md` documenting the mapping between Terraform resources and CDK constructs, any differences in behavior, and verification steps. Include CDK unit tests using the assertions module. Open a PR.
+Translate the Terraform infrastructure in timesheet-infra to AWS CDK (TypeScript). Preserve all resources, security groups, IAM roles, and networking configuration. The CDK stack should produce the same infrastructure as the Terraform code. Add a `MIGRATION_NOTES.md` documenting the mapping between Terraform resources and CDK constructs, any differences in behavior, and verification steps. Include CDK unit tests using the assertions module. Open a PR.
 ```
 
 **Option B — CDK Module Extraction:**
@@ -272,7 +272,7 @@ The platform-engineering-shared-services repo has a large CDK stack. Extract the
 #### Step 2: Research with Ask Devin
 
 While Devin works on step 1, open **AskDevin** and explore:
-- *"What's the current infrastructure defined in hosting-client-timesheet-app? What AWS resources does it create?"*
+- *"What's the current infrastructure defined in timesheet-infra? What AWS resources does it create?"*
 - *"What are the main differences between Terraform and AWS CDK for the same infrastructure? Are there any Terraform features that don't map cleanly to CDK?"*
 - *"What are the best practices for CDK construct libraries — how should they be structured for reuse?"*
 
@@ -314,7 +314,7 @@ Focus on **translation fidelity**:
 
 - **Modules:** [Kubernetes Manifest Generation](../../modules/cloud-infrastructure/kubernetes-manifest-generation.md) + [GitOps & ArgoCD Setup](../../modules/cloud-infrastructure/gitops-argocd-setup.md)
 - **Repositories:**
-  - [app_dotnet-angular-monolith-iac](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac) — Helm charts, ArgoCD manifests, and CI/CD for the OrderManager application
+  - [ordermanager-iac](https://github.com/Cognition-Partner-Workshops/ordermanager-iac) — Helm charts, ArgoCD manifests, and CI/CD for the OrderManager application
   - [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — EKS platform with ArgoCD and monitoring (context)
 - **Objective:** Generate Kubernetes deployment manifests (Helm charts), configure GitOps-based deployment with ArgoCD, and set up automated sync from git to cluster
 
@@ -322,18 +322,18 @@ Focus on **translation fidelity**:
 
 **Option A — Helm Chart Creation:**
 ```
-Create a production-ready Helm chart for a new microservice in app_dotnet-angular-monolith-iac. The chart should include: Deployment (with health checks, resource limits, rolling update strategy), Service (ClusterIP), HorizontalPodAutoscaler (min 2, max 10 replicas, 70% CPU target), ConfigMap for environment variables, ServiceAccount with IRSA annotation, and NetworkPolicy restricting ingress. Follow the existing chart patterns in the repo. Add a values.yaml with sensible defaults and a values-production.yaml overlay. Open a PR.
+Create a production-ready Helm chart for a new microservice in ordermanager-iac. The chart should include: Deployment (with health checks, resource limits, rolling update strategy), Service (ClusterIP), HorizontalPodAutoscaler (min 2, max 10 replicas, 70% CPU target), ConfigMap for environment variables, ServiceAccount with IRSA annotation, and NetworkPolicy restricting ingress. Follow the existing chart patterns in the repo. Add a values.yaml with sensible defaults and a values-production.yaml overlay. Open a PR.
 ```
 
 **Option B — ArgoCD Application Setup:**
 ```
-Configure ArgoCD GitOps deployment for app_dotnet-angular-monolith-iac. Create ArgoCD Application manifests that: (1) Point to the Helm chart in this repo, (2) Configure auto-sync with self-heal and prune enabled, (3) Set up sync waves for proper deployment ordering (namespace → configmap → deployment → service → ingress), (4) Add health checks that ArgoCD uses to determine deployment success. Follow the ArgoCD patterns in platform-engineering-shared-services for reference. Open a PR.
+Configure ArgoCD GitOps deployment for ordermanager-iac. Create ArgoCD Application manifests that: (1) Point to the Helm chart in this repo, (2) Configure auto-sync with self-heal and prune enabled, (3) Set up sync waves for proper deployment ordering (namespace → configmap → deployment → service → ingress), (4) Add health checks that ArgoCD uses to determine deployment success. Follow the ArgoCD patterns in platform-engineering-shared-services for reference. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
 
 While Devin works on step 1, open **AskDevin** and explore:
-- *"What's the current Helm chart structure in app_dotnet-angular-monolith-iac? What patterns does it follow?"*
+- *"What's the current Helm chart structure in ordermanager-iac? What patterns does it follow?"*
 - *"What are Kubernetes best practices for production workloads — resource limits, pod disruption budgets, topology spread constraints?"*
 - *"How does ArgoCD sync wave ordering work? What's the recommended ordering for microservice deployments?"*
 
@@ -376,15 +376,15 @@ Focus on **production readiness**:
 
 - **Module:** [Platform-Conformant Microservice Decomposition](../../modules/cloud-infrastructure/platform-conformant-microservice-decomposition.md)
 - **Repositories:**
-  - [app_dotnet-angular-monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith) — .NET 8 + Angular 17 OrderManager monolith
-  - [app_dotnet-angular-monolith-iac](https://github.com/Cognition-Partner-Workshops/app_dotnet-angular-monolith-iac) — Service IaC (Helm, Dockerfile, ArgoCD, CI/CD)
+  - [ordermanager-monolith](https://github.com/Cognition-Partner-Workshops/ordermanager-monolith) — .NET 8 + Angular 17 OrderManager monolith
+  - [ordermanager-iac](https://github.com/Cognition-Partner-Workshops/ordermanager-iac) — Service IaC (Helm, Dockerfile, ArgoCD, CI/CD)
   - [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — Platform standard (EKS, ArgoCD, monitoring, namespace provisioning)
 - **Objective:** Deploy a service to a platform-engineering-managed Kubernetes cluster following the platform team's standards — Dockerfile, Helm chart, ArgoCD app, CI/CD pipeline, and namespace configuration that all conform to the platform conventions
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
 ```
-Prepare the Orders module from app_dotnet-angular-monolith for deployment on the platform defined in platform-engineering-shared-services. Create all required platform-conformant artifacts: (1) Multi-stage Dockerfile optimized for .NET 8, (2) Helm chart following the platform's chart conventions (check existing charts in app_dotnet-angular-monolith-iac), (3) ArgoCD Application manifest pointing to the Helm chart, (4) GitHub Actions CI/CD pipeline that builds the Docker image, pushes to ECR, and updates the Helm values with the new image tag, (5) Namespace request following the platform's provisioning pattern (resource quotas, limit ranges, network policies). Reference the platform conventions in platform-engineering-shared-services for all standards. Open a PR to app_dotnet-angular-monolith-iac.
+Prepare the Orders module from ordermanager-monolith for deployment on the platform defined in platform-engineering-shared-services. Create all required platform-conformant artifacts: (1) Multi-stage Dockerfile optimized for .NET 8, (2) Helm chart following the platform's chart conventions (check existing charts in ordermanager-iac), (3) ArgoCD Application manifest pointing to the Helm chart, (4) GitHub Actions CI/CD pipeline that builds the Docker image, pushes to ECR, and updates the Helm values with the new image tag, (5) Namespace request following the platform's provisioning pattern (resource quotas, limit ranges, network policies). Reference the platform conventions in platform-engineering-shared-services for all standards. Open a PR to ordermanager-iac.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -398,8 +398,8 @@ While Devin works on step 1, open **AskDevin** and explore:
 
 Open both repos' **DeepWiki** pages to understand:
 - The platform's expectations (from platform-engineering-shared-services)
-- The application's runtime requirements (from app_dotnet-angular-monolith)
-- The existing IaC patterns (from app_dotnet-angular-monolith-iac)
+- The application's runtime requirements (from ordermanager-monolith)
+- The existing IaC patterns (from ordermanager-iac)
 
 Try:
 - Have Devin add **Prometheus metrics** to the .NET service and ServiceMonitor to the Helm chart
@@ -441,20 +441,20 @@ Track C demonstrates Devin as an SRE partner. Participants will set up observabi
 
 - **Module:** [Observability & Monitoring](../../modules/observability-sre/observability-monitoring.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js app (add observability)
-  - [app_petclinic-microservices](https://github.com/Cognition-Partner-Workshops/app_petclinic-microservices) — Spring Boot microservices with existing observability support (alternative)
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js app (add observability)
+  - [petclinic-microservices](https://github.com/Cognition-Partner-Workshops/petclinic-microservices) — Spring Boot microservices with existing observability support (alternative)
 - **Objective:** Add observability instrumentation to an application — structured logging, metrics exposition, distributed tracing, and health check endpoints
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-**Option A — Node.js Observability (app_timesheet):**
+**Option A — Node.js Observability (timesheet-app):**
 ```
-Add production observability to app_timesheet: (1) Structured JSON logging using Winston or Pino (replace console.log calls), (2) Prometheus metrics endpoint at /metrics exposing request count, latency histograms, and error rate, (3) Health check endpoints at /health/live and /health/ready, (4) Request correlation IDs (X-Request-ID header) propagated through all log entries, (5) Error tracking with stack traces in structured format. Add a `docker-compose.monitoring.yml` that runs Prometheus and Grafana alongside the app, with a pre-configured Grafana dashboard showing the key metrics. Open a PR.
+Add production observability to timesheet-app: (1) Structured JSON logging using Winston or Pino (replace console.log calls), (2) Prometheus metrics endpoint at /metrics exposing request count, latency histograms, and error rate, (3) Health check endpoints at /health/live and /health/ready, (4) Request correlation IDs (X-Request-ID header) propagated through all log entries, (5) Error tracking with stack traces in structured format. Add a `docker-compose.monitoring.yml` that runs Prometheus and Grafana alongside the app, with a pre-configured Grafana dashboard showing the key metrics. Open a PR.
 ```
 
 **Option B — Spring Boot Observability (microservices):**
 ```
-Review the observability setup in app_petclinic-microservices. Add or improve: (1) Distributed tracing configuration using Micrometer Tracing (ensure trace IDs propagate across service calls), (2) Custom business metrics (appointment count, vet availability), (3) Grafana dashboards for the key service metrics, (4) Alert rules for error rate > 5% and p99 latency > 2 seconds. Document the observability architecture in an `OBSERVABILITY.md`. Open a PR.
+Review the observability setup in petclinic-microservices. Add or improve: (1) Distributed tracing configuration using Micrometer Tracing (ensure trace IDs propagate across service calls), (2) Custom business metrics (appointment count, vet availability), (3) Grafana dashboards for the key service metrics, (4) Alert rules for error rate > 5% and p99 latency > 2 seconds. Document the observability architecture in an `OBSERVABILITY.md`. Open a PR.
 ```
 
 #### Step 2: Research with Ask Devin
@@ -502,7 +502,7 @@ Focus on **observability quality**:
 
 - **Modules:** [Incident Response & Triage](../../modules/observability-sre/incident-response-triage.md) + [Pod Remediation After Credential Rotation](../../modules/observability-sre/pod-remediation-credential-rotation.md)
 - **Repositories:**
-  - [app_eventflow-devin-integration](https://github.com/Cognition-Partner-Workshops/app_eventflow-devin-integration) — Azure Monitor alert → Devin investigation pipeline
+  - [eventflow-devin-integration](https://github.com/Cognition-Partner-Workshops/eventflow-devin-integration) — Azure Monitor alert → Devin investigation pipeline
   - [uc-pod-remediation-credential-rotation](https://github.com/Cognition-Partner-Workshops/uc-pod-remediation-credential-rotation) — Automated Kubernetes pod remediation system (alternative)
 - **Objective:** Set up automated incident investigation where alerts trigger Devin sessions that analyze logs, identify root causes, and open fix PRs — demonstrating Devin as an always-on on-call engineer
 
@@ -510,7 +510,7 @@ Focus on **observability quality**:
 
 **Option A — Alert-to-Fix Pipeline (EventFlow):**
 ```
-Review the app_eventflow-devin-integration codebase. This system receives Azure Monitor alert webhooks and triggers Devin sessions to investigate production incidents. Set up the FastAPI webhook receiver locally. Simulate an alert for a "500 Internal Server Error" spike in the payment-service. Verify the system generates the correct investigation prompt for Devin. Add a new alert handler for "High Latency" alerts that generates an appropriate investigation prompt focused on database query performance and connection pool exhaustion. Write tests for the new handler. Open a PR.
+Review the eventflow-devin-integration codebase. This system receives Azure Monitor alert webhooks and triggers Devin sessions to investigate production incidents. Set up the FastAPI webhook receiver locally. Simulate an alert for a "500 Internal Server Error" spike in the payment-service. Verify the system generates the correct investigation prompt for Devin. Add a new alert handler for "High Latency" alerts that generates an appropriate investigation prompt focused on database query performance and connection pool exhaustion. Write tests for the new handler. Open a PR.
 ```
 
 **Option B — Credential Rotation Remediation:**
@@ -620,9 +620,9 @@ Participants who finish early or want to explore further can attempt any challen
 | Challenge | Module | Repo | Track | Difficulty |
 |-----------|--------|------|-------|------------|
 | Cost Optimization Analysis | [Cost Optimization](../../modules/cloud-infrastructure/cost-optimization-analysis.md) | platform-engineering-shared-services | B | Intermediate |
-| Terraform Module Extraction | [Terraform Module Extraction](../../modules/cloud-infrastructure/terraform-module-extraction.md) | hosting-client-timesheet-app | B | Intermediate |
+| Terraform Module Extraction | [Terraform Module Extraction](../../modules/cloud-infrastructure/terraform-module-extraction.md) | timesheet-infra | B | Intermediate |
 | PR Review Automation | [PR Review](../../modules/devops-cicd/pr-review-automation.md) | Any | A | Beginner |
-| Incident Response & Triage | [Incident Response](../../modules/observability-sre/incident-response-triage.md) | app_dotnet-angular-monolith | C | Advanced |
+| Incident Response & Triage | [Incident Response](../../modules/observability-sre/incident-response-triage.md) | ordermanager-monolith | C | Advanced |
 | CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | Any app repo | A | Intermediate |
 
 ## Suggested Formats
@@ -638,21 +638,21 @@ Participants who finish early or want to explore further can attempt any challen
 ## Repos Required
 
 ### Track A (CI/CD & Delivery Automation)
-- [ ] app_timesheet
+- [ ] timesheet-app
 - [ ] uc-framework-upgrade-monolith-to-microservices (optional, for Lab A1 Session B)
 - [ ] uc-cve-remediation-regulatory-compliance (optional, for Lab A2 Option B)
-- [ ] app_dotnet-angular-monolith (for Lab A3 Option A)
+- [ ] ordermanager-monolith (for Lab A3 Option A)
 
 ### Track B (Cloud Infrastructure & Platform Engineering)
-- [ ] hosting-client-timesheet-app (for Lab B1)
+- [ ] timesheet-infra (for Lab B1)
 - [ ] platform-engineering-shared-services (for Labs B1, B2, B3 — as reference)
-- [ ] app_dotnet-angular-monolith-iac (for Labs B2, B3)
-- [ ] app_dotnet-angular-monolith (for Lab B3)
+- [ ] ordermanager-iac (for Labs B2, B3)
+- [ ] ordermanager-monolith (for Lab B3)
 
 ### Track C (Observability & Incident Response)
-- [ ] app_timesheet (for Lab C1 Option A)
-- [ ] app_petclinic-microservices (optional, for Lab C1 Option B)
-- [ ] app_eventflow-devin-integration (for Lab C2 Option A)
+- [ ] timesheet-app (for Lab C1 Option A)
+- [ ] petclinic-microservices (optional, for Lab C1 Option B)
+- [ ] eventflow-devin-integration (for Lab C2 Option A)
 - [ ] uc-pod-remediation-credential-rotation (optional, for Lab C2 Option B)
 - [ ] uc-volume-anomaly-detection (for Lab C3)
 
