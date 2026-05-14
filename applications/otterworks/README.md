@@ -45,12 +45,13 @@ Before diving into prompts and labs, get the OtterWorks platform running and cli
 # Clone and start the full stack
 git clone https://github.com/Cognition-Partner-Workshops/otterworks.git
 cd otterworks
+git checkout Harness
 docker compose up -d
 ```
 
 Once services are healthy (~2 min):
 - **Web app:** http://localhost:3000 — register, create documents, upload files, search
-- **Admin dashboard:** http://localhost:4200 — view system health, user management, chaos scenarios
+- **Admin dashboard:** http://localhost:4200 — view system health, user management, chaos scenarios, **incident management & Devin investigation triggers**
 - **Grafana:** http://localhost:3001 — dashboards for service metrics, chaos scenarios, incident overview
 - **Jaeger:** http://localhost:16686 — distributed traces across services
 - **Prometheus:** http://localhost:9090 — raw metrics and alert rules
@@ -130,12 +131,14 @@ Focus: Investigating production incidents, building runbooks, and improving obse
 ### Lab B1 — Investigate Production Incident (45-60 min)
 
 - **Lab Guide:** [B1-investigate-incident.md](B1-investigate-incident.md)
-- **Objective:** Trigger a chaos scenario, investigate the resulting incident using Grafana and Jaeger, and identify the root cause
+- **Objective:** Trigger a chaos scenario and investigate the resulting incident across three escalation levels: manual investigation with Grafana/Jaeger, one-click Devin session from the Incidents page, and fully automatic alert-driven Devin investigation
 
 **Key Takeaways:**
 - Devin can correlate signals across dashboards, logs, and traces to identify root causes
 - Different incident signatures (error spikes vs. latency spikes) require different investigation approaches
 - Having Devin read observability data directly is faster than describing symptoms manually
+- **Event-driven pattern:** Grafana alerts → webhook → auto-created incidents → Devin API sessions demonstrate "Devin as an always-on on-call engineer"
+- The three-flow escalation (manual → one-click → fully automatic) shows how teams can adopt Devin incrementally
 
 ---
 
