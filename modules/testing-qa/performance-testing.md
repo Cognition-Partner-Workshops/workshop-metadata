@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [cal.com](#calcom)
+- [timesheet-app](#timesheet-app)
+- [calcom](#calcom)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -47,15 +47,15 @@ The application should be running locally for profiling. See [runtime-resources.
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express backend with SQLite — good candidate for query optimization and API response time improvement.
 
 ### Step 1: Paste into Devin
 
-> Run app_timesheet locally and profile the API endpoints. Identify the slowest endpoints and database queries. Add request timing middleware to measure response times. Optimize the top 3 slowest operations (query optimization, adding indexes, caching). Create a simple benchmark script to measure before/after performance. Open a PR with the optimizations and evidence.
+> Run timesheet-app locally and profile the API endpoints. Identify the slowest endpoints and database queries. Add request timing middleware to measure response times. Optimize the top 3 slowest operations (query optimization, adding indexes, caching). Create a simple benchmark script to measure before/after performance. Open a PR with the optimizations and evidence.
 
 ### Step 2: Research with Ask Devin
 
@@ -73,19 +73,19 @@ Open the repo's DeepWiki page to understand the data access patterns and API usa
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Complex Next.js application with Prisma ORM — many opportunities for database query optimization and frontend performance improvement.
 
 ### Step 1: Paste into Devin
 
-> Start cal.com locally with `yarn dev`. Profile the booking page load time and the availability check API. Identify slow database queries using Prisma query logging. Optimize the top 3 performance bottlenecks. Create before/after measurements. Open a PR.
+> Start calcom locally with `yarn dev`. Profile the booking page load time and the availability check API. Identify slow database queries using Prisma query logging. Optimize the top 3 performance bottlenecks. Create before/after measurements. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the most expensive Prisma queries in cal.com? Are there any missing database indexes?"*
+- *"What are the most expensive Prisma queries in calcom? Are there any missing database indexes?"*
 - *"Are there any React components that re-render unnecessarily on the booking page?"*
 
 ### Step 3 (Optional): Read the DeepWiki

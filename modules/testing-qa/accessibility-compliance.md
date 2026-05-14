@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [cal.com](#calcom)
+- [timesheet-app](#timesheet-app)
+- [calcom](#calcom)
 
 ---
 
@@ -46,19 +46,19 @@ The application should be running locally for browser-based auditing.
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React application with Material-UI components — good candidate for ARIA attribute improvements and keyboard navigation fixes.
 
 ### Step 1: Paste into Devin
 
-> Run app_timesheet locally (frontend on port 5173). Run a Lighthouse accessibility audit on the main pages (/work-entries, /clients, /reports). Fix all critical and serious accessibility violations: missing form labels, insufficient color contrast, missing alt text, and keyboard navigation issues. Open a PR with the fixes and the audit scores before/after.
+> Run timesheet-app locally (frontend on port 5173). Run a Lighthouse accessibility audit on the main pages (/work-entries, /clients, /reports). Fix all critical and serious accessibility violations: missing form labels, insufficient color contrast, missing alt text, and keyboard navigation issues. Open a PR with the fixes and the audit scores before/after.
 
 ### Step 2: Research with Ask Devin
 
-- *"What WCAG 2.1 Level AA violations exist in app_timesheet's React components?"*
+- *"What WCAG 2.1 Level AA violations exist in timesheet-app's React components?"*
 - *"Are the Material-UI components configured with proper ARIA attributes for screen readers?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -72,15 +72,15 @@ Open the repo's DeepWiki page to understand the component hierarchy. Identify fo
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Complex scheduling application where accessibility is critical for public-facing booking pages.
 
 ### Step 1: Paste into Devin
 
-> Start cal.com locally with `yarn dev`. Run a Lighthouse accessibility audit on the public booking page. Fix all critical accessibility issues: ensure the date/time picker is keyboard-navigable, all form fields have proper labels, and color contrast meets WCAG 2.1 AA. Open a PR with fixes and audit evidence.
+> Start calcom locally with `yarn dev`. Run a Lighthouse accessibility audit on the public booking page. Fix all critical accessibility issues: ensure the date/time picker is keyboard-navigable, all form fields have proper labels, and color contrast meets WCAG 2.1 AA. Open a PR with fixes and audit evidence.
 
 ### Step 2: Research with Ask Devin
 

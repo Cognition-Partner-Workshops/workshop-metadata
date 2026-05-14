@@ -52,7 +52,7 @@ A few tips to maximize your hands-on time:
 
 **Value driver:** *Devin reads an entire codebase and produces structured technical documentation — the kind of assessment that normally takes a senior engineer a week.*
 
-- **Repository:** [ts-java-spring-boot-internet-banking-microservices](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking-microservices)
+- **Repository:** [ts-java-spring-boot-internet-banking](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking)
 - **Modules:** [API Design Review](../../../modules/architecture-design/api-design-review.md), [Dependency Graph Analysis](../../../modules/architecture-design/dependency-graph-analysis.md)
 
 This is your first Devin session. The task is pure analysis — Devin reads code and produces documents, no risky code changes. This lets you focus on learning the platform workflow: paste a prompt, watch Devin plan and execute, review the PR.
@@ -62,7 +62,7 @@ The repo is a Java 21 / Spring Boot 3.2.4 banking application with 6 microservic
 ### Paste into Devin
 
 ```
-Perform a comprehensive technical assessment of ts-java-spring-boot-internet-banking-microservices. This is a Java 21 / Spring Boot 3.2.4 banking application with 6 microservices. Produce the following deliverables:
+Perform a comprehensive technical assessment of ts-java-spring-boot-internet-banking. This is a Java 21 / Spring Boot 3.2.4 banking application with 6 microservices. Produce the following deliverables:
 
 1. **Application Knowledge Base** (`docs/KNOWLEDGE_BASE.md`):
    - Architecture overview (services, communication patterns, infrastructure components)
@@ -115,7 +115,7 @@ When Devin opens a PR:
 
 **Value driver:** *Give Devin an API specification, get back a complete production-ready Spring Boot microservice with controllers, services, validation, configuration, and 90% test coverage.*
 
-- **Repository:** [ts-java-spring-petclinic-rest-api](https://github.com/Cognition-Partner-Workshops/ts-java-spring-petclinic-rest-api)
+- **Repository:** [petclinic-rest-api](https://github.com/Cognition-Partner-Workshops/petclinic-rest-api)
 - **Modules:** [Containerization & Microservice Extraction](../../../modules/migration-modernization/containerization-microservice-extraction.md)
 
 Now you'll see Devin write real code. The PetClinic REST API repo ships a rich OpenAPI 3.0 specification (2,168 lines, 35 operations, 15 schemas, 8 domain areas). You'll give Devin this spec and have it generate a complete microservice from scratch.
@@ -123,7 +123,7 @@ Now you'll see Devin write real code. The PetClinic REST API repo ships a rich O
 ### Paste into Devin
 
 ```
-Using the OpenAPI specification at `src/main/resources/openapi.yml` in ts-java-spring-petclinic-rest-api as the source of truth, generate a brand new Spring Boot microservice that implements the "Vet" domain (veterinarians and specialties). The new service should be fully standalone — not a modification of the existing monolith.
+Using the OpenAPI specification at `src/main/resources/openapi.yml` in petclinic-rest-api as the source of truth, generate a brand new Spring Boot microservice that implements the "Vet" domain (veterinarians and specialties). The new service should be fully standalone — not a modification of the existing monolith.
 
 Generate all components following Spring Boot conventions:
 1. **Controller** with proper REST mappings matching the OpenAPI spec, request validation (@Valid), and error handling (@ControllerAdvice)
@@ -256,14 +256,14 @@ Participants who want to keep exploring after the workshop can try these additio
 
 ### Exercise A: COBOL Copybook to PySpark/JSON Config Generation
 
-- **Repository:** [aws-mainframe-modernization-carddemo](https://github.com/Cognition-Partner-Workshops/aws-mainframe-modernization-carddemo)
+- **Repository:** [ts-cobol-carddemo](https://github.com/Cognition-Partner-Workshops/ts-cobol-carddemo)
 - **Module:** [COBOL Copybook to PySpark/JSON](../../../modules/data-engineering/cobol-copybook-to-pyspark-json.md)
 - **Shows:** Devin reading legacy COBOL data definitions and generating modern data engineering artifacts
 
 #### Paste into Devin
 
 ```
-Analyze the COBOL copybook `app/cpy/CVACT01Y.cpy` in aws-mainframe-modernization-carddemo. This defines the ACCOUNT-RECORD layout (300 bytes) with fields like ACCT-ID (PIC 9(11)), ACCT-CURR-BAL (PIC S9(10)V99), dates (PIC X(10)), and FILLER.
+Analyze the COBOL copybook `app/cpy/CVACT01Y.cpy` in ts-cobol-carddemo. This defines the ACCOUNT-RECORD layout (300 bytes) with fields like ACCT-ID (PIC 9(11)), ACCT-CURR-BAL (PIC S9(10)V99), dates (PIC X(10)), and FILLER.
 
 Generate:
 1. A PySpark script that reads `app/data/ASCII/acctdata.txt` as a fixed-width file using the copybook-derived schema
@@ -305,14 +305,14 @@ Open a PR with the report and the fixes.
 
 ### Exercise C: Payment Payload Gap Analysis & Business Capability Decomposition
 
-- **Repository:** [ts-java-spring-boot-internet-banking-microservices](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking-microservices)
+- **Repository:** [ts-java-spring-boot-internet-banking](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking)
 - **Modules:** [API Design Review](../../../modules/architecture-design/api-design-review.md), [Dependency Graph Analysis](../../../modules/architecture-design/dependency-graph-analysis.md)
 - **Shows:** Devin analyzing payment domain code against industry standards and recommending a service decomposition strategy
 
 #### Paste into Devin
 
 ```
-Analyze ts-java-spring-boot-internet-banking-microservices and produce a payment domain assessment. This banking application has 6 microservices including fund-transfer and utility-payment services.
+Analyze ts-java-spring-boot-internet-banking and produce a payment domain assessment. This banking application has 6 microservices including fund-transfer and utility-payment services.
 
 Deliverables:
 
@@ -341,7 +341,7 @@ Open a PR with all three documents.
 
 ### Exercise D: SAS to Python/Snowflake Migration
 
-- **Repositories:** [ts-sas-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-codebase), [uc-data-migration-sas-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-snowflake)
+- **Repositories:** [ts-sas-legacy-analytics](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-analytics), [uc-data-migration-sas-to-snowflake](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-snowflake)
 - **Module:** [SAS to Python/Snowflake](../../../modules/data-engineering/sas-to-python-snowflake.md)
 - **Shows:** Devin reading legacy SAS programs and producing equivalent Python (pandas) functions and Snowflake SQL — cross-language ETL migration
 - **Audience:** SAS developers, ETL engineers, data platform teams
@@ -349,7 +349,7 @@ Open a PR with all three documents.
 #### Paste into Devin
 
 ```
-Analyze the SAS macros in ts-sas-legacy-codebase/Macro/ — focus on the data transformation macros: transpose.sas, subset_data.sas, compare.sas, dedup_string.sas, dedup_mstring.sas, and the export family (export_csv.sas, export_xlsx.sas, export_dbms.sas).
+Analyze the SAS macros in ts-sas-legacy-analytics/Macro/ — focus on the data transformation macros: transpose.sas, subset_data.sas, compare.sas, dedup_string.sas, dedup_mstring.sas, and the export family (export_csv.sas, export_xlsx.sas, export_dbms.sas).
 
 For each macro:
 1. Understand the SAS logic (DATA steps, PROC operations, macro variables, BY-group processing)
@@ -404,14 +404,14 @@ Open a PR with the upgraded monolith, extracted microservice, Docker Compose, an
 
 ### Exercise F: Ab Initio ETL Framework → Databricks Migration
 
-- **Repository:** [ts-python-abinitio-etl-framework](https://github.com/Cognition-Partner-Workshops/ts-python-abinitio-etl-framework)
+- **Repository:** [ts-python-abinitio-etl](https://github.com/Cognition-Partner-Workshops/ts-python-abinitio-etl)
 - **Shows:** Devin reading an enterprise Ab Initio ETL estate (DML schemas, graph patterns, PSET configs, KornShell orchestration, CDC processing) and generating a complete Databricks Lakehouse migration — PySpark notebooks, Delta Lake DDL, Databricks Workflows, and Delta MERGE for CDC
 - **Audience:** Ab Initio developers, ETL engineers, data platform migration teams
 
 #### Paste into Devin
 
 ```
-Analyze the Ab Initio ETL framework in ts-python-abinitio-etl-framework. This is an enterprise ETL estate with:
+Analyze the Ab Initio ETL framework in ts-python-abinitio-etl. This is an enterprise ETL estate with:
 - DML record layouts in `dml/` (Ab Initio schema definitions)
 - Graph execution patterns in `graphs/` (parallel loader, CDC processor)
 - PSET templates in `psets/pset_templates/` (environment-aware configuration)
@@ -454,17 +454,17 @@ Open a PR with all Databricks artifacts and the migration runbook.
 ### Repos Required (must be available in the target GitHub org)
 
 **Core labs (required):**
-- [ ] ts-java-spring-boot-internet-banking-microservices (Lab 1)
-- [ ] ts-java-spring-petclinic-rest-api (Lab 2)
+- [ ] ts-java-spring-boot-internet-banking (Lab 1)
+- [ ] petclinic-rest-api (Lab 2)
 - [ ] uc-data-source-migration-legacy-to-modern (Lab 3a & 3b)
 
 **Post-session exercises (optional):**
-- [ ] aws-mainframe-modernization-carddemo (Exercise A)
+- [ ] ts-cobol-carddemo (Exercise A)
 - [ ] uc-cve-remediation-regulatory-compliance (Exercise B)
-- [ ] ts-sas-legacy-codebase (Exercise D)
+- [ ] ts-sas-legacy-analytics (Exercise D)
 - [ ] uc-data-migration-sas-to-snowflake (Exercise D)
 - [ ] uc-framework-upgrade-monolith-to-microservices (Exercise E)
-- [ ] ts-python-abinitio-etl-framework (Exercise F)
+- [ ] ts-python-abinitio-etl (Exercise F)
 
 ### Integration Requirements
 

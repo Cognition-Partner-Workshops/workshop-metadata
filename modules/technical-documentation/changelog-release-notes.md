@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -49,19 +49,19 @@ Beginner to Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React + Node.js/Express timesheet application with an active git history suitable for changelog generation.
 
 ### Step 1: Paste into Devin
 
-> Analyze the git history of app_timesheet and generate release documentation. Create: (1) `CHANGELOG.md` in the repo root following the Keep a Changelog format — categorize all changes into Added, Changed, Deprecated, Removed, Fixed, and Security sections, (2) `docs/release-notes/v1.0.md` — user-facing release notes summarizing the current state of the application with highlights and known issues, (3) `scripts/generate-changelog.sh` — a script that can regenerate the changelog from git history using conventional commit parsing, and (4) if any breaking changes are found, add a `MIGRATION.md` with upgrade instructions. Open a PR.
+> Analyze the git history of timesheet-app and generate release documentation. Create: (1) `CHANGELOG.md` in the repo root following the Keep a Changelog format — categorize all changes into Added, Changed, Deprecated, Removed, Fixed, and Security sections, (2) `docs/release-notes/v1.0.md` — user-facing release notes summarizing the current state of the application with highlights and known issues, (3) `scripts/generate-changelog.sh` — a script that can regenerate the changelog from git history using conventional commit parsing, and (4) if any breaking changes are found, add a `MIGRATION.md` with upgrade instructions. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What does the git history of app_timesheet look like? Are there conventional commit messages, tags, or release branches?"*
+- *"What does the git history of timesheet-app look like? Are there conventional commit messages, tags, or release branches?"*
 - *"What are the most significant changes in recent commits? Are there any breaking API or schema changes?"*
 
 ### Step 3 (Optional): Read the DeepWiki

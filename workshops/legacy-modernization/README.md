@@ -143,7 +143,7 @@ Open the repo's DeepWiki page. Try migrating different programs, targeting diffe
 **Key Modules:** [Oracle Forms System Understanding](../../modules/migration-modernization/oracle-forms-system-understanding.md), [Oracle Forms Migration Planning](../../modules/migration-modernization/oracle-forms-migration-planning.md), [Migration Test Harness](../../modules/migration-modernization/migration-test-harness.md), [Oracle Forms to Java](../../modules/migration-modernization/oracle-forms-to-java.md)
 
 **Repositories:**
-- [ts-plsql-oracle-forms-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-legacy-codebase) — Oracle Forms 11g/12c HRMS legacy application (source system)
+- [ts-plsql-oracle-forms-hrms](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-hrms) — Oracle Forms 11g/12c HRMS legacy application (source system)
 - [uc-legacy-modernization-oracle-forms-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-oracle-forms-to-java) — Migration artifacts, target Spring Boot structure, test harness
 
 **Full event guide:** [Oracle Forms Modernization Workshop](../../events/oracle-forms-modernization-workshop/README.md)
@@ -155,11 +155,11 @@ Open the repo's DeepWiki page. Try migrating different programs, targeting diffe
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Analyze the entire Oracle Forms/PL/SQL estate in ts-plsql-oracle-forms-legacy-codebase. Produce: (1) `APPLICATION_INVENTORY.md` cataloging every Forms XML export, PLL library, PL/SQL package, trigger, view, and schema object with layer classifications, (2) `DATA_DICTIONARY.md` extracting business entities from DDL schemas grouped by domain, (3) `DEPENDENCY_MAP.md` with a multi-layer call graph (Forms → PLL → packages → tables) and circular dependency identification, (4) `TECHNICAL_DEBT_REPORT.md` finding security vulnerabilities, race conditions, performance anti-patterns, and validation drift ranked by severity. Open a PR with all artifacts.
+> Analyze the entire Oracle Forms/PL/SQL estate in ts-plsql-oracle-forms-hrms. Produce: (1) `APPLICATION_INVENTORY.md` cataloging every Forms XML export, PLL library, PL/SQL package, trigger, view, and schema object with layer classifications, (2) `DATA_DICTIONARY.md` extracting business entities from DDL schemas grouped by domain, (3) `DEPENDENCY_MAP.md` with a multi-layer call graph (Forms → PLL → packages → tables) and circular dependency identification, (4) `TECHNICAL_DEBT_REPORT.md` finding security vulnerabilities, race conditions, performance anti-patterns, and validation drift ranked by severity. Open a PR with all artifacts.
 
 #### Step 2: Research with Ask Devin
 
-- *"What circular dependencies exist in ts-plsql-oracle-forms-legacy-codebase and how do they affect compilation order?"*
+- *"What circular dependencies exist in ts-plsql-oracle-forms-hrms and how do they affect compilation order?"*
 - *"What security vulnerabilities exist in PKG_SECURITY and how would you fix them in a Java migration?"*
 
 #### Step 3 (Optional): Read the DeepWiki
@@ -182,7 +182,7 @@ Open the repo's DeepWiki page to see how Devin auto-generates architecture docum
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Analyze the Oracle Forms/PL/SQL HRMS application in ts-plsql-oracle-forms-legacy-codebase and produce a migration plan. Create: (1) `MIGRATION_STRATEGY.md` evaluating strangler fig, big-bang rewrite, and re-platform (APEX) approaches for each functional area, (2) `COMPONENT_MAPPING.md` mapping every Forms element to its Java/React equivalent, (3) `MODULE_ORDERING.md` with a safe migration sequence respecting package dependencies, (4) `RISK_REGISTER.md` with top 10 Forms-specific migration risks. Open a PR.
+> Analyze the Oracle Forms/PL/SQL HRMS application in ts-plsql-oracle-forms-hrms and produce a migration plan. Create: (1) `MIGRATION_STRATEGY.md` evaluating strangler fig, big-bang rewrite, and re-platform (APEX) approaches for each functional area, (2) `COMPONENT_MAPPING.md` mapping every Forms element to its Java/React equivalent, (3) `MODULE_ORDERING.md` with a safe migration sequence respecting package dependencies, (4) `RISK_REGISTER.md` with top 10 Forms-specific migration risks. Open a PR.
 
 #### Step 2: Research with Ask Devin
 
@@ -237,7 +237,7 @@ Open the repo's DeepWiki page to understand the test harness structure and scena
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Analyze PKG_EMPLOYEE in ts-plsql-oracle-forms-legacy-codebase (spec + body). Also review the HRMS_EMPLOYEE Forms XML and HRMS_VALIDATION_LIB PLL. Migrate the employee management functionality to Java Spring Boot: (1) EmployeeService with all CRUD operations, search, org chart, transfer, (2) JPA entities for EMPLOYEES and related tables, (3) REST API endpoints, (4) Unified validation from PLL and package layers, (5) Fix SQL injection, race condition, and circular dependency, (6) Unit tests for parity, (7) MIGRATION_NOTES.md. Use the project in uc-legacy-modernization-oracle-forms-to-java/java-target/. Open a PR.
+> Analyze PKG_EMPLOYEE in ts-plsql-oracle-forms-hrms (spec + body). Also review the HRMS_EMPLOYEE Forms XML and HRMS_VALIDATION_LIB PLL. Migrate the employee management functionality to Java Spring Boot: (1) EmployeeService with all CRUD operations, search, org chart, transfer, (2) JPA entities for EMPLOYEES and related tables, (3) REST API endpoints, (4) Unified validation from PLL and package layers, (5) Fix SQL injection, race condition, and circular dependency, (6) Unit tests for parity, (7) MIGRATION_NOTES.md. Use the project in uc-legacy-modernization-oracle-forms-to-java/java-target/. Open a PR.
 
 #### Step 2: Research with Ask Devin
 
@@ -284,7 +284,7 @@ Open both repos' DeepWiki pages to understand the legacy architecture and target
 
 ### Track B (Oracle Forms)
 
-- [ ] ts-plsql-oracle-forms-legacy-codebase
+- [ ] ts-plsql-oracle-forms-hrms
 - [ ] uc-legacy-modernization-oracle-forms-to-java
 
 ### Optional (for extended challenges)

@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [Online-Banking-System-using-Java](#Online-Banking-System-using-Java)
 
 ---
@@ -42,20 +42,20 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express timesheet application that handles user data including names, emails, and authentication credentials — a realistic target for PII analysis.
 
 ### Step 1: Paste into Devin
 
-> Scan app_timesheet for GDPR and PII compliance issues. Analyze the entire codebase to identify where personal data (names, emails, passwords, user identifiers) is stored, processed, transmitted, and logged. Check for: unencrypted PII in the database, PII leaked in logs or error messages, missing data anonymization, lack of consent mechanisms, and insecure data transmission. Create a `PII_COMPLIANCE_REPORT.md` with a data flow map, a list of compliance gaps rated by severity (Critical/High/Medium/Low), and recommended fixes. Implement the highest-priority fixes (e.g., removing PII from logs, adding password hashing if missing). Open a PR with the fixes and compliance report.
+> Scan timesheet-app for GDPR and PII compliance issues. Analyze the entire codebase to identify where personal data (names, emails, passwords, user identifiers) is stored, processed, transmitted, and logged. Check for: unencrypted PII in the database, PII leaked in logs or error messages, missing data anonymization, lack of consent mechanisms, and insecure data transmission. Create a `PII_COMPLIANCE_REPORT.md` with a data flow map, a list of compliance gaps rated by severity (Critical/High/Medium/Low), and recommended fixes. Implement the highest-priority fixes (e.g., removing PII from logs, adding password hashing if missing). Open a PR with the fixes and compliance report.
 
 ### Step 2: Research with Ask Devin
 
-- *"Where does app_timesheet store or log personal user data? Are there any places where PII could leak into logs or error responses?"*
-- *"What GDPR-required mechanisms (consent, right to erasure, data portability) are missing from app_timesheet?"*
+- *"Where does timesheet-app store or log personal user data? Are there any places where PII could leak into logs or error responses?"*
+- *"What GDPR-required mechanisms (consent, right to erasure, data portability) are missing from timesheet-app?"*
 
 ### Step 3 (Optional): Read the DeepWiki
 

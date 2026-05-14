@@ -19,12 +19,12 @@ Challenges focused on Infrastructure as Code, Kubernetes, GitOps, cloud cost opt
 
 | Repository | Compatible Modules |
 |------------|--------------------|
-| hosting-client-timesheet-app | [IaC Translation](iac-translation.md), [Terraform Module Extraction](terraform-module-extraction.md), [Cost Optimization Analysis](cost-optimization-analysis.md) |
-| cal.com-infra | [IaC Translation](iac-translation.md), [Cost Optimization Analysis](cost-optimization-analysis.md) |
-| app_dotnet-angular-monolith | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) |
-| app_dotnet-angular-microservices | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) (landing repo) |
+| timesheet-infra | [IaC Translation](iac-translation.md), [Terraform Module Extraction](terraform-module-extraction.md), [Cost Optimization Analysis](cost-optimization-analysis.md) |
+| calcom-infra | [IaC Translation](iac-translation.md), [Cost Optimization Analysis](cost-optimization-analysis.md) |
+| ordermanager-monolith | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) |
+| ordermanager-microservices | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) (landing repo) |
 | platform-engineering-shared-services | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) (context) |
-| app_dotnet-angular-monolith-iac | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) (context) |
+| ordermanager-iac | [Platform-Conformant Microservice Decomposition](platform-conformant-microservice-decomposition.md) (context) |
 
 ## When to Use This Category
 

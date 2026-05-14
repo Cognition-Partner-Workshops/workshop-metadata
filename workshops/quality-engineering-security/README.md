@@ -35,7 +35,7 @@ Two halves, each with 2 structured labs:
 
 ### Lab 1 — Linting & Unit Testing (45 min)
 - **Modules:** [Linting & Static Analysis](../../modules/testing-qa/linting-static-analysis.md) + [Unit Testing](../../modules/testing-qa/unit-testing.md)
-- **Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+- **Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 - **Objective:** Start by resolving linting issues (GitHub Issue #3), then improve unit test coverage and generate a coverage report
 - **Target Outcomes:**
   - All ESLint/Prettier violations resolved
@@ -45,8 +45,8 @@ Two halves, each with 2 structured labs:
 
 ### Lab 2 — E2E Testing & Documentation (45 min)
 - **Modules:** [End-to-End Testing](../../modules/testing-qa/end-to-end-testing.md) + [Inline Documentation](../../modules/technical-documentation/inline-documentation.md)
-- **Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
-- **Alternative E2E repo:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com) (for participants wanting a more complex target)
+- **Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
+- **Alternative E2E repo:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom) (for participants wanting a more complex target)
 - **Objective:** Write and run E2E tests against the locally running application, then improve inline documentation across the codebase
 - **Target Outcomes:**
   - E2E test suite created (Playwright or Selenium)
@@ -74,7 +74,7 @@ Two halves, each with 2 structured labs:
 
 ### Lab 4 — Shift Left & Security Antipatterns (45 min)
 - **Modules:** [Shift Left Security](../../modules/security/shift-left-security.md) + [Security Antipatterns](../../modules/security/security-antipatterns.md)
-- **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) or [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+- **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) or [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 - **Objective:** Add CI workflows that gate on security policy violations, then identify and fix security antipatterns in application code
 - **Target Outcomes:**
   - GitHub Actions workflow added with security scanning (Trivy, OWASP DC, or SonarQube)
@@ -91,21 +91,21 @@ Participants who finish early may attempt any challenge from the full [module ca
 
 | Challenge | Module | Repo | Difficulty | Time |
 |-----------|--------|------|-----------|------|
-| New Feature Development | [New Feature Development](../../modules/application-development/new-feature-development.md) | app_timesheet | Intermediate | 60 min |
-| Fix UI Bug | [Fix UI Bug](../../modules/application-development/fix-ui-bug.md) | app_timesheet | Intermediate | 45 min |
-| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | app_timesheet | Intermediate | 60 min |
+| New Feature Development | [New Feature Development](../../modules/application-development/new-feature-development.md) | timesheet-app | Intermediate | 60 min |
+| Fix UI Bug | [Fix UI Bug](../../modules/application-development/fix-ui-bug.md) | timesheet-app | Intermediate | 45 min |
+| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | timesheet-app | Intermediate | 60 min |
 
 ---
 
 ## Repos Required on Devin's Machine
 
-- [ ] app_timesheet
+- [ ] timesheet-app
 - [ ] uc-cve-remediation-regulatory-compliance
-- [ ] cal.com (optional, for Lab 2 alternative)
+- [ ] calcom (optional, for Lab 2 alternative)
 
 ## Runtime Resources
 
-- **app_timesheet:** Backend on port 3001, frontend on port 5173 (needed for Lab 2 E2E testing)
+- **timesheet-app:** Backend on port 3001, frontend on port 5173 (needed for Lab 2 E2E testing)
 - **SonarQube:** `docker compose -f docker-compose.sonarqube.yml up -d` on port 9000 (needed for Lab 3)
 
 If hosted instances are available, refer to [runtime-resources.md](../../shared/runtime-resources.md) for URLs and credentials.
@@ -113,7 +113,7 @@ If hosted instances are available, refer to [runtime-resources.md](../../shared/
 ## Repo Duplication Notes
 
 - `uc-cve-remediation-regulatory-compliance` originates from `spring-boot-realworld-example-app` (Cluster C1 in [catalog](../../catalog/repos.md)). It is an isolated copy for security exercises — participants can safely modify it without affecting other labs.
-- `app_timesheet` (renamed from `client-timesheet-app`) is a standalone repo used across QE and security challenges.
+- `timesheet-app` (renamed from `client-timesheet-app`) is a standalone repo used across QE and security challenges.
 
 ## Context
 

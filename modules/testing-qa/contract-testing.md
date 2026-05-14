@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_petclinic-microservices](#app_petclinic-microservices)
-- [app_dotnet_angular_containerized_decomposition_microservices](#app_dotnet_angular_containerized_decomposition_microservices)
+- [petclinic-microservices](#petclinic-microservices)
+- [quickapp-microservices](#quickapp-microservices)
 
 ---
 
@@ -42,19 +42,19 @@ Intermediate to Advanced
 
 ---
 
-## <a id="app_petclinic-microservices"></a>app_petclinic-microservices
+## <a id="petclinic-microservices"></a>petclinic-microservices
 
-**Repository:** [app_petclinic-microservices](https://github.com/Cognition-Partner-Workshops/app_petclinic-microservices)
+**Repository:** [petclinic-microservices](https://github.com/Cognition-Partner-Workshops/petclinic-microservices)
 
 Spring Cloud microservices with multiple service boundaries (API Gateway, Customers, Visits, Vets) communicating via REST.
 
 ### Step 1: Paste into Devin
 
-> Analyze the service boundaries in app_petclinic-microservices. The API Gateway calls Customers Service and Visits Service via WebClient. Generate Spring Cloud Contract tests for at least 2 of these service boundaries — create both the consumer (gateway) and provider (service) contract tests. Ensure the contract verification passes. Open a PR with the contract tests and a brief README explaining how to run them.
+> Analyze the service boundaries in petclinic-microservices. The API Gateway calls Customers Service and Visits Service via WebClient. Generate Spring Cloud Contract tests for at least 2 of these service boundaries — create both the consumer (gateway) and provider (service) contract tests. Ensure the contract verification passes. Open a PR with the contract tests and a brief README explaining how to run them.
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the main service-to-service communication patterns in app_petclinic-microservices? Which boundaries carry the most data?"*
+- *"What are the main service-to-service communication patterns in petclinic-microservices? Which boundaries carry the most data?"*
 - *"Should we use Spring Cloud Contract or Pact for this Spring Boot microservices project? What are the tradeoffs?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -69,15 +69,15 @@ Open the repo's DeepWiki page to understand the API Gateway's aggregation patter
 
 ---
 
-## <a id="app_dotnet_angular_containerized_decomposition_microservices"></a>app_dotnet_angular_containerized_decomposition_microservices
+## <a id="quickapp-microservices"></a>quickapp-microservices
 
-**Repository:** [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
+**Repository:** [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices)
 
 .NET microservices with Angular frontend — a containerized decomposition architecture with multiple service boundaries.
 
 ### Step 1: Paste into Devin
 
-> Analyze the service boundaries in app_dotnet_angular_containerized_decomposition_microservices. Identify the inter-service API contracts and generate Pact consumer-driven contract tests for at least 2 service boundaries. Create both consumer and provider test implementations. Open a PR with the contract tests, a Pact broker configuration guide, and instructions for running the tests locally.
+> Analyze the service boundaries in quickapp-microservices. Identify the inter-service API contracts and generate Pact consumer-driven contract tests for at least 2 service boundaries. Create both consumer and provider test implementations. Open a PR with the contract tests, a Pact broker configuration guide, and instructions for running the tests locally.
 
 ### Step 2: Research with Ask Devin
 

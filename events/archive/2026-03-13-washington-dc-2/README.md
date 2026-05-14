@@ -95,7 +95,7 @@ See the full challenge details for [Document Review Automation](../../../modules
 
 ### Lab 3 — BDD Test Case Generation for REST APIs (60 min)
 - **Module:** [BDD Test Generation](../../../modules/testing-qa/bdd-test-generation.md)
-- **Repositories:** [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api), [ts-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-swagger-petstore)
+- **Repositories:** [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api), [ts-java-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-java-swagger-petstore)
 - **Objective:** Generate BDD test cases from a Swagger/OpenAPI specification and produce executable Cucumber tests covering happy paths, error cases, and edge cases
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -107,14 +107,14 @@ See the full challenge details for [Document Review Automation](../../../modules
 While Devin works on step 1, open **AskDevin** and explore:
 - *"What Cucumber best practices should be followed for REST API testing — should scenarios be independent or can they share state?"*
 - *"How should authentication be handled in the BDD scenarios — per-scenario setup or shared background?"*
-- Use the analysis to start a **second session** — try generating tests from the `ts-swagger-petstore` OpenAPI spec directly
+- Use the analysis to start a **second session** — try generating tests from the `ts-java-swagger-petstore` OpenAPI spec directly
 
 #### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's **DeepWiki** page to understand the existing Cucumber configuration, step definition patterns, and how the framework maps Gherkin steps to REST API calls. Use what you learn to try different approaches:
 - Have Devin generate **data-driven scenarios** using Cucumber Scenario Outlines with Examples tables
 - Ask Devin to add **negative test scenarios** for authentication failures and rate limiting
-- Try having Devin read the `ts-swagger-petstore` spec and **auto-generate feature files** for all endpoints
+- Try having Devin read the `ts-java-swagger-petstore` spec and **auto-generate feature files** for all endpoints
 - Ask Devin to add a **test report generator** that produces HTML results
 
 #### Step 4 (Optional): Review & Give Feedback
@@ -182,7 +182,7 @@ Participants may also attempt any challenge from the full [module catalog](../..
 - [ ] uc-pod-remediation-credential-rotation
 - [ ] uc-document-review-automation
 - [ ] uc-bdd-test-generation-rest-api
-- [ ] ts-swagger-petstore
+- [ ] ts-java-swagger-petstore
 - [ ] uc-volume-anomaly-detection
 
 ## Context

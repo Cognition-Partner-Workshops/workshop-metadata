@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
-- [ts-java-spring-boot-realworld-example-app](#ts-java-spring-boot-realworld-example-app)
+- [timesheet-app](#timesheet-app)
+- [ts-java-spring-boot-realworld](#ts-java-spring-boot-realworld)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -49,15 +49,15 @@ Beginner to Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express + React application — review PRs for JavaScript/TypeScript best practices.
 
 ### Step 1: Paste into Devin
 
-> Review the open PR on app_timesheet. Check for: security issues (SQL injection, XSS, missing input validation), performance problems (N+1 queries, missing indexes), code style violations, missing error handling, and test coverage gaps. Leave inline comments on specific lines with suggested fixes. Provide an overall review summary.
+> Review the open PR on timesheet-app. Check for: security issues (SQL injection, XSS, missing input validation), performance problems (N+1 queries, missing indexes), code style violations, missing error handling, and test coverage gaps. Leave inline comments on specific lines with suggested fixes. Provide an overall review summary.
 
 ### Step 2: Research with Ask Devin
 
@@ -75,15 +75,15 @@ Open the repo's DeepWiki page to understand the codebase conventions. A good rev
 
 ---
 
-## <a id="ts-java-spring-boot-realworld-example-app"></a>ts-java-spring-boot-realworld-example-app
+## <a id="ts-java-spring-boot-realworld"></a>ts-java-spring-boot-realworld
 
-**Repository:** [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app)
+**Repository:** [ts-java-spring-boot-realworld](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld)
 
 Spring Boot Java application — review PRs for Java best practices and Spring patterns.
 
 ### Step 1: Paste into Devin
 
-> Review the open PR on ts-java-spring-boot-realworld-example-app. Check for: proper exception handling, Spring dependency injection patterns, JPA entity design, REST API conventions, and test coverage. Leave inline comments with suggested improvements. Provide a review summary.
+> Review the open PR on ts-java-spring-boot-realworld. Check for: proper exception handling, Spring dependency injection patterns, JPA entity design, REST API conventions, and test coverage. Leave inline comments with suggested improvements. Provide a review summary.
 
 ### Step 2: Research with Ask Devin
 

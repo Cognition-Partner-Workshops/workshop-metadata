@@ -20,8 +20,8 @@ Framework upgrades are one of the most common and repetitive tasks in enterprise
 - **Modules:** [Framework Upgrade](../../modules/migration-modernization/framework-upgrade.md) + [Repetitive Framework Upgrades](../../modules/migration-modernization/repetitive-framework-upgrades.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot 2.6.3 → 3.x
-  - [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular) — Angular version upgrade
-  - [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) — Angular version upgrade (parallel comparison)
+  - [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular) — Angular version upgrade
+  - [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld) — Angular version upgrade (parallel comparison)
 - **Objective:** Run parallel Devin sessions upgrading Angular and Spring Boot across multiple repos
 - **Duration:** 60 min
 
@@ -33,12 +33,12 @@ Run as **parallel sessions**:
 > Upgrade uc-framework-upgrade-monolith-to-microservices from Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2. Handle the javax to jakarta namespace migration, update Gradle build configuration, fix any deprecations, and ensure all tests pass. Document every breaking change. Open a PR.
 
 **Session B — Angular:**
-> Upgrade app_petclinic-angular to the latest Angular version. Handle breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds. Document every breaking change. Open a PR.
+> Upgrade petclinic-angular to the latest Angular version. Handle breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds. Document every breaking change. Open a PR.
 
 #### Step 2: Research with Ask Devin
 
 - *"What are the biggest risks when upgrading from Spring Boot 2 to 3?"*
-- *"What Angular version is app_petclinic-angular currently on? What breaking changes are expected?"*
+- *"What Angular version is petclinic-angular currently on? What breaking changes are expected?"*
 - *"Compare the upgrade paths for both Angular repos — are the same breaking changes expected?"*
 
 #### Step 3 (Optional): Read the DeepWiki
@@ -55,8 +55,8 @@ Open each repo's DeepWiki page to understand the codebase before the upgrade. Fo
 ## Repos Required
 
 - [ ] uc-framework-upgrade-monolith-to-microservices
-- [ ] app_petclinic-angular
-- [ ] ts-angular-realworld-example-app (optional, for parallel comparison)
+- [ ] petclinic-angular
+- [ ] ts-angular-realworld (optional, for parallel comparison)
 
 ## Key Takeaways
 

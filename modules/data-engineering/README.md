@@ -24,7 +24,7 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 | uc-dw-migration-teradata-to-snowflake | [DW Migration: Teradata to Snowflake](dw-migration-teradata-to-snowflake.md), [ETL Pipeline Modernization](etl-pipeline-modernization.md), [Data Quality & Validation](data-quality-validation.md) |
 | uc-data-source-migration-legacy-to-modern | [Data Source Migration](data-source-migration.md) |
 | ts-informatica-powercenter | [Informatica PowerCenter Analysis](informatica-powercenter-analysis.md), [Informatica PowerCenter to Snowflake Migration](informatica-to-snowflake-migration.md) |
-| aws-mainframe-modernization-carddemo | [COBOL Copybook to PySpark/JSON](cobol-copybook-to-pyspark-json.md) |
+| ts-cobol-carddemo | [COBOL Copybook to PySpark/JSON](cobol-copybook-to-pyspark-json.md) |
 
 ## When to Use This Category
 

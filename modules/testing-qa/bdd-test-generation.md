@@ -3,7 +3,7 @@
 ## Repositories
 
 - [uc-bdd-test-generation-rest-api](#uc-bdd-test-generation-rest-api)
-- [ts-swagger-petstore](#ts-swagger-petstore)
+- [ts-java-swagger-petstore](#ts-java-swagger-petstore)
 
 ---
 
@@ -70,15 +70,15 @@ Open the repo's DeepWiki page to understand the existing Cucumber configuration,
 
 ---
 
-## <a id="ts-swagger-petstore"></a>ts-swagger-petstore
+## <a id="ts-java-swagger-petstore"></a>ts-java-swagger-petstore
 
-**Repository:** [ts-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-swagger-petstore)
+**Repository:** [ts-java-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-java-swagger-petstore)
 
 Swagger Petstore sample API — use as the target API specification for BDD test generation.
 
 ### Step 1: Paste into Devin
 
-> Review the ts-swagger-petstore Swagger/OpenAPI specification. Generate a complete set of Gherkin feature files covering all Petstore API endpoints (pets, store, users). For each endpoint, include scenarios for: successful operations, invalid input, authentication failures, and boundary conditions. Save the feature files in a `features/` directory with one file per API resource. Open a PR.
+> Review the ts-java-swagger-petstore Swagger/OpenAPI specification. Generate a complete set of Gherkin feature files covering all Petstore API endpoints (pets, store, users). For each endpoint, include scenarios for: successful operations, invalid input, authentication failures, and boundary conditions. Save the feature files in a `features/` directory with one file per API resource. Open a PR.
 
 ### Step 2: Research with Ask Devin
 

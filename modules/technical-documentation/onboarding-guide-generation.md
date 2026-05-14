@@ -3,7 +3,7 @@
 ## Repositories
 
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
-- [cal.com](#calcom)
+- [calcom](#calcom)
 
 ---
 
@@ -76,20 +76,20 @@ Open the repo's DeepWiki page to cross-reference Devin's generated architecture 
 
 ---
 
-## <a id="calcom"></a>cal.com
+## <a id="calcom"></a>calcom
 
-**Repository:** [cal.com](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Large-scale open-source scheduling platform with a complex monorepo structure — a challenging codebase for onboarding guide generation.
 
 ### Step 1: Paste into Devin
 
-> Analyze the cal.com repository and create a developer onboarding guide in `docs/onboarding/`. Generate: (1) `architecture-overview.md` — high-level architecture showing the monorepo structure, key apps (web, api/v1, api/v2), shared packages, and how they interact, (2) `local-setup-guide.md` — step-by-step setup covering Node.js/Yarn prerequisites, database setup, environment configuration, and verification, (3) `codebase-map.md` — guide to the monorepo layout explaining what each app and package does, and (4) `common-tasks.md` — how-to guides for adding a new tRPC endpoint, creating a new UI component, modifying the database schema, and running tests. Open a PR.
+> Analyze the calcom repository and create a developer onboarding guide in `docs/onboarding/`. Generate: (1) `architecture-overview.md` — high-level architecture showing the monorepo structure, key apps (web, api/v1, api/v2), shared packages, and how they interact, (2) `local-setup-guide.md` — step-by-step setup covering Node.js/Yarn prerequisites, database setup, environment configuration, and verification, (3) `codebase-map.md` — guide to the monorepo layout explaining what each app and package does, and (4) `common-tasks.md` — how-to guides for adding a new tRPC endpoint, creating a new UI component, modifying the database schema, and running tests. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What is the monorepo structure of cal.com? What are the key apps and packages, and how do they depend on each other?"*
-- *"What is the development workflow for cal.com? How do Turborepo, Prisma, and tRPC fit together in the build and development process?"*
+- *"What is the monorepo structure of calcom? What are the key apps and packages, and how do they depend on each other?"*
+- *"What is the development workflow for calcom? How do Turborepo, Prisma, and tRPC fit together in the build and development process?"*
 
 ### Step 3 (Optional): Read the DeepWiki
 

@@ -74,7 +74,7 @@ Review the Levenshtein implementation. Ask Devin to add batch processing or addi
 ### Lab 3 — BDD Test Case Generation
 
 - **Module:** [BDD Test Generation](../../modules/testing-qa/bdd-test-generation.md)
-- **Repositories:** [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api), [ts-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-swagger-petstore)
+- **Repositories:** [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api), [ts-java-swagger-petstore](https://github.com/Cognition-Partner-Workshops/ts-java-swagger-petstore)
 - **Objective:** Generate BDD test cases from OpenAPI specs and produce executable Cucumber tests
 - **Duration:** 60 min
 
@@ -130,7 +130,7 @@ Review the time-of-day mode. Ask Devin to add CLI processing or alternative dete
 - [ ] uc-pod-remediation-credential-rotation
 - [ ] uc-document-review-automation
 - [ ] uc-bdd-test-generation-rest-api
-- [ ] ts-swagger-petstore
+- [ ] ts-java-swagger-petstore
 - [ ] uc-volume-anomaly-detection
 
 ## Key Takeaways

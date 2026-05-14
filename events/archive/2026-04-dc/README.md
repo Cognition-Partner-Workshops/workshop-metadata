@@ -111,8 +111,8 @@ See the full challenge details for [Legacy Modernization Combined](../../../modu
 - **Module:** [Repetitive Framework Upgrades](../../../modules/migration-modernization/repetitive-framework-upgrades.md) + [Framework Upgrade](../../../modules/migration-modernization/framework-upgrade.md)
 - **Repositories:**
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot 2.6.3 → 3.x upgrade
-  - [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular) — Angular version upgrade
-  - [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) — Angular version upgrade (second repo for parallel comparison)
+  - [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular) — Angular version upgrade
+  - [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld) — Angular version upgrade (second repo for parallel comparison)
 - **Objective:** Run parallel Devin sessions upgrading Angular and Spring Boot across multiple repos — demonstrating how Devin handles repetitive upgrade tasks at enterprise scale
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
@@ -123,17 +123,17 @@ Run these as **parallel sessions** to see how the same upgrade pattern scales ac
 > Upgrade uc-framework-upgrade-monolith-to-microservices from Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2. Handle the javax to jakarta namespace migration, update Gradle build configuration, fix any deprecations, and ensure all tests pass. Document every breaking change and how you resolved it in the PR description. Open a PR.
 
 **Session B — Angular Upgrade (PetClinic):**
-> Upgrade app_petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Document every breaking change encountered. Open a PR.
+> Upgrade petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Document every breaking change encountered. Open a PR.
 
 **Session C — Angular Upgrade (RealWorld) (optional, for comparison):**
-> Upgrade ts-angular-realworld-example-app to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
+> Upgrade ts-angular-realworld to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
 
 #### Step 2: Research with Ask Devin
 
 While Devin works on the upgrades, open **AskDevin** and explore:
 - *"What are the biggest risks when upgrading from Spring Boot 2 to 3? Which javax to jakarta changes are most likely to break?"*
-- *"What Angular version is app_petclinic-angular currently on? What are the breaking changes between that version and the latest?"*
-- *"Compare the Angular upgrade paths for app_petclinic-angular and ts-angular-realworld-example-app — are the same breaking changes expected?"*
+- *"What Angular version is petclinic-angular currently on? What are the breaking changes between that version and the latest?"*
+- *"Compare the Angular upgrade paths for petclinic-angular and ts-angular-realworld — are the same breaking changes expected?"*
 - Use the analysis to plan a **repeatable upgrade runbook** that could be applied across dozens of similar services
 - Once you have a runbook you like, consider turning it into a **Devin Playbook** — a reusable set of instructions that any team member can trigger for future upgrades without re-engineering the prompt
 
@@ -141,8 +141,8 @@ While Devin works on the upgrades, open **AskDevin** and explore:
 
 Open each repo's **DeepWiki** page to understand the codebase before the upgrade:
 1. **uc-framework-upgrade-monolith-to-microservices** — Understand the build configuration, Spring Security setup, and dependency graph. These are the areas most affected by the Spring Boot 2→3 migration.
-2. **app_petclinic-angular** — Understand the component hierarchy and module structure. Identify deprecated Angular patterns (NgModules vs. standalone components).
-3. **ts-angular-realworld-example-app** — Compare with the PetClinic Angular app. Different codebases may hit different breaking changes for the same upgrade.
+2. **petclinic-angular** — Understand the component hierarchy and module structure. Identify deprecated Angular patterns (NgModules vs. standalone components).
+3. **ts-angular-realworld** — Compare with the PetClinic Angular app. Different codebases may hit different breaking changes for the same upgrade.
 
 Try different approaches:
 - Run both Angular upgrades in **parallel** and compare the upgrade PRs side-by-side
@@ -255,7 +255,7 @@ See the full challenge details for [Data Source Migration](../../../modules/data
 
 - **Module:** [New Feature Development](../../../modules/application-development/new-feature-development.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
   - [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) — Spring Boot loan service (alternative)
 - **Objective:** Build a new feature on an existing application — from requirements through implementation, testing, and PR creation
 
@@ -263,12 +263,12 @@ See the full challenge details for [Data Source Migration](../../../modules/data
 
 Before creating a session, try using **Ask Devin** to scope the feature. The more specific your requirements, the better Devin's output — and Ask Devin helps you think through the details before Devin starts writing code.
 
-For example, ask: *"What existing patterns does app_timesheet use for CRUD features? What data model, API structure, and React component conventions should a new 'Projects' feature follow?"*
+For example, ask: *"What existing patterns does timesheet-app use for CRUD features? What data model, API structure, and React component conventions should a new 'Projects' feature follow?"*
 
 Then use what you learn to refine one of these prompts before pasting it into a Devin session:
 
-**Option A — Full-Stack CRUD Feature (app_timesheet):**
-> Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
+**Option A — Full-Stack CRUD Feature (timesheet-app):**
+> Add a "Projects" management feature to timesheet-app. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add both the backend API endpoints and the frontend UI page. Follow the existing patterns in the codebase for the data model, API structure, and React components. Write tests for the backend endpoints. Open a PR.
 
 **Option B — API Feature (loan service):**
 > Add a loan payment history API to uc-data-source-migration-legacy-to-modern. Create a new endpoint GET /api/loans/:id/payments that returns a paginated list of payment records for a given loan. Include filtering by date range and payment type. Add proper error handling for invalid loan IDs. Write JUnit tests for the new endpoint. Open a PR.
@@ -386,9 +386,9 @@ Participants may also attempt any challenge from the full [module catalog](../..
 - [ ] uc-legacy-modernization-cobol-to-java
 - [ ] uc-framework-upgrade-monolith-to-microservices
 - [ ] uc-data-source-migration-legacy-to-modern
-- [ ] app_petclinic-angular
-- [ ] ts-angular-realworld-example-app
-- [ ] app_timesheet
+- [ ] petclinic-angular
+- [ ] ts-angular-realworld
+- [ ] timesheet-app
 - [ ] uc-bdd-test-generation-rest-api
 
 ### Optional (for extended challenges)
@@ -399,7 +399,7 @@ Participants may also attempt any challenge from the full [module catalog](../..
 ## Repo Duplication Notes
 
 - `uc-framework-upgrade-monolith-to-microservices` and `uc-cve-remediation-regulatory-compliance` both originate from `spring-boot-realworld-example-app` (Cluster C1 in [catalog](../../../catalog/repos.md)). They are intentionally separate repos so each use case gets an isolated starting point.
-- `uc-legacy-modernization-cobol-to-java` originates from `aws-mainframe-modernization-carddemo` (Cluster C2).
+- `uc-legacy-modernization-cobol-to-java` originates from `ts-cobol-carddemo` (Cluster C2).
 
 ## Context
 

@@ -3,7 +3,7 @@
 ## Repositories
 
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 
 ---
 
@@ -69,19 +69,19 @@ Open the repo's DeepWiki page to understand the service layer logic and identify
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express backend with Jest tests — suitable for Stryker mutation testing.
 
 ### Step 1: Paste into Devin
 
-> Set up Stryker mutation testing for the backend of app_timesheet. Configure Stryker with the Jest test runner, run mutation analysis against the API routes and validation logic, and generate a mutation score report. Identify surviving mutants and add or improve Jest tests to kill them. Open a PR with the Stryker configuration, mutation report summary, and improved tests.
+> Set up Stryker mutation testing for the backend of timesheet-app. Configure Stryker with the Jest test runner, run mutation analysis against the API routes and validation logic, and generate a mutation score report. Identify surviving mutants and add or improve Jest tests to kill them. Open a PR with the Stryker configuration, mutation report summary, and improved tests.
 
 ### Step 2: Research with Ask Devin
 
-- *"What test coverage gaps exist in app_timesheet's backend? Which route handlers have the most complex validation logic?"*
+- *"What test coverage gaps exist in timesheet-app's backend? Which route handlers have the most complex validation logic?"*
 - *"What Stryker mutators are most relevant for Express.js API code? Should we focus on conditional boundary mutants or method call mutants?"*
 
 ### Step 3 (Optional): Read the DeepWiki

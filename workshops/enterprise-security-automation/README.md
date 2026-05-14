@@ -45,12 +45,12 @@ Three labs that build on each other in a progressive arc:
 ### Lab 1 — Event-Driven SAST Remediation (90 min)
 
 - **Module:** [Event-Driven SAST Remediation](../../modules/security/event-driven-sast-remediation.md)
-- **Repositories:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) and [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
+- **Repositories:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) and [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** Build a GitHub Actions workflow where SAST tools scan PRs from non-Devin authors and automatically trigger a Devin session to remediate findings
 
 #### What to Try
 
-1. **Show the existing pattern:** Walk through `app_timesheet`'s `sonar-devin-fix.yml` workflow to show how Devin is already integrated into CI for auto-remediation
+1. **Show the existing pattern:** Walk through `timesheet-app`'s `sonar-devin-fix.yml` workflow to show how Devin is already integrated into CI for auto-remediation
 2. **Build the pipeline:** Have Devin create a new `sast-auto-remediate.yml` workflow on `uc-cve-remediation-regulatory-compliance` that scans PRs and calls the Devin API when findings exceed a severity threshold
 3. **Trigger it live:** Open a PR as a human user, watch the SAST scan run, see Devin automatically start remediating, and observe the re-scan passing
 
@@ -73,7 +73,7 @@ Three labs that build on each other in a progressive arc:
 ### Lab 2 — Mass Security Backlog Remediation with Agent Orchestration (90 min)
 
 - **Module:** [Mass Security Backlog Remediation](../../modules/security/mass-security-backlog-remediation.md)
-- **Repositories:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) and [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
+- **Repositories:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) and [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 - **Objective:** Demonstrate enterprise-scale remediation: one parent Devin session triages a consolidated SAST report and launches parallel child sessions to remediate 2 repos simultaneously
 
 #### What to Try
@@ -141,13 +141,13 @@ Participants who finish early may attempt any challenge from the full [module ca
 |-----------|--------|------|-----------|------|
 | Shift Left Security (build on Lab 1) | [Shift Left Security](../../modules/security/shift-left-security.md) | uc-cve-remediation-regulatory-compliance | Intermediate | 60 min |
 | Repetitive Framework Upgrades (scale Lab 3) | [Repetitive Framework Upgrades](../../modules/migration-modernization/repetitive-framework-upgrades.md) | Multiple repos | Intermediate | 60 min |
-| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | app_timesheet | Intermediate | 45 min |
+| CI/CD Pipeline | [CI/CD Pipeline](../../modules/devops-cicd/cicd-pipeline.md) | timesheet-app | Intermediate | 45 min |
 
 ---
 
 ## Repos Required on Devin's Machine
 
-- [ ] app_timesheet
+- [ ] timesheet-app
 - [ ] uc-cve-remediation-regulatory-compliance
 - [ ] uc-framework-upgrade-monolith-to-microservices
 

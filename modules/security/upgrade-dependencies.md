@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-cve-remediation-regulatory-compliance](#uc-cve-remediation-regulatory-compliance)
 
 ---
@@ -41,19 +41,19 @@ Beginner to Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js application with npm dependencies — use `npm audit` to identify and fix vulnerable packages.
 
 ### Step 1: Paste into Devin
 
-> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/app_timesheet/issues/2 — audit the npm dependencies for known vulnerabilities, upgrade all vulnerable packages to their latest secure versions, ensure the build and tests still pass, and open a PR.
+> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/timesheet-app/issues/2 — audit the npm dependencies for known vulnerabilities, upgrade all vulnerable packages to their latest secure versions, ensure the build and tests still pass, and open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"Which dependencies in app_timesheet have the most severe known vulnerabilities?"*
+- *"Which dependencies in timesheet-app have the most severe known vulnerabilities?"*
 - *"Are there any dependencies that are no longer maintained and should be replaced entirely?"*
 - Use insights to start a second session that also replaces deprecated packages
 

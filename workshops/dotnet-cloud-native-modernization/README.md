@@ -47,16 +47,16 @@ Replace `<attendee_id>` with a unique identifier (e.g., name, employee ID). All 
 
 - **Module:** [.NET Monolith Decomposition with Local Hosting](../../modules/migration-modernization/dotnet-monolith-decomposition.md)
 - **Repositories:**
-  - [app_dotnet_angular_containerized_decomposition_monolith](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_monolith) — .NET + Angular monolith (source)
-  - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices) — target scaffold (reference)
-  - [app_dotnet_angular_containerized_decomposition_iac](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_iac) — Helm charts (context)
+  - [quickapp-monolith](https://github.com/Cognition-Partner-Workshops/quickapp-monolith) — .NET + Angular monolith (source)
+  - [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices) — target scaffold (reference)
+  - [quickapp-iac](https://github.com/Cognition-Partner-Workshops/quickapp-iac) — Helm charts (context)
   - [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — EKS platform standard (context)
 - **Objective:** Extract the Order bounded context into a standalone .NET microservice with Docker Compose for local testing
 - **Duration:** 75 min
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Extract the Order bounded context from app_dotnet_angular_containerized_decomposition_monolith into a standalone .NET microservice. Work on branch `workshop-<attendee_id>` in both repos. Use app_dotnet_angular_containerized_decomposition_microservices as reference for the target architecture, and app_dotnet_angular_containerized_decomposition_iac for Helm chart patterns. Deliverables: (1) New .NET Web API for order-service, (2) Shared contracts for inter-service communication, (3) Dockerfile with multi-stage build, (4) Docker Compose for local dev (monolith + order-service + PostgreSQL), (5) Monolith refactored to use HTTP client, (6) Integration smoke test. Push to both repos and create PRs.
+> Extract the Order bounded context from quickapp-monolith into a standalone .NET microservice. Work on branch `workshop-<attendee_id>` in both repos. Use quickapp-microservices as reference for the target architecture, and quickapp-iac for Helm chart patterns. Deliverables: (1) New .NET Web API for order-service, (2) Shared contracts for inter-service communication, (3) Dockerfile with multi-stage build, (4) Docker Compose for local dev (monolith + order-service + PostgreSQL), (5) Monolith refactored to use HTTP client, (6) Integration smoke test. Push to both repos and create PRs.
 
 #### Step 2: Research with Ask Devin
 
@@ -87,7 +87,7 @@ Review both PRs. Ask Devin to add circuit breaker logic, health checks, or impro
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Write integration tests for the HTTP contract between the QuickApp monolith and the extracted Order microservice in app_dotnet_angular_containerized_decomposition_microservices. Create: (1) Integration test project, (2) Docker Compose test configuration, (3) Contract tests for all Order CRUD operations, (4) End-to-end flow test (create customer → place order → verify in Order service), (5) Shared DTO serialization roundtrip tests. Work on branch `workshop-<attendee_id>`. Open a PR.
+> Write integration tests for the HTTP contract between the QuickApp monolith and the extracted Order microservice in quickapp-microservices. Create: (1) Integration test project, (2) Docker Compose test configuration, (3) Contract tests for all Order CRUD operations, (4) End-to-end flow test (create customer → place order → verify in Order service), (5) Shared DTO serialization roundtrip tests. Work on branch `workshop-<attendee_id>`. Open a PR.
 
 #### Step 2: Research with Ask Devin
 
@@ -113,13 +113,13 @@ Ask Devin to add concurrent order creation tests, contract backwards-compatibili
 
 - **Module:** [Cross-Service Bug Investigation](../../modules/migration-modernization/cross-service-bug-investigation.md)
 - **Repository:**
-  - [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
+  - [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices)
 - **Objective:** Find and fix a visual bug in the Notification service where order confirmation emails show amounts 100x smaller than the actual order total
 - **Duration:** 45 min
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
 
-> Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in app_dotnet_angular_containerized_decomposition_microservices. Work on branch `workshop-<attendee_id>`. Reproduce by running the notification-service and POSTing to /api/notification/events/order-placed with `{"orderId":"11111111-1111-1111-1111-111111111111","customerId":"22222222-2222-2222-2222-222222222222","totalAmount":149.99,"placedAt":"2026-03-17T12:00:00Z"}`. Open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR.
+> Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview. Investigate and fix this bug in quickapp-microservices. Work on branch `workshop-<attendee_id>`. Reproduce by running the notification-service and POSTing to /api/notification/events/order-placed with `{"orderId":"11111111-1111-1111-1111-111111111111","customerId":"22222222-2222-2222-2222-222222222222","totalAmount":149.99,"placedAt":"2026-03-17T12:00:00Z"}`. Open the preview URL — the total shows $1.50 instead of $149.99. Find the root cause, fix it, take before/after screenshots, and open a PR.
 
 #### Step 2: Research with Ask Devin
 
@@ -144,10 +144,10 @@ Check that Devin removed the erroneous division and fixed the misleading comment
 
 ## Repos Required
 
-- [ ] app_dotnet_angular_containerized_decomposition_monolith
-- [ ] app_dotnet_angular_containerized_decomposition_microservices
-- [ ] app_dotnet_angular_containerized_decomposition_microfrontends (optional — for exploring the full target state)
-- [ ] app_dotnet_angular_containerized_decomposition_iac
+- [ ] quickapp-monolith
+- [ ] quickapp-microservices
+- [ ] quickapp-microfrontends (optional — for exploring the full target state)
+- [ ] quickapp-iac
 - [ ] platform-engineering-shared-services
 
 ## Context

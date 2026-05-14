@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [ts-plsql-oracle-forms-legacy-codebase](#ts-plsql-oracle-forms-legacy-codebase)
+- [ts-plsql-oracle-forms-hrms](#ts-plsql-oracle-forms-hrms)
 - [uc-legacy-modernization-oracle-forms-to-java](#uc-legacy-modernization-oracle-forms-to-java)
 
 ---
@@ -71,9 +71,9 @@ Intermediate to Advanced
 
 ---
 
-## <a id="ts-plsql-oracle-forms-legacy-codebase"></a>ts-plsql-oracle-forms-legacy-codebase
+## <a id="ts-plsql-oracle-forms-hrms"></a>ts-plsql-oracle-forms-hrms
 
-**Repository:** [ts-plsql-oracle-forms-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-legacy-codebase)
+**Repository:** [ts-plsql-oracle-forms-hrms](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-hrms)
 
 Oracle Forms 11g/12c HRMS legacy application — the source system being migrated.
 
@@ -85,7 +85,7 @@ Migration use-case repo with target Spring Boot project structure, test harness,
 
 ### Step 1: Paste into Devin
 
-> Analyze the PL/SQL package PKG_EMPLOYEE in ts-plsql-oracle-forms-legacy-codebase (both the spec in `plsql/packages/PKG_EMPLOYEE.pks` and body in `plsql/packages/PKG_EMPLOYEE.pkb`). Also review the HRMS_EMPLOYEE Forms XML export and the HRMS_VALIDATION_LIB PLL library for client-side validation logic. Migrate the employee management functionality to Java Spring Boot:
+> Analyze the PL/SQL package PKG_EMPLOYEE in ts-plsql-oracle-forms-hrms (both the spec in `plsql/packages/PKG_EMPLOYEE.pks` and body in `plsql/packages/PKG_EMPLOYEE.pkb`). Also review the HRMS_EMPLOYEE Forms XML export and the HRMS_VALIDATION_LIB PLL library for client-side validation logic. Migrate the employee management functionality to Java Spring Boot:
 >
 > 1. Create a Spring Boot `EmployeeService` with all CRUD operations, search, org chart, and transfer logic
 > 2. Create JPA entities for the EMPLOYEES table and related tables

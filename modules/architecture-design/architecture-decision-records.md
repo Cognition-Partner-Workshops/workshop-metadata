@@ -3,7 +3,7 @@
 ## Repositories
 
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 
 ---
 
@@ -69,20 +69,20 @@ Open the repo's DeepWiki page to understand the full architecture — the dual A
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express backend with a React frontend — a different tech stack that exercises Devin's ability to recognize architecture decisions across languages and frameworks.
 
 ### Step 1: Paste into Devin
 
-> Analyze the architecture of app_timesheet. This is a Node.js/Express + React application. Identify the key architectural decisions — including the frontend/backend separation strategy, API design approach, authentication mechanism, database choice, and state management patterns. Generate Architecture Decision Records (ADRs) in `docs/adr/` using the MADR template (Title, Status, Context, Decision, Consequences). Include an `docs/adr/README.md` that summarizes the overall architecture. Open a PR with all ADR documents.
+> Analyze the architecture of timesheet-app. This is a Node.js/Express + React application. Identify the key architectural decisions — including the frontend/backend separation strategy, API design approach, authentication mechanism, database choice, and state management patterns. Generate Architecture Decision Records (ADRs) in `docs/adr/` using the MADR template (Title, Status, Context, Decision, Consequences). Include an `docs/adr/README.md` that summarizes the overall architecture. Open a PR with all ADR documents.
 
 ### Step 2: Research with Ask Devin
 
-- *"How is the app_timesheet project structured? What is the separation between frontend and backend, and how do they communicate?"*
-- *"What database and ORM/data access patterns does app_timesheet use? Are there any architectural trade-offs visible in the codebase?"*
+- *"How is the timesheet-app project structured? What is the separation between frontend and backend, and how do they communicate?"*
+- *"What database and ORM/data access patterns does timesheet-app use? Are there any architectural trade-offs visible in the codebase?"*
 
 ### Step 3 (Optional): Read the DeepWiki
 

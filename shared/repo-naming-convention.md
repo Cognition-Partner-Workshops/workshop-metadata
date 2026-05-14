@@ -1,35 +1,35 @@
 # Repository Naming Convention
 
-All repositories in the [Cognition-Partner-Workshops](https://github.com/Cognition-Partner-Workshops) org follow a prefix-based naming convention.
+All repositories in the [Cognition-Partner-Workshops](https://github.com/Cognition-Partner-Workshops) org follow a naming convention designed for high-cardinality discovery.
 
-## Prefixes
+## Categories
 
-| Prefix | Meaning | When to Use | Examples |
-|--------|---------|------------|---------|
-| `uc-` | **Use Case** | Repo exists to support a specific technical use case (modernization, migration, quality engineering, etc.) | `uc-legacy-modernization-cobol-to-java`, `uc-dw-migration-teradata-to-snowflake` |
-| `ts-` | **Technology Stack** | Repo exists to represent a specific language, cloud provider, or software product | `ts-angular-realworld-example-app`, `ts-sas-legacy-codebase` |
-| `i-` | **Industry Vertical** | Repo exists to represent an industry domain (healthcare, retail, banking, etc.) | `i-banking-loan-processing` |
-| `app_<appname>-` | **Application** | Multiple repos belong to the same application (note: underscore after `app`, not hyphen) | `app_petclinic-angular`, `app_petclinic-backend`, `app_petclinic-microservices` |
-| _(none)_ | **Non-prefixed** | Forks of well-known projects, general utilities, anything that doesn't fit above | `cal.com`, `client-timesheet-app`, `fineract` |
+| Category | Naming Pattern | Discovery Model | Examples |
+|----------|---------------|-----------------|---------|
+| **Multi-repo apps** | `<appname>-<component>` | Identity-first — the app name IS the grouping key. Related repos cluster alphabetically. | `eventflow-order-service`, `petclinic-angular`, `ordermanager-monolith` |
+| **Tech stacks** (`ts-`) | `ts-<lang>-<framework-or-project>` | Tech-first — people go here when they care about a specific technology. Include the primary language. | `ts-java-spring-boot-realworld`, `ts-cobol-carddemo`, `ts-python-aws-personalize` |
+| **Use cases** (`uc-`) | `uc-<task-description>` | Task-first — people go here when they care about the exercise (tech-agnostic). Name describes the task/tool, NOT the underlying tech stack. | `uc-cve-remediation-regulatory-compliance`, `uc-legacy-modernization-cobol-to-java` |
+| **Industry verticals** (`i-`) | `i-<industry>-<identity>` | Domain-first — industry-specific repos. | `i-banking-loan-processing` _(none yet)_ |
+| **Well-known forks** | Keep upstream name | Recognition — everyone already knows these names. | `keycloak`, `fineract`, `openmrs-core` |
+| **Internal tooling** | Descriptive name | Self-explanatory. | `workshop-metadata`, `operator`, `platform-engineering-shared-services` |
 
 ## Rules
 
-1. **Apply prefixes to new repos only.** Do not rename existing org repos to fit the convention — legacy non-prefixed names are acceptable.
-2. **Choose the prefix that matches the primary reason the repo exists.** If it exists to demonstrate a tech stack, use `ts-`. If it supports a use case narrative, use `uc-`.
-3. **Use kebab-case** after the prefix: `uc-data-migration-sas-to-snowflake` (not `uc_data_migration` or `uc-DataMigration`).
-4. **The `app_` prefix uses an underscore**, not a hyphen. This is intentional: `app_petclinic-backend` (not `app-petclinic-backend`).
-5. **Document secondary use cases** in the repo description if a repo serves multiple purposes.
+1. **Always lowercase, always hyphens.** No underscores, no mixed case: `eventflow-order-service` (not `app_eventflow-order-service` or `EventFlow_OrderService`).
+2. **Choose the category that matches the primary reason the repo exists.** Tech stack showcase → `ts-`. Lab exercise → `uc-`. Multi-component app → identity-first.
+3. **`ts-` repos must include the primary language** in the name: `ts-java-spring-boot-realworld` (not `ts-spring-boot-realworld`).
+4. **`uc-` repos describe the task, not the tech stack.** The tech is irrelevant to the use case name: `uc-cve-remediation-sonarqube` (not `uc-cve-remediation-spring-boot`).
+5. **Multi-repo apps need no prefix.** The app name clusters them naturally when sorted alphabetically.
+6. **Inspect repo contents before categorizing.** Don't assume based on the name alone — check what's inside.
 
-## Choosing Between Prefixes
+## Choosing a Category
 
-When a repo could fit multiple prefixes, pick based on **why it was added to the org**:
-
-| Scenario | Prefix | Reasoning |
-|----------|--------|-----------|
-| "We need a COBOL codebase for the legacy modernization lab" | `uc-` | The lab (use case) drove the need |
-| "We need an Angular app to show the Angular tech stack" | `ts-` | The tech stack drove the need |
-| "We need the PetClinic frontend, backend, and microservices versions" | `app_` | Multiple repos for one application |
-| "We forked cal.com for general demos" | _(none)_ | Well-known project, no specific prefix needed |
+| Scenario | Category | Reasoning |
+|----------|----------|-----------|
+| "We need frontend + backend + infra repos for EventFlow" | App (`eventflow-*`) | Multiple repos for one application — app name groups them |
+| "We need a Spring Boot codebase to show the tech stack" | `ts-java-spring-boot-*` | The tech stack drove the need |
+| "We need a lab for CVE remediation using SonarQube" | `uc-cve-remediation-sonarqube` | The task/exercise drove the need (tech-agnostic) |
+| "We forked Keycloak for IAM demos" | `keycloak` | Well-known project, keep upstream name |
 
 ## Repo Description Format
 

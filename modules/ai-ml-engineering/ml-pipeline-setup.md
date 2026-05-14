@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-data-source-migration-legacy-to-modern](#uc-data-source-migration-legacy-to-modern)
 
 ---
@@ -49,20 +49,20 @@ Advanced
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React + Node.js/Express timesheet application with historical work entry data suitable for building a task duration prediction model.
 
 ### Step 1: Paste into Devin
 
-> Add a machine learning pipeline to app_timesheet that predicts task duration based on historical timesheet data. Create a Python-based training pipeline under `ml/` that: (1) extracts features from the existing work entries (client, project type, description keywords, day of week), (2) trains a regression model to predict hours spent, (3) serializes the trained model, and (4) exposes a REST endpoint at GET /api/predict-duration that accepts task metadata and returns an estimated duration. Include a requirements.txt, a training script with configurable hyperparameters, and a README documenting the pipeline. Open a PR.
+> Add a machine learning pipeline to timesheet-app that predicts task duration based on historical timesheet data. Create a Python-based training pipeline under `ml/` that: (1) extracts features from the existing work entries (client, project type, description keywords, day of week), (2) trains a regression model to predict hours spent, (3) serializes the trained model, and (4) exposes a REST endpoint at GET /api/predict-duration that accepts task metadata and returns an estimated duration. Include a requirements.txt, a training script with configurable hyperparameters, and a README documenting the pipeline. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What data fields are available in the app_timesheet work entries table? Which fields would be useful features for predicting task duration?"*
-- *"What is the backend architecture of app_timesheet? How should a Python ML service integrate with the existing Node.js/Express server?"*
+- *"What data fields are available in the timesheet-app work entries table? Which fields would be useful features for predicting task duration?"*
+- *"What is the backend architecture of timesheet-app? How should a Python ML service integrate with the existing Node.js/Express server?"*
 
 ### Step 3 (Optional): Read the DeepWiki
 

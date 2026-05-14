@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [ts-plsql-oracle-forms-legacy-codebase](#ts-plsql-oracle-forms-legacy-codebase)
+- [ts-plsql-oracle-forms-hrms](#ts-plsql-oracle-forms-hrms)
 
 ---
 
@@ -55,15 +55,15 @@ Intermediate
 
 ---
 
-## <a id="ts-plsql-oracle-forms-legacy-codebase"></a>ts-plsql-oracle-forms-legacy-codebase
+## <a id="ts-plsql-oracle-forms-hrms"></a>ts-plsql-oracle-forms-hrms
 
-**Repository:** [ts-plsql-oracle-forms-legacy-codebase](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-legacy-codebase)
+**Repository:** [ts-plsql-oracle-forms-hrms](https://github.com/Cognition-Partner-Workshops/ts-plsql-oracle-forms-hrms)
 
 Oracle Forms 11g/12c HRMS legacy application. Contains Forms XML exports, PLL libraries, menu modules, PL/SQL packages (specs + bodies), database triggers, schema DDL (tables, views, sequences), and seed data. Realistic enterprise patterns with intentional technical debt.
 
 ### Step 1: Paste into Devin
 
-> Analyze the entire Oracle Forms/PL/SQL estate in ts-plsql-oracle-forms-legacy-codebase. Produce the following artifacts:
+> Analyze the entire Oracle Forms/PL/SQL estate in ts-plsql-oracle-forms-hrms. Produce the following artifacts:
 >
 > 1. **APPLICATION_INVENTORY.md** — catalog every Forms XML export in `forms/xml-exports/`, PLL library in `forms/libraries/`, menu module in `forms/menus/`, PL/SQL package in `plsql/packages/`, trigger in `plsql/triggers/`, and schema object in `schema/`. For each, list: filename, purpose (inferred from code), layer (UI/business logic/data access/integration/utility), and key dependencies.
 > 2. **DATA_DICTIONARY.md** — for every table defined in `schema/tables/`, extract: table name, columns with data types and constraints, business meaning, relationships (foreign keys), and audit columns. Group by business domain (employee, payroll, leave, performance, security, system).
@@ -74,7 +74,7 @@ Oracle Forms 11g/12c HRMS legacy application. Contains Forms XML exports, PLL li
 
 ### Step 2: Research with Ask Devin
 
-- *"What are the circular dependencies in ts-plsql-oracle-forms-legacy-codebase and how do they affect compilation order?"*
+- *"What are the circular dependencies in ts-plsql-oracle-forms-hrms and how do they affect compilation order?"*
 - *"What security vulnerabilities exist in PKG_SECURITY and how would you fix them in a Java migration?"*
 - *"Which PL/SQL packages contain the most business logic? Which are mostly CRUD wrappers?"*
 - Use the answers to enrich your inventory and identify gaps in the initial analysis

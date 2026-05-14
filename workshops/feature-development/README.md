@@ -19,7 +19,7 @@ Feature development is the most common daily activity for development teams. Thi
 
 - **Module:** [New Feature Development](../../modules/application-development/new-feature-development.md)
 - **Repositories:**
-  - [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — React + Node.js full-stack application
+  - [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — React + Node.js full-stack application
   - [uc-data-source-migration-legacy-to-modern](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-legacy-to-modern) — Spring Boot loan service (alternative)
   - [uc-framework-upgrade-monolith-to-microservices](https://github.com/Cognition-Partner-Workshops/uc-framework-upgrade-monolith-to-microservices) — Spring Boot RealWorld app (alternative)
 - **Objective:** Build a new feature from requirements through implementation and testing
@@ -29,8 +29,8 @@ Feature development is the most common daily activity for development teams. Thi
 
 Choose one:
 
-**Option A — React + Node.js (app_timesheet):**
-> Add a "Projects" management feature to app_timesheet. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add backend API endpoints and frontend UI. Follow existing patterns. Write tests. Open a PR.
+**Option A — React + Node.js (timesheet-app):**
+> Add a "Projects" management feature to timesheet-app. Users should be able to create, view, edit, and delete projects. Each project has a name, description, client assignment, start date, and status (active/completed/on-hold). Add backend API endpoints and frontend UI. Follow existing patterns. Write tests. Open a PR.
 
 **Option B — Spring Boot API (loan service):**
 > Add a loan payment history API to uc-data-source-migration-legacy-to-modern. Create GET /api/loans/:id/payments with pagination, date range filtering, and payment type filtering. Add error handling and JUnit tests. Open a PR.
@@ -57,7 +57,7 @@ Open the repo's DeepWiki page. Try adding validation rules, frontend tests, audi
 ## Repos Required
 
 Choose one or more:
-- [ ] app_timesheet
+- [ ] timesheet-app
 - [ ] uc-data-source-migration-legacy-to-modern
 - [ ] uc-framework-upgrade-monolith-to-microservices
 

@@ -2,9 +2,9 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-bdd-test-generation-rest-api](#uc-bdd-test-generation-rest-api)
-- [app_petclinic-angular](#app_petclinic-angular)
+- [petclinic-angular](#petclinic-angular)
 
 ---
 
@@ -54,16 +54,16 @@ Advanced
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 React + Node.js full-stack application — good target for continuous QA monitoring with both frontend and backend test surfaces.
 
 ### Step 1: Start with Ask Devin (recommended)
 
 Before creating a session, use **Ask Devin** to plan the QA strategy:
-- *"What is the current test coverage of app_timesheet? Which areas have the weakest coverage and would benefit most from automated monitoring?"*
+- *"What is the current test coverage of timesheet-app? Which areas have the weakest coverage and would benefit most from automated monitoring?"*
 - *"What recurring QA tasks would benefit from weekly automation — coverage checks, dependency audits, lint enforcement, test smell detection?"*
 - *"What test quality standards should we encode in a Playbook for this project? What coverage threshold, which test types are required for new code, what anti-patterns should be flagged?"*
 
@@ -71,7 +71,7 @@ Use the answers to craft a Playbook and Knowledge items before proceeding.
 
 ### Step 2: Paste into Devin (copy-paste this prompt into Devin)
 
-> Set up a continuous quality engineering practice for app_timesheet.
+> Set up a continuous quality engineering practice for timesheet-app.
 >
 > Part 1 — Test coverage baseline:
 > Run the existing test suite and generate a coverage report. Identify the 5 files/modules with the lowest coverage. Write tests to bring the worst offender above 80% coverage.
@@ -104,7 +104,7 @@ This Playbook can be triggered by any team member or scheduled to run weekly.
 Configure a **Devin Scheduled Session** that runs the Weekly QA Audit Playbook:
 - **Frequency:** Weekly (e.g., every Monday at 6 AM)
 - **Playbook:** Weekly QA Audit (from Step 3)
-- **Repository:** app_timesheet
+- **Repository:** timesheet-app
 - **Expected outcome:** PR opened with any coverage improvements and a quality report
 
 This demonstrates how teams use Devin for continuous code hygiene — the QA equivalent of automated dependency bumps.
@@ -152,15 +152,15 @@ After reviewing results, create a Playbook for recurring BDD coverage auditing:
 
 ---
 
-## <a id="app_petclinic-angular"></a>app_petclinic-angular
+## <a id="petclinic-angular"></a>petclinic-angular
 
-**Repository:** [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular)
+**Repository:** [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular)
 
 Angular frontend — use for continuous frontend test quality monitoring across component tests and E2E tests.
 
 ### Step 1: Paste into Devin
 
-> Analyze the test quality in app_petclinic-angular. For each Angular component, check whether it has a corresponding `.spec.ts` file. For each existing spec file, audit: does it test user-visible behavior (not implementation details)? Does it cover error states? Does it test input validation? Are the mocks minimal and realistic?
+> Analyze the test quality in petclinic-angular. For each Angular component, check whether it has a corresponding `.spec.ts` file. For each existing spec file, audit: does it test user-visible behavior (not implementation details)? Does it cover error states? Does it test input validation? Are the mocks minimal and realistic?
 >
 > Generate a `COMPONENT_TEST_AUDIT.md` that shows: component → has spec? → tests behavior? → tests errors? → tests validation? → mock quality.
 >

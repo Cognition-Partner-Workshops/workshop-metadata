@@ -30,7 +30,7 @@ A few tips:
 | **For** | AppSec engineers, DevSecOps, security-conscious developers | QA engineers, SDETs, test automation engineers |
 | **You'll learn** | How Devin finds and fixes vulnerabilities, hardens CI, and remediates autonomously | How Devin writes tests, migrates frameworks, and monitors quality continuously |
 | **Tools** | OWASP Dependency-Check, SonarQube, gitleaks, Trivy, GitHub Advanced Security | Jest/Vitest, Playwright, Cucumber/Gherkin, coverage tools |
-| **Primary repos** | uc-cve-remediation-regulatory-compliance, app_timesheet | app_timesheet, app_petclinic-angular, uc-bdd-test-generation-rest-api |
+| **Primary repos** | uc-cve-remediation-regulatory-compliance, timesheet-app | timesheet-app, petclinic-angular, uc-bdd-test-generation-rest-api |
 | **Story arc** | Find → Fix → Prevent → Automate → Autonomous pipeline | Assess → Automate → Migrate → Generate → Continuous QA |
 
 All tools in both tracks are free and run locally on Devin's VM — no commercial licenses required.
@@ -52,7 +52,7 @@ Open the **DeepWiki** page for [uc-cve-remediation-regulatory-compliance](https:
 **Value driver:** *Devin works autonomously. Give it a well-defined task, walk away, come back to a PR.*
 
 - **Module:** [Upgrade Dependencies](../../../modules/security/upgrade-dependencies.md)
-- **Repos:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+- **Repos:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 This is your first Devin session. Paste a prompt, Devin scans for CVEs, upgrades dependencies, and opens a PR. You don't need to watch — move on to Ask Devin while it works.
 
@@ -63,8 +63,8 @@ Pick one (or run both in parallel):
 **Security scan — Spring Boot (uc-cve-remediation-regulatory-compliance):**
 > Upgrade uc-cve-remediation-regulatory-compliance from Spring Boot 2.6.3 to the latest stable 2.7.x or 3.x, updating all transitive dependencies. Run `./gradlew dependencyCheckAnalyze` before and after to document which CVEs are resolved. Verify the build still passes. Open a PR with the upgrade and before/after scan evidence.
 
-**Security scan — Node.js (app_timesheet):**
-> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/app_timesheet/issues/2 — audit the npm dependencies for known vulnerabilities, upgrade all vulnerable packages to their latest secure versions, ensure the build and tests still pass, and open a PR.
+**Security scan — Node.js (timesheet-app):**
+> Resolve this GitHub Issue: https://github.com/Cognition-Partner-Workshops/timesheet-app/issues/2 — audit the npm dependencies for known vulnerabilities, upgrade all vulnerable packages to their latest secure versions, ensure the build and tests still pass, and open a PR.
 
 #### While Devin works: try Ask Devin
 
@@ -132,7 +132,7 @@ Open **Ask Devin** and dig deeper:
 **Value driver:** *Devin doesn't just fix the current problem — it sets up guardrails (pre-commit hooks, CI steps) that prevent it from recurring.*
 
 - **Module:** [Secrets Management & Detection](../../../modules/security/secrets-management-detection.md)
-- **Repos:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
+- **Repos:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 
 Devin scans for hardcoded secrets, migrates them to environment variables, and installs preventive controls so no one can accidentally commit secrets again.
 
@@ -140,8 +140,8 @@ Devin scans for hardcoded secrets, migrates them to environment variables, and i
 
 Pick one:
 
-**Node.js (app_timesheet):**
-> Install and run gitleaks on app_timesheet to scan for hardcoded secrets and credentials. Migrate any findings to environment variables using a `.env.example` file (without actual secret values). Add a pre-commit hook using husky that runs gitleaks on staged files. Add a GitHub Actions step that fails PRs introducing new secrets. Open a PR.
+**Node.js (timesheet-app):**
+> Install and run gitleaks on timesheet-app to scan for hardcoded secrets and credentials. Migrate any findings to environment variables using a `.env.example` file (without actual secret values). Add a pre-commit hook using husky that runs gitleaks on staged files. Add a GitHub Actions step that fails PRs introducing new secrets. Open a PR.
 
 **Spring Boot (uc-cve-remediation-regulatory-compliance):**
 > Install and run gitleaks on uc-cve-remediation-regulatory-compliance to scan the full git history for leaked secrets. Review `application.properties` and `application.yml` for hardcoded credentials. Migrate all sensitive configuration to environment variable placeholders (e.g., `${DB_PASSWORD}`). Add a GitHub Actions workflow step that runs gitleaks on every PR. Open a PR.
@@ -149,7 +149,7 @@ Pick one:
 #### While Devin works
 
 Use **Ask Devin** to understand the current state:
-- *"Are there any hardcoded secrets, API keys, or database connection strings in app_timesheet?"*
+- *"Are there any hardcoded secrets, API keys, or database connection strings in timesheet-app?"*
 - *"What's the difference between gitleaks (scans git history) and GitHub Advanced Security secret scanning (scans live pushes)?"*
 
 #### Review the PR
@@ -170,7 +170,7 @@ Use **Ask Devin** to understand the current state:
 **Value driver:** *Devin creates CI/CD workflows from scratch. The scanning tools from Labs A1–A3 now run automatically on every PR.*
 
 - **Module:** [Shift Left Security](../../../modules/security/shift-left-security.md)
-- **Repos:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+- **Repos:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance), [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 This lab ties everything together into an automated CI pipeline. Devin writes the GitHub Actions workflow that scans every PR for vulnerabilities and blocks merges on critical findings.
 
@@ -181,14 +181,14 @@ Pick one:
 **Build from scratch (uc-cve-remediation-regulatory-compliance):**
 > Create a GitHub Actions CI pipeline for uc-cve-remediation-regulatory-compliance that: builds with Gradle, runs `./gradlew dependencyCheckAnalyze`, fails the PR if any dependency has CVSS >= 7.0, generates an SBOM in CycloneDX format, and uploads the dependency check report as a build artifact. Open a PR with the workflow file.
 
-**Enhance existing workflows (app_timesheet):**
-> Review the existing security scanning workflows in app_timesheet (.github/workflows/). Enhance them by adding: SBOM generation in CycloneDX format, a dependency-review step on PRs, and a Trivy container scan if Dockerfiles exist. The workflow should fail the PR on CRITICAL severity findings. Open a PR with the enhanced workflows.
+**Enhance existing workflows (timesheet-app):**
+> Review the existing security scanning workflows in timesheet-app (.github/workflows/). Enhance them by adding: SBOM generation in CycloneDX format, a dependency-review step on PRs, and a Trivy container scan if Dockerfiles exist. The workflow should fail the PR on CRITICAL severity findings. Open a PR with the enhanced workflows.
 
 #### While Devin works
 
 Use **Ask Devin** to study the existing patterns:
-- *"What security scanning is already configured in app_timesheet's CI? What gaps exist?"*
-- *"How does the sonar-devin-fix.yml workflow in app_timesheet trigger Devin to auto-fix issues?"*
+- *"What security scanning is already configured in timesheet-app's CI? What gaps exist?"*
+- *"How does the sonar-devin-fix.yml workflow in timesheet-app trigger Devin to auto-fix issues?"*
 
 Study the existing `sonar-devin-fix.yml` — this is the foundation pattern for Lab A5's autonomous pipeline.
 
@@ -212,7 +212,7 @@ Study the existing `sonar-devin-fix.yml` — this is the foundation pattern for 
 **Value driver:** *Devin isn't just a tool you open manually. It can be triggered by CI events and remediate findings autonomously — scan, fix, verify, all without human intervention.*
 
 - **Module:** [Event-Driven SAST Remediation](../../../modules/security/event-driven-sast-remediation.md)
-- **Repos:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
+- **Repos:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
 
 This is the capstone. Participants build a closed-loop pipeline: CI scans for vulnerabilities → triggers Devin via API → Devin remediates and pushes a fix → CI re-scans to verify. This is the enterprise pattern: Devin as a team member that handles security findings autonomously.
 
@@ -220,8 +220,8 @@ This is the capstone. Participants build a closed-loop pipeline: CI scans for vu
 
 Pick one:
 
-**Extend existing pattern (app_timesheet):**
-> Analyze the existing `.github/workflows/sonar-devin-fix.yml` in app_timesheet. This workflow already triggers Devin to fix SonarQube findings. Extend this pattern to create a new workflow called `sast-auto-remediate.yml` that: (1) triggers on PRs opened by users other than `devin-ai-integration[bot]`, (2) runs `npm audit --json` and Trivy container scan, (3) if HIGH or CRITICAL findings are found, posts a PR comment summarizing the findings and triggers a Devin session via the Devin API to remediate them on the same branch, (4) includes a re-scan step that verifies the fix. Document the architecture in an `ARCHITECTURE.md`. Open a PR.
+**Extend existing pattern (timesheet-app):**
+> Analyze the existing `.github/workflows/sonar-devin-fix.yml` in timesheet-app. This workflow already triggers Devin to fix SonarQube findings. Extend this pattern to create a new workflow called `sast-auto-remediate.yml` that: (1) triggers on PRs opened by users other than `devin-ai-integration[bot]`, (2) runs `npm audit --json` and Trivy container scan, (3) if HIGH or CRITICAL findings are found, posts a PR comment summarizing the findings and triggers a Devin session via the Devin API to remediate them on the same branch, (4) includes a re-scan step that verifies the fix. Document the architecture in an `ARCHITECTURE.md`. Open a PR.
 
 **Build from scratch (uc-cve-remediation-regulatory-compliance):**
 > Create a complete event-driven security remediation pipeline for uc-cve-remediation-regulatory-compliance. Build a GitHub Actions workflow `sast-auto-remediate.yml` that: (1) triggers on pull_request events from non-bot authors, (2) runs `./gradlew dependencyCheckAnalyze` and captures the report, (3) parses the report for findings with CVSS >= 7.0, (4) if critical findings exist, calls the Devin API to create a session with the prompt "Remediate the CRITICAL and HIGH CVEs found in the dependency check report. Push fixes to branch [branch-ref]. Re-run ./gradlew dependencyCheckAnalyze to verify.", (5) includes a verification step that re-runs the scan after Devin's commit. Add author filtering to prevent bot loops. Document the full architecture in `EVENT_DRIVEN_SECURITY.md`. Open a PR.
@@ -229,7 +229,7 @@ Pick one:
 #### While Devin works
 
 Use **Ask Devin** to understand the Devin API integration:
-- *"How does the existing sonar-devin-fix.yml workflow in app_timesheet trigger Devin? What API endpoint and parameters does it use?"*
+- *"How does the existing sonar-devin-fix.yml workflow in timesheet-app trigger Devin? What API endpoint and parameters does it use?"*
 - *"What's the best way to prevent an infinite loop where Devin's fix commit triggers another scan that triggers another Devin session?"*
 
 This is also a good time to think about **Scheduled Sessions** — the same scan-and-fix pattern can run weekly across all repos.
@@ -256,7 +256,7 @@ This is also a good time to think about **Scheduled Sessions** — the same scan
 
 ### Before You Start: DeepWiki
 
-Open the **DeepWiki** page for [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet) — this is the primary repo for Track B. It's a React + Node.js full-stack application. Browse the architecture, testing patterns, and component structure. You can reference DeepWiki at any point during the labs.
+Open the **DeepWiki** page for [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) — this is the primary repo for Track B. It's a React + Node.js full-stack application. Browse the architecture, testing patterns, and component structure. You can reference DeepWiki at any point during the labs.
 
 ---
 
@@ -265,7 +265,7 @@ Open the **DeepWiki** page for [app_timesheet](https://github.com/Cognition-Part
 **Value driver:** *Devin works autonomously. Give it a well-defined task, walk away, come back to a PR.*
 
 - **Module:** [Unit Testing](../../../modules/testing-qa/unit-testing.md)
-- **Repos:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [ts-java-spring-boot-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld-example-app)
+- **Repos:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [ts-java-spring-boot-realworld](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-realworld)
 
 This is your first Devin session. Paste a prompt, Devin analyzes test coverage, writes tests, and opens a PR. You don't need to watch.
 
@@ -273,22 +273,22 @@ This is your first Devin session. Paste a prompt, Devin analyzes test coverage, 
 
 Pick one (or run both in parallel):
 
-**Full-stack coverage audit (app_timesheet):**
-> Analyze the test coverage of app_timesheet. Run the existing test suites for both the backend (Node.js/Express) and frontend (React) and generate coverage reports. Identify the 5 modules or files with the lowest coverage.
+**Full-stack coverage audit (timesheet-app):**
+> Analyze the test coverage of timesheet-app. Run the existing test suites for both the backend (Node.js/Express) and frontend (React) and generate coverage reports. Identify the 5 modules or files with the lowest coverage.
 >
 > For each of the 3 worst-covered backend files, write unit tests that bring coverage above 80%. Follow the existing test patterns in the codebase (testing framework, assertion style, mock patterns). For the frontend, write React Testing Library tests for the 2 least-covered components.
 >
 > Create a `COVERAGE_REPORT.md` summarizing: current coverage baseline, files targeted, tests added, and new coverage numbers. Open a PR.
 
-**Spring Boot coverage audit (ts-java-spring-boot-realworld-example-app):**
-> Analyze the test coverage of ts-java-spring-boot-realworld-example-app. Run `./gradlew test jacocoTestReport` and identify classes with the lowest line coverage. Focus on the service layer and API controllers.
+**Spring Boot coverage audit (ts-java-spring-boot-realworld):**
+> Analyze the test coverage of ts-java-spring-boot-realworld. Run `./gradlew test jacocoTestReport` and identify classes with the lowest line coverage. Focus on the service layer and API controllers.
 >
 > Write JUnit 5 tests for the 5 least-covered classes, following the existing test patterns (MockMvc for controllers, Mockito for services). Ensure each new test class covers happy path, error cases, and edge cases. Open a PR with the new tests and an updated coverage report.
 
 #### While Devin works: try Ask Devin
 
 Open **Ask Devin** and explore:
-- *"What testing patterns does app_timesheet use — what assertion library, mocking framework, and test structure should new tests follow?"*
+- *"What testing patterns does timesheet-app use — what assertion library, mocking framework, and test structure should new tests follow?"*
 - *"Which parts of the backend have the most complex business logic but the least test coverage?"*
 - Use what you learn to plan a second session targeting different files.
 
@@ -312,13 +312,13 @@ Open **Ask Devin** and explore:
 **Value driver:** *Devin has a full VM with a browser. It starts the app, navigates the UI, writes Playwright tests, and takes screenshots as evidence. You can watch it work in the Desktop tab.*
 
 - **Module:** [End-to-End Testing](../../../modules/testing-qa/end-to-end-testing.md)
-- **Repo:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+- **Repo:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 This lab showcases a unique capability: Devin runs the app on its own machine, opens a real browser, and interacts with the running UI.
 
 #### Give Devin a task
 
-> Start the app_timesheet application locally (both backend and frontend). Once the app is running, write Playwright end-to-end tests for the core user workflows:
+> Start the timesheet-app application locally (both backend and frontend). Once the app is running, write Playwright end-to-end tests for the core user workflows:
 >
 > 1. **Authentication flow:** Register a new user, log in, verify the dashboard loads
 > 2. **Client management:** Create a new client, edit the client name, verify the update persists
@@ -332,7 +332,7 @@ This lab showcases a unique capability: Devin runs the app on its own machine, o
 **Watch the Desktop tab** — you can see Devin navigate the application in real time as it writes and runs tests. This is a great way to understand how Devin interacts with running applications.
 
 Use **Ask Devin** to explore:
-- *"What is the app_timesheet login flow — is it email/password or OAuth?"*
+- *"What is the timesheet-app login flow — is it email/password or OAuth?"*
 - *"What are the most critical user journeys that should have E2E coverage?"*
 
 #### Review the PR
@@ -354,13 +354,13 @@ Use **Ask Devin** to explore:
 **Value driver:** *Devin excels at repetitive, file-by-file work. The same conversion pattern applied consistently across dozens of files. You can fan out into parallel sessions for speed.*
 
 - **Module:** [Test Framework Migration](../../../modules/testing-qa/test-framework-migration.md)
-- **Repos:** [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular), [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app) (reference)
+- **Repos:** [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular), [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld) (reference)
 
-Migrate app_petclinic-angular from deprecated test frameworks (Karma + Jasmine + Protractor) to modern replacements (Jest/Vitest + Playwright). This is tedious for humans but ideal for Devin.
+Migrate petclinic-angular from deprecated test frameworks (Karma + Jasmine + Protractor) to modern replacements (Jest/Vitest + Playwright). This is tedious for humans but ideal for Devin.
 
 #### Give Devin a task
 
-> Analyze the test infrastructure in app_petclinic-angular. The project currently uses Karma + Jasmine for unit tests and Protractor for E2E tests — both are deprecated in the Angular ecosystem.
+> Analyze the test infrastructure in petclinic-angular. The project currently uses Karma + Jasmine for unit tests and Protractor for E2E tests — both are deprecated in the Angular ecosystem.
 >
 > Phase 1 — Unit test migration:
 > Replace Karma + Jasmine with Jest (or Vitest). Update the test configuration, convert all `.spec.ts` files to use the new test runner's API, and ensure all unit tests pass. Remove the Karma dependencies and configuration files.
@@ -368,15 +368,15 @@ Migrate app_petclinic-angular from deprecated test frameworks (Karma + Jasmine +
 > Phase 2 — E2E test migration:
 > Replace Protractor with Playwright. Convert any existing E2E tests (or create new ones if none exist) to use Playwright's API. Add a Playwright configuration file and ensure the E2E tests can run against the dev server.
 >
-> Use ts-angular-realworld-example-app as a reference — it already uses Vitest + Playwright. Create a `MIGRATION_RUNBOOK.md` documenting patterns converted, manual interventions needed, and common gotchas. Open a PR.
+> Use ts-angular-realworld as a reference — it already uses Vitest + Playwright. Create a `MIGRATION_RUNBOOK.md` documenting patterns converted, manual interventions needed, and common gotchas. Open a PR.
 
 #### While Devin works
 
 Try running **parallel sessions** — one for Phase 1 (unit tests) and one for Phase 2 (E2E). Each session gets its own VM.
 
 Use **Ask Devin** to plan:
-- *"What Karma/Jasmine patterns in app_petclinic-angular will be hardest to convert to Jest?"*
-- *"How does ts-angular-realworld-example-app structure its Vitest + Playwright setup? Can we use it as a reference?"*
+- *"What Karma/Jasmine patterns in petclinic-angular will be hardest to convert to Jest?"*
+- *"How does ts-angular-realworld structure its Vitest + Playwright setup? Can we use it as a reference?"*
 
 After the migration succeeds, consider asking Devin to **create a Playbook** capturing the migration steps. Then any team member can reuse the same pattern for other Angular repos with one click.
 
@@ -389,7 +389,7 @@ After the migration succeeds, consider asking Devin to **create a Playbook** cap
 **Key Takeaways:**
 - The same conversion pattern applied across dozens of files — tedious for humans, ideal for Devin
 - Parallel sessions save calendar time — unit test migration and E2E migration run simultaneously
-- Multi-repo workspace: Devin references a working example (ts-angular-realworld-example-app) while migrating another repo
+- Multi-repo workspace: Devin references a working example (ts-angular-realworld) while migrating another repo
 - **Playbooks turn one-off work into repeatable processes** — capture the runbook so the next migration is a one-click operation
 
 ---
@@ -445,20 +445,20 @@ This back-and-forth is how real teams work with Devin in production.
 **Value driver:** *Devin isn't just a tool you use once. Scheduled Sessions, Playbooks, and Knowledge turn Devin into an ongoing team member that monitors quality automatically.*
 
 - **Module:** [Continuous Quality Engineering](../../../modules/testing-qa/continuous-quality-engineering.md)
-- **Repos:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet), [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api)
+- **Repos:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app), [uc-bdd-test-generation-rest-api](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-rest-api)
 
 This is the capstone. Set up Devin as an ongoing quality engineering team member using Scheduled Sessions, Playbooks, and Knowledge.
 
 #### Start with Ask Devin
 
 Before creating a session, plan the QA strategy with Ask Devin:
-- *"What is the current test coverage of app_timesheet? Which areas have the weakest coverage?"*
+- *"What is the current test coverage of timesheet-app? Which areas have the weakest coverage?"*
 - *"What recurring QA tasks would benefit from weekly automation — coverage checks, dependency audits, test smell detection?"*
 - *"What test quality standards should we encode in a Playbook?"*
 
 #### Give Devin a task
 
-> Set up a continuous quality engineering practice for app_timesheet.
+> Set up a continuous quality engineering practice for timesheet-app.
 >
 > Part 1 — Test coverage baseline:
 > Run the existing test suite and generate a coverage report. Identify the 5 files/modules with the lowest coverage. Write tests to bring the worst offender above 80% coverage.
@@ -477,7 +477,7 @@ After reviewing Devin's output:
 
 1. **Create a Playbook** — go to Devin Settings and create a "Weekly QA Audit" Playbook encoding the methodology: run tests, check coverage against baseline, detect flaky tests, scan for anti-patterns, open a PR with improvements.
 
-2. **Set up a Scheduled Session** — configure a weekly session (e.g., every Monday at 6 AM) that runs the Weekly QA Audit Playbook against app_timesheet. This is the "Devin as team member" story — continuous quality monitoring without human initiation.
+2. **Set up a Scheduled Session** — configure a weekly session (e.g., every Monday at 6 AM) that runs the Weekly QA Audit Playbook against timesheet-app. This is the "Devin as team member" story — continuous quality monitoring without human initiation.
 
 3. **Create Knowledge items** — based on what you learned in Labs B1–B4, create Knowledge items like:
    - "All API tests must include both happy path and error cases"
@@ -520,28 +520,28 @@ Participants who finish early can try any challenge from the full [module catalo
 ### Track A (Security)
 
 - [ ] uc-cve-remediation-regulatory-compliance
-- [ ] app_timesheet
+- [ ] timesheet-app
 
 ### Track B (QA)
 
-- [ ] app_timesheet
-- [ ] app_petclinic-angular
-- [ ] ts-angular-realworld-example-app
+- [ ] timesheet-app
+- [ ] petclinic-angular
+- [ ] ts-angular-realworld
 - [ ] uc-bdd-test-generation-rest-api
 
 #### Optional (for extended challenges)
 
-- [ ] ts-java-spring-boot-realworld-example-app
+- [ ] ts-java-spring-boot-realworld
 - [ ] Online-Banking-System-using-Java
 - [ ] uc-framework-upgrade-monolith-to-microservices
-- [ ] app_petclinic-microservices
-- [ ] cal.com
+- [ ] petclinic-microservices
+- [ ] calcom
 
 ## Repo Duplication Notes
 
-- `app_timesheet` appears in both tracks — it's used for security scanning (Track A) and test generation (Track B). Participants in both tracks may work on the same repo but target different aspects.
+- `timesheet-app` appears in both tracks — it's used for security scanning (Track A) and test generation (Track B). Participants in both tracks may work on the same repo but target different aspects.
 - `uc-cve-remediation-regulatory-compliance` is a Spring Boot 2.6.3 app with 18+ known CVEs, pre-configured with OWASP Dependency-Check and SonarQube Gradle plugins. It's the primary repo for Track A.
-- `ts-angular-realworld-example-app` already uses modern Vitest + Playwright — it serves as a reference target for the test framework migration, not a migration source.
+- `ts-angular-realworld` already uses modern Vitest + Playwright — it serves as a reference target for the test framework migration, not a migration source.
 
 ## Context
 

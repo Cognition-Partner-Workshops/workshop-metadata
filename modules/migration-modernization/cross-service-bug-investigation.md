@@ -2,10 +2,10 @@
 
 ## Repositories
 
-- [app_dotnet_angular_containerized_decomposition_microservices](#app_dotnet_angular_containerized_decomposition_microservices) — decomposed microservices (contains the bug)
+- [quickapp-microservices](#quickapp-microservices) — decomposed microservices (contains the bug)
 
 **Context Repositories:**
-- [app_dotnet_angular_containerized_decomposition_monolith](#app_dotnet_angular_containerized_decomposition_monolith) — the refactored monolith (for tracing data flow)
+- [quickapp-monolith](#quickapp-monolith) — the refactored monolith (for tracing data flow)
 
 ---
 
@@ -61,7 +61,7 @@ Intermediate
 
 ## Prerequisites
 
-- The Notification service with the currency formatting bug is on `main` of `app_dotnet_angular_containerized_decomposition_microservices`
+- The Notification service with the currency formatting bug is on `main` of `quickapp-microservices`
 - Docker available for running services locally
 - The service should be running so participants can hit the `/api/notification/events/order-placed` endpoint and view the `/api/notification/{id}/preview` HTML output
 
@@ -90,9 +90,9 @@ Intermediate
 
 ---
 
-## <a id="app_dotnet_angular_containerized_decomposition_microservices"></a>app_dotnet_angular_containerized_decomposition_microservices
+## <a id="quickapp-microservices"></a>quickapp-microservices
 
-**Repository:** [app_dotnet_angular_containerized_decomposition_microservices](https://github.com/Cognition-Partner-Workshops/app_dotnet_angular_containerized_decomposition_microservices)
+**Repository:** [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices)
 
 The Notification service on `main` has a fully implemented order confirmation email renderer with the planted currency formatting bug. Key files:
 
@@ -104,7 +104,7 @@ The Notification service on `main` has a fully implemented order confirmation em
 
 > **Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview.**
 >
-> Investigate and fix this bug in `app_dotnet_angular_containerized_decomposition_microservices`. Work on branch `workshop-<attendee_id>`.
+> Investigate and fix this bug in `quickapp-microservices`. Work on branch `workshop-<attendee_id>`.
 >
 > To reproduce:
 > 1. Run the notification-service locally

@@ -2,8 +2,8 @@
 
 ## Repositories
 
-- [app_petclinic-angular](#app_petclinic-angular)
-- [ts-angular-realworld-example-app](#ts-angular-realworld-example-app)
+- [petclinic-angular](#petclinic-angular)
+- [ts-angular-realworld](#ts-angular-realworld)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
 ---
@@ -54,19 +54,19 @@ Intermediate
 
 ---
 
-## <a id="app_petclinic-angular"></a>app_petclinic-angular
+## <a id="petclinic-angular"></a>petclinic-angular
 
-**Repository:** [app_petclinic-angular](https://github.com/Cognition-Partner-Workshops/app_petclinic-angular)
+**Repository:** [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular)
 
 Angular frontend for the Spring PetClinic application.
 
 ### Step 1: Paste into Devin
 
-> Upgrade app_petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Open a PR with the changes.
+> Upgrade petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update all dependencies, fix deprecated APIs, and ensure the app builds successfully. Open a PR with the changes.
 
 ### Step 2: Research with Ask Devin
 
-- *"What Angular version is app_petclinic-angular currently on? What breaking changes should I expect when upgrading to the latest?"*
+- *"What Angular version is petclinic-angular currently on? What breaking changes should I expect when upgrading to the latest?"*
 - *"Are there any deprecated patterns (e.g., NgModules vs. standalone components) that should be modernized during the upgrade?"*
 
 ### Step 3 (Optional): Read the DeepWiki
@@ -81,19 +81,19 @@ Open the repo's DeepWiki page to understand the component hierarchy and module s
 
 ---
 
-## <a id="ts-angular-realworld-example-app"></a>ts-angular-realworld-example-app
+## <a id="ts-angular-realworld"></a>ts-angular-realworld
 
-**Repository:** [ts-angular-realworld-example-app](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld-example-app)
+**Repository:** [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld)
 
 Angular RealWorld example application.
 
 ### Step 1: Paste into Devin
 
-> Upgrade ts-angular-realworld-example-app to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
+> Upgrade ts-angular-realworld to the latest Angular version. Handle any breaking changes, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"What's the current Angular version in ts-angular-realworld-example-app and how many major versions behind is it?"*
+- *"What's the current Angular version in ts-angular-realworld and how many major versions behind is it?"*
 - *"Should this upgrade be done incrementally (one major version at a time) or can we jump directly to the latest?"*
 
 ### Step 3 (Optional): Read the DeepWiki

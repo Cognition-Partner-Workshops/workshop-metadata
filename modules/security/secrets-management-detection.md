@@ -2,7 +2,7 @@
 
 ## Repositories
 
-- [app_timesheet](#app_timesheet)
+- [timesheet-app](#timesheet-app)
 - [uc-cve-remediation-regulatory-compliance](#uc-cve-remediation-regulatory-compliance)
 - [uc-framework-upgrade-monolith-to-microservices](#uc-framework-upgrade-monolith-to-microservices)
 
@@ -44,19 +44,19 @@ Intermediate
 
 ---
 
-## <a id="app_timesheet"></a>app_timesheet
+## <a id="timesheet-app"></a>timesheet-app
 
-**Repository:** [app_timesheet](https://github.com/Cognition-Partner-Workshops/app_timesheet)
+**Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js application — scan for hardcoded API keys, database credentials, and JWT secrets in the codebase.
 
 ### Step 1: Paste into Devin
 
-> Install and run gitleaks on app_timesheet to scan for hardcoded secrets and credentials. Migrate any findings to environment variables using a `.env.example` file (without actual secret values). Add a pre-commit hook using husky that runs gitleaks on staged files. Add a GitHub Actions step that fails PRs introducing new secrets. Open a PR.
+> Install and run gitleaks on timesheet-app to scan for hardcoded secrets and credentials. Migrate any findings to environment variables using a `.env.example` file (without actual secret values). Add a pre-commit hook using husky that runs gitleaks on staged files. Add a GitHub Actions step that fails PRs introducing new secrets. Open a PR.
 
 ### Step 2: Research with Ask Devin
 
-- *"Are there any hardcoded secrets, API keys, or database connection strings in app_timesheet?"*
+- *"Are there any hardcoded secrets, API keys, or database connection strings in timesheet-app?"*
 - *"What's the current approach to configuration management? Are environment variables used consistently?"*
 
 ### Step 3 (Optional): Read the DeepWiki
