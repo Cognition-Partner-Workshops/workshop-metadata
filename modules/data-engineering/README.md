@@ -13,6 +13,7 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 | [ETL Pipeline Modernization](etl-pipeline-modernization.md) | Intermediate–Advanced | 60 min |
 | [Data Quality & Validation](data-quality-validation.md) | Intermediate | 45 min |
 | [SAS to Python/Snowflake](sas-to-python-snowflake.md) | Intermediate–Advanced | 60 min |
+| [SAS Migration Analysis — Discovery & Assessment](sas-migration-analysis.md) | Intermediate–Advanced | 75 min |
 | [Informatica PowerCenter Analysis](informatica-powercenter-analysis.md) | Intermediate | 45 min |
 | [Informatica PowerCenter to Snowflake Migration](informatica-to-snowflake-migration.md) | Advanced | 75 min |
 | [COBOL Copybook to PySpark/JSON](cobol-copybook-to-pyspark-json.md) | Intermediate | 45 min |
@@ -25,6 +26,8 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 | uc-data-source-migration-legacy-to-modern | [Data Source Migration](data-source-migration.md) |
 | ts-informatica-powercenter | [Informatica PowerCenter Analysis](informatica-powercenter-analysis.md), [Informatica PowerCenter to Snowflake Migration](informatica-to-snowflake-migration.md) |
 | ts-cobol-carddemo | [COBOL Copybook to PySpark/JSON](cobol-copybook-to-pyspark-json.md) |
+| ts-sas-legacy-analytics | [SAS to Python/Snowflake](sas-to-python-snowflake.md), [SAS Migration Analysis](sas-migration-analysis.md) |
+| uc-data-migration-sas-to-snowflake | [SAS to Python/Snowflake](sas-to-python-snowflake.md), [SAS Migration Analysis](sas-migration-analysis.md) |
 
 ## When to Use This Category
 
@@ -34,3 +37,4 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 - Data Quality & Validation pairs well with any data migration module as a validation step
 - The `uc-dw-migration-teradata-to-snowflake` repo was specifically curated for these challenges
 - Informatica PowerCenter modules are ideal for enterprises migrating from on-prem Informatica ETL to cloud-native Snowflake architectures
+- SAS Migration Analysis is the go-to module for SAS → dbt/Databricks presales — it showcases non-invasive static analysis vs runtime trace tools (Alchemist Analyzer) and includes a complete dbt target architecture

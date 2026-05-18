@@ -118,6 +118,7 @@ All hands-on modules organized by engineering discipline. Each module is a self-
 | [ETL Pipeline Modernization](data-engineering/etl-pipeline-modernization.md) | Intermediate–Advanced | 60 min | uc-dw-migration-teradata-to-snowflake |
 | [Data Quality & Validation](data-engineering/data-quality-validation.md) | Intermediate | 45 min | uc-dw-migration-teradata-to-snowflake |
 | [SAS to Python/Snowflake](data-engineering/sas-to-python-snowflake.md) | Intermediate–Advanced | 60 min | Multiple repos |
+| [SAS Migration Analysis](data-engineering/sas-migration-analysis.md) | Intermediate–Advanced | 75 min | ts-sas-legacy-analytics, uc-data-migration-sas-to-snowflake |
 | [Informatica PowerCenter Analysis](data-engineering/informatica-powercenter-analysis.md) | Intermediate | 45 min | ts-informatica-powercenter |
 | [Informatica PowerCenter to Snowflake Migration](data-engineering/informatica-to-snowflake-migration.md) | Advanced | 75 min | ts-informatica-powercenter, uc-dw-migration-teradata-to-snowflake |
 
