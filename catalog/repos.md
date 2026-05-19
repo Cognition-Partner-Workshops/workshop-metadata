@@ -118,6 +118,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **Description** | SAS to Snowflake migration validation app — sample SAS data (.sas7bdat), lineage mapping, transformation scenarios, validation configs. Streamlit UI with Gemini LLM integration. |
 | **Tech Stack** | Python, Streamlit, SAS data files |
 | **License** | — |
+| **Cluster** | C10 |
 | **Challenges** | [SAS to Python/Snowflake](../modules/data-engineering/sas-to-python-snowflake.md) |
 
 ### uc-data-migration-sas-to-databricks
