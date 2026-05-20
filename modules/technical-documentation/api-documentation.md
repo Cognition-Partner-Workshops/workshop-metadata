@@ -1,10 +1,26 @@
 # API Documentation
 
-## Repositories
+## Table of Contents
 
-- [timesheet-app](#timesheet-app)
-- [uc-data-source-migration-jdbc-normalization](#uc-data-source-migration-jdbc-normalization)
-- [uc-spring-boot-upgrade-microservice-extraction](#uc-spring-boot-upgrade-microservice-extraction)
+- [Quick Start](#quick-start)
+- [Challenge](#challenge)
+- [Target Outcomes](#target-outcomes)
+- [What Participants Will Learn](#what-participants-will-learn)
+- [Devin Features Exercised](#devin-features-exercised)
+- [Difficulty](#difficulty)
+- [Estimated Time](#estimated-time)
+- [Repositories](#repositories)
+  - [timesheet-app](#timesheet-app)
+  - [uc-data-source-migration-jdbc-normalization](#uc-data-source-migration-jdbc-normalization)
+  - [uc-spring-boot-upgrade-microservice-extraction](#uc-spring-boot-upgrade-microservice-extraction)
+- [Key Takeaways](#key-takeaways)
+- [Going Further](#going-further)
+
+---
+
+## Quick Start
+
+Pick a repo below, copy the **Step 1** prompt into a new Devin session, and let Devin generate an OpenAPI specification from the existing code. No prerequisites beyond repo access.
 
 ---
 
@@ -43,78 +59,102 @@ Intermediate
 
 ---
 
-## <a id="timesheet-app"></a>timesheet-app
+## Repositories
+
+### <a id="timesheet-app"></a>timesheet-app
 
 **Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
 
 Node.js/Express backend with REST endpoints for work entries, clients, and reporting.
 
-### Step 1: Paste into Devin
+#### Step 1: Paste into Devin
 
-> Generate an OpenAPI 3.0 specification for all REST endpoints in timesheet-app's backend. Include: endpoint paths, HTTP methods, request/response schemas, authentication requirements, status codes, and example payloads. Add swagger-ui-express to serve interactive documentation at /api-docs. Open a PR.
+```
+Generate an OpenAPI 3.0 specification for all REST endpoints in timesheet-app's backend. Include: endpoint paths, HTTP methods, request/response schemas, authentication requirements, status codes, and example payloads. Add swagger-ui-express to serve interactive documentation at /api-docs.
+```
 
-### Step 2: Research with Ask Devin
+#### Step 2: Research with Ask Devin
 
 - *"What REST endpoints exist in timesheet-app? Are there any undocumented or inconsistent endpoints?"*
 - *"Does the API follow REST best practices for status codes and error responses? Where does it deviate?"*
 
-### Step 3 (Optional): Read the DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's DeepWiki page to understand the full API surface. Cross-reference DeepWiki's auto-generated documentation with the OpenAPI spec to catch any gaps.
 
-### Step 4 (Optional): Review & Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 - **Review the diff** — do the request/response schemas match the actual implementation?
 - **Leave a comment** asking Devin to add request validation middleware that enforces the OpenAPI spec
 
 ---
 
-## <a id="uc-data-source-migration-jdbc-normalization"></a>uc-data-source-migration-jdbc-normalization
+### <a id="uc-data-source-migration-jdbc-normalization"></a>uc-data-source-migration-jdbc-normalization
 
 **Repository:** [uc-data-source-migration-jdbc-normalization](https://github.com/Cognition-Partner-Workshops/uc-data-source-migration-jdbc-normalization)
 
 Spring Boot loan service with REST endpoints — generate Springdoc OpenAPI documentation.
 
-### Step 1: Paste into Devin
+#### Step 1: Paste into Devin
 
-> Add Springdoc OpenAPI to uc-data-source-migration-jdbc-normalization. Annotate all REST controllers with @Operation, @ApiResponse, and @Schema annotations. Configure Swagger UI at /swagger-ui.html. Ensure all loan-related endpoints are documented with proper schemas, examples, and error responses. Open a PR.
+```
+Add Springdoc OpenAPI to uc-data-source-migration-jdbc-normalization. Annotate all REST controllers with @Operation, @ApiResponse, and @Schema annotations. Configure Swagger UI at /swagger-ui.html. Ensure all loan-related endpoints are documented with proper schemas, examples, and error responses.
+```
 
-### Step 2: Research with Ask Devin
+#### Step 2: Research with Ask Devin
 
 - *"What API documentation libraries work best with Spring Boot 3.x? Is Springdoc the right choice?"*
 - *"Are there any endpoints that return different response shapes for success vs. error that need multiple @ApiResponse annotations?"*
 
-### Step 3 (Optional): Read the DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's DeepWiki page to understand the API contracts. Verify that the generated OpenAPI spec accurately represents the data types, especially the legacy-to-modern schema differences.
 
-### Step 4 (Optional): Review & Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 - **Review the diff** — are the @Schema annotations accurate for the JPA entity types?
 - **Leave a comment** asking Devin to also generate a Postman collection from the OpenAPI spec
 
 ---
 
-## <a id="uc-spring-boot-upgrade-microservice-extraction"></a>uc-spring-boot-upgrade-microservice-extraction
+### <a id="uc-spring-boot-upgrade-microservice-extraction"></a>uc-spring-boot-upgrade-microservice-extraction
 
 **Repository:** [uc-spring-boot-upgrade-microservice-extraction](https://github.com/Cognition-Partner-Workshops/uc-spring-boot-upgrade-microservice-extraction)
 
 Spring Boot monolith with both REST and GraphQL APIs — document the REST API surface with OpenAPI.
 
-### Step 1: Paste into Devin
+#### Step 1: Paste into Devin
 
-> Add Springdoc OpenAPI to uc-spring-boot-upgrade-microservice-extraction. Document all REST endpoints with @Operation annotations, request/response schemas, authentication requirements, and example payloads. Configure Swagger UI. Also document the GraphQL schema if possible (GraphQL Voyager or similar). Open a PR.
+```
+Add Springdoc OpenAPI to uc-spring-boot-upgrade-microservice-extraction. Document all REST endpoints with @Operation annotations, request/response schemas, authentication requirements, and example payloads. Configure Swagger UI. Also document the GraphQL schema if possible (GraphQL Voyager or similar).
+```
 
-### Step 2: Research with Ask Devin
+#### Step 2: Research with Ask Devin
 
 - *"How should we document both the REST and GraphQL APIs? Are there tools that can generate a unified API reference?"*
 - *"Which API endpoints require authentication and which are public?"*
 
-### Step 3 (Optional): Read the DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's DeepWiki page to map out the complete API surface across both REST and GraphQL layers.
 
-### Step 4 (Optional): Review & Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 - **Review the diff** — does the OpenAPI spec cover all REST endpoints? Is the GraphQL schema documented?
 - **Leave a comment** asking Devin to add API versioning headers to the documentation
+
+---
+
+## Key Takeaways
+
+- Devin generates OpenAPI specs by reading the actual route handlers, request types, and response shapes — the output reflects the real implementation rather than assumptions
+- API documentation is a maintenance burden that teams often let drift from reality — generating it from code ensures accuracy at the time of creation
+- Interactive documentation (Swagger UI) provides immediate value: developers can try endpoints without leaving the browser
+
+## Going Further
+
+API documentation is well suited to **documentation-on-code-change triggers** (see [When to Use Devin → Capacity-Constrained](../../shared/general-themes/when-to-use-devin.md)):
+
+- **PR-triggered doc updates** — When a PR modifies API route handlers, trigger a Devin session that regenerates the OpenAPI spec from the updated code and opens a follow-up PR if the spec has drifted from the implementation
+- **Scheduled spec-vs-code audits** — Run a recurring session that compares the checked-in OpenAPI spec against the actual route definitions and flags any endpoints that were added, removed, or changed without a corresponding spec update
+- **Contract test generation** — After generating the OpenAPI spec, trigger a Devin session that generates contract tests (using Pact or Schemathesis) to verify that the API implementation continues to match the spec over time
