@@ -38,3 +38,4 @@ Challenges focused on data warehouse migration, ETL pipeline modernization, data
 - Data Quality & Validation pairs well with any data migration module as a validation step
 - The `uc-dw-migration-teradata-to-snowflake` repo was specifically curated for these challenges
 - Informatica PowerCenter modules are ideal for enterprises migrating from on-prem Informatica ETL to cloud-native Snowflake architectures
+- The [SAS Migration Analysis](sas-migration-analysis.md) module includes a **Programmatic Context Loop** section — prescriptive guidance on configuring DeepWiki, Knowledge notes, MCP servers, and environment blueprints so Devin can iteratively build understanding during migration analysis. Use this as a reference for any migration module where programmatic resource access is part of the workflow
