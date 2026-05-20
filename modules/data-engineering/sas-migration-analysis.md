@@ -322,7 +322,7 @@ source code, not runtime traces.
 
 Unlike runtime trace-based tools, Devin's static code analysis approach requires no changes to the customer's SAS environment. Third-party trace tools typically require XML logging configuration changes, audit logger enablement, and `-logconfigloc` updates on the production SAS environment. Devin's approach requires only the source files and configuration artifacts listed above — the analysis is entirely non-invasive.
 
-This difference matters for presales: customers are often reluctant to modify production SAS environments for a migration assessment. Removing that requirement significantly reduces the barrier to starting.
+This matters in practice: customers are often reluctant to modify production SAS environments for a migration assessment. Removing that requirement significantly reduces the barrier to starting.
 
 ---
 
