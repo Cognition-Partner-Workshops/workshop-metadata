@@ -39,7 +39,7 @@ A few tips to maximize your hands-on time:
   - [Lab A2 — Migration Planning & Domain Decomposition](#lab-a2--migration-planning--domain-decomposition-60-min)
   - [Lab A3 — Migration Test Harness & Validation Strategy](#lab-a3--migration-test-harness--validation-strategy-60-min)
   - [Lab A4 — Code Migration: COBOL → Java](#lab-a4--code-migration-cobol--java-60-min)
-- [Track B: Oracle Forms Modernization](#track-b-oracle-forms-modernization-formssql--spring-boot)
+- [Track B: Oracle Forms Modernization](#track-b-oracle-forms-modernization-formsplsql--spring-boot)
   - [Lab B1 — System Understanding & Reverse Engineering](#lab-b1--system-understanding--reverse-engineering-60-min)
   - [Lab B2 — Migration Planning & Strategy](#lab-b2--migration-planning--strategy-60-min)
   - [Lab B3 — Migration Test Harness & Validation](#lab-b3--migration-test-harness--validation-60-min)
