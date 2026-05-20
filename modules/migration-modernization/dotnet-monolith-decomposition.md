@@ -171,7 +171,7 @@ Open each repo's DeepWiki page to understand the architecture:
 - **Leave a comment** asking Devin to improve something specific:
   - *"Add retry and circuit breaker logic to the OrderServiceClient using Polly"*
   - *"Add health check endpoints for readiness and liveness probes"*
-  - *"The docker-compose is missing a volume for PostgreSQL data persistence — add one"*
+  - *"The docker-compose is missing a volume for SQLite data persistence — add one"*
 
 ### Key Takeaways
 
