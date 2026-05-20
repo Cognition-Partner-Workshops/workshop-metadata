@@ -21,6 +21,7 @@
 - [Related Themes](#related-themes)
 - [Devin Features Checklist](#devin-features-checklist)
 - [Notes](#notes)
+- [Quality Review](#quality-review)
 - [Post-Event](#post-event)
 
 ## Agenda
