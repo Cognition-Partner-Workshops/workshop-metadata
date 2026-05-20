@@ -13,7 +13,7 @@
 ## Table of Contents
 
 - [Getting the Most from This Workshop](#getting-the-most-from-this-workshop)
-- [Track A — Security & Vulnerability](#choose-your-track)
+- [Track A — Security & Vulnerability](#track-a--security--vulnerability)
   - [Lab A1 — Dependency Audit (45 min)](#lab-a1-paste-a-prompt-get-a-pr-dependency-audit-45-min)
   - [Lab A2 — SAST Scanning with SonarQube (60 min)](#lab-a2-devin-runs-your-tools-sast-scanning-with-sonarqube-60-min)
   - [Lab A3 — Secrets Detection (45 min)](#lab-a3-guardrails-that-prevent-future-problems-secrets-detection-45-min)
