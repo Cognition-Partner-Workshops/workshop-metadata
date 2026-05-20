@@ -167,8 +167,10 @@ Create a Knowledge entry in Devin that captures the platform conformance rules:
 1. Go to **Sessions**
 2. Send this prompt to Devin:
 
-> Create a new Knowledge item titled "Platform Conformance Standard"
-> Include rules like: *"All new microservices must include a Helm chart with network policy, service monitor, and HPA. ArgoCD manifests must target decomposition-dev and decomposition-staging namespaces. Dockerfiles must use multi-stage builds following the pattern in ordermanager-iac."*
+```
+Create a new Knowledge item titled "Platform Conformance Standard"
+Include rules like: "All new microservices must include a Helm chart with network policy, service monitor, and HPA. ArgoCD manifests must target decomposition-dev and decomposition-staging namespaces. Dockerfiles must use multi-stage builds following the pattern in ordermanager-iac."
+```
 
 3. Navigate to **Setting > Knowledge** and see the new knowledge items once Devin completes the task.
 

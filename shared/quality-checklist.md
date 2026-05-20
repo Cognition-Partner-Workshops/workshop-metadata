@@ -20,7 +20,6 @@ Use this checklist when authoring or reviewing modules, workshops, and event mat
 - [ ] **Participant-centered language** — Use "try", "hands-on", "walkthrough" — never "demo". Section headers say "What to Try" not "What to Demo"
 - [ ] **"Key Takeaways" not "Key Talking Points"** — Summary bullets under each lab use this header
 - [ ] **No overstatements or guarantees** — Avoid "every", "all", "always", "guaranteed", "comprehensive coverage" when describing probabilistic tools (DeepWiki, AI analysis). Use "typically", "in most cases", "coverage depends on repo structure"
-- [ ] **No customer names** — Never mention customer names, venue names tied to customers, or identifying product names. Use `*(customer)*` as a placeholder
 - [ ] **Event naming** — Use "workshop" not "arc" in user-facing content
 - [ ] **US English spelling** — "modernization", "organization" (not "modernisation", "organisation")
 
