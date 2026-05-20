@@ -108,7 +108,7 @@ Open the repo's DeepWiki page to understand the data flow and identify component
 
 ### <a id="calcom"></a>calcom
 
-**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Complex scheduling application. `yarn dev` starts on port 3000. See [runtime-resources.md](../../shared/runtime-resources.md) for sample credentials.
 

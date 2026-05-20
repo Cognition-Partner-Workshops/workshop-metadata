@@ -97,7 +97,7 @@ Open the repo's DeepWiki page to understand the architecture. Identify modules w
 
 ### <a id="calcom"></a>calcom
 
-**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Large TypeScript monorepo with many opportunities for component decomposition and utility extraction.
 

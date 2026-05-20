@@ -96,7 +96,7 @@ Open the repo's DeepWiki page to understand the existing data model and API surf
 
 ### <a id="calcom"></a>calcom
 
-**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Rich scheduling domain with many extension points — custom booking field types, webhook integrations, analytics dashboards, notification preferences.
 

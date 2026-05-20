@@ -95,7 +95,7 @@ Open the repo's DeepWiki page to understand the package structure and how the RE
 
 ### <a id="calcom"></a>calcom
 
-**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/cal.com)
+**Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Large TypeScript monorepo with dozens of packages under `packages/` and `apps/` — an advanced target for cross-package dependency analysis at scale.
 
