@@ -11,6 +11,7 @@
   - [Lab 1: Estate Discovery (ts-sas-legacy-analytics)](#lab-1-estate-discovery)
   - [Lab 2: dbt Target Mapping (both repos)](#lab-2-dbt-target-mapping)
   - [Lab 3: Validate & Extend dbt Models (uc-data-migration-sas-to-databricks)](#lab-3-validate--extend-dbt-models)
+  - [Lab 4: Divide and Conquer with Child Sessions (Advanced)](#lab-4-divide-and-conquer)
 - [Key Takeaways](#key-takeaways)
 - [How Devin Builds Understanding — The Context Loop](#how-devin-builds-understanding)
 - [SAS Artifact Reference](#sas-artifact-reference)
@@ -219,6 +220,55 @@ Open the DeepWiki pages for both repos to understand the full migration pipeline
 
 ---
 
+<a id="lab-4-divide-and-conquer"></a>
+### Lab 4: Divide and Conquer with Child Sessions (Advanced)
+
+**Repositories:** Both [ts-sas-legacy-analytics](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-analytics) and [uc-data-migration-sas-to-databricks](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks)
+
+In a real migration with dozens or hundreds of SAS programs, a single session analyzing everything sequentially is slow. Instead, use child sessions to parallelize — one session per program group, all inheriting the same migration conventions from the shared context layer.
+
+#### Step 1: Paste into Devin
+
+```
+You are the parent coordinator for a SAS migration analysis across
+ts-sas-legacy-analytics. Create child Devin sessions to divide and conquer
+the analysis — one child per program group:
+
+- Child 1: Analyze Programs/Banking/ (4 programs) — produce a
+  BANKING_MIGRATION_ASSESSMENT.md with artifact inventory, data lineage,
+  macro dependencies, complexity scores, and recommended migration sequence
+  for the banking domain only.
+- Child 2: Analyze Programs/Insurance/ (2 programs) — produce an
+  INSURANCE_MIGRATION_ASSESSMENT.md with the same structure.
+- Child 3: Analyze Programs/Reports/ (1 program) — produce a
+  REPORTS_MIGRATION_ASSESSMENT.md.
+
+Each child should read Config/autoexec.sas for shared library assignments
+and cross-reference Macro/ for macro dependencies. Each child opens its own
+PR with its domain-specific assessment.
+
+Once all children complete, consolidate their assessments into a single
+CONSOLIDATED_MIGRATION_ASSESSMENT.md that includes: cross-domain dataset
+dependencies, shared macro usage across domains, a unified migration
+sequence, and total effort estimate. Open a final PR with the consolidated
+view.
+```
+
+#### Step 2: Watch the Coordination
+
+- Observe how the parent session creates child sessions and monitors their progress
+- Each child session works independently on its program group
+- The parent waits for all children to complete, then consolidates
+
+#### Key Takeaways
+
+- **Horizontal scale**: Child sessions run in parallel — a 100-program estate takes the same wall-clock time as a 10-program group
+- **Shared context**: Each child inherits org-level Knowledge notes, so migration conventions are applied consistently across all program groups
+- **Consolidation**: The parent session stitches individual assessments into a unified view, catching cross-domain dependencies that per-group analysis would miss
+- **Team pattern**: This is how Devin operates as a team resource — not one agent doing everything, but a coordinated group of agents dividing work
+
+---
+
 <a id="key-takeaways"></a>
 ## Key Takeaways
 
@@ -333,19 +383,7 @@ These patterns extend the workshop exercise into real-world migration workflows:
 
 ### Divide and Conquer with Child Sessions
 
-For large SAS estates with dozens or hundreds of programs, a parent session can break the analysis into independent units and spawn a child session for each program group:
-
-```
-Parent Session
-├── Analyzes estate scope (list of SAS program groups)
-├── Creates a playbook encoding the assessment methodology
-├── Spawns Child Session 1 → Banking programs → PR
-├── Spawns Child Session 2 → Insurance programs → PR
-├── Spawns Child Session 3 → Reports programs → PR
-└── Monitors progress, consolidates results
-```
-
-Each child inherits the org-level Knowledge notes and migration conventions — the shared context layer means every session starts with the same baseline understanding.
+[Lab 4](#lab-4-divide-and-conquer) demonstrates this pattern hands-on. For production estates, scale it further — one child per SAS application area, department, or batch schedule group. Each child inherits the org-level Knowledge notes and migration conventions, so the shared context layer means every session starts with the same baseline understanding.
 
 ### Webhook-Driven Re-Assessment
 
