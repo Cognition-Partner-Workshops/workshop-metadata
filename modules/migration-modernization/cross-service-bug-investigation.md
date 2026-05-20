@@ -1,55 +1,78 @@
 # Cross-Service Bug Investigation
 
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Repositories](#repositories)
+- [Challenge](#challenge)
+- [What Participants Will Learn](#what-participants-will-learn)
+- [Devin Features Exercised](#devin-features-exercised)
+- [Difficulty](#difficulty)
+- [Estimated Time](#estimated-time)
+- [Going Further](#going-further)
+- [Notes](#notes)
+- [quickapp-microservices](#quickapp-microservices)
+
+---
+
+## Quick Start
+
+Paste this prompt into Devin to try investigating a cross-service bug:
+
+```
+Order confirmation notification emails are showing wrong
+amounts after the microservice decomposition. A $149.99
+order shows as $1.50 in the email preview.
+
+Investigate and fix this bug in quickapp-microservices.
+Work on branch workshop-<attendee_id>.
+
+To reproduce:
+1. Run the notification-service locally
+2. POST to http://localhost:5005/api/notification/
+   events/order-placed with body:
+   {"orderId": "11111111-1111-1111-1111-111111111111",
+    "customerId": "22222222-2222-2222-2222-222222222222",
+    "totalAmount": 149.99,
+    "placedAt": "2026-03-17T12:00:00Z"}
+3. Open the preview URL from the response — the total
+   shows $1.50 instead of $149.99
+
+Find the root cause, fix it, take before/after
+screenshots, and open a PR with your fix and root cause
+analysis.
+```
+
+---
+
 ## Repositories
 
-- [quickapp-microservices](#quickapp-microservices) — decomposed microservices (contains the bug)
-
-**Context Repositories:**
-- [quickapp-monolith](#quickapp-monolith) — the refactored monolith (for tracing data flow)
+- [quickapp-microservices](#quickapp-microservices) — .NET microservices with the bug
 
 ---
 
 ## Challenge
 
-Investigate and fix a visual bug in the decomposed microservices where order confirmation notification emails display incorrect monetary amounts. The bug is in the Notification service — a service that is **outside the scope of the Order service extraction** performed in MM15. This exercises Devin's ability to trace symptoms across service boundaries, identify root causes in code it didn't write, and reason about shared data contracts in a distributed system.
+Investigate and fix a realistic cross-service bug in a microservices architecture. An order confirmation notification email displays wrong monetary amounts ($1.50 instead of $149.99). The bug requires tracing data flow across service boundaries — from the Order service's event to the Notification service's rendering logic — to find a unit mismatch (dollars vs. cents) introduced during the microservice decomposition.
 
-## The Bug
-
-**Symptom:** After the Order service decomposition, order confirmation notification emails show order totals that are 100x smaller than the actual amounts. A $149.99 order shows as $1.50 in the email preview.
-
-**Root Cause:** The Notification service's `NotificationRenderer.FormatCurrency()` method divides the `TotalAmount` by 100, assuming the value is transmitted in cents. However, the `OrderPlacedEvent.TotalAmount` (defined in `Shared.Contracts`) is a `decimal` representing dollars — not cents. The misleading comment in the renderer claims "TotalAmount is transmitted in cents to avoid floating-point precision issues" but this is incorrect.
-
-**Why this is compelling:**
-- The bug is NOT in the code the participant wrote or translated (Order service)
-- It's in the Notification service, which consumes events from the Order service
-- Devin must trace the data flow: Order service → `OrderPlacedEvent` → Notification service → `NotificationRenderer`
-- The misleading comment is a realistic red herring — Devin needs to look at the actual data contract, not trust the comment
-- The fix is simple (remove the division by 100), but finding it requires cross-service reasoning
-
-## Target Outcomes
-
-- Bug reproduced by posting an `OrderPlacedEvent` and viewing the notification email preview
-- Root cause identified: `NotificationRenderer.FormatCurrency()` incorrectly divides dollar amounts by 100
-- Fix implemented: remove the erroneous cents-to-dollars conversion
-- Before/after screenshots or screen recording showing the corrected email preview
-- PR with the fix and root cause analysis in the description
+This is a debugging exercise, not a building exercise. Devin needs to trace the data flow, identify the root cause, verify with reproduction steps, and produce a clean fix with regression tests.
 
 ## What Participants Will Learn
 
-- How Devin traces bugs across microservice boundaries
-- How Devin reasons about shared data contracts and event-driven communication
-- The importance of not trusting code comments when they contradict the data contract
-- Devin's ability to use browser-rendered HTML to visually verify fixes
-- Cross-service debugging patterns in distributed .NET systems
+- How Devin investigates bugs across service boundaries by tracing event data flows
+- How Devin reads shared contracts (DTOs, events) to identify semantic mismatches
+- How unit mismatch bugs (dollars vs. cents, milliseconds vs. seconds) are a common class of cross-service errors
+- How to write regression tests that prevent similar bugs from reappearing
+- How PR descriptions should include root cause analysis, not just the fix
 
 ## Devin Features Exercised
 
-- Cross-service root cause analysis
-- Data flow tracing (events, shared contracts, rendering pipelines)
-- Browser interaction for visual verification (HTML email preview)
-- Screen recording for before/after evidence
-- PR creation with debugging narrative
-- DeepWiki for exploring unfamiliar service code
+- Cross-service code comprehension
+- Bug investigation and root cause analysis
+- Targeted code fixes with regression tests
+- Screenshot capture (before/after)
+- PR creation with root cause documentation
+- AskDevin for investigation strategy
 
 ## Difficulty
 
@@ -59,34 +82,23 @@ Intermediate
 
 45 minutes
 
-## Prerequisites
+## Going Further
 
-- The Notification service with the currency formatting bug is on `main` of `quickapp-microservices`
-- Docker available for running services locally
-- The service should be running so participants can hit the `/api/notification/events/order-placed` endpoint and view the `/api/notification/{id}/preview` HTML output
-
-## Reproduction Steps (for facilitators)
-
-1. Start the notification-service (via Docker Compose or `dotnet run`)
-2. POST to `/api/notification/events/order-placed`:
-   ```json
-   {
-     "orderId": "11111111-1111-1111-1111-111111111111",
-     "customerId": "22222222-2222-2222-2222-222222222222",
-     "totalAmount": 149.99,
-     "placedAt": "2026-03-17T12:00:00Z"
-   }
-   ```
-3. The response includes a `previewUrl`. Open it in a browser.
-4. The email preview shows **$1.50** instead of **$149.99** — the bug is visually obvious.
+- **Scheduled smoke tests**: Configure a scheduled session that runs the notification email rendering test periodically to catch similar regressions before they reach users.
+- **Event-driven bug detection**: Connect a webhook so that when changes to shared contracts (DTOs, events) are pushed, Devin automatically checks all consumers for compatibility.
+- **Playbook-driven bug investigation**: Encode the investigation methodology (reproduce → trace data flow → identify root cause → fix → add regression test → document) as a playbook for cross-service bug reports.
+- **Knowledge notes**: Capture the "dollars vs. cents" pattern as a knowledge note so future sessions are primed to look for unit mismatch bugs when investigating monetary calculation errors.
+- **Team-based debugging**: In a microservices architecture, different teams own different services. This module shows how a single Devin session can trace a bug across team boundaries.
 
 ## Notes
 
-- This lab works best after MM15 (decomposition) and MM16 (integration testing), forming a progressive narrative
-- It can also be run standalone — participants don't need to have done MM15/MM16, they just need the `main` branch
-- The visual nature of the bug (wrong amount in a styled HTML email) makes it engaging and immediately verifiable
-- Encourage participants to use Devin's browser to view the notification preview endpoint
-- The misleading comment in `FormatCurrency()` is intentional — it tests whether Devin reads the actual data contract vs. trusting comments
+- The bug is in the Notification service's `FormatCurrency()` method in `NotificationRenderer.cs` — it divides by 100, assuming cents, but `OrderPlacedEvent.TotalAmount` is in dollars
+- The shared contract `OrderPlacedEvent.cs` defines `TotalAmount` as `decimal` (dollars, not cents)
+- Key files to investigate:
+  - `src/Services/Notification/Notification.API/Services/NotificationRenderer.cs` — contains the buggy `FormatCurrency()` method
+  - `src/Services/Notification/Notification.API/Controllers/NotificationController.cs` — endpoints for event ingestion and HTML preview
+  - `src/Shared/Shared.Contracts/Events/OrderPlacedEvent.cs` — the shared contract showing `TotalAmount` is `decimal` (dollars, not cents)
+- This pairs well with [.NET Monolith Decomposition](dotnet-monolith-decomposition.md) — the decomposition is what introduced this class of bug
 
 ---
 
@@ -94,27 +106,35 @@ Intermediate
 
 **Repository:** [quickapp-microservices](https://github.com/Cognition-Partner-Workshops/quickapp-microservices)
 
-The Notification service on `main` has a fully implemented order confirmation email renderer with the planted currency formatting bug. Key files:
+.NET microservices with 5 services (Identity, Customer, Order, Product, Notification) + YARP API Gateway + shared contracts. The Notification service has a unit mismatch bug in its currency formatting logic.
 
-- `src/Services/Notification/Notification.API/Services/NotificationRenderer.cs` — contains the buggy `FormatCurrency()` method
-- `src/Services/Notification/Notification.API/Controllers/NotificationController.cs` — endpoints for event ingestion and HTML preview
-- `src/Shared/Shared.Contracts/Events/OrderPlacedEvent.cs` — the shared contract showing `TotalAmount` is `decimal` (dollars, not cents)
+Each participant creates a `workshop-<attendee_id>` branch from `main` and pushes their work there.
 
-### Step 1: Paste into Devin
+### Step 1: Paste into Devin — Bug Investigation
 
-> **Order confirmation notification emails are showing wrong amounts after the microservice decomposition. A $149.99 order shows as $1.50 in the email preview.**
->
-> Investigate and fix this bug in `quickapp-microservices`. Work on branch `workshop-<attendee_id>`.
->
-> To reproduce:
-> 1. Run the notification-service locally
-> 2. POST to `http://localhost:5005/api/notification/events/order-placed` with body:
->    ```json
->    {"orderId": "11111111-1111-1111-1111-111111111111", "customerId": "22222222-2222-2222-2222-222222222222", "totalAmount": 149.99, "placedAt": "2026-03-17T12:00:00Z"}
->    ```
-> 3. Open the preview URL from the response in a browser — the total shows $1.50 instead of $149.99
->
-> Find the root cause, fix it, take before/after screenshots, and open a PR with your fix and root cause analysis.
+```
+Order confirmation notification emails are showing wrong
+amounts after the microservice decomposition. A $149.99
+order shows as $1.50 in the email preview.
+
+Investigate and fix this bug in quickapp-microservices.
+Work on branch workshop-<attendee_id>.
+
+To reproduce:
+1. Run the notification-service locally
+2. POST to http://localhost:5005/api/notification/
+   events/order-placed with body:
+   {"orderId": "11111111-1111-1111-1111-111111111111",
+    "customerId": "22222222-2222-2222-2222-222222222222",
+    "totalAmount": 149.99,
+    "placedAt": "2026-03-17T12:00:00Z"}
+3. Open the preview URL from the response — the total
+   shows $1.50 instead of $149.99
+
+Find the root cause, fix it, take before/after
+screenshots, and open a PR with your fix and root cause
+analysis.
+```
 
 ### Step 2: Research with Ask Devin
 
@@ -134,3 +154,10 @@ Open the microservices repo's DeepWiki to understand:
 - **Review the fix** — Did Devin remove the division by 100? Did it also fix the misleading comment?
 - **Check for similar bugs** — Ask Devin: *"Are there any other places in the codebase that make the same cents-vs-dollars assumption?"*
 - **Leave a comment** asking for a regression test: *"Add a unit test for FormatCurrency that verifies $149.99 renders as '$149.99' and not '$1.50'"*
+
+### Key Takeaways
+
+- **Cross-service tracing**: Devin traces data flow across service boundaries — from the Order service's event through shared contracts to the Notification service's rendering — to find the root cause
+- **Shared contract as source of truth**: The `OrderPlacedEvent` contract defines the semantics (dollars, not cents). Consumers must respect the contract, not assume their own interpretation
+- **Regression testing**: A simple unit test for `FormatCurrency` prevents this class of bug from recurring
+- **Root cause documentation**: The PR description should explain *why* the bug happened (unit mismatch introduced during decomposition), not just *what* was changed

@@ -1,38 +1,73 @@
 # Repetitive Framework Upgrades
 
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Repositories](#repositories)
+- [Challenge](#challenge)
+- [What Participants Will Learn](#what-participants-will-learn)
+- [Devin Features Exercised](#devin-features-exercised)
+- [Difficulty](#difficulty)
+- [Estimated Time](#estimated-time)
+- [Going Further](#going-further)
+- [Notes](#notes)
+- [Angular Upgrades](#angular-upgrades)
+- [Spring Boot Upgrade](#spring-boot-upgrade)
+
+---
+
+## Quick Start
+
+Paste this prompt into Devin to try a multi-repo parallel upgrade:
+
+```
+Upgrade petclinic-angular to the latest Angular version.
+Handle any breaking changes from the Angular update guide,
+update all dependencies, fix deprecated APIs, and ensure
+the app builds successfully.
+```
+
+Then start a **second Devin session** (or child session) with:
+
+```
+Upgrade ts-angular-realworld to the latest Angular version.
+Handle any breaking changes, update dependencies, fix
+deprecated APIs, and ensure the app builds and tests pass.
+```
+
+Run both upgrades in parallel to see how Devin handles the same type of task across different codebases simultaneously.
+
+---
+
 ## Repositories
 
-- [petclinic-angular](#petclinic-angular)
-- [ts-angular-realworld](#ts-angular-realworld)
-- [uc-spring-boot-upgrade-microservice-extraction](#uc-spring-boot-upgrade-microservice-extraction)
+- [petclinic-angular](#angular-upgrades) — Angular front-end for PetClinic
+- [ts-angular-realworld](#angular-upgrades) — Angular RealWorld example app
+- [uc-spring-boot-upgrade-microservice-extraction](#spring-boot-upgrade) — Spring Boot backend
 
 ---
 
 ## Challenge
 
-Demonstrate how Devin handles repetitive upgrade tasks across multiple codebases — the same type of upgrade applied consistently across different services or projects. Run parallel Devin sessions to show the scale advantage.
+Perform the same type of upgrade (Angular version bump or Spring Boot 2→3) across multiple repositories simultaneously. This module is designed to showcase Devin's ability to handle **repetitive tasks at scale** — the same upgrade methodology applied across different codebases in parallel child sessions.
 
-## Target Outcomes
-
-- Application builds and all tests pass on the upgraded version
-- Breaking changes handled systematically (namespace migrations, API changes)
-- Upgrade documented: what changed, what broke, how it was fixed
-- PR with clean, reviewable diff
+The key insight: a framework upgrade is a well-defined, repeatable process. Once the methodology works for one repo, it can be applied to many repos via child sessions — turning a month of sequential upgrade work into a day of parallel execution.
 
 ## What Participants Will Learn
 
-- How Devin follows established upgrade guides (Spring Boot migration guide, Angular update guide)
-- How Devin identifies and resolves breaking changes systematically
-- The value of running parallel Devin sessions for repetitive tasks across services
-- How to evaluate Devin's upgrade PRs for correctness and completeness
+- How to run multiple Devin sessions in parallel for the same type of task
+- How the same upgrade methodology produces different results on different codebases
+- How child sessions enable portfolio-scale upgrades
+- The value of playbooks for encoding a repeatable upgrade process
 
 ## Devin Features Exercised
 
-- Large-scale refactoring across many files
-- Build system modification (Gradle, npm)
-- Iterative error resolution (fix → build → fix cycle)
-- Parallel session execution
-- PR creation with upgrade documentation
+- **Child sessions** — spawning parallel sessions for the same task across different repos
+- **Playbooks** — encoding the upgrade process as a reusable playbook
+- Code modification across many files
+- Dependency management (npm, Gradle)
+- Build system troubleshooting
+- Test execution and failure resolution
 
 ## Difficulty
 
@@ -40,82 +75,97 @@ Intermediate
 
 ## Estimated Time
 
-60 minutes (per upgrade; parallel sessions can run simultaneously)
+60 minutes
+
+## Going Further
+
+- **Playbook-driven portfolio upgrades**: Encode the upgrade methodology as a playbook, then spawn a child session per service in the portfolio. Each child follows the playbook independently. A parent session collects results and reports overall portfolio status.
+- **Scheduled version audits**: Configure a weekly scheduled session that checks all repos in the portfolio for outdated framework versions and opens tracking issues.
+- **Event-driven upgrades**: Connect webhooks to Dependabot or Renovate. When a security advisory is published, Devin automatically upgrades the affected dependency across all affected repos.
+- **Team-based review**: Each parallel upgrade creates its own PR. Multiple engineers can review different PRs simultaneously, with PR comments triggering Devin to iterate.
+- **Knowledge notes for upgrade patterns**: Capture common breaking-change patterns (e.g., "javax → jakarta always requires updating the Gradle plugin version too") as knowledge notes so future upgrade sessions start with accumulated wisdom.
 
 ## Notes
 
-- This challenge is specifically designed to showcase Devin's value for repetitive, well-defined tasks
-- The parallel sessions demonstrate a key Devin advantage: doing the same task across multiple repos simultaneously
-- For workshops focused on enterprise scale, emphasize that the same prompt can be reused across 10+ microservices
+- This module is a variation of [Framework Upgrade](framework-upgrade.md) focused on the **parallel execution** pattern
+- The Angular repos are at different starting versions — the same "upgrade to latest" prompt produces different amounts of work
+- The Spring Boot upgrade involves a major namespace change (javax → jakarta) — a different class of upgrade from Angular's incremental version bumps
+- For the strongest effect, have participants start all sessions simultaneously and compare progress
+- Run the Angular upgrades in parallel with the Spring Boot upgrade to show multi-stack repetitive upgrades
 
 ---
 
-## <a id="petclinic-angular"></a>petclinic-angular
+## <a id="angular-upgrades"></a>Angular Upgrades
+
+### petclinic-angular
 
 **Repository:** [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular)
 
-Angular frontend for Spring PetClinic — upgrade Angular to the latest major version.
+Angular front-end for the PetClinic application. Uses an older Angular version with outdated dependencies.
 
-### Step 1: Paste into Devin
+#### Step 1: Paste into Devin
 
-> Upgrade petclinic-angular to the latest Angular version. Handle any breaking changes from the Angular update guide, update dependencies, fix deprecated APIs, and ensure the app builds. Document every breaking change you encounter and how you resolved it. Open a PR.
+```
+Upgrade petclinic-angular to the latest Angular version.
+Handle any breaking changes from the Angular update guide,
+update all dependencies, fix deprecated APIs, and ensure
+the app builds successfully.
+```
 
-### Step 2: Research with Ask Devin
+#### Step 2: Research with Ask Devin
 
-- *"What breaking changes should I expect when upgrading this Angular version? Which ones are most likely to cause issues?"*
-- Run this upgrade in **parallel** with the Spring Boot upgrade on a different repo to demonstrate repetitive upgrades at scale
+- *"What Angular version is petclinic-angular currently on? What are the breaking changes between that version and the latest?"*
 
-### Step 3 (Optional): Read the DeepWiki
-
-Open the repo's DeepWiki page to understand the component structure and identify which modules will be most affected by the upgrade.
-
-### Step 4 (Optional): Review & Give Feedback
-
-- **Review the diff** — compare the upgrade approach with the other Angular repo's upgrade PR
-- **Leave a comment** asking Devin to document the upgrade steps as a repeatable runbook
-
----
-
-## <a id="ts-angular-realworld"></a>ts-angular-realworld
+### ts-angular-realworld
 
 **Repository:** [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld)
 
-Angular RealWorld example app — upgrade Angular to the latest major version.
+Angular RealWorld example app. A different Angular codebase to upgrade in parallel.
 
-### Step 1: Paste into Devin
+#### Step 1: Paste into Devin
 
-> Upgrade ts-angular-realworld to the latest Angular version. Handle any breaking changes from the Angular update guide, update dependencies, fix deprecated APIs, and ensure the app builds and tests pass. Open a PR.
+```
+Upgrade ts-angular-realworld to the latest Angular version.
+Handle any breaking changes, update dependencies, fix
+deprecated APIs, and ensure the app builds and tests pass.
+```
 
-### Step 2: Research with Ask Devin
+#### Step 2: Research with Ask Devin
 
-- *"How does the upgrade experience differ between this Angular app and petclinic-angular? Are the same breaking changes encountered?"*
-- Run this in parallel with other upgrades to compare Devin's consistency
+- *"What Angular version is ts-angular-realworld currently on? What's the fastest upgrade path?"*
+- Run this upgrade **in parallel** with petclinic-angular to compare how Devin handles the same task on different codebases
 
 ### Step 3 (Optional): Read the DeepWiki
 
-Open the repo's DeepWiki page to understand the routing and state management patterns. These are most likely to change across Angular versions.
+Open each repo's DeepWiki page to understand the module structure and dependency graph. Compare the architectures to predict which upgrade will be more complex.
 
 ### Step 4 (Optional): Review & Give Feedback
 
-- **Review the diff** — compare the approach with the PetClinic Angular upgrade
-- **Leave a comment** asking Devin to create a shared upgrade checklist from both experiences
+- **Compare the two PRs** — how did Devin's approach differ between the repos? Which had more breaking changes?
+- **Leave comments** on both PRs to see how Devin handles feedback across parallel sessions
 
 ---
 
-## <a id="uc-spring-boot-upgrade-microservice-extraction"></a>uc-spring-boot-upgrade-microservice-extraction
+## <a id="spring-boot-upgrade"></a>Spring Boot Upgrade
 
 **Repository:** [uc-spring-boot-upgrade-microservice-extraction](https://github.com/Cognition-Partner-Workshops/uc-spring-boot-upgrade-microservice-extraction)
 
-Spring Boot 2.6.3 / Java 11 — upgrade to Java 17+ and Spring Boot 3.x.
+Spring Boot 2.6.3 + Java 11 backend. Requires upgrading to Java 17 + Spring Boot 3.2, including the javax → jakarta namespace migration.
 
 ### Step 1: Paste into Devin
 
-> Upgrade uc-spring-boot-upgrade-microservice-extraction from Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2. Handle the javax to jakarta namespace migration, update Gradle build configuration, fix any deprecations, and ensure all tests pass. Document every breaking change you encounter and how you resolved it. Open a PR.
+```
+Upgrade uc-spring-boot-upgrade-microservice-extraction from
+Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2.
+Handle the javax to jakarta namespace migration, update
+Gradle build configuration, fix any deprecations, and
+ensure all tests pass.
+```
 
 ### Step 2: Research with Ask Devin
 
 - *"What's the most efficient order to tackle the breaking changes — namespace first, then build config, then deprecated APIs?"*
-- Run this upgrade in **parallel** with the Angular upgrades to show multi-stack repetitive upgrades
+- Run this upgrade **in parallel** with the Angular upgrades to show multi-stack repetitive upgrades
 
 ### Step 3 (Optional): Read the DeepWiki
 
@@ -125,3 +175,10 @@ Open the repo's DeepWiki page to understand the build configuration and dependen
 
 - **Review the diff** — is the javax → jakarta migration complete? Any files missed?
 - **Leave a comment** asking Devin to also document the upgrade as a repeatable runbook for other Spring Boot 2.x services
+
+### Key Takeaways
+
+- **Repeatable methodology**: The same upgrade playbook works across different repos and frameworks — encode it once, apply it many times
+- **Parallel execution**: Child sessions enable portfolio-scale upgrades. A 10-service upgrade that would take weeks sequentially can run in parallel
+- **Consistent quality**: Playbook-driven upgrades ensure every service gets the same thoroughness — no services are "forgotten" or partially upgraded
+- **Cross-framework upgrades**: Angular and Spring Boot upgrades can run simultaneously, showing that the parallel pattern works across technology stacks

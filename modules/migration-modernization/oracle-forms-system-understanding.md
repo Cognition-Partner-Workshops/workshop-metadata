@@ -1,5 +1,58 @@
 # Oracle Forms System Understanding & Reverse Engineering
 
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Repositories](#repositories)
+- [Challenge](#challenge)
+- [Target Outcomes](#target-outcomes)
+- [What Participants Will Learn](#what-participants-will-learn)
+- [Devin Features Exercised](#devin-features-exercised)
+- [Difficulty](#difficulty)
+- [Estimated Time](#estimated-time)
+- [Going Further](#going-further)
+- [Notes](#notes)
+- [ts-plsql-oracle-forms-hrms](#ts-plsql-oracle-forms-hrms)
+
+---
+
+## Quick Start
+
+Paste this prompt into Devin to try estate discovery on the Oracle Forms HRMS application:
+
+```
+Analyze the entire Oracle Forms/PL/SQL estate in
+ts-plsql-oracle-forms-hrms. Produce the following artifacts:
+
+1. APPLICATION_INVENTORY.md — catalog every Forms XML export
+   in forms/xml-exports/, PLL library in forms/libraries/,
+   menu module in forms/menus/, PL/SQL package in
+   plsql/packages/, trigger in plsql/triggers/, and schema
+   object in schema/. For each, list: filename, purpose
+   (inferred from code), layer (UI/business logic/data
+   access/integration/utility), and key dependencies.
+2. DATA_DICTIONARY.md — for every table defined in
+   schema/tables/, extract: table name, columns with data
+   types and constraints, business meaning, relationships
+   (foreign keys), and audit columns. Group by business
+   domain (employee, payroll, leave, performance, security,
+   system).
+3. DEPENDENCY_MAP.md — build a multi-layer dependency graph:
+   Forms modules → PLL libraries → PL/SQL packages →
+   database tables. Identify circular dependencies, shared
+   utilities, and the batch job scheduling topology
+   (DBMS_SCHEDULER references).
+4. TECHNICAL_DEBT_REPORT.md — find all intentional bugs and
+   anti-patterns: security vulnerabilities (look for MD5,
+   SQL injection, hard-coded keys), race conditions (look
+   for missing SELECT FOR UPDATE), performance issues
+   (cursor loops, CONNECT BY), validation drift (compare
+   PLL vs package validation), and circular dependencies.
+   Rank by severity and recommend migration priority.
+```
+
+---
+
 ## Repositories
 
 - [ts-plsql-oracle-forms-hrms](#ts-plsql-oracle-forms-hrms)
@@ -8,7 +61,7 @@
 
 ## Challenge
 
-Use Devin to reverse-engineer an Oracle Forms 11g/12c HR Management System and produce concrete system-understanding artifacts: an application inventory, a data dictionary extracted from PL/SQL packages and schema DDL, a dependency and data-flow model mapping Forms → PL/SQL → database objects, and a technical debt report identifying the highest-risk components. This is the discovery phase that normally takes weeks of SME interviews and manual code reading — Devin compresses it into a single session.
+Use Devin to reverse-engineer an Oracle Forms 11g/12c HR Management System and produce concrete system-understanding artifacts: an application inventory, a data dictionary extracted from PL/SQL packages and schema DDL, a dependency and data-flow model mapping Forms → PL/SQL → database objects, and a technical debt report identifying the highest-risk components. This is the discovery phase that normally takes weeks of SME interviews and manual code reading — Devin can compress it into a single session.
 
 In most Oracle Forms modernization programs, **understanding the existing system is the biggest blocker**. Business logic is split across Forms triggers, PLL libraries, and PL/SQL packages with no clear boundaries. Client-side validation in PLL libraries has drifted from server-side validation in packages. Circular dependencies between packages create compilation nightmares. This module shows how Devin turns an opaque Oracle Forms estate into a documented, queryable knowledge surface.
 
@@ -44,6 +97,14 @@ Intermediate
 
 60 minutes
 
+## Going Further
+
+- **Child sessions for parallel discovery**: Spawn a child session per functional area (employee management, payroll, leave, performance reviews, security) to produce detailed inventories in parallel. The parent session merges them into a consolidated view.
+- **Scheduled re-analysis**: Configure a weekly scheduled session that re-runs the technical debt report. As remediation progresses, the report reflects which issues have been resolved.
+- **Knowledge notes**: Capture the dependency map and technical debt findings as org-level knowledge notes so every future Devin session working on this migration starts with full context.
+- **Playbook-driven discovery**: Encode the 4-artifact analysis as a playbook. Reuse it across Oracle Forms estates — each new customer engagement runs the same proven process.
+- **Team-based operation**: Multiple engineers can review the inventory artifacts simultaneously. PR comments requesting additional analysis trigger Devin to resume and deepen the investigation.
+
 ## Notes
 
 - This module produces **analysis artifacts, not code changes** — it is the discovery phase before any migration begins
@@ -61,16 +122,38 @@ Intermediate
 
 Oracle Forms 11g/12c HRMS legacy application. Contains Forms XML exports, PLL libraries, menu modules, PL/SQL packages (specs + bodies), database triggers, schema DDL (tables, views, sequences), and seed data. Realistic enterprise patterns with intentional technical debt.
 
-### Step 1: Paste into Devin
+### Step 1: Paste into Devin — Estate Discovery
 
-> Analyze the entire Oracle Forms/PL/SQL estate in ts-plsql-oracle-forms-hrms. Produce the following artifacts:
->
-> 1. **APPLICATION_INVENTORY.md** — catalog every Forms XML export in `forms/xml-exports/`, PLL library in `forms/libraries/`, menu module in `forms/menus/`, PL/SQL package in `plsql/packages/`, trigger in `plsql/triggers/`, and schema object in `schema/`. For each, list: filename, purpose (inferred from code), layer (UI/business logic/data access/integration/utility), and key dependencies.
-> 2. **DATA_DICTIONARY.md** — for every table defined in `schema/tables/`, extract: table name, columns with data types and constraints, business meaning, relationships (foreign keys), and audit columns. Group by business domain (employee, payroll, leave, performance, security, system).
-> 3. **DEPENDENCY_MAP.md** — build a multi-layer dependency graph: Forms modules → PLL libraries → PL/SQL packages → database tables. Identify circular dependencies, shared utilities, and the batch job scheduling topology (DBMS_SCHEDULER references).
-> 4. **TECHNICAL_DEBT_REPORT.md** — find all intentional bugs and anti-patterns: security vulnerabilities (look for MD5, SQL injection, hard-coded keys), race conditions (look for missing SELECT FOR UPDATE), performance issues (cursor loops, CONNECT BY), validation drift (compare PLL vs package validation), and circular dependencies. Rank by severity and recommend migration priority.
->
-> Open a PR with all four documents.
+```
+Analyze the entire Oracle Forms/PL/SQL estate in
+ts-plsql-oracle-forms-hrms. Produce the following artifacts:
+
+1. APPLICATION_INVENTORY.md — catalog every Forms XML export
+   in forms/xml-exports/, PLL library in forms/libraries/,
+   menu module in forms/menus/, PL/SQL package in
+   plsql/packages/, trigger in plsql/triggers/, and schema
+   object in schema/. For each, list: filename, purpose
+   (inferred from code), layer (UI/business logic/data
+   access/integration/utility), and key dependencies.
+2. DATA_DICTIONARY.md — for every table defined in
+   schema/tables/, extract: table name, columns with data
+   types and constraints, business meaning, relationships
+   (foreign keys), and audit columns. Group by business
+   domain (employee, payroll, leave, performance, security,
+   system).
+3. DEPENDENCY_MAP.md — build a multi-layer dependency graph:
+   Forms modules → PLL libraries → PL/SQL packages →
+   database tables. Identify circular dependencies, shared
+   utilities, and the batch job scheduling topology
+   (DBMS_SCHEDULER references).
+4. TECHNICAL_DEBT_REPORT.md — find all intentional bugs and
+   anti-patterns: security vulnerabilities (look for MD5,
+   SQL injection, hard-coded keys), race conditions (look
+   for missing SELECT FOR UPDATE), performance issues
+   (cursor loops, CONNECT BY), validation drift (compare
+   PLL vs package validation), and circular dependencies.
+   Rank by severity and recommend migration priority.
+```
 
 ### Step 2: Research with Ask Devin
 
@@ -93,3 +176,10 @@ Open the repo's DeepWiki page to see auto-generated architecture diagrams and mo
 - **Review the technical debt report** — did Devin find the race condition in `generate_emp_number`? The SQL injection in `search_employees`? The MD5 hashing?
 - **Leave a comment** asking Devin to add a section on PII fields (which tables contain personally identifiable information like SSNs, dates of birth)
 - **Leave a comment** asking Devin to identify which batch jobs (DBMS_SCHEDULER) are likely run daily vs. monthly vs. on-demand
+
+### Key Takeaways
+
+- **Multi-layer discovery**: Devin traces the full Oracle Forms architecture — UI triggers, PLL libraries, PL/SQL packages, database objects — producing a comprehensive dependency map that reveals the true system structure
+- **Technical debt surfacing**: Automated analysis finds security vulnerabilities, race conditions, and validation drift that manual code review often misses
+- **Queryable knowledge surface**: The inventory and dependency map persist as artifacts that inform every subsequent migration decision
+- **Foundation for planning**: These artifacts feed directly into migration strategy, component mapping, and risk assessment

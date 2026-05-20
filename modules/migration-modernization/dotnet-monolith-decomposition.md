@@ -1,47 +1,90 @@
-# .NET Monolith Decomposition with Local Hosting
+# .NET Monolith Decomposition
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Repositories](#repositories)
+- [Challenge](#challenge)
+- [Prerequisites](#prerequisites)
+- [What Participants Will Learn](#what-participants-will-learn)
+- [Devin Features Exercised](#devin-features-exercised)
+- [Difficulty](#difficulty)
+- [Estimated Time](#estimated-time)
+- [Going Further](#going-further)
+- [Notes](#notes)
+- [quickapp-monolith](#quickapp-monolith)
+- [quickapp-microservices](#quickapp-microservices)
+
+---
+
+## Quick Start
+
+Paste this prompt into Devin to try extracting a domain from the QuickApp monolith:
+
+```
+Analyze the QuickApp monolith (quickapp-monolith) and
+extract the Order Management domain into a standalone
+.NET Web API microservice. Work on branch
+workshop-<attendee_id>.
+
+Deliverables:
+1. New .NET Web API for the order-service with its own
+   models, controllers, services, and EF Core DbContext
+2. Shared contracts — DTOs and events in a shared library
+   for inter-service communication
+3. Dockerfile — multi-stage build for the order-service
+4. Docker Compose — local development setup running the
+   monolith, order-service, and PostgreSQL together
+5. Monolith refactoring — replace in-process Order calls
+   with an HTTP client that calls the new service
+6. Integration smoke test — verify order creation flows
+   through both services
+
+Push the new order-service to quickapp-microservices on
+branch workshop-<attendee_id>. Create a PR.
+Push the monolith refactoring to quickapp-monolith on
+branch workshop-<attendee_id>. Create a PR.
+```
+
+---
 
 ## Repositories
 
-- [quickapp-monolith](#quickapp-monolith) — source monolith
-- [quickapp-microservices](#quickapp-microservices) — target microservices (reference/landing repo)
-
-**Context Repositories** (added to Devin's machine, not modified):
-- [quickapp-iac](#quickapp-iac)
-- [platform-engineering-shared-services](#platform-engineering-shared-services)
+- [quickapp-monolith](#quickapp-monolith) — .NET monolith (source for extraction)
+- [quickapp-microservices](#quickapp-microservices) — target scaffold with 5 microservices
 
 ---
 
 ## Challenge
 
-Extract a bounded context from a .NET monolith into a standalone containerized microservice with local hosting via Docker Compose. This is the first phase of a progressive cloud-native modernization narrative: participants decompose one service, containerize it, and verify it runs alongside the monolith locally before deploying to Kubernetes.
+Decompose a .NET Angular modular monolith (QuickApp) into microservices by extracting one domain at a time. Start with the least-coupled domain, create a standalone .NET Web API with its own database and Dockerfile, refactor the monolith to call the new service via HTTP, and verify everything works with Docker Compose.
 
-## Target Outcomes
+This exercise uses two repos: the **monolith** (source) and the **microservices scaffold** (target). Participants extract a domain from the monolith and push the new service to the microservices repo while pushing the monolith refactoring back to the monolith repo.
 
-- One bounded context (Order) extracted as a standalone .NET Web API microservice
-- Monolith refactored to call the new service via HTTP (replacing in-process calls)
-- Dockerfile with multi-stage build for the extracted service
-- Docker Compose configuration to run the monolith + extracted service + database locally
-- Shared contract DTOs for inter-service communication
-- PR in the monolith repo with the refactored code
-- PR in the microservices repo with the new service code
+## Prerequisites
+
+- Each participant creates a `workshop-<attendee_id>` branch from `main` in both repos before starting
+- The monolith uses EF Core with SQLite — each extracted service should get its own `.db` file
+- The Angular frontend hits `/api/*` routes — preserve these exact paths during extraction so the frontend continues working
 
 ## What Participants Will Learn
 
-- How Devin analyzes domain boundaries and coupling in a .NET monolith
-- How Devin handles the complexity of extracting shared Entity Framework Core models
-- Containerization patterns for .NET (multi-stage Dockerfile, environment config)
-- Service communication patterns (IHttpClientFactory, typed clients)
-- Local testing with Docker Compose as a cloud deployment prerequisite
+- How Devin identifies bounded contexts in a .NET modular monolith
+- How to extract a domain into a standalone .NET Web API with its own DbContext
+- How to replace in-process calls with HTTP client calls (IHttpClientFactory)
+- How Docker Compose orchestrates multi-service local development
+- How shared contracts (DTOs, events) enable clean service boundaries
 
 ## Devin Features Exercised
 
-- Multi-repo context awareness (reading monolith + microservices scaffold + IaC patterns)
-- Architectural analysis and domain boundary identification
-- Code extraction and refactoring (.NET, C#)
-- Docker/docker-compose authoring
-- PR creation and PR comment responses
-- DeepWiki for codebase exploration across multiple repos
-- AskDevin for pre-session architectural planning
+- Architecture analysis and domain decomposition
+- Multi-repo code generation (monolith changes + new service)
+- Dockerfile and Docker Compose creation
+- Cross-project refactoring (removing direct references, adding HTTP clients)
+- PR creation across multiple repos
+- AskDevin for architecture decisions
+- DeepWiki for understanding monolith structure
+- Child sessions for parallel domain extraction
 
 ## Difficulty
 
@@ -51,34 +94,24 @@ Intermediate to Advanced
 
 75 minutes
 
-## Prerequisites
+## Going Further
 
-The following repos must be added to the Devin machine via Settings > Repositories:
-- `quickapp-monolith` — the .NET + Angular monolith (QuickApp)
-- `quickapp-microservices` — scaffold with target architecture
-- `quickapp-iac` — Helm chart patterns (context)
-- `platform-engineering-shared-services` — EKS cluster, namespaces, monitoring (context)
-
-All repos are in the [Cognition-Partner-Workshops](https://github.com/Cognition-Partner-Workshops) GitHub org.
-
-## Branch Convention
-
-All labs operate off the `main` branch. At the start of the workshop, each participant creates a personal working branch from `main`:
-
-```
-git checkout main && git pull
-git checkout -b workshop-<attendee_id>
-```
-
-Replace `<attendee_id>` with a unique identifier (e.g., `workshop-alice`, `workshop-bob`). This prevents conflicts when multiple participants run labs simultaneously against the same repos.
+- **Divide-and-conquer with child sessions**: The QuickApp monolith has four domains (Products, Customers, Inventory, Orders). Extract them in the recommended order (least coupled → most coupled: Products → Customers → Inventory → Orders) using a child session per domain. Each child follows the same extraction playbook.
+- **Evals-first extraction**: Write contract tests first (they fail because the service does not exist yet), then extract the domain and make the tests pass. Every PR must pass: `dotnet build`, `dotnet test`, `dotnet format --verify-no-changes`.
+- **Playbook-driven decomposition**: Encode the extraction process (identify domain, split DbContext, create service, add HTTP client, write contract tests, create Dockerfile, update Compose) as a playbook. Apply it to each domain extraction.
+- **Scheduled regression testing**: After extraction, configure a scheduled session that runs the full integration test suite to verify both monolith and microservice still work together.
+- **Event-driven integration testing**: Connect a webhook so that when either repo receives a push, Devin automatically runs the integration smoke tests.
+- **Team-based review**: Each extraction PR touches both repos. Multiple reviewers can verify the monolith refactoring and the new service independently.
 
 ## Notes
 
-- The monolith (QuickApp) has 5 bounded contexts: Identity, Customer, Order, Product, and Notification
-- The Order bounded context is recommended as the extraction target because it has clear boundaries with moderate cross-domain dependencies
-- The microservices repo already contains a scaffold with the target architecture (5 services + YARP API Gateway) that participants can reference
-- Docker Compose is the primary local hosting mechanism — no cloud account required for this lab
-- This lab feeds into MM16 (integration testing) and MM17 (cross-service bug hunt)
+- Extraction order matters: Products (least coupled) → Customers → Inventory → Orders (most coupled, depends on all others)
+- When splitting `AppDbContext`, remove navigation properties that cross module boundaries and replace them with foreign key IDs
+- Copy relevant seed data from `SeedData.cs` to each extracted service
+- Each new `DbContext` should configure its own `OnModelCreating` with only its entity mappings
+- Do NOT modify the Angular frontend — it hits `/api/*` routes regardless of which backend serves them
+- Do NOT change the SQLite database file pattern — each service gets its own `.db` file
+- Preserve exact API route structure so the frontend continues working
 
 ---
 
@@ -86,32 +119,36 @@ Replace `<attendee_id>` with a unique identifier (e.g., `workshop-alice`, `works
 
 **Repository:** [quickapp-monolith](https://github.com/Cognition-Partner-Workshops/quickapp-monolith)
 
-.NET + Angular monolith (QuickApp) with 5 tightly coupled bounded contexts: Identity (authentication, authorization, user/role management), Customer (CRUD, lookup), Order (creation, status, fulfillment), Product (catalog, pricing, categories), and Notification (email, in-app). All contexts share a single database via Entity Framework Core.
+.NET Angular modular monolith (QuickApp). Contains Identity, Customer, Order, Product, and Inventory modules sharing a single `AppDbContext`. The Angular SPA frontend communicates via `/api/*` REST endpoints. Uses EF Core with SQLite and ASP.NET Core Identity.
 
-**Context Repositories:**
-- [quickapp-iac](https://github.com/Cognition-Partner-Workshops/quickapp-iac) — Helm charts per service for K8s deployment
-- [platform-engineering-shared-services](https://github.com/Cognition-Partner-Workshops/platform-engineering-shared-services) — EKS, namespaces, network policies, monitoring
+Each participant creates a `workshop-<attendee_id>` branch from `main` and pushes their monolith refactoring there.
 
-### Step 1: Paste into Devin
+### Step 1: Paste into Devin — Domain Extraction
 
-> **Extract the Order bounded context from quickapp-monolith into a standalone .NET microservice.**
->
-> Work on branch `workshop-<attendee_id>` in both repos.
->
-> Use these repos as context for the target architecture and IaC patterns:
-> - `quickapp-microservices` — reference scaffold showing the target service structure
-> - `quickapp-iac` — Helm chart patterns for K8s deployment
->
-> Deliverables:
-> 1. **New .NET Web API** for the order-service with its own models, controllers, services, and EF Core DbContext
-> 2. **Shared contracts** — DTOs and events in a shared library for inter-service communication
-> 3. **Dockerfile** — multi-stage build for the order-service
-> 4. **Docker Compose** — local development setup running the monolith, order-service, and PostgreSQL together
-> 5. **Monolith refactoring** — replace in-process Order calls with an HTTP client that calls the new service
-> 6. **Integration smoke test** — verify order creation flows through both services
->
-> Push the new order-service to `quickapp-microservices` on branch `workshop-<attendee_id>`. Create a PR.
-> Push the monolith refactoring to `quickapp-monolith` on branch `workshop-<attendee_id>`. Create a PR.
+```
+Analyze the QuickApp monolith (quickapp-monolith) and
+extract the Order Management domain into a standalone
+.NET Web API microservice. Work on branch
+workshop-<attendee_id>.
+
+Deliverables:
+1. New .NET Web API for the order-service with its own
+   models, controllers, services, and EF Core DbContext
+2. Shared contracts — DTOs and events in a shared library
+   for inter-service communication
+3. Dockerfile — multi-stage build for the order-service
+4. Docker Compose — local development setup running the
+   monolith, order-service, and PostgreSQL together
+5. Monolith refactoring — replace in-process Order calls
+   with an HTTP client that calls the new service
+6. Integration smoke test — verify order creation flows
+   through both services
+
+Push the new order-service to quickapp-microservices on
+branch workshop-<attendee_id>. Create a PR.
+Push the monolith refactoring to quickapp-monolith on
+branch workshop-<attendee_id>. Create a PR.
+```
 
 ### Step 2: Research with Ask Devin
 
@@ -135,6 +172,12 @@ Open each repo's DeepWiki page to understand the architecture:
   - *"Add retry and circuit breaker logic to the OrderServiceClient using Polly"*
   - *"Add health check endpoints for readiness and liveness probes"*
   - *"The docker-compose is missing a volume for PostgreSQL data persistence — add one"*
+
+### Key Takeaways
+
+- **Bounded context extraction**: Devin identifies domain boundaries, splits the shared DbContext, creates a standalone service, and refactors the monolith to use HTTP — all in a single session
+- **Multi-repo coordination**: The extraction touches two repos (monolith + microservices). Devin creates PRs in both, keeping the changes consistent
+- **Evals-first approach**: Write contract tests before extracting. The tests define the expected API surface; the extraction makes them pass
 
 ---
 
