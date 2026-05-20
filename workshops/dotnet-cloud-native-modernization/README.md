@@ -36,8 +36,8 @@ A few tips to maximize your hands-on time:
 - [Duration Variants](#duration-variants)
 - [Labs](#labs)
   - [Lab 1 — Monolith Decomposition & Containerization](#lab-1--monolith-decomposition--containerization-75-min)
-  - [Lab 2 — Cross-Service Integration Testing](#lab-2--cross-service-integration-testing-45-min)
-  - [Lab 3 — Cross-Service Bug Investigation](#lab-3--cross-service-bug-investigation-45-min)
+  - [Lab 2 — Integration Testing Between Monolith & Microservice](#lab-2--integration-testing-between-monolith--microservice-45-min)
+  - [Lab 3 — Cross-Service Bug Hunt](#lab-3--cross-service-bug-hunt-45-min)
 - [Repos Required](#repos-required)
 - [Key Takeaways](#key-takeaways)
 

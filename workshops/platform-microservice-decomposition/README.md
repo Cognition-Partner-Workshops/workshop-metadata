@@ -33,8 +33,8 @@ A few tips to maximize your hands-on time:
 - [Lab Walkthrough](#lab-walkthrough)
   - [Phase 1 — Launch the Decomposition](#phase-1--launch-the-decomposition-5-min)
   - [Phase 2 — Explore While Devin Works](#phase-2--explore-while-devin-works-25-min)
-  - [Phase 3 — Review & Iterate](#phase-3--review--iterate-25-min)
-  - [Phase 4 — Extend](#phase-4--extend-15-min)
+  - [Phase 3 — Review PRs and Give Feedback](#phase-3--review-prs-and-give-feedback-25-min)
+  - [Phase 4 — Bonus Challenges](#phase-4--bonus-challenges-15-min)
 - [Key Takeaways](#key-takeaways)
 
 ---

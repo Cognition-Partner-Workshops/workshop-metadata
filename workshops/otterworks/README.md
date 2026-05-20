@@ -49,7 +49,7 @@ A few tips to maximize your hands-on time:
   - [Lab C1 — Monorepo Security Sprint](#lab-c1--monorepo-security-sprint-60-90-min)
   - [Lab C2 — API Contract Audit](#lab-c2--api-contract-audit-45-60-min)
   - [Lab C3 — Test Coverage Blitz](#lab-c3--test-coverage-blitz-45-60-min)
-- [Suggested Formats](#suggested-formats)
+- [Duration Variants](#duration-variants)
 
 ---
 

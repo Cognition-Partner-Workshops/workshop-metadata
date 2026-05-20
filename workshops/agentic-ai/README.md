@@ -30,7 +30,7 @@ A few tips to maximize your hands-on time:
 - [Lab 1 — Automated Pod Remediation After Credential Rotations](#lab-1--automated-pod-remediation-after-credential-rotations)
 - [Lab 2 — Document Review Automation](#lab-2--document-review-automation)
 - [Lab 3 — BDD Test Case Generation](#lab-3--bdd-test-case-generation)
-- [Lab 4 — Volume Anomaly Detection](#lab-4--volume-anomaly-detection)
+- [Lab 4 — Volume-Based Anomaly Detection](#lab-4--volume-based-anomaly-detection)
 - [Repos Required](#repos-required)
 - [Key Takeaways](#key-takeaways)
 
