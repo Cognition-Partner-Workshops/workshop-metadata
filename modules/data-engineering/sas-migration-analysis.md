@@ -100,6 +100,77 @@ Intermediate to Advanced
 
 75 minutes
 
+## Programmatic Context Loop — How Devin Builds Understanding
+
+Migration analysis is not a single-pass operation. Devin uses programmatically accessed resources to build context iteratively — each tool's output feeds into the next step, creating a feedback loop that deepens understanding with every cycle.
+
+### The Loop
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│  ① Index repos (DeepWiki)                                               │
+│     ↓                                                                   │
+│  ② Retrieve architectural context (DeepWiki auto-docs, Knowledge notes) │
+│     ↓                                                                   │
+│  ③ Analyze source code (Devin session — static analysis of .sas files)  │
+│     ↓                                                                   │
+│  ④ Cross-reference target architecture (dbt project via ref())          │
+│     ↓                                                                   │
+│  ⑤ Query external systems for additional context (MCP: Jira, Confluence)│
+│     ↓                                                                   │
+│  ⑥ Produce assessment artifacts (PR with migration docs)                │
+│     ↓                                                                   │
+│  ⑦ Human review → PR comments → Devin resumes and refines              │
+│     ↓                                                                   │
+│  ⑧ Loop back to ③ with enriched context ─────────────────────→ ③       │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Resources Devin Accesses Programmatically at Each Stage
+
+| Stage | Resource | What Devin Retrieves | How It Uses It |
+|-------|----------|---------------------|----------------|
+| **① Index** | **DeepWiki** | Auto-generated architecture docs for both repos | Understands SAS estate structure and dbt target patterns before reading a single file |
+| **② Context** | **Knowledge notes** | Org-level conventions (naming, repo scope, construct mapping rules) | Applies migration standards consistently — e.g., knows PROC FORMAT → Jinja macro, not seed CSV |
+| **③ Analyze** | **Git repo** (clone + shell) | Every `.sas`, `.egp`, `autoexec.sas`, macro library, format definition, log file | Parses SAS syntax, extracts LIBNAME refs, traces %INCLUDE chains, counts constructs |
+| **④ Cross-ref** | **Git repo** (second repo) | `dbt_project/models/`, `macros/`, `docs/SAS_TO_DBT_MIGRATION_MAP.md` | Maps each SAS program to its dbt equivalent; identifies gaps (SAS programs with no dbt model yet) |
+| **⑤ External** | **MCP servers** (Jira, Confluence, ADO) | Migration tickets, customer-provided data dictionaries, existing analysis docs | Enriches the assessment with business context — e.g., which programs are business-critical, which are candidates for retirement |
+| **⑥ Produce** | **Git** (push + PR) | Opens PR with `SAS_MIGRATION_ASSESSMENT.md`, lineage diagrams, dependency graphs | Creates the review artifact that humans inspect |
+| **⑦ Review** | **PR comments** (Devin monitors) | Human feedback: "You missed the Control-M dependency" or "Add effort estimates" | Devin resumes from hibernation, reads comments, addresses each one |
+| **⑧ Refine** | **All of the above** | Re-reads source code with new understanding from review feedback | Produces improved assessment — each cycle adds accuracy |
+
+### Prescriptive Setup for the Context Loop
+
+Before starting the hands-on steps, ensure these resources are configured so Devin can access them programmatically:
+
+**Required (must configure before the session):**
+
+1. **Git connections** — Both repos (`ts-sas-legacy-analytics` and `uc-data-migration-sas-to-databricks`) must be connected in Devin's org settings so Devin can clone them without manual auth
+2. **DeepWiki indexing** — Trigger indexing for both repos. DeepWiki takes 5–15 minutes to produce usable docs for a repo this size. Index before the session starts, not during it
+3. **Knowledge notes** — Create org-level knowledge items for migration conventions:
+   - *"When migrating SAS constructs to dbt"* → Document which SAS patterns map to which dbt patterns (reference `SAS_TO_DBT_MIGRATION_MAP.md`)
+   - *"When analyzing SAS autoexec.sas"* → Document the LIBNAME-to-Unity-Catalog mapping for the customer's environment
+   - *"When estimating migration effort"* → Document complexity scoring criteria (LOC thresholds, construct weights)
+
+**Recommended (accelerates the loop):**
+
+4. **MCP servers** — If the customer's migration project is tracked in Jira or ADO, connect the relevant MCP server so Devin can read ticket context (acceptance criteria, priority, business owner) during analysis
+5. **Secrets** — If Devin needs to query a Databricks workspace (e.g., to check Unity Catalog schema), provision a scoped token as an org secret
+6. **Environment blueprint** — Pre-install `dbt-core` and `dbt-databricks` in the VM blueprint so Devin can validate dbt syntax (`dbt parse`, `dbt compile`) without install delays during the session
+
+### Why This Matters for Presales and Delivery
+
+The context loop is the key differentiator when positioning against manual migration assessment:
+
+- **Manual assessment**: Consultant reads SAS code, writes a document, sends it for review, gets feedback, revises. Each cycle takes days. Context is in the consultant's head — not transferable.
+- **Devin assessment**: Devin reads the code programmatically, cross-references the target architecture, queries external systems for business context, produces a structured assessment, and iterates on feedback — all within the same session. Context is in the shared layer (Knowledge, DeepWiki, MCP) — every subsequent session starts with the full accumulated understanding.
+
+**For scoping and pricing:** Run the estate discovery step (Step 1 below) during presales. The resulting `SAS_MIGRATION_ASSESSMENT.md` gives you program-level complexity scores and a recommended migration sequence — this is the input for effort estimation and project pricing. DeepWiki's architectural docs provide the "instant understanding" that replaces weeks of manual pre-analysis.
+
+**For delivery:** The shared context layer means every Devin session working on the migration has access to the same knowledge, conventions, and target architecture. Spin up parallel sessions — one per SAS program — and each one inherits the org-level migration standards. The feedback loop scales horizontally.
+
 ---
 
 ## <a id="ts-sas-legacy-analytics"></a>ts-sas-legacy-analytics
