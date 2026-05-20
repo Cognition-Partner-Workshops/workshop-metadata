@@ -7,6 +7,7 @@ Use this checklist when authoring or reviewing modules, workshops, and event mat
 - [ ] **Table of Contents with anchor links** — Every module longer than 3 sections has a TOC at the top. Use `<a id="..."></a>` anchors so links work on GitHub
 - [ ] **Quick Start / short circuit** — Readers who want to jump straight into hands-on work can skip background sections. Provide a "Quick Start" section near the top with the first paste-into-Devin prompt
 - [ ] **Attendee vs. Facilitator separation** — The main module file is written for the end audience (the person with the problem). Facilitator-only content (MCP setup, presales positioning, timing guides) goes in a sibling `-facilitator.md` file
+- [ ] **4-Step lab format** — where applicable, labs follow: Start → AskDevin → Explore (DeepWiki) → Review & Give Feedback
 
 ## Prompts & Code Blocks
 
@@ -19,7 +20,19 @@ Use this checklist when authoring or reviewing modules, workshops, and event mat
 - [ ] **Participant-centered language** — Use "try", "hands-on", "walkthrough" — never "demo". Section headers say "What to Try" not "What to Demo"
 - [ ] **"Key Takeaways" not "Key Talking Points"** — Summary bullets under each lab use this header
 - [ ] **No overstatements or guarantees** — Avoid "every", "all", "always", "guaranteed", "comprehensive coverage" when describing probabilistic tools (DeepWiki, AI analysis). Use "typically", "in most cases", "coverage depends on repo structure"
-- [ ] **No customer names** — Never mention customer names, venue names tied to customers, or identifying product names
+- [ ] **Event naming** — Use "workshop" not "arc" in user-facing content
+- [ ] **US English spelling** — "modernization", "organization" (not "modernisation", "organisation")
+
+## Privacy & PII
+
+- [ ] **No customer names** — replace organization names, venue names tied to customers, and customer-specific product names with `*(customer)*`
+- [ ] **No participant PII** — do not include participant email addresses, full names of non-Cognition staff, or identifying metadata in committed files
+- [ ] **No credentials in plaintext** — use placeholders like `<TOKEN>`, `${DB_PASSWORD}`, or reference the event site for credential distribution
+
+## Content Quality
+
+- [ ] **Target Outcomes** — every lab must list concrete, verifiable deliverables
+- [ ] **Key Takeaways** — every lab should end with 2–4 concise takeaway bullets
 
 ## General Themes Integration
 
@@ -48,6 +61,30 @@ Every module should incorporate applicable principles from `shared/general-theme
 - [ ] **Divide and conquer** — For tasks that apply to multiple targets, does the module show how child sessions parallelize the work?
 - [ ] **Scheduled sessions** — Could this task run on a recurring schedule? If so, mention it
 - [ ] **Team-based operation** — Does the module position Devin as a shared team resource, not an individual tool? Multiple reviewers on the same PR, shared Knowledge notes, org-level playbooks
+
+## Event Template Compliance
+
+New events should start from [`events/_template/README.md`](../events/_template/README.md) and include:
+
+1. Event Details table (date, location, host, duration, facilitator, event site)
+2. Table of Contents
+3. Workshop overview or abstract
+4. Lab sections with prompts in fenced code blocks
+5. Target Outcomes per lab
+6. Key Takeaways per lab
+7. Repos Required on Devin's Machine checklist
+8. Devin Features Checklist reference
+
+## Facilitator Companion
+
+For events that need facilitator-specific guidance beyond the main README, create a `FACILITATOR_COMPANION.md` in the event directory with:
+
+- Pacing notes per lab
+- Common pitfalls and recovery steps
+- Suggested talking points for transitions
+- Backup plans if primary repos are unavailable
+
+Reference the [Facilitator Guide](facilitator-guide.md) for the universal pre-event, day-of, and post-event checklists.
 
 ## Third-Party Tool References
 
