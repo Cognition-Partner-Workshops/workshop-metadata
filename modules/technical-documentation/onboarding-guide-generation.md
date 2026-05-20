@@ -1,9 +1,26 @@
 # Onboarding Guide Generation
 
-## Repositories
+## Table of Contents
 
-- [uc-spring-boot-upgrade-microservice-extraction](#uc-spring-boot-upgrade-microservice-extraction)
-- [calcom](#calcom)
+- [Quick Start](#quick-start)
+- [Challenge](#challenge)
+- [Target Outcomes](#target-outcomes)
+- [What Participants Will Learn](#what-participants-will-learn)
+- [Devin Features Exercised](#devin-features-exercised)
+- [Difficulty](#difficulty)
+- [Estimated Time](#estimated-time)
+- [Notes](#notes)
+- [Repositories](#repositories)
+  - [uc-spring-boot-upgrade-microservice-extraction](#uc-spring-boot-upgrade-microservice-extraction)
+  - [calcom](#calcom)
+- [Key Takeaways](#key-takeaways)
+- [Going Further](#going-further)
+
+---
+
+## Quick Start
+
+Pick a repo below, copy the **Step 1** prompt into a new Devin session, and let Devin analyze the codebase and generate a developer onboarding guide. No prerequisites beyond repo access.
 
 ---
 
@@ -49,26 +66,30 @@ Intermediate
 
 ---
 
-## <a id="uc-spring-boot-upgrade-microservice-extraction"></a>uc-spring-boot-upgrade-microservice-extraction
+## Repositories
+
+### <a id="uc-spring-boot-upgrade-microservice-extraction"></a>uc-spring-boot-upgrade-microservice-extraction
 
 **Repository:** [uc-spring-boot-upgrade-microservice-extraction](https://github.com/Cognition-Partner-Workshops/uc-spring-boot-upgrade-microservice-extraction)
 
 Spring Boot monolith with a Next.js frontend — a complex full-stack application ideal for testing onboarding guide quality.
 
-### Step 1: Paste into Devin
+#### Step 1: Paste into Devin
 
-> Analyze the uc-spring-boot-upgrade-microservice-extraction repository and create a comprehensive developer onboarding guide in `docs/onboarding/`. Generate: (1) `architecture-overview.md` — high-level architecture diagram (in markdown/mermaid) showing backend services, frontend, database, and their interactions, (2) `local-setup-guide.md` — step-by-step setup instructions with prerequisites, environment variables, and verification steps, (3) `codebase-map.md` — directory-by-directory guide explaining what each module does and where to find key files, and (4) `common-tasks.md` — how-to guides for adding a new API endpoint, adding a frontend page, running tests, and debugging common issues. Open a PR.
+```
+Analyze the uc-spring-boot-upgrade-microservice-extraction repository and create a comprehensive developer onboarding guide in `docs/onboarding/`. Generate: (1) `architecture-overview.md` — high-level architecture diagram (in markdown/mermaid) showing backend services, frontend, database, and their interactions, (2) `local-setup-guide.md` — step-by-step setup instructions with prerequisites, environment variables, and verification steps, (3) `codebase-map.md` — directory-by-directory guide explaining what each module does and where to find key files, and (4) `common-tasks.md` — how-to guides for adding a new API endpoint, adding a frontend page, running tests, and debugging common issues.
+```
 
-### Step 2: Research with Ask Devin
+#### Step 2: Research with Ask Devin
 
 - *"What are the main architectural layers in uc-spring-boot-upgrade-microservice-extraction? How do the backend and frontend communicate?"*
 - *"What build tools, test frameworks, and development scripts are available? What does a typical development workflow look like?"*
 
-### Step 3 (Optional): Read the DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's DeepWiki page to cross-reference Devin's generated architecture overview. Check if any modules or patterns were missed in the onboarding guide.
 
-### Step 4 (Optional): Review & Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 - **Review the diff** — does the setup guide include all prerequisites and environment variables needed to run the app locally?
 - **Leave a comment** asking Devin to add a troubleshooting section covering common setup failures (port conflicts, missing dependencies, database issues)
@@ -76,27 +97,45 @@ Open the repo's DeepWiki page to cross-reference Devin's generated architecture 
 
 ---
 
-## <a id="calcom"></a>calcom
+### <a id="calcom"></a>calcom
 
 **Repository:** [calcom](https://github.com/Cognition-Partner-Workshops/calcom)
 
 Large-scale open-source scheduling platform with a complex monorepo structure — a challenging codebase for onboarding guide generation.
 
-### Step 1: Paste into Devin
+#### Step 1: Paste into Devin
 
-> Analyze the calcom repository and create a developer onboarding guide in `docs/onboarding/`. Generate: (1) `architecture-overview.md` — high-level architecture showing the monorepo structure, key apps (web, api/v1, api/v2), shared packages, and how they interact, (2) `local-setup-guide.md` — step-by-step setup covering Node.js/Yarn prerequisites, database setup, environment configuration, and verification, (3) `codebase-map.md` — guide to the monorepo layout explaining what each app and package does, and (4) `common-tasks.md` — how-to guides for adding a new tRPC endpoint, creating a new UI component, modifying the database schema, and running tests. Open a PR.
+```
+Analyze the calcom repository and create a developer onboarding guide in `docs/onboarding/`. Generate: (1) `architecture-overview.md` — high-level architecture showing the monorepo structure, key apps (web, api/v1, api/v2), shared packages, and how they interact, (2) `local-setup-guide.md` — step-by-step setup covering Node.js/Yarn prerequisites, database setup, environment configuration, and verification, (3) `codebase-map.md` — guide to the monorepo layout explaining what each app and package does, and (4) `common-tasks.md` — how-to guides for adding a new tRPC endpoint, creating a new UI component, modifying the database schema, and running tests.
+```
 
-### Step 2: Research with Ask Devin
+#### Step 2: Research with Ask Devin
 
 - *"What is the monorepo structure of Cal.com? What are the key apps and packages, and how do they depend on each other?"*
 - *"What is the development workflow for Cal.com? How do Turborepo, Prisma, and tRPC fit together in the build and development process?"*
 
-### Step 3 (Optional): Read the DeepWiki
+#### Step 3 (Optional): Read the DeepWiki
 
 Open the repo's DeepWiki page to understand the full monorepo architecture. A project this large will have patterns and conventions that are critical for the onboarding guide to capture.
 
-### Step 4 (Optional): Review & Give Feedback
+#### Step 4 (Optional): Review & Give Feedback
 
 - **Review the diff** — does the codebase map accurately capture the monorepo structure and package dependencies?
 - **Leave a comment** asking Devin to add a section on the embed system and how platform integrations work
 - **Watch Devin respond** and push a follow-up commit
+
+---
+
+## Key Takeaways
+
+- Devin generates onboarding guides grounded in the actual codebase — referencing real file paths, build commands, and configuration patterns rather than generic advice
+- Onboarding documentation is a high-impact investment that teams rarely prioritize — Devin produces a solid first draft that teams can refine based on real onboarding experience
+- Comparing Devin's generated guide against DeepWiki output is a useful exercise: DeepWiki provides auto-generated architectural context, while the onboarding guide adds human-oriented workflow guidance
+
+## Going Further
+
+Onboarding guides connect to **documentation-on-code-change triggers** (see [When to Use Devin → Capacity-Constrained](../../shared/general-themes/when-to-use-devin.md)):
+
+- **PR-triggered guide updates** — When a PR adds a new module, changes the build process, or modifies environment requirements, trigger a Devin session that updates the relevant onboarding documents and opens a follow-up PR
+- **Scheduled freshness checks** — Run a recurring session that verifies the setup guide still works: clone the repo, follow the documented steps, and report any failures. If the guide is outdated, Devin opens a PR with corrections
+- **New-hire onboarding assist** — When a new team member joins, trigger a Devin session scoped to the repos they'll work on. Devin generates a personalized onboarding guide covering the specific services, patterns, and workflows relevant to their role
