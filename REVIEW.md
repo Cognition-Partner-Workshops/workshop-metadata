@@ -16,7 +16,7 @@ This repo contains workshop content (modules, workshops, events) and shared mate
 
 ### Content Separation (High Priority)
 
-- **Attendee vs. facilitator content** — The main module/workshop file is for the end audience (the person with the problem). Facilitator-only content (MCP setup, presales positioning, timing guides, competitive comparisons) should be in a sibling `-facilitator.md` file. Flag presales-oriented framing (e.g., "This matters for presales") in attendee-facing files.
+- **Attendee vs. facilitator content** — The main module/workshop file is for the end audience (the person with the problem). Facilitator-only content (MCP setup, presales positioning, timing guides) should be in a sibling `-facilitator.md` file. Flag presales-oriented framing (e.g., "This matters for presales") in attendee-facing files. **Exception**: Technical comparisons that explain practical differences (e.g., "static analysis requires no environment changes, unlike runtime trace tools") are general guidance that belongs in the attendee module — only the sales/delivery *framing* of those comparisons belongs in the facilitator file.
 
 ### Prompt Formatting (Medium Priority)
 
