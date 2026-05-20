@@ -200,7 +200,7 @@ MONITORING_COMPARISON.md.
 - **Git-native version control is the foundational upgrade** — SAS code was generally not version controlled. Moving to Git is not just a tooling change — it enables audit trails, change review, rollback, and collaboration patterns that did not exist in the legacy environment.
 - **Automated quality gates replace manual inspection** — Pre-commit hooks catch issues at development time, sqlfluff enforces SQL style, and dbt tests validate business logic — all before code reaches the main branch. This replaces the post-execution log review that SAS operators performed after batch runs.
 - **Cloud-native orchestration replaces external schedulers** — Databricks Workflows provide scheduling, dependency management, retry policies, and SLA monitoring as built-in capabilities. This replaces the need for external orchestrators like Control-M.
-- **Team resource, not individual tool** — Multiple engineers can review the same CI/CD pipeline PR. Knowledge notes encode deployment conventions so every future session applies the same standards. Scheduled sessions can monitor pipeline health on a recurring basis.
+- **Team resource, not individual tool** — Multiple engineers can review the same CI/CD pipeline PR. Knowledge notes encode deployment conventions so future sessions typically apply the same standards. Scheduled sessions can monitor pipeline health on a recurring basis.
 
 ---
 
