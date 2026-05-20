@@ -128,7 +128,6 @@ When Devin opens a PR:
 This lab goes beyond dependency scanning. Devin sets up SonarQube locally via Docker, runs both dependency and code-level SAST scans, and remediates findings. You can watch Devin set up SonarQube and navigate its dashboard in the Desktop tab.
 
 #### Give Devin a task
-
 ```
 Run `./gradlew dependencyCheckAnalyze` on uc-cve-remediation-regulatory-compliance to identify dependency CVEs. Remediate the top 5 most critical findings (CVSS >= 7.0) — start with Spring Boot 2.6.3, SnakeYAML 1.29, and sqlite-jdbc 3.36.0.3.
 
@@ -364,7 +363,6 @@ Open **Ask Devin** and explore:
 This lab showcases a unique capability: Devin runs the app on its own machine, opens a real browser, and interacts with the running UI.
 
 #### Give Devin a task
-
 ```
 Start the timesheet-app application locally (both backend and frontend). Once the app is running, write Playwright end-to-end tests for the core user workflows:
 
@@ -408,7 +406,6 @@ Use **Ask Devin** to explore:
 Migrate petclinic-angular from deprecated test frameworks (Karma + Jasmine + Protractor) to modern replacements (Jest/Vitest + Playwright). This is tedious for humans but ideal for Devin.
 
 #### Give Devin a task
-
 ```
 Analyze the test infrastructure in petclinic-angular. The project currently uses Karma + Jasmine for unit tests and Protractor for E2E tests — both are deprecated in the Angular ecosystem.
 
@@ -455,7 +452,6 @@ After the migration succeeds, consider asking Devin to **create a Playbook** cap
 Give Devin a Spring Boot + Cucumber BDD framework and prompt it to generate new test scenarios, build a new API resource, and produce executable Cucumber tests. Then practice the PR feedback loop.
 
 #### Give Devin a task
-
 ```
 Review the uc-bdd-test-generation-cucumber codebase. This is a Spring Boot + Cucumber BDD framework with pre-built step definitions for REST API testing. Run `mvn test` to see the 16 existing scenarios pass.
 
@@ -510,7 +506,6 @@ Before creating a session, plan the QA strategy with Ask Devin:
 - *"What test quality standards should we encode in a Playbook?"*
 
 #### Give Devin a task
-
 ```
 Set up a continuous quality engineering practice for timesheet-app.
 

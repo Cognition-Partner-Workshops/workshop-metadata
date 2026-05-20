@@ -30,7 +30,6 @@ This event features 4 structured labs using purpose-built repositories, focused 
 - **Objective:** Explore a multi-agent Python system that automates detection, approval, and remediation of pod failures caused by credential rotations — enhance it with emergency rotation detection
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Review the uc-pod-remediation-credential-rotation codebase. The rotation_monitor agent needs to be enhanced to support detecting rotations that happen outside the scheduled cron window (emergency rotations). Add a method `detect_emergency_rotations` that compares the last_rotated_at timestamp against the cron schedule and flags any rotation that occurred more than 24 hours before the next scheduled window. Add unit tests for the new method.
 ```
@@ -73,7 +72,6 @@ See the full challenge details for [Pod Remediation After Credential Rotation](.
 - **Objective:** Work with a multi-agent document review system — enhance the fuzzy matching comparator with an alternative string similarity strategy and evaluate accuracy
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Review the uc-document-review-automation codebase. The fuzzy_comparator currently uses Jaccard similarity on bigrams for name matching. Enhance it to also support Levenshtein distance as an alternative strategy, configurable via comparison_rules.yaml. Add unit tests comparing accuracy of both strategies on sample name pairs (with typos, abbreviations, and reordering).
 ```
@@ -115,7 +113,6 @@ See the full challenge details for [Document Review Automation](../../../modules
 - **Objective:** Generate BDD test cases from a Swagger/OpenAPI specification and produce executable Cucumber tests covering happy paths, error cases, and edge cases
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Review the uc-bdd-test-generation-cucumber codebase. This is a Cucumber BDD framework for testing REST APIs. Add new Gherkin feature files that test a Petstore-style API (pets CRUD: create, read, update, delete, list). Include scenarios for: successful CRUD operations, validation errors (missing required fields), not-found cases, and pagination. Implement the corresponding step definitions.
 ```
@@ -157,7 +154,6 @@ See the full challenge details for [BDD Test Generation](../../../modules/testin
 - **Objective:** Work with a multi-agent anomaly detection framework — enhance the seasonal detector to support a time-of-day-only mode and evaluate detection accuracy
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Review the uc-volume-anomaly-detection codebase. The seasonal detector currently builds baselines from hourly data bucketed by day-of-week. Enhance it to also support a "time-of-day only" mode that ignores day-of-week (useful for services with consistent daily patterns). Add a configuration option in detection_rules.yaml to toggle between modes. Add unit tests for both modes.
 ```

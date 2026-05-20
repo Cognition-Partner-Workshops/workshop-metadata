@@ -74,7 +74,6 @@
 ### Phase 1 — Launch the Decomposition (5 min)
 
 Create a new Devin session and paste the following prompt. Replace `<participant>` with your name:
-
 ```
 Decompose the Inventory module from @Cognition-Partner-Workshops/ordermanager-monolith into a standalone microservice.
 

@@ -45,7 +45,6 @@
 - **Objective:** [one-line description]
 
 #### Paste into Devin
-
 ```
 [Prompt text here. Do not include "Open a PR" — Devin does this by default.]
 ```

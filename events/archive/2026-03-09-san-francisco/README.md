@@ -29,7 +29,6 @@ This event features 2 structured labs using purpose-built repositories:
 - **Objective:** Take an older Java monolith (Java 11 + Spring Boot 2.6.3) and modernize it — you choose whether to focus on the upgrade, the microservice extraction, or both
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Upgrade uc-spring-boot-upgrade-microservice-extraction from Java 11 + Spring Boot 2.6.3 to Java 17 + Spring Boot 3.2. Handle the javax to jakarta namespace migration, update Gradle build configuration, fix any deprecations, and ensure all tests pass.
 ```
@@ -73,7 +72,6 @@ See the full challenge details for [Framework Upgrade](../../../modules/migratio
 - **Known CVEs:** See the [full CVE findings report](../../../modules/security/remediate-vulnerabilities.md#uc-cve-remediation-regulatory-compliance) for a breakdown of all 18+ known vulnerabilities by severity (5 Critical, 8 High, 5 Medium)
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Run `./gradlew dependencyCheckAnalyze` on uc-cve-remediation-regulatory-compliance to identify dependency CVEs. Remediate the top 5 most critical findings (CVSS >= 7.0) — start with Spring Boot 2.6.3, SnakeYAML 1.29, and sqlite-jdbc 3.36.0.3. Re-run the scan to verify the fixes. Create a `SECURITY_REMEDIATION.md` documenting the before/after results.
 ```

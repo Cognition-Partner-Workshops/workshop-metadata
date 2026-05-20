@@ -218,7 +218,6 @@ This lab has two distinct parts:
 2. **Reconnect the app** — update the application to read from the new data source and verify nothing broke
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Review the legacy CDW schema in uc-data-source-migration-jdbc-normalization. This is a loan management application currently reading from a denormalized legacy data warehouse where all columns are VARCHAR.
 
@@ -354,7 +353,6 @@ See the full challenge details for [New Feature Development](../../../modules/ap
 - **Objective:** Give Devin a Spring Boot + Cucumber BDD framework and prompt it to generate new test scenarios, build a new API resource, and produce executable Cucumber tests
 
 #### Step 1: Paste into Devin (copy-paste this prompt into Devin)
-
 ```
 Review the uc-bdd-test-generation-cucumber codebase. This is a Spring Boot + Cucumber BDD framework (from RedFroggy, MIT license) with pre-built step definitions for REST API testing. Run `mvn test` to see the 16 existing scenarios pass.
 

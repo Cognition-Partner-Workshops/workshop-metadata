@@ -120,7 +120,6 @@ See [general workshop Lab A3](../../../workshops/general/README.md#lab-a3--sched
 This spotlight goes beyond single-tool scanning. Instead of running one SAST tool, have Devin produce a unified security posture report combining multiple analysis techniques — the kind of report a security team would present to leadership.
 
 #### Paste into Devin
-
 ```
 Perform a comprehensive security assessment of uc-cve-remediation-regulatory-compliance. Run three types of analysis:
 
@@ -133,8 +132,6 @@ Produce a unified `SECURITY_POSTURE_REPORT.md` that includes:
 - Findings table organized by category (SCA, SAST, Configuration) with severity, description, and recommended fix
 - A prioritized remediation roadmap — what to fix first and why
 - Fix the top 3 most critical findings and re-verify
-
-
 ```
 
 #### Why Try This
@@ -187,7 +184,6 @@ See [general workshop Lab B3](../../../workshops/general/README.md#lab-b3--langu
 Instead of extracting a service from an existing monolith (Lab B1), this spotlight starts from a clean API specification and has Devin generate a complete, production-ready microservice from scratch — controllers, services, validation, configuration, and tests targeting 90% coverage.
 
 #### Paste into Devin
-
 ```
 Generate a complete Spring Boot microservice from the following API specification. The service manages "Notifications" for a messaging platform.
 
@@ -232,7 +228,6 @@ Use an H2 in-memory database for dev/test. Structure the project with a clean pa
 Before extracting microservices, teams need to understand their domain boundaries. This spotlight has Devin analyze a codebase and produce a decomposition strategy aligned to business capabilities — the planning step that usually takes architects weeks.
 
 #### Paste into Devin
-
 ```
 Analyze uc-spring-boot-upgrade-microservice-extraction and produce a domain decomposition analysis. This Spring Boot monolith implements a social blogging platform.
 
@@ -297,7 +292,6 @@ See [general workshop Lab C3](../../../workshops/general/README.md#lab-c3--perfo
 This spotlight shows Devin playing the role of a data reliability engineer — analyzing application data for anomalies, documenting findings as structured issues, performing root cause analysis, and fixing the underlying pipeline logic.
 
 #### Paste into Devin
-
 ```
 Analyze the data layer in uc-data-source-migration-jdbc-normalization for data quality anomalies. This Spring Boot service reads from legacy CDW (Corporate Data Warehouse) tables with known quality issues.
 
@@ -308,8 +302,6 @@ Analyze the data layer in uc-data-source-migration-jdbc-normalization for data q
 3. **Root Cause Analysis:** For the top 3 most critical anomalies, trace through the code (LoanService.java, the repository layer, and the column mappings in `data/mappings/column_mappings.md`) to identify where the anomaly would cause a runtime failure or incorrect API response. Document the root cause.
 
 4. **Fix:** Implement data validation in the service layer that catches these anomalies at ingestion time — add input validation, type coercion with error handling, and fallback defaults where appropriate. Add tests that verify the validation catches each anomaly type.
-
-
 ```
 
 #### Why Try This
@@ -331,7 +323,6 @@ Analyze the data layer in uc-data-source-migration-jdbc-normalization for data q
 This spotlight demonstrates Devin as a technical analyst — reading an entire codebase, producing a structured knowledge base, and identifying gaps against engineering best practices. This is the kind of assessment that typically takes a senior engineer a week; Devin can draft it in a session.
 
 #### Paste into Devin
-
 ```
 Perform a comprehensive technical assessment of timesheet-app. Produce the following deliverables:
 
@@ -357,8 +348,6 @@ Perform a comprehensive technical assessment of timesheet-app. Produce the follo
 
 3. **Remediation Roadmap** (`docs/REMEDIATION_ROADMAP.md`):
    Prioritize the gaps into a phased plan: Phase 1 (quick wins — high impact, low effort), Phase 2 (important — high impact, medium effort), Phase 3 (polish — lower impact improvements). Include sample Devin prompts for each remediation item so the team can immediately start fixing gaps.
-
-
 ```
 
 #### Why Try This
