@@ -1,5 +1,55 @@
 # COBOL Migration Planning & Domain Decomposition
 
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Repositories](#repositories)
+- [Challenge](#challenge)
+- [Target Outcomes](#target-outcomes)
+- [What Participants Will Learn](#what-participants-will-learn)
+- [Devin Features Exercised](#devin-features-exercised)
+- [Difficulty](#difficulty)
+- [Estimated Time](#estimated-time)
+- [Going Further](#going-further)
+- [Notes](#notes)
+- [uc-legacy-modernization-cobol-to-java](#uc-legacy-modernization-cobol-to-java)
+
+---
+
+## Quick Start
+
+Paste this prompt into Devin to try modernization planning on the CardDemo COBOL application:
+
+```
+Analyze the COBOL application in
+uc-legacy-modernization-cobol-to-java and produce a
+modernization plan. Create the following artifacts:
+
+1. MODERNIZATION_BLUEPRINT.md — For each major functional
+   area of the application, evaluate these modernization
+   strategies: (a) Strangler pattern — wrap with APIs,
+   incrementally replace, (b) Replatform — keep COBOL, move
+   to cloud runtime, (c) Refactor — restructure COBOL for
+   maintainability without rewriting, (d) Rewrite — translate
+   to modern language (Java/Kotlin/Python). For each area,
+   recommend the best strategy with justification.
+2. DOMAIN_DECOMPOSITION.md — Identify bounded contexts by
+   analyzing which programs share copybooks, which JCL jobs
+   group together, and which data files are shared vs.
+   isolated. Map each bounded context to a candidate
+   microservice or module.
+3. CUTOVER_PLAN.md — Sequence the migration into phases. Each
+   phase should specify: which programs migrate, which data
+   stores are affected, what integration points need temporary
+   bridges, what the rollback plan is, and what the acceptance
+   criteria are for moving to the next phase.
+4. RISK_REGISTER.md — Document the top 10 migration risks
+   with likelihood, impact, mitigation strategy, and early
+   warning indicators.
+```
+
+---
+
 ## Repositories
 
 - [uc-legacy-modernization-cobol-to-java](#uc-legacy-modernization-cobol-to-java)
@@ -44,10 +94,18 @@ Intermediate to Advanced
 
 60 minutes
 
+## Going Further
+
+- **Child sessions for parallel planning**: Spawn a child session per bounded context (account management, transaction processing, customer management, etc.) to produce detailed migration plans in parallel. The parent session merges them into a consolidated blueprint.
+- **Playbook-driven planning**: Encode the 4-artifact planning methodology (blueprint, decomposition, cutover, risk register) as a playbook. Reuse it across COBOL estates — each new engagement runs the same proven process.
+- **Scheduled progress tracking**: After migration begins, configure a scheduled session that compares the current codebase against the original blueprint to track which phases are complete and which remain.
+- **Team-based operation**: The blueprint, decomposition map, and risk register become shared knowledge notes. Every Devin session working on this migration inherits the planning context — no re-discovery needed.
+- **Event-driven refinement**: Connect a webhook so that when a migration PR is merged, Devin automatically updates the cutover plan to reflect completed phases.
+
 ## Notes
 
 - This module works best after [COBOL System Understanding](cobol-system-understanding.md) (system understanding) — the inventory and dependency map inform the planning
-- If running standalone (without MM12 first), Devin will need to perform discovery as part of the planning session, which may reduce depth
+- If running standalone (without system understanding first), Devin will need to perform discovery as part of the planning session, which may reduce depth
 - The CardDemo app has natural domain boundaries: account management (CBACT*), transaction processing (CBTRN*, COTRN*), customer management (CBCUS*), statement/reporting (CBSTM*, CORPT*), user security (COUSR*), card management (COCRD*) — participants should discover these through the exercise
 - There is no single "right" blueprint — different participants will recommend different strategies based on their assumptions about the target environment
 - Encourage participants to compare blueprints and discuss trade-offs after the lab
@@ -60,16 +118,46 @@ Intermediate to Advanced
 
 AWS Mainframe Modernization CardDemo (Apache 2.0). A credit card management system with account processing, transaction handling, customer management, statement generation, and user security — natural domain boundaries for decomposition analysis.
 
-### Step 1: Paste into Devin
+### Step 1: Paste into Devin — Modernization Planning
 
-> Analyze the COBOL application in uc-legacy-modernization-cobol-to-java and produce a modernization plan. Create the following artifacts:
->
-> 1. **MODERNIZATION_BLUEPRINT.md** — For each major functional area of the application, evaluate these modernization strategies: (a) Strangler pattern — wrap with APIs, incrementally replace, (b) Replatform — keep COBOL, move to cloud runtime, (c) Refactor — restructure COBOL for maintainability without rewriting, (d) Rewrite — translate to modern language (Java/Kotlin/Python). For each area, recommend the best strategy with justification, considering: business logic complexity, data coupling, team skill availability, and risk tolerance.
-> 2. **DOMAIN_DECOMPOSITION.md** — Identify bounded contexts in the application by analyzing which programs share copybooks, which JCL jobs group together, and which data files are shared vs. isolated. Map each bounded context to a candidate microservice or module. Identify the extraction seams (points where domains interact) and rate each seam's extraction difficulty (easy/medium/hard) based on data coupling.
-> 3. **CUTOVER_PLAN.md** — Sequence the migration into phases. Each phase should specify: which programs migrate, which data stores are affected, what integration points need temporary bridges, what the rollback plan is, and what the acceptance criteria are for moving to the next phase. The first phase should be the lowest-risk, highest-value extraction.
-> 4. **RISK_REGISTER.md** — Document the top 10 migration risks: hidden business rules in tribal knowledge, environment gaps (mainframe-specific runtimes), data representativeness for testing, shared data coupling between domains, and any other risks identified during analysis. For each risk, provide: likelihood (high/medium/low), impact (high/medium/low), mitigation strategy, and early warning indicators.
->
-> Open a PR with all four documents.
+```
+Analyze the COBOL application in
+uc-legacy-modernization-cobol-to-java and produce a
+modernization plan. Create the following artifacts:
+
+1. MODERNIZATION_BLUEPRINT.md — For each major functional
+   area of the application, evaluate these modernization
+   strategies: (a) Strangler pattern — wrap with APIs,
+   incrementally replace, (b) Replatform — keep COBOL, move
+   to cloud runtime, (c) Refactor — restructure COBOL for
+   maintainability without rewriting, (d) Rewrite — translate
+   to modern language (Java/Kotlin/Python). For each area,
+   recommend the best strategy with justification, considering:
+   business logic complexity, data coupling, team skill
+   availability, and risk tolerance.
+2. DOMAIN_DECOMPOSITION.md — Identify bounded contexts in
+   the application by analyzing which programs share
+   copybooks, which JCL jobs group together, and which data
+   files are shared vs. isolated. Map each bounded context to
+   a candidate microservice or module. Identify the extraction
+   seams (points where domains interact) and rate each seam's
+   extraction difficulty (easy/medium/hard) based on data
+   coupling.
+3. CUTOVER_PLAN.md — Sequence the migration into phases. Each
+   phase should specify: which programs migrate, which data
+   stores are affected, what integration points need temporary
+   bridges, what the rollback plan is, and what the acceptance
+   criteria are for moving to the next phase. The first phase
+   should be the lowest-risk, highest-value extraction.
+4. RISK_REGISTER.md — Document the top 10 migration risks:
+   hidden business rules in tribal knowledge, environment gaps
+   (mainframe-specific runtimes), data representativeness for
+   testing, shared data coupling between domains, and any
+   other risks identified during analysis. For each risk,
+   provide: likelihood (high/medium/low), impact
+   (high/medium/low), mitigation strategy, and early warning
+   indicators.
+```
 
 ### Step 2: Research with Ask Devin
 
@@ -91,3 +179,10 @@ Open the repo's DeepWiki page to visualize program relationships and data flows.
 - **Review the decomposition** — are the bounded contexts reasonable? Did Devin miss any shared data dependencies?
 - **Leave a comment** asking Devin to add a cost/effort estimate (T-shirt sizes) for each phase of the cutover plan
 - **Leave a comment** asking Devin to identify which phases could run in parallel vs. which must be sequential
+
+### Key Takeaways
+
+- **Strategy over dogma**: Devin evaluates multiple modernization strategies per subsystem rather than recommending a single approach for everything
+- **Domain-driven decomposition**: Analyzing copybook sharing, JCL grouping, and data file isolation reveals natural bounded contexts for microservice extraction
+- **Phased risk management**: A sequenced cutover plan with rollback strategies at each phase gate reduces the risk of large-scale migration
+- **Divide-and-conquer at scale**: Once the blueprint identifies independent domains, each can be migrated by a separate child session running the same playbook — parallelizing weeks of work into days
