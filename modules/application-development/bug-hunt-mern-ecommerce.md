@@ -158,8 +158,8 @@ Beginner to Intermediate
   verify their fixes
 - Each bug is a single-line change, making them ideal for demonstrating
   precise, targeted fixes
-- For shorter sessions, use Option B prompts targeting 1–2 specific bugs
-- For longer sessions, use Option A and challenge participants to find all 8
+- If you have limited time, start with Option B targeting a single bug
+- For a deeper exercise, try Option A and aim to find all 8
 - Multiple team members can comment on the same PR — Devin reads and responds
   to all reviewers (see [Collaboration Model → Multi-User Communication](../../shared/general-themes/collaboration-model.md#multi-user-communication))
 
