@@ -117,6 +117,39 @@ Total bid = Σ(Unit cost × Quantity) + Orchestration overhead + Margin
 
 See [Billing Model Transformation](https://github.com/Devin-Samples/field-kit/blob/main/docs/sales-guides/billing-model-transformation.md) for worked examples, staffing model scenarios, and engagement billing models.
 
+## Deployment Model: Managed SaaS with Customer-Specific Infrastructure
+
+**For: CISO, CTO, Infrastructure Leadership, Cloud Architecture, Procurement**
+
+Devin's deployment model combines the operational simplicity of managed SaaS with the security controls of dedicated infrastructure. This is not "multi-tenant SaaS or self-hosted" — it is a hybrid that gives customers the best of both worlds.
+
+### Managed SaaS: Offload the Operational Burden
+
+Running AI agents at scale is an infrastructure problem: scheduling VMs, managing compute pools, handling failover, scaling dynamically, patching base images, and maintaining the orchestration layer. This is complex, specialized infrastructure that most organizations should not build or maintain themselves.
+
+Devin as managed SaaS means:
+- **Scaling is handled** — Spin up 1 or 100 parallel sessions without capacity planning. The platform manages compute pools, job scheduling, and resource allocation
+- **Reliability is handled** — VM orchestration, failover, snapshot management, and session recovery are the platform's responsibility. Your team focuses on using Devin, not operating it
+- **Updates are continuous** — Model improvements, new capabilities, security patches, and infrastructure upgrades ship without customer-side deployment cycles
+- **No infrastructure team required** — You do not need a dedicated team to run, monitor, and maintain the AI agent infrastructure. The platform handles observability, alerting, and incident response for the underlying compute layer
+
+### Customer-Specific VPC: Enterprise Network Controls
+
+For organizations with strict network security requirements, Devin supports **customer-specific VPC deployments** — dedicated network infrastructure that gives the customer full visibility and control over agent network traffic:
+
+- **Traffic inspection** — All network traffic from Devin sessions traverses the customer's network boundary. Deploy DLP (Data Loss Prevention) inspection, SSL/TLS interception, or content analysis on agent-generated traffic using existing security tooling
+- **Egress proxy enforcement** — Route all outbound traffic through the customer's egress proxy. Apply URL allowlisting, domain filtering, and protocol restrictions. Ensure that Devin can only reach approved endpoints — no surprise outbound connections
+- **Private networking to internal resources** — Devin sessions can reach private databases, internal APIs, artifact registries, and on-premises systems through VPC peering, PrivateLink, or VPN tunnels. No need to expose internal services to the public internet
+- **IP allowlisting** — Devin's traffic originates from known, customer-controlled IP ranges. Firewall rules and network ACLs can be applied with the same precision as any other internal service
+- **Network segmentation** — Isolate Devin's compute from other workloads using standard VPC security groups, NACLs, and subnet architecture. Apply the same network segmentation policies you use for any other compute resource
+- **Compliance alignment** — Organizations in regulated industries (financial services, healthcare, government) can demonstrate that AI agent traffic is governed by the same network controls as all other systems. Auditors can verify traffic flow, egress rules, and network isolation without special accommodation
+
+**Why this matters to enterprise customers:**
+
+The objection "we cannot send our code to a third-party SaaS" is real for many organizations. Customer-specific VPC resolves this by placing Devin's compute inside the customer's network trust boundary. The code, the build artifacts, the network traffic, and the credentials all stay within infrastructure the customer controls and monitors — while the platform itself (orchestration, scheduling, model serving, updates) remains managed by Cognition.
+
+**Narrative:** "You get the operational simplicity of SaaS — no infrastructure to manage, automatic scaling, continuous updates — with the network security controls of running it yourself. Your security team can inspect every packet, control every egress path, and audit every connection. Devin operates inside your trust boundary."
+
 ## Audience-Specific Talking Points
 
 ### For Sales Engineering
@@ -142,8 +175,16 @@ See [Billing Model Transformation](https://github.com/Devin-Samples/field-kit/bl
 - Use **hands-on labs** from the partner workshops to demonstrate capabilities in a safe environment
 - Emphasize the **continuous improvement cycle** — Devin gets more effective as the team invests in configuration
 
+### For Infrastructure and Security Leadership
+- Lead with the **deployment model** — managed SaaS with customer-specific VPC resolves the "we cannot use third-party SaaS" objection
+- Show **traffic inspection and egress proxy** capabilities — security teams can apply existing DLP, URL filtering, and network monitoring to agent traffic
+- Emphasize **private networking** — Devin reaches internal resources through VPC peering and PrivateLink without exposing them to the public internet
+- Highlight **Windows VM support** — unlocks .NET Framework, legacy Windows toolchains, and the substantial portion of enterprise codebases that depend on Windows-native build infrastructure
+- Show the **declarative blueprint system** — environment configuration is governed, versioned, and auditable, not ad-hoc
+
 ### For Leadership
 - Lead with **risk reduction** and **cost optimization** — these are the decision-making factors
 - Frame Devin as **team augmentation**, not replacement — the engineering team becomes more effective, not smaller
 - Show the **compounding value** model — initial setup investment yields growing returns over time
 - For P&L owners: show the **efficiency → quality → outcomes cycle** — efficiency gains are the entry point, quality improvements compound the value, and the financial impact grows over time
+- For CISOs: show the **customer-specific VPC** model — managed SaaS operational simplicity with dedicated network infrastructure for traffic inspection, egress control, and compliance alignment

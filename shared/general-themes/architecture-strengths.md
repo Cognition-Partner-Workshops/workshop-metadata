@@ -35,14 +35,84 @@ Devin retrieves context programmatically before acting — it pulls from indexed
 | **Browser** | Devin can navigate web pages, interact with UIs, and extract information from web-based tools |
 | **Knowledge notes** | Persistent, human-curated context (coding standards, architecture decisions, team conventions) that Devin retrieves automatically based on the task at hand |
 
+## Why a Dedicated VM Matters
+
+Most AI coding tools operate inside a container, a sandboxed interpreter, or a stateless API call. Devin runs on a **full virtual machine** — a real OS with persistent disk, writable system configuration, root access, and a complete network stack. This is not an incremental improvement; it is a fundamentally different execution model that unlocks capabilities no container-based or API-based approach can replicate.
+
+### A Real Operating System, Not a Sandbox
+
+Devin's VM is a full machine — not a stripped-down container with a read-only filesystem and limited syscall surface. This distinction matters for real-world engineering work:
+
+- **System-level tooling** — Install and configure databases, message brokers, language runtimes, custom CLIs, VPN clients, browser engines, and system services. Work that requires `systemctl`, `apt install`, kernel modules, or modifying `/etc/` simply does not work in containers
+- **Multi-process orchestration** — Run a backend server, a frontend dev server, a database, and a test runner simultaneously. Debug interactions between them. No single-process container limitation
+- **Desktop and GUI access** — Devin has a graphical desktop with a live browser. It can interact with web UIs, test frontend applications visually, take screenshots, and run Playwright/Selenium against real browser engines — not headless approximations
+- **Full network stack** — VPN connections, SSH tunnels, custom DNS, proxy configuration, mTLS, and arbitrary network topologies. Devin reaches private resources the same way a developer's machine would
+- **Persistent filesystem** — Files, build caches, installed packages, and session state survive across the session lifecycle. No cold-start reinstallation penalty on every interaction
+
+### Windows and Linux Support
+
+Devin supports both **Linux and Windows VMs**. This is critical because a large portion of enterprise software runs on Windows-native toolchains:
+
+- **.NET Framework (not just .NET Core)** — Legacy ASP.NET, WCF, Windows Forms, and WPF applications that require a Windows host. These cannot build or test on Linux
+- **Windows-specific build toolchains** — MSBuild, Visual Studio Build Tools, NuGet with Windows-native dependencies, COM interop, and Windows SDK targets
+- **PowerShell-native workflows** — Scripts that depend on Windows-specific cmdlets, Active Directory modules, IIS administration, or Windows event logs
+- **Enterprise software stacks** — SQL Server (Windows edition), IIS, SSIS/SSRS/SSAS, BizTalk, SharePoint development, and other Microsoft ecosystem tooling
+- **Desktop application testing** — WinForms, WPF, Electron on Windows, and Windows-specific UI automation frameworks
+
+Without Windows VM support, an AI agent cannot work on the substantial portion of enterprise codebases that depend on Windows-native tooling. This is not a niche capability — it unlocks an entire class of modernization, migration, and maintenance work that was previously out of scope for cloud-based AI agents.
+
+### Declarative, Layered Environment Blueprints
+
+Devin's environment configuration is not ad-hoc — it is a **declarative, layered image builder** that produces reproducible machine snapshots:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Layer 1: Base Image (OS, core packages)                │
+│  ↓                                                      │
+│  Layer 2: Organization Blueprint                        │
+│  (Shared runtimes, tools, VPN config, org-wide policy)  │
+│  ↓                                                      │
+│  Layer 3: Repository Blueprint                          │
+│  (Repo-specific deps, build tools, test infrastructure) │
+│  ↓                                                      │
+│  Snapshot: Cached VM image built from all layers        │
+│  ↓                                                      │
+│  Session: Boots from snapshot — ready to build in secs  │
+└─────────────────────────────────────────────────────────┘
+```
+
+**How it works:**
+- **Organization blueprints** define shared configuration across all repos: language runtimes (Node 20, Java 21, .NET 8), CLI tools (Terraform, kubectl, aws-cli), VPN setup, proxy configuration, and corporate CA certificates. This runs first and applies to every session in the org
+- **Repository blueprints** layer on top with repo-specific setup: project dependencies, database fixtures, test data, build toolchain configuration, and startup scripts. Each repo can have its own blueprint that composes with the org layer
+- **Snapshots** are pre-built VM images produced from the layered blueprint. When a session starts, it boots from the cached snapshot — no waiting for `npm install`, `pip install`, or `apt-get`. The environment is ready to build in seconds, not minutes
+- **Blueprint changes** are proposed as suggestions that an admin reviews and approves. Once approved, a new snapshot is built automatically. This ensures environment changes are intentional and auditable
+
+**Why this matters:**
+- **Reproducibility** — Every session gets the same environment. "Works on my machine" is eliminated because the machine is defined declaratively
+- **Speed** — Snapshot-based boot means sessions start with all dependencies pre-installed. No cold-start penalty
+- **Governance** — Environment changes go through an approval flow. You control exactly what is installed, what network access exists, and what credentials are available
+- **Composability** — Org-wide policy (VPN, proxy, CA certs) composes cleanly with repo-specific tooling. No conflicts, no duplication
+- **Versioning** — Blueprint changes produce new snapshots. Roll back to a previous snapshot if a change causes problems
+
+### VM Persistence and Resume
+
+The VM is not disposable — it is **persistent and resumable**. When Devin finishes active work and waits for feedback, the VM state is serialized:
+
+- **Full state preservation** — Running processes, filesystem state, environment variables, installed packages, open files, shell history, and in-progress builds are all captured
+- **Resume on demand** — When new input arrives (PR comment, CI result, user message), the VM resumes from exactly where it left off. No re-cloning, no re-building, no re-installing
+- **Multi-day workflows** — A session can span days or weeks across multiple human review cycles. The VM hibernates between interactions and wakes instantly when needed. Context is never lost
+- **Cost efficiency** — Compute resources are released during hibernation. You pay for active work, not idle wait time. A session waiting for code review consumes zero compute
+
+This persistence model means Devin operates like a team member who keeps their laptop open with the project loaded — not like a CI job that starts from scratch every time. The accumulated state (build caches, compiled artifacts, installed tools, test databases) persists across the entire lifecycle of a task.
+
 ## Shell and Tool Access
 
-Devin's VM is a real Linux machine. This means:
+Devin's VM is a real machine with full shell access. This means:
 
 - **Build locally** — `npm install && npm test`, `mvn clean verify`, `dotnet build`, `cargo test` — Devin runs your project's build and test suite exactly as a developer would
 - **Run infrastructure tools** — `terraform plan`, `aws cloudformation deploy`, `kubectl apply`, `docker compose up` — Devin provisions and validates infrastructure
 - **Connect to remote systems** — SSH tunnels, VPN connections, database clients, API calls — Devin reaches private resources when given the right credentials
-- **Install what it needs** — Devin installs language runtimes, CLI tools, and dependencies on the fly. No pre-configured toolchain required (though you can configure persistent environments for faster startup)
+- **Install what it needs** — Devin installs language runtimes, CLI tools, and dependencies on the fly. No pre-configured toolchain required (though environment blueprints with cached snapshots make this instant for recurring setups)
 
 ## Verification Model
 

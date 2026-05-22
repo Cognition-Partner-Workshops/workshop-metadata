@@ -44,12 +44,35 @@ Devin can create child sessions to parallelize work. A parent agent breaks a lar
 
 **Scale:** This pattern enables work that would otherwise require a dedicated team. Each child agent is independent — its own VM, its own branch, its own PR. Failures in one child do not affect others.
 
+## Environment Blueprints (Declarative VM Configuration)
+
+Devin's execution environment is configured through a **declarative, layered image builder** — not ad-hoc scripts or manual setup. Blueprints are YAML configurations that define exactly what is installed, configured, and available when a session starts.
+
+**The layering model:**
+
+1. **Base image** — The OS and core system packages (Linux or Windows)
+2. **Organization blueprint** — Shared configuration that applies to every repo in the org: language runtimes, shared CLI tools, VPN setup, proxy configuration, corporate CA certificates, and org-wide policy. This layer runs first
+3. **Repository blueprint** — Repo-specific configuration layered on top: project dependencies, build toolchain, database fixtures, test infrastructure, and startup scripts. Each repo can have its own blueprint that composes cleanly with the org layer
+4. **Snapshot** — A pre-built VM image produced from all layers. Sessions boot from the cached snapshot, so the environment is ready to build in seconds — no waiting for dependency installation
+
+**Blueprint management:**
+- Blueprints are edited through the Devin UI or proposed programmatically by Devin itself (during repo setup, Devin can suggest blueprint changes for admin review)
+- Changes go through an approval flow — an admin reviews and applies the update, then a new snapshot is built automatically
+- Snapshots are versioned. If a blueprint change causes problems, roll back to the previous snapshot
+- The `initialize` section runs shell commands during image build. The `post_snapshot` section runs commands at session start (for setup that depends on session-specific state like secrets)
+
+**Why this matters for teams:**
+- **Reproducibility** — Every session in the org gets the same base environment. No "works on my machine" drift
+- **Speed** — Snapshot boot eliminates cold-start dependency installation. Sessions are productive in seconds
+- **Governance** — Environment changes are intentional and auditable. Admins control what is installed
+- **Windows and Linux** — The same layered model works for both OS types. Windows blueprints can install Visual Studio Build Tools, .NET SDKs, and Windows-specific toolchains; Linux blueprints handle the standard open-source stack
+
 ## Team-Based Operation
 
 Devin is not an individual user's AI assistant — it is a team-based coworker agent that operates as a shared resource with organizational context. This distinction matters: configuration, knowledge, and integrations belong to the team, not to any single user's session.
 
 **Shared configuration (the context layer):**
-- **Environment configurations (VM blueprints)** — Pre-built machine images with dependencies, runtimes, and tools baked in. Sessions boot ready to build
+- **Environment blueprints** — Declarative, layered VM images with dependencies, runtimes, tools, and network configuration baked in. Sessions boot ready to build from cached snapshots (see [Environment Blueprints](#environment-blueprints-declarative-vm-configuration) above)
 - **Knowledge notes** — Persistent, human-curated context (coding standards, architecture decisions, conventions) retrieved automatically based on the task
 - **Playbooks** — Repeatable procedures encoding institutional methodology, shared across the org
 - **MCP servers** — Pre-configured integrations (Jira, Datadog, Confluence, Azure DevOps) available to every session without per-session setup
