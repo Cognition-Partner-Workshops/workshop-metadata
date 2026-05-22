@@ -31,7 +31,7 @@ Devin retrieves context programmatically before acting — it pulls from indexed
 | **Git repositories** | Clones repos, reads code, understands project structure, examines history |
 | **DeepWiki** | Auto-generated architectural documentation for any indexed repo — Devin reads this to understand systems it has never seen before |
 | **MCP servers** | Model Context Protocol lets Devin call external tools as if they were local: query Jira tickets, read Datadog logs, search Confluence, browse Azure DevOps boards |
-| **Shell access** | Devin has a full Linux shell. It can `curl` APIs, query databases, run CLI tools, install packages, and execute arbitrary commands |
+| **Shell access** | Devin has a full shell (Bash on Linux, PowerShell on Windows). It can `curl` APIs, query databases, run CLI tools, install packages, and execute arbitrary commands |
 | **Browser** | Devin can navigate web pages, interact with UIs, and extract information from web-based tools |
 | **Knowledge notes** | Persistent, human-curated context (coding standards, architecture decisions, team conventions) that Devin retrieves automatically based on the task at hand |
 
@@ -43,7 +43,7 @@ Most AI coding tools operate inside a container, a sandboxed interpreter, or a s
 
 Devin's VM is a full machine — not a stripped-down container with a read-only filesystem and limited syscall surface. This distinction matters for real-world engineering work:
 
-- **System-level tooling** — Install and configure databases, message brokers, language runtimes, custom CLIs, VPN clients, browser engines, and system services. Work that requires `systemctl`, `apt install`, kernel modules, or modifying `/etc/` simply does not work in containers
+- **System-level tooling** — Install and configure databases, message brokers, language runtimes, custom CLIs, VPN clients, browser engines, and system services. Work that requires `systemctl` and `apt install` on Linux — or `msiexec`, `choco install`, and Windows service management on Windows — simply does not work in containers
 - **Multi-process orchestration** — Run a backend server, a frontend dev server, a database, and a test runner simultaneously. Debug interactions between them. No single-process container limitation
 - **Desktop and GUI access** — Devin has a graphical desktop with a live browser. It can interact with web UIs, test frontend applications visually, take screenshots, and run Playwright/Selenium against real browser engines — not headless approximations
 - **Full network stack** — VPN connections, SSH tunnels, custom DNS, proxy configuration, mTLS, and arbitrary network topologies. Devin reaches private resources the same way a developer's machine would
