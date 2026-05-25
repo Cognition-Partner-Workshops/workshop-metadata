@@ -1,5 +1,31 @@
 # Workshop: Devin 201 — Advanced Hands-On Workshop
 
+## Table of Contents
+
+- [Event Details](#event-details)
+- [Workshop Overview](#workshop-overview)
+- [Getting the Most from This Workshop](#getting-the-most-from-this-workshop)
+- [Agenda](#agenda)
+- [Devin 201 Concepts](#devin-201-concepts)
+- [Facilitator Walkthrough](#facilitator-walkthrough)
+- [Hands-On: Self-Select a Track](#hands-on-self-select-a-track)
+  - [Track 1: Microservices](#track-1)
+  - [Track 2: SRE](#track-2)
+  - [Track 3: Test & QA](#track-3)
+  - [Track 4: Version Upgrades](#track-4)
+  - [Track 5: Mainframe Modernization](#track-5)
+  - [Track 6: IaC](#track-6)
+  - [Track 7: Sec Vulns & CVEs](#track-7)
+- [Integrations Deep Dive](#integrations-deep-dive)
+- [Take-Home Lab Exercise](#take-home-lab-exercise)
+- [Prerequisites](#prerequisites)
+- [Notes](#notes)
+- [Post-Event](#post-event)
+
+---
+
+<a id="event-details"></a>
+
 ## Event Details
 
 | | |
@@ -12,6 +38,8 @@
 | **Audience** | Experienced Devin users ready for advanced scenarios across multiple engineering disciplines |
 | **Tracks** | 7 self-select tracks (participants choose during hands-on time) |
 | **Event Site** | TBD |
+
+<a id="workshop-overview"></a>
 
 ## Workshop Overview
 
@@ -31,6 +59,8 @@ The 7 tracks are:
 
 After the live session, participants can complete the take-home modules from their chosen track — and try modules from other tracks.
 
+<a id="getting-the-most-from-this-workshop"></a>
+
 ## Getting the Most from This Workshop
 
 > **Devin works autonomously on its own machine.** Once you paste a prompt and kick off a session, Devin runs independently — you don't need to watch it. Move on to exploring Ask Devin, reading DeepWiki, or browsing other tracks while it works. You'll get notified when it opens a PR.
@@ -44,6 +74,8 @@ Tips for the hands-on portions:
 - **Build up Devin's knowledge.** When Devin suggests a Knowledge item during a session, accept it — this is how teams build a shared context layer that makes Devin smarter over time.
 
 ---
+
+<a id="agenda"></a>
 
 ## Agenda
 
@@ -59,6 +91,8 @@ Tips for the hands-on portions:
 > **Pacing tip for facilitators:** During the hands-on window (0:50–1:05), participants should paste their chosen track's prompt within the first 2 minutes, then use the remaining time for Ask Devin exploration or DeepWiki research. By the debrief, most sessions will be in progress or opening PRs.
 
 ---
+
+<a id="devin-201-concepts"></a>
 
 ## Devin 201 Concepts (0:00–0:30)
 
@@ -96,6 +130,8 @@ Help participants identify which tasks are best suited for Devin:
 
 ---
 
+<a id="facilitator-walkthrough"></a>
+
 ## Facilitator Walkthrough (0:30–0:50)
 
 The facilitator walks through a complete Devin workflow live, showing the audience the end-to-end flow:
@@ -110,15 +146,17 @@ The facilitator walks through a complete Devin workflow live, showing the audien
 
 ---
 
+<a id="hands-on-self-select-a-track"></a>
+
 ## Hands-On: Self-Select a Track (0:50–1:05)
 
 Participants choose one of the 7 tracks below and paste the prompt into a new Devin session. Each track is designed for ~15 minutes of active work (paste prompt + Ask Devin exploration). Devin continues working after the hands-on window ends.
 
 ---
 
-### Track 1: Microservices
-
 <a id="track-1"></a>
+
+### Track 1: Microservices
 
 **Module:** [Containerization & Microservice Extraction](../../../modules/migration-modernization/containerization-microservice-extraction.md)
 **Repository:** [petclinic-microservices](https://github.com/Cognition-Partner-Workshops/petclinic-microservices)
@@ -149,9 +187,9 @@ communicate correctly.
 
 ---
 
-### Track 2: SRE
-
 <a id="track-2"></a>
+
+### Track 2: SRE
 
 **Module:** [Incident Response & Triage](../../../modules/observability-sre/incident-response-triage.md)
 **Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
@@ -185,9 +223,9 @@ endpoints.
 
 ---
 
-### Track 3: Test & QA
-
 <a id="track-3"></a>
+
+### Track 3: Test & QA
 
 **Module:** [BDD Test Generation](../../../modules/testing-qa/bdd-test-generation.md)
 **Repository:** [uc-bdd-test-generation-cucumber](https://github.com/Cognition-Partner-Workshops/uc-bdd-test-generation-cucumber)
@@ -220,9 +258,9 @@ definitions.
 
 ---
 
-### Track 4: Version Upgrades
-
 <a id="track-4"></a>
+
+### Track 4: Version Upgrades
 
 **Module:** [Framework Upgrade](../../../modules/migration-modernization/framework-upgrade.md)
 **Repository:** [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular)
@@ -251,9 +289,9 @@ the app builds successfully.
 
 ---
 
-### Track 5: Mainframe Modernization
-
 <a id="track-5"></a>
+
+### Track 5: Mainframe Modernization
 
 **Module:** [COBOL System Understanding](../../../modules/migration-modernization/cobol-system-understanding.md)
 **Repository:** [uc-legacy-modernization-cobol-to-java](https://github.com/Cognition-Partner-Workshops/uc-legacy-modernization-cobol-to-java)
@@ -304,9 +342,9 @@ following artifacts:
 
 ---
 
-### Track 6: IaC
-
 <a id="track-6"></a>
+
+### Track 6: IaC
 
 **Module:** [Terraform Module Extraction](../../../modules/cloud-infrastructure/terraform-module-extraction.md)
 **Repository:** [timesheet-infra](https://github.com/Cognition-Partner-Workshops/timesheet-infra)
@@ -340,9 +378,9 @@ changes after refactoring.
 
 ---
 
-### Track 7: Sec Vulns & CVEs
-
 <a id="track-7"></a>
+
+### Track 7: Sec Vulns & CVEs
 
 **Modules:** [Upgrade Dependencies](../../../modules/security/upgrade-dependencies.md), [Remediate Vulnerabilities](../../../modules/security/remediate-vulnerabilities.md)
 **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
@@ -374,6 +412,8 @@ still passes.
 
 ---
 
+<a id="integrations-deep-dive"></a>
+
 ## Integrations Deep Dive (1:15–1:45)
 
 ### Topics
@@ -387,6 +427,8 @@ still passes.
 7. **Analytics** — Tracking session outcomes, ACU usage, and team productivity metrics
 
 ---
+
+<a id="take-home-lab-exercise"></a>
 
 ## Take-Home Lab Exercise (1:45–2:00)
 
@@ -450,6 +492,8 @@ After the session, complete **2–3 additional modules** from tracks other than 
 
 ---
 
+<a id="prerequisites"></a>
+
 ## Prerequisites
 
 ### Repos Required on Devin's Machine
@@ -474,6 +518,8 @@ After the session, complete **2–3 additional modules** from tracks other than 
 - [ ] Browser (Chrome recommended)
 - [ ] Familiarity with Devin basics (session creation, PR review, Ask Devin) — this is a 201 workshop
 
+<a id="notes"></a>
+
 ## Notes
 
 - **Audience context:** These are experienced Devin users (201 level). Skip basic Devin onboarding — jump straight to use-case qualification and advanced patterns.
@@ -481,6 +527,8 @@ After the session, complete **2–3 additional modules** from tracks other than 
 - **Facilitator walkthrough repo:** The [Upgrade Dependencies](../../../modules/security/upgrade-dependencies.md) module with `timesheet-app` (GitHub Issue #2) is recommended for the live walkthrough — it's self-contained, completes in ~10 minutes, and shows the full Devin workflow (Issue → session → PR → review → iterate).
 - **Take-home expectation:** Participants should complete 2–3 additional modules from other tracks after the session. The take-home section is designed to encourage exploration across all 7 categories.
 - **Parallel sessions at scale:** With ~500 attendees, expect high concurrency. The 7-track model distributes load across different repos.
+
+<a id="post-event"></a>
 
 ## Post-Event
 
