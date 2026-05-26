@@ -1,223 +1,87 @@
-# Workshop Metadata
+# Hands-On Workshop Labs
 
-Central index for the **Cognition-Partner-Workshops** GitHub org. This repo contains:
+Welcome to the Devin hands-on workshop. This repo contains everything you need to get started: lab instructions, prompts to paste into Devin, and links to the repositories you will work with.
 
-- **Repo Catalog** — inventory of all repositories with cross-references to challenges they support
-- **Modular Challenges** — self-contained workshop tasks organized by SDLC domain
-- **Workshops** — reusable workshop templates that compose challenges into structured lab sequences
-- **Events** — specific workshop instances with date, location, audience, and facilitator overrides
-- **Shared Resources** — naming conventions, facilitator guides, runtime resource docs
+## Quick Start
 
-## Information Architecture
+1. **Find your workshop** — check `workshops/` for your session's lab guide, or ask your facilitator for the direct link
+2. **Pick a lab** — each lab has a prompt you copy-paste into a new Devin session
+3. **Kick off and move on** — Devin works autonomously. Start the next lab while it runs
+4. **Review the PR** — when Devin finishes, review its pull request and leave comments to iterate
 
-This repo uses a **layered approach** with three discovery routes:
+> **Devin works autonomously on its own machine.** Once you paste a prompt and kick off a session, Devin runs independently — you don't need to watch it. Move on to the next lab, explore Ask Devin, or grab coffee while it works. You'll get notified when it opens a PR.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    WORKSHOP DESIGNER                         │
-│                                                              │
-│   "I need to build a 4-hour workshop on security + migration"│
-│                                                              │
-│   Route 1: Browse by Workshop                                │
-│   workshops/ → pick a workshop template → customize for event│
-│                                                              │
-│   Route 2: Browse by Module                                  │
-│   modules/ → pick category → pick challenges → see repos     │
-│                                                              │
-│   Route 3: Browse by Repo                                    │
-│   catalog/repos.md → see what challenges each repo supports  │
-│                                                              │
-│   Compose: events/ → instantiate a workshop for a specific   │
-│            date, location, and audience                       │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**Modules are the reusable atoms.** Workshops compose modules into structured lab sequences. Events instantiate workshops for specific audiences. Repos are the materials they all reference.
-
-## Directory Structure
+## How to Navigate
 
 ```
 workshop-metadata/
-├── README.md                              ← you are here
-├── catalog/
-│   └── repos.md                           ← master repo inventory + cross-refs
-├── modules/                               ← challenge instructions by category
-│   ├── README.md                          ← navigation index for all 77 modules
-│   ├── application-development/           ← Software Developer, Full-Stack Engineer
-│   │   ├── README.md
-│   │   ├── gather-requirements.md
-│   │   ├── test-driven-development.md
-│   │   ├── fix-runtime-bug.md
-│   │   ├── fix-ui-bug.md
-│   │   ├── fix-data-bug.md
-│   │   ├── new-feature-development.md
-│   │   └── database-schema-evolution.md
-│   ├── testing-qa/                        ← QA Engineer, SDET, Test Automation Engineer
-│   │   ├── README.md
-│   │   ├── linting-static-analysis.md
-│   │   ├── unit-testing.md
-│   │   ├── end-to-end-testing.md
-│   │   ├── performance-testing.md
-│   │   ├── accessibility-compliance.md
-│   │   ├── bdd-test-generation.md
-│   │   ├── contract-testing.md
-│   │   ├── mutation-testing.md
-│   │   ├── load-testing-benchmarking.md
-│   │   ├── visual-regression-testing.md
-│   │   └── cross-service-integration-testing.md
-│   ├── security/                          ← Security Engineer, AppSec Engineer
-│   │   ├── README.md
-│   │   ├── upgrade-dependencies.md
-│   │   ├── remediate-vulnerabilities.md
-│   │   ├── shift-left-security.md
-│   │   ├── security-antipatterns.md
-│   │   ├── secrets-management-detection.md
-│   │   ├── event-driven-sast-remediation.md
-│   │   └── mass-security-backlog-remediation.md
-│   ├── compliance-governance/             ← Compliance Officer, GRC Analyst
-│   │   ├── README.md
-│   │   ├── license-compliance-audit.md
-│   │   ├── gdpr-pii-detection.md
-│   │   └── regulatory-reporting.md
-│   ├── devops-cicd/                       ← DevOps Engineer, Release Engineer
-│   │   ├── README.md
-│   │   ├── cicd-pipeline.md
-│   │   ├── pr-review-automation.md
-│   │   ├── ci-failure-resolution.md
-│   │   ├── release-management.md
-│   │   └── configuration-management-feature-flags.md
-│   ├── cloud-infrastructure/              ← Cloud Engineer, Platform Engineer
-│   │   ├── README.md
-│   │   ├── iac-translation.md
-│   │   ├── platform-conformant-microservice-decomposition.md
-│   │   ├── gitops-argocd-setup.md
-│   │   ├── kubernetes-manifest-generation.md
-│   │   ├── terraform-module-extraction.md
-│   │   └── cost-optimization-analysis.md
-│   ├── observability-sre/                 ← SRE, Observability Engineer
-│   │   ├── README.md
-│   │   ├── observability-monitoring.md
-│   │   ├── incident-response-triage.md
-│   │   ├── pod-remediation-credential-rotation.md
-│   │   └── volume-anomaly-detection.md
-│   ├── data-engineering/                  ← Data Engineer, Analytics Engineer
-│   │   ├── README.md
-│   │   ├── dw-migration-teradata-to-snowflake.md
-│   │   ├── data-source-migration.md
-│   │   ├── etl-pipeline-modernization.md
-│   │   ├── data-quality-validation.md
-│   │   ├── sas-to-python-snowflake.md
-│   │   ├── informatica-powercenter-analysis.md       ← NEW
-│   │   └── informatica-to-snowflake-migration.md     ← NEW
-│   ├── architecture-design/               ← Solution Architect, Enterprise Architect
-│   │   ├── README.md
-│   │   ├── architecture-decision-records.md
-│   │   ├── api-design-review.md
-│   │   ├── dependency-graph-analysis.md
-│   │   ├── api-consolidation.md
-│   │   └── code-refactoring-tech-debt.md
-│   ├── ai-ml-engineering/                 ← ML Engineer, AI Engineer
-│   │   ├── README.md
-│   │   ├── ml-pipeline-setup.md
-│   │   ├── model-evaluation-testing.md
-│   │   └── llm-integration-patterns.md
-│   ├── technical-documentation/           ← Technical Writer, Documentation Engineer
-│   │   ├── README.md
-│   │   ├── inline-documentation.md
-│   │   ├── api-documentation.md
-│   │   ├── document-review-automation.md
-│   │   ├── runbook-generation.md
-│   │   ├── onboarding-guide-generation.md
-│   │   └── changelog-release-notes.md
-│   ├── migration-modernization/           ← Modernization Specialist, Migration Lead
-│   │   ├── README.md
-│   │   ├── cobol-to-java.md
-│   │   ├── cobol-system-understanding.md
-│   │   ├── cobol-migration-planning.md
-│   │   ├── migration-test-harness.md
-│   │   ├── framework-upgrade.md
-│   │   ├── repetitive-framework-upgrades.md
-│   │   ├── containerization-microservice-extraction.md
-│   │   ├── cloud-native-refactor.md
-│   │   ├── legacy-modernization-combined.md
-│   │   ├── one-shot-tech-debt-remediation.md
-│   │   ├── dotnet-monolith-decomposition.md
-│   │   ├── cross-service-bug-investigation.md
-│   │   ├── oracle-forms-system-understanding.md
-│   │   ├── oracle-forms-migration-planning.md
-│   │   └── oracle-forms-to-java.md
-│   └── devin-features/
-│       └── README.md                      ← Devin-specific activities checklist
-├── workshops/                             ← reusable workshop templates
-│   ├── README.md
-│   ├── legacy-modernization/
-│   ├── framework-upgrades/
-│   ├── data-source-migration/
-│   ├── security-compliance/
-│   ├── platform-microservice-decomposition/
-│   ├── dotnet-cloud-native-modernization/
-│   ├── agentic-ai/
-│   ├── feature-development/
-│   ├── quality-engineering/
-│   ├── general/
-│   ├── application-development-maintenance/
-│   ├── digital-engineering/
-│   ├── cobol-modernization/               ← promoted from events
-│   ├── enterprise-security-automation/    ← promoted from events
-│   └── quality-engineering-security/      ← promoted from events
-├── events/                                ← specific workshop instances
-│   ├── README.md
-│   ├── _template/
-│   ├── active/                            ← upcoming events
-│   └── archive/                           ← past events
-│       ├── 2026-03-09-oslo/
-│       ├── 2026-03-09-san-francisco/
-│       ├── 2026-03-13-washington-dc-2/
-│       ├── 2026-03-17-zurich/
-│       ├── 2026-03-25-remote-workshop/
-│       ├── 2026-04-dc/
-│       ├── 2026-04-09-virtual-workshop/
-│       ├── 2026-05-05-general-workshop/
-│       └── 2026-05-07-workshop/
+├── modules/           ← individual lab instructions organized by discipline
+│   └── README.md      ← full index of all labs
+├── workshops/         ← structured lab sequences (your facilitator will point you here)
+├── events/            ← event-specific agendas and customizations
+├── catalog/           ← reference inventory of all available repositories
 └── shared/
-    ├── repo-naming-convention.md
-    ├── runtime-resources.md
-    └── facilitator-guide.md
+    └── runtime-resources.md  ← how to run apps locally if needed
 ```
 
-## Module Categories (79 modules across 12 disciplines)
+### Find Labs by Interest
 
-| Category | Count | Discipline / Job Title |
-|----------|-------|----------------------|
-| [Application Development](modules/application-development/) | 7 | Software Developer, Full-Stack Engineer |
-| [Testing & QA](modules/testing-qa/) | 11 | QA Engineer, SDET, Test Automation Engineer |
-| [Security](modules/security/) | 7 | Security Engineer, AppSec Engineer |
-| [Compliance & Governance](modules/compliance-governance/) | 3 | Compliance Officer, GRC Analyst |
-| [DevOps & CI/CD](modules/devops-cicd/) | 5 | DevOps Engineer, Release Engineer |
-| [Cloud & Infrastructure](modules/cloud-infrastructure/) | 6 | Cloud Engineer, Platform Engineer |
-| [Observability & SRE](modules/observability-sre/) | 4 | SRE, Observability Engineer |
-| [Data Engineering](modules/data-engineering/) | 7 | Data Engineer, Analytics Engineer |
-| [Architecture & Design](modules/architecture-design/) | 5 | Solution Architect, Enterprise Architect |
-| [AI & ML Engineering](modules/ai-ml-engineering/) | 3 | ML Engineer, AI Engineer |
-| [Technical Documentation](modules/technical-documentation/) | 6 | Technical Writer, Documentation Engineer |
-| [Migration & Modernization](modules/migration-modernization/) | 15 | Modernization Specialist, Migration Lead |
-| [Devin Features](modules/devin-features/) | 1 | Cross-cutting Devin platform activities |
+| Category | What You'll Try | Labs |
+|----------|----------------|------|
+| [Application Development](modules/application-development/) | Build features, fix bugs, evolve schemas | 7 |
+| [Testing & QA](modules/testing-qa/) | Linting, unit tests, E2E tests, performance, accessibility | 13 |
+| [Security](modules/security/) | Dependency upgrades, vulnerability remediation, SAST | 7 |
+| [Compliance & Governance](modules/compliance-governance/) | License audits, PII detection, regulatory reporting | 3 |
+| [DevOps & CI/CD](modules/devops-cicd/) | Pipelines, PR automation, CI failure resolution | 5 |
+| [Cloud & Infrastructure](modules/cloud-infrastructure/) | IaC translation, Kubernetes, Terraform, GitOps | 6 |
+| [Observability & SRE](modules/observability-sre/) | Monitoring, incident response, anomaly detection | 4 |
+| [Data Engineering](modules/data-engineering/) | DW migration, ETL modernization, data quality | 10 |
+| [Architecture & Design](modules/architecture-design/) | ADRs, API review, dependency analysis, refactoring | 5 |
+| [AI & ML Engineering](modules/ai-ml-engineering/) | ML pipelines, model evaluation, LLM patterns | 3 |
+| [Technical Documentation](modules/technical-documentation/) | Inline docs, API docs, runbooks, changelogs | 6 |
+| [Migration & Modernization](modules/migration-modernization/) | COBOL-to-Java, framework upgrades, containerization | 15 |
 
-Browse all modules: [modules/README.md](modules/README.md)
+Browse all labs: [modules/README.md](modules/README.md)
 
-## Quick Start for Facilitators
+### Find Labs by Workshop
 
-1. **Browse workshops** in `workshops/` to find a pre-built workshop that matches your audience
-2. **Or pick modules** from `modules/` to build a custom workshop — see [modules/README.md](modules/README.md) for the full index
-3. **Check repo requirements** in `catalog/repos.md` to see what needs to be set up
-4. **Copy `events/_template/`** to `events/active/YYYY-MM-DD-<event-id>/` and fill in event details
-5. **Review `shared/facilitator-guide.md`** for runtime setup and logistics
+Your facilitator may have directed you to a specific workshop. Each workshop bundles labs into a structured sequence:
 
-## Contributing
+| Workshop | Focus | Duration |
+|----------|-------|----------|
+| [General](workshops/general/) | Security, modernization, feature dev — broad tour | 4-6 hours |
+| [Legacy Modernization](workshops/legacy-modernization/) | COBOL/legacy → modern tech stack | 2-4 hours |
+| [Framework Upgrades](workshops/framework-upgrades/) | Angular + Spring Boot version upgrades | 1-2 hours |
+| [Data Source Migration](workshops/data-source-migration/) | Legacy DW → modern schema | 1-2 hours |
+| [Security & Compliance](workshops/security-compliance/) | CVE remediation, SAST, shift-left | 1-2 hours |
+| [COBOL Modernization](workshops/cobol-modernization/) | End-to-end mainframe modernization | ~4 hours |
+| [Enterprise Security Automation](workshops/enterprise-security-automation/) | Event-driven SAST, mass remediation | ~4 hours |
+| [Application Development & Maintenance](workshops/application-development-maintenance/) | Feature dev, bug fixing, code maintenance | 4-6 hours |
+| [Digital Engineering](workshops/digital-engineering/) | CI/CD, cloud infrastructure, observability | 4-6 hours |
+| [Quality Engineering & Assurance](workshops/quality-engineering/) | Test automation, E2E, continuous quality | 4-6 hours |
+| [Quality Engineering & Security](workshops/quality-engineering-security/) | QE + security remediation combined | ~3 hours |
+| [.NET Cloud-Native Modernization](workshops/dotnet-cloud-native-modernization/) | .NET monolith → Kubernetes-hosted cloud-native APIs | 2.5-3 hours |
+| [Platform Microservice Decomposition](workshops/platform-microservice-decomposition/) | Monolith → platform-conformant microservices | 1.5-2 hours |
+| [Agentic AI](workshops/agentic-ai/) | Multi-agent systems, document processing | 2-4 hours |
+| [Feature Development](workshops/feature-development/) | New features on existing apps | 1-2 hours |
+| [OtterWorks](workshops/otterworks/) | Polyglot microservices — 300-level | 4-6 hours |
 
-To add a new challenge module:
-1. Create a markdown file in the appropriate `modules/<category>/` directory
-2. Follow the 4-step format: Paste into Devin → Research with Ask Devin → Read the DeepWiki → Review & Give Feedback
-3. Add cross-references in `catalog/repos.md` for any repos the challenge uses
-4. Update the category `README.md` with the new challenge entry
-5. Update `modules/README.md` navigation index
+## Tips for Getting the Most from Your Workshop
+
+- **Start sessions early, review later.** Each lab has a "Paste into Devin" step and a separate "Review & Give Feedback" step. Kick off the session first, then use the wait time for Ask Devin research — Devin keeps working in the background.
+- **Run parallel sessions.** Kick off the next lab while reviewing the previous one. This mirrors real enterprise usage where Devin handles work across many services simultaneously.
+- **Use Ask Devin to refine requirements.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem before creating a session.
+- **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item during a session, accept it — this builds a shared context layer that makes Devin more effective over time.
+- **Leave PR comments to steer Devin.** After Devin opens a PR, leave comments directly on the diff and Devin will wake up and address them — this is the core workflow for iterating with Devin.
+
+## Running Apps Locally
+
+Some labs require a running application. See [shared/runtime-resources.md](shared/runtime-resources.md) for local run instructions. Your facilitator will let you know if hosted instances are available.
+
+## Repository Catalog
+
+Looking for a specific repo? The [catalog](catalog/repos.md) lists all repositories in the workshop org with descriptions, tech stacks, and links to the labs that use them.
+
+## Devin Features Checklist
+
+Track your progress on the [Devin Features Appendix](modules/devin-features/README.md) — try to discover as many Devin capabilities as you can during the session.
