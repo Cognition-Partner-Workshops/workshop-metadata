@@ -43,7 +43,7 @@ A few tips to maximize your hands-on time:
 - [Lab 2 — Banking Feature Development: Account Statements](#lab-2--banking-feature-development-account-statements-20-min)
 - [Lab 3 — Vulnerability Remediation with SonarQube](#lab-3--vulnerability-remediation-with-sonarqube-20-min)
 - [Repos Required](#repos-required)
-- [Key Takeaways](#key-takeaways)
+- [Workshop Key Takeaways](#workshop-key-takeaways)
 
 ---
 
@@ -235,7 +235,7 @@ When Devin opens a PR:
 ### Key Takeaways
 
 - **"Devin learns your patterns first"** — before writing a single line, Devin analyzes the existing codebase to understand architecture, conventions, and coding style
-- **"Full-stack feature in one session"** — from API design through service logic, persistence, validation, and tests — all following the codebase's established patterns
+- **"Full-stack feature in one session"** — from API design through service logic, persistence, validation, and tests — following the codebase's established patterns
 - **"The PR feedback loop is the workflow"** — reviewing and commenting on the PR is how you steer Devin, just like working with a team member
 
 ---
@@ -336,7 +336,7 @@ The following repos must be available in the workshop org:
 - [ ] GitHub access to the workshop org
 - [ ] Browser (Chrome recommended)
 
-## Key Takeaways
+## Workshop Key Takeaways
 
 - **"Modernization is more than rewriting code"** — Lab 1 shows Devin extracting business knowledge locked in COBOL copybooks and 3270 screens, then using that understanding to generate a modern UI. The legacy system is the specification.
 - **"Devin follows your conventions"** — Lab 2 demonstrates that Devin reads existing patterns before implementing, producing code that fits the codebase — not generic boilerplate.
