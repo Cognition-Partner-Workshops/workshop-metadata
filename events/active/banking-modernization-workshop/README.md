@@ -1,43 +1,29 @@
-# Workshop: Banking Modernization
+# Workshop: Banking Modernization — Hands-On with Devin
 
-## Overview
+## Event Details
 
 | | |
 |---|---|
-| **Focus** | Mainframe modernization, feature development, and security remediation — applied to banking applications |
+| **Date** | TBD |
+| **Location** | TBD |
+| **Host Organization** | *(customer)* |
 | **Duration** | ~1 hour (3 labs × 20 min) |
 | **Audience** | Banking and financial services teams evaluating AI-assisted development across modernization, feature delivery, and security |
 | **Tracks** | Single progressive track: Modernize → Build → Secure |
 
-## Abstract
+## Workshop Overview
 
-> This workshop demonstrates three high-impact use cases for AI-assisted
-> software engineering in a banking context:
->
-> **Lab 1 — Mainframe UI Modernization:** Devin reads COBOL copybook
-> record layouts and 3270 BMS screen definitions from a real mainframe
-> credit card management application, then generates a modern Angular
-> frontend that replaces the terminal interface — complete with
-> components, services, routing, and responsive design.
->
-> **Lab 2 — Banking Feature Development:** Devin builds a new
-> account statement and transaction history feature on an existing
-> Java 21 / Spring Boot 3.2 banking microservices platform — adding
-> API endpoints, DTOs, service logic, and tests that follow the
-> codebase's established patterns.
->
-> **Lab 3 — Vulnerability Remediation with SonarQube:** Devin runs
-> SonarQube analysis on a Spring Boot application, triages the
-> findings, remediates the critical vulnerabilities, and re-scans
-> to verify the fixes — demonstrating the scan → fix → verify loop.
->
-> **Who should attend:** Banking technology teams, mainframe
-> modernization leads, application development managers, and
-> security/compliance engineers in financial services.
+This is a hands-on workshop demonstrating three high-impact use cases for AI-assisted software engineering in a banking context:
+
+- **Lab 1 — Mainframe UI Modernization:** Devin reads COBOL copybook record layouts and 3270 BMS screen definitions from a real mainframe credit card management application, then generates a modern Angular frontend that replaces the terminal interface — complete with components, services, routing, and responsive design.
+
+- **Lab 2 — Banking Feature Development:** Devin builds a new account statement and transaction history feature on an existing Java 21 / Spring Boot 3.2 banking microservices platform — adding API endpoints, DTOs, service logic, and tests that follow the codebase's established patterns.
+
+- **Lab 3 — Vulnerability Remediation with SonarQube:** Devin runs SonarQube analysis on a Spring Boot application, triages the findings, remediates the critical vulnerabilities, and re-scans to verify the fixes — demonstrating the scan → fix → verify loop.
 
 ## Getting the Most from This Workshop
 
-> **Devin works asynchronously on its own machine.** Once you paste a
+> **Devin works autonomously on its own machine.** Once you paste a
 > prompt and kick off a session, Devin runs independently — you don't
 > need to watch it. Move on to the next lab, explore Ask Devin, or
 > grab coffee while it works. You'll get notified when it opens a PR.
@@ -84,7 +70,7 @@ A few tips to maximize your hands-on time:
 **Value driver:** *Devin reads COBOL copybook record layouts and 3270 screen definitions from a mainframe credit card application and generates a modern Angular frontend — replacing decades-old terminal screens with a responsive web UI in a single session.*
 
 - **Repository:** [aws-mainframe-modernization-carddemo](https://github.com/Cognition-Partner-Workshops/aws-mainframe-modernization-carddemo)
-- **Modules:** [COBOL System Understanding](../../modules/migration-modernization/cobol-system-understanding.md)
+- **Module:** [COBOL System Understanding](../../../modules/migration-modernization/cobol-system-understanding.md)
 
 The CardDemo application is a real mainframe credit card management system with 31 COBOL programs, 62 copybooks defining record layouts (accounts, customers, cards, transactions), and BMS screen maps for 3270 terminal interactions. The COBOL programs handle account viewing/updating, credit card management, transaction processing, bill payments, and user administration — all through green-screen terminal interfaces.
 
@@ -173,7 +159,7 @@ When Devin opens a PR:
 **Value driver:** *Devin analyzes an existing banking microservices codebase, understands the architecture and conventions, then builds a complete new feature — API endpoints, service logic, DTOs, and tests — that fits seamlessly into the existing system.*
 
 - **Repository:** [ts-java-spring-boot-internet-banking](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking)
-- **Modules:** [New Feature Development](../../modules/application-development/new-feature-development.md)
+- **Module:** [New Feature Development](../../../modules/application-development/new-feature-development.md)
 
 This is a Java 21 / Spring Boot 3.2.4 banking application with 6 microservices: core-banking, fund-transfer, user-service, utility-payment, API gateway, and service registry. It uses Keycloak for authentication, RabbitMQ for messaging, and Zipkin for distributed tracing.
 
@@ -261,7 +247,7 @@ When Devin opens a PR:
 **Value driver:** *Devin runs SonarQube analysis, interprets the findings, remediates the critical vulnerabilities, and re-scans to verify — turning a security backlog into remediated code with evidence.*
 
 - **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
-- **Modules:** [Remediate Vulnerabilities](../../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../../modules/security/shift-left-security.md)
+- **Module:** [Remediate Vulnerabilities](../../../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../../../modules/security/shift-left-security.md)
 
 This is a Spring Boot 2.6.3 application with known vulnerable dependencies and pre-configured SonarQube and OWASP Dependency-Check Gradle plugins. The combination of an outdated Spring Boot version (2.6.3), SnakeYAML 1.29, and sqlite-jdbc 3.36.0.3 creates a realistic vulnerability landscape for remediation.
 

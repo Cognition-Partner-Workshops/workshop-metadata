@@ -33,4 +33,3 @@ Labs reference individual modules from [`modules/`](../modules/) — the detaile
 | [Agentic AI](agentic-ai/) | Multi-agent systems, document processing, anomaly detection | 2-4 hours | 2-4 |
 | [Feature Development](feature-development/) | New features on existing applications | 1-2 hours | 1-2 |
 | [OtterWorks](otterworks/) | Polyglot microservices — modernization, incident response, security & quality (300-level) | 4-6 hours | 9 (3 tracks × 3 labs) |
-| [Banking Modernization](banking-modernization/) | Mainframe UI modernization, banking feature dev, vulnerability remediation | ~1 hour | 3 |
