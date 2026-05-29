@@ -55,7 +55,7 @@ Already comfortable with Devin basics? Jump straight to the labs:
 - [Lab 2 — Security Vulnerabilities Remediation](#lab-2--security-vulnerabilities-remediation-25-min)
 - [Lab 3 — Java Upgrades/Modernization](#lab-3--java-upgradesmodernization-25-min)
 - [Lab 4 — New Product Development (Ideas to Deployment)](#lab-4--new-product-development-ideas-to-deployment-25-min)
-- [Coverage Gaps & Notes](#coverage-gaps--notes)
+- [Known Limitations](#known-limitations)
 - [Repos Required](#repos-required)
 - [Devin Features Checklist](#devin-features-checklist)
 
@@ -141,7 +141,7 @@ When Devin opens a PR:
 ### Key Takeaways
 
 - **"Full-app rewrite in one session"** — Devin reads the entire Angular codebase, understands component relationships, and produces an equivalent React app with routing, state management, and API integration
-- **"Migration plan before migration code"** — the `MIGRATION_PLAN.md` documents every component mapping, making the rewrite auditable and reviewable before any code is written
+- **"Migration plan before migration code"** — the `MIGRATION_PLAN.md` documents component mappings, making the rewrite auditable and reviewable before any code is written
 - **"Same API, different framework"** — by targeting the same REST endpoints, the React app is a drop-in replacement for the Angular frontend
 - **"Iterative refinement via PR comments"** — the first pass captures the structure; PR feedback tightens the details (styling, edge cases, accessibility)
 
@@ -271,10 +271,10 @@ When Devin opens a PR:
 
 ### Key Takeaways
 
-- **"Namespace migration at scale"** — the javax→jakarta change touches dozens of files. Devin handles it systematically without missing imports
+- **"Namespace migration at scale"** — the javax→jakarta change touches dozens of files. Devin handles it systematically, typically catching imports across the entire codebase
 - **"Build-test-fix loop"** — Devin iterates through compilation errors and test failures until the build is green, documenting each fix
 - **"Upgrade documentation as a deliverable"** — the PR description serves as a migration guide that other teams can follow for their own services
-- **"Repeatable across a portfolio"** — the same prompt (with minor variations) can be applied to every Spring Boot 2.x service in an organization. Consider saving it as a Playbook for reuse
+- **"Repeatable across a portfolio"** — the same prompt (with minor variations) can typically be applied to other Spring Boot 2.x services in an organization. Consider saving it as a Playbook for reuse
 
 ### Target Outcomes (any of these count)
 
@@ -383,52 +383,13 @@ When Devin opens a PR:
 
 ---
 
-## Coverage Gaps & Notes
+## Known Limitations
 
-This section documents where the current repository catalog has gaps relative to the use cases in this workshop. Facilitators should review these before the event and decide whether to accept the limitation or source additional repos.
+A few things to be aware of as you work through the labs:
 
-### Gap 1: Angular → React UI Migration (Lab 1)
-
-**Status: Partial coverage — no dedicated migration repo**
-
-The `petclinic-angular` repo provides a good Angular source application, but there is no pre-built `uc-ui-migration-angular-to-react` repository in the catalog. The lab asks Devin to create the React app from scratch in a new directory within the same repo.
-
-**What works well:**
-- `petclinic-angular` is a real Angular 16 app with meaningful UI complexity (6 modules, forms, routing, API integration)
-- The migration produces a complete React app that participants can review and iterate on
-- The REST API backend (`petclinic-rest-api` or `petclinic-backend`) is available separately, so the React app has a real API to target
-
-**What's missing:**
-- No pre-configured React project template or target-state reference for comparison
-- No automated equivalence tests that can verify the React app matches the Angular app's behavior
-- No `uc-` prefixed repo dedicated to this migration path (per naming conventions, this should be `uc-ui-migration-angular-to-react`)
-
-**Recommendation:** Consider creating a `uc-ui-migration-angular-to-react` repo with the PetClinic Angular source on `main` and a reference React implementation on a `react-target` branch. This would let participants compare their Devin-generated output to a known-good target. Alternatively, use `ts-angular-realworld` as the migration source — it's a smaller app (social blogging platform) that might be more appropriate for a 30-minute lab.
-
-### Gap 2: Ideas-to-Deployment End-to-End (Lab 4)
-
-**Status: Partial coverage — deployment is code-only**
-
-The `timesheet-app` repo supports feature development well (existing CRUD patterns to follow, working build/test). However:
-
-**What works well:**
-- Existing gather-requirements and new-feature-development modules cover the requirements → implementation flow
-- The app has clear patterns (clients, work entries) that Devin can follow for new features
-- Dockerfile and CI workflow generation are well within Devin's capabilities
-
-**What's missing:**
-- No live deployment target — the generated Dockerfile and CI workflow are code artifacts only. Participants cannot see the feature deployed to a running environment
-- No staging/preview environment for the timesheet app
-- The full "ideas to production" story stops at "ideas to deployment artifacts"
-
-**Recommendation:** For a future iteration, consider adding a `timesheet-infra` deployment pipeline that includes a preview-environment step (e.g., Vercel preview deploys, or a Docker Compose-based staging env). This would close the loop from idea to running code. For now, the lab narrative focuses on "deployment-ready artifacts" rather than live deployment.
-
-### Gap 3: Cross-Lab Integration
-
-**What's missing:**
-- No single repo that spans all four use cases (Angular→React + Security + Java Upgrade + New Feature Dev). Each lab uses a different repo, which means the "OneApp" narrative is conceptual — participants work on four separate codebases rather than a unified application being modernized end-to-end.
-
-**Recommendation:** For a more cohesive narrative, consider creating a `oneapp-*` repo family where all four use cases apply to the same application. For example, a Java/Angular monolith with known CVEs that needs a frontend rewrite, backend upgrade, security hardening, and a new feature. This is a significant content investment but would create a compelling multi-lab storyline.
+- **Lab 1 (Angular → React):** There is no pre-built React target to compare against — Devin creates the React app from scratch. This means your PR review is the primary quality check. Consider running the generated app locally to verify it works.
+- **Lab 4 (Ideas to Deployment):** The deployment artifacts (Dockerfile, CI workflow) are code-only — there is no live deployment environment to push to during the workshop. The lab focuses on producing deployment-ready artifacts rather than a running deployment.
+- **Each lab uses a different repository.** The "OneApp" theme connects the use cases conceptually, but you'll work across four separate codebases rather than a single unified application.
 
 ---
 
