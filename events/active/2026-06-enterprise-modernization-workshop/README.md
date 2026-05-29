@@ -36,7 +36,7 @@ A few tips to maximize your hands-on time:
 
 Already comfortable with Devin basics? Jump straight to the labs:
 
-1. Pick a lab: [Lab 1 (Angular → React)](#lab-1--angular-to-react-ui-migration-30-min), [Lab 2 (Security)](#lab-2--security-vulnerabilities-remediation-25-min), [Lab 3 (Java Upgrade)](#lab-3--java-upgradesmodernization-25-min), or [Lab 4 (New Product Dev)](#lab-4--new-product-development-ideas-to-deployment-25-min)
+1. Pick a lab: [Lab 1 (Angular → React)](#lab-1--angular-to-react-ui-migration-30-min), [Lab 2 (Security)](#lab-2--security-vulnerabilities-remediation-25-min), [Lab 3 (Java Upgrade)](#lab-3--java-upgradesmodernization-25-min), or [Lab 4 (New Product Dev)](#lab-4--new-product-development-ideas-to-deployment-15-min)
 2. Copy the prompt from the lab and paste it into a new Devin session
 3. While Devin works, try the Ask Devin prompts to explore the codebase
 4. Review the PR when Devin finishes, leave comments, and iterate
@@ -49,7 +49,8 @@ Already comfortable with Devin basics? Jump straight to the labs:
 - [Lab 1 — Angular to React UI Migration](#lab-1--angular-to-react-ui-migration-30-min)
 - [Lab 2 — Security Vulnerabilities Remediation](#lab-2--security-vulnerabilities-remediation-25-min)
 - [Lab 3 — Java Upgrades/Modernization](#lab-3--java-upgradesmodernization-25-min)
-- [Lab 4 — New Product Development (Ideas to Deployment)](#lab-4--new-product-development-ideas-to-deployment-25-min)
+- [Lab 4 — New Product Development (Ideas to Deployment)](#lab-4--new-product-development-ideas-to-deployment-15-min)
+- [Post-Session Exercises](#post-session-exercises)
 - [Known Limitations](#known-limitations)
 - [Repos Required](#repos-required)
 - [Devin Features Checklist](#devin-features-checklist)
@@ -64,7 +65,7 @@ Already comfortable with Devin basics? Jump straight to the labs:
 | 0:15 | **Lab 1:** Angular to React UI Migration | [Lab 1](#lab-1--angular-to-react-ui-migration-30-min) |
 | 0:45 | **Lab 2:** Security Vulnerabilities Remediation | [Lab 2](#lab-2--security-vulnerabilities-remediation-25-min) |
 | 1:10 | **Lab 3:** Java Upgrades/Modernization | [Lab 3](#lab-3--java-upgradesmodernization-25-min) |
-| 1:35 | **Lab 4:** New Product Development (Ideas to Deployment) | [Lab 4](#lab-4--new-product-development-ideas-to-deployment-25-min) |
+| 1:35 | **Lab 4:** New Product Development (Ideas to Deployment) | [Lab 4](#lab-4--new-product-development-ideas-to-deployment-15-min) |
 | 1:50 | Wrap-up, showcase results, Q&A | — |
 
 > **Timing note:** Labs 2–4 overlap with Devin session execution from prior labs. Participants should kick off each lab's Devin session as soon as the timeslot starts, then review earlier PRs while waiting. By wrap-up, most participants will have 3–4 PRs to showcase.
@@ -74,7 +75,7 @@ Already comfortable with Devin basics? Jump straight to the labs:
 <a id="lab-1"></a>
 ## Lab 1 — Angular to React UI Migration (30 min)
 
-**Value driver:** *Devin reads an entire Angular frontend, understands its component hierarchy and routing, and rewrites it as a modern React application — the kind of migration that normally takes a team weeks.*
+**Value driver:** *Devin reads an Angular frontend, maps its component hierarchy and routing, and typically rewrites it as a modern React application — the kind of migration that normally takes a team weeks.*
 
 - **Repository:** [petclinic-angular](https://github.com/Cognition-Partner-Workshops/petclinic-angular)
 - **Modules:** [Framework Upgrade](../../../modules/migration-modernization/framework-upgrade.md)
@@ -135,7 +136,7 @@ When Devin opens a PR:
 
 ### Key Takeaways
 
-- **"Full-app rewrite in one session"** — Devin reads the entire Angular codebase, understands component relationships, and produces an equivalent React app with routing, state management, and API integration
+- **"Full-app rewrite in one session"** — Devin reads the Angular codebase, maps component relationships, and typically produces an equivalent React app with routing, state management, and API integration
 - **"Migration plan before migration code"** — the `MIGRATION_PLAN.md` documents component mappings, making the rewrite auditable and reviewable before any code is written
 - **"Same API, different framework"** — by targeting the same REST endpoints, the React app is a drop-in replacement for the Angular frontend
 - **"Iterative refinement via PR comments"** — the first pass captures the structure; PR feedback tightens the details (styling, edge cases, accessibility)
@@ -282,7 +283,7 @@ When Devin opens a PR:
 ---
 
 <a id="lab-4"></a>
-## Lab 4 — New Product Development: Ideas to Deployment (25 min)
+## Lab 4 — New Product Development: Ideas to Deployment (15 min)
 
 **Value driver:** *Devin takes a feature idea from requirements gathering through full-stack implementation, testing, and deployment pipeline generation — demonstrating the complete product development lifecycle.*
 
@@ -378,6 +379,111 @@ When Devin opens a PR:
 
 ---
 
+## Post-Session Exercises
+
+Participants who want to keep exploring after the workshop can try these additional use cases on their own. Each is self-contained with a copy-pasteable prompt.
+
+### Exercise A: Test-Driven Development (TDD)
+
+- **Repository:** [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app)
+- **Module:** [Test-Driven Development](../../../modules/application-development/test-driven-development.md)
+- **Shows:** Devin writing failing tests from a feature specification, then implementing the feature to make them pass — a two-session TDD workflow
+
+#### Paste into Devin
+
+**Session 1 — Write Tests:**
+
+```
+I want to add a "duplicate work entry" feature to
+timesheet-app. Write failing Jest tests for a new
+POST /api/work-entries/:id/duplicate endpoint that
+creates a copy of an existing work entry with today's
+date.
+
+Test: successful duplication, 404 for non-existent
+entry, 403 for entry owned by another user. Commit
+the tests to a new branch.
+```
+
+**Session 2 — Implement:**
+
+```
+The branch feature/duplicate-entry has failing tests
+for a new "duplicate work entry" feature. Implement
+the feature so all tests pass. Do not modify the test
+files.
+```
+
+---
+
+### Exercise B: Monolith-to-Microservices Extraction
+
+- **Repository:** [uc-spring-boot-upgrade-microservice-extraction](https://github.com/Cognition-Partner-Workshops/uc-spring-boot-upgrade-microservice-extraction)
+- **Modules:** [Framework Upgrade](../../../modules/migration-modernization/framework-upgrade.md), [Containerization & Microservice Extraction](../../../modules/migration-modernization/containerization-microservice-extraction.md)
+- **Shows:** Devin extracting a bounded context from a monolith into a standalone microservice with Docker Compose — pairs naturally with Lab 3's upgrade
+
+#### Paste into Devin
+
+```
+Analyze uc-spring-boot-upgrade-microservice-extraction
+— this is a Spring Boot monolith implementing the
+RealWorld blogging platform (articles, users, comments,
+tags, favorites).
+
+Perform a microservice extraction:
+1. Identify the "Article" bounded context (articles,
+   tags, favorites, comments)
+2. Extract it as a standalone Spring Boot 3 microservice
+   in a new `article-service/` directory
+3. Create proper DTOs and a REST client for cross-service
+   communication (article-service ↔ user-service)
+4. Add a Docker Compose configuration that runs both the
+   main app and the extracted article-service
+5. Add health check endpoints and document the API
+   contracts between services
+
+Create `docs/EXTRACTION_DECISIONS.md` explaining the
+domain boundary choices and trade-offs.
+```
+
+---
+
+### Exercise C: COBOL Copybook to PySpark/JSON Config Generation
+
+- **Repository:** [ts-cobol-carddemo](https://github.com/Cognition-Partner-Workshops/ts-cobol-carddemo)
+- **Module:** [COBOL Copybook to PySpark/JSON](../../../modules/data-engineering/cobol-copybook-to-pyspark-json.md)
+- **Shows:** Devin reading legacy COBOL data definitions and generating modern data engineering artifacts — cross-language translation at the schema level
+
+#### Paste into Devin
+
+```
+Analyze the COBOL copybook `app/cpy/CVACT01Y.cpy` in
+ts-cobol-carddemo. This defines the ACCOUNT-RECORD
+layout (300 bytes) with fields like ACCT-ID
+(PIC 9(11)), ACCT-CURR-BAL (PIC S9(10)V99), dates
+(PIC X(10)), and FILLER.
+
+Generate:
+1. A PySpark script that reads
+   `app/data/ASCII/acctdata.txt` as a fixed-width file
+   using the copybook-derived schema
+2. A JSON schema file describing each field's name,
+   COBOL PIC clause, PySpark type, byte offset, and
+   length
+3. Validation output comparing parsed PySpark DataFrame
+   row counts and sample values against the raw feed
+   file
+
+Then repeat for `CUSTREC.cpy` → `custdata.txt` and
+`CVACT02Y.cpy` → `carddata.txt`.
+
+Create a `COPYBOOK_PARSING_NOTES.md` documenting your
+type-mapping decisions (e.g., COMP-3 → DecimalType,
+PIC X → StringType).
+```
+
+---
+
 ## Known Limitations
 
 A few things to be aware of as you work through the labs:
@@ -397,7 +503,10 @@ A few things to be aware of as you work through the labs:
 | Lab 3 | [uc-spring-boot-upgrade-microservice-extraction](https://github.com/Cognition-Partner-Workshops/uc-spring-boot-upgrade-microservice-extraction) | Spring Boot 2.6.3 / Java 11 upgrade target |
 | Lab 4 | [timesheet-app](https://github.com/Cognition-Partner-Workshops/timesheet-app) | React + Node.js full-stack app |
 
-**Optional/reference repos:**
+**Post-session exercises (optional):**
+- [ts-cobol-carddemo](https://github.com/Cognition-Partner-Workshops/ts-cobol-carddemo) — COBOL CardDemo application (Exercise C)
+
+**Reference repos:**
 - [petclinic-rest-api](https://github.com/Cognition-Partner-Workshops/petclinic-rest-api) — REST API backend for the PetClinic Angular frontend (Lab 1 reference)
 - [petclinic-backend](https://github.com/Cognition-Partner-Workshops/petclinic-backend) — Spring Boot backend for PetClinic (Lab 1 reference)
 - [ts-angular-realworld](https://github.com/Cognition-Partner-Workshops/ts-angular-realworld) — Alternative Angular source for Lab 1 (smaller app, faster migration)
@@ -423,6 +532,9 @@ Track your progress on the [Devin Features Appendix](../../../modules/devin-feat
 | CI/CD workflow generation | Labs 2, 4 |
 | Dockerfile generation | Lab 4 |
 | Migration documentation | Labs 1, 3 |
+| Multi-session TDD workflow | Exercise A |
+| Microservice extraction + Docker Compose | Exercise B |
+| Cross-language translation (COBOL → PySpark) | Exercise C |
 
 ## Context
 
