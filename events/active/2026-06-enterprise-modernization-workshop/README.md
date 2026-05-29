@@ -18,7 +18,7 @@ This is a hands-on workshop for teams getting their first experience with Devin.
 
 The workshop uses a mix of frontend, backend, and full-stack repositories. Each lab builds on a different Devin capability — codebase analysis, code generation, dependency management, and end-to-end feature development — so participants see the breadth of what Devin can do in a real engineering workflow.
 
-> **Note:** This workshop runs against an external GitHub organization. All repos listed below must be forked or cloned into the target org before the event.
+> **Note:** This workshop runs against an external GitHub organization. The repos listed below will be available in your organization's GitHub workspace.
 
 ## Getting the Most from This Workshop
 
