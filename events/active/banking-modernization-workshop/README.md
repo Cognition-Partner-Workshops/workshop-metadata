@@ -530,19 +530,6 @@ The following repos must be available in the workshop org:
 - [ ] [ts-java-spring-boot-internet-banking](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking) (Lab 2)
 - [ ] [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance) (Lab 3)
 
-### MCP Setup (optional, enhances Lab 3)
-
-If you want Lab 3 to show the SonarQube MCP integration, install it on the **workshop org** before the event (org-level — participants don't need to set anything up):
-
-1. Go to **Settings → MCP Marketplace → SonarQube** ([setup link](https://docs.devin.ai/work-with-devin/mcp#sonarqube))
-2. Provide:
-   - **SonarQube URL:** `https://sonarcloud.io`
-   - **SonarQube Org:** the SonarCloud organization name
-   - **SonarQube Token:** generate at [My Account → Security](https://sonarcloud.io/account/security)
-3. Verify the project appears — Devin should be able to list issues for `uc-cve-remediation-regulatory-compliance`
-
-> Lab 3 works without SonarQube MCP (Devin analyzes `build.gradle` directly), but the MCP adds a compelling "tool-augmented Devin" moment.
-
 ### Participant Requirements
 
 - [ ] Devin account access
