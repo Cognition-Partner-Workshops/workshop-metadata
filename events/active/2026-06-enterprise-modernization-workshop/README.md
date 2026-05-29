@@ -408,10 +408,10 @@ the tests to a new branch.
 **Session 2 — Implement:**
 
 ```
-The branch feature/duplicate-entry has failing tests
-for a new "duplicate work entry" feature. Implement
-the feature so all tests pass. Do not modify the test
-files.
+The branch feature/duplicate-entry in timesheet-app has
+failing tests for a new "duplicate work entry" feature.
+Implement the feature so all tests pass. Do not modify
+the test files.
 ```
 
 ---
