@@ -7,7 +7,7 @@
 | **Date** | TBD |
 | **Location** | TBD |
 | **Host Organization** | *(customer)* |
-| **Duration** | ~1 hour (3 labs × 20 min) |
+| **Duration** | ~1 hour (3 labs, parallel execution) |
 | **Audience** | Banking and financial services teams evaluating AI-assisted development across modernization, feature delivery, and security |
 | **Tracks** | Single progressive track: Modernize → Build → Secure |
 
@@ -15,33 +15,33 @@
 
 This is a hands-on workshop demonstrating three high-impact use cases for AI-assisted software engineering in a banking context:
 
-- **Lab 1 — Mainframe UI Modernization:** Devin reads COBOL copybook record layouts and 3270 BMS screen definitions from a real mainframe credit card management application, then generates a modern Angular frontend that replaces the terminal interface — complete with components, services, routing, and responsive design.
+- **Lab 1 — Mainframe UI Modernization:** Devin reads COBOL copybook record layouts and 3270 BMS screen definitions from a real mainframe credit card management application, then generates TypeScript interfaces and an Angular component — showing how decades-old data structures map to modern web technologies.
 
-- **Lab 2 — Banking Feature Development:** Devin builds a new account statement and transaction history feature on an existing Java 21 / Spring Boot 3.2 banking microservices platform — adding API endpoints, DTOs, service logic, and tests that follow the codebase's established patterns.
+- **Lab 2 — Banking Feature Development:** Devin analyzes an existing Java 21 / Spring Boot 3.2 banking microservices platform, learns the codebase patterns, and builds a new API endpoint that fits seamlessly into the architecture.
 
-- **Lab 3 — Vulnerability Remediation with SonarQube:** Devin runs SonarQube analysis on a Spring Boot application, triages the findings, remediates the critical vulnerabilities, and re-scans to verify the fixes — demonstrating the scan → fix → verify loop.
+- **Lab 3 — Security Remediation:** Devin identifies vulnerable dependencies in a Spring Boot application, upgrades them, fixes breaking API changes, runs tests to verify, and documents the security impact.
 
 ## Getting the Most from This Workshop
 
-> **Devin works autonomously on its own machine.** Once you paste a
-> prompt and kick off a session, Devin runs independently — you don't
-> need to watch it. Move on to the next lab, explore Ask Devin, or
-> grab coffee while it works. You'll get notified when it opens a PR.
+> **All three sessions run in parallel.** You kick off all three
+> prompts in the first five minutes, then explore Ask Devin and
+> DeepWiki while Devin works. PRs start arriving within 10–15
+> minutes — then you review, leave comments, and watch Devin respond.
 
 A few tips to maximize your hands-on time:
 
-- **Start sessions early, review later.** Kick off the session first, then use the wait time for Ask Devin research or reading DeepWiki — Devin keeps working in the background.
-- **Overlap sessions.** Kick off Lab 2's Devin session while reviewing Lab 1's PR. Devin works in the background — there's no reason to wait. This is how teams use Devin in production.
-- **Use Ask Devin to refine requirements.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem before Devin executes.
-- **Leave PR comments to steer Devin.** After Devin opens a PR, you can leave comments and Devin will wake up and address them — this is the core feedback loop.
+- **Kick off all sessions immediately.** Paste all three prompts in rapid succession (the first 5 minutes). Devin sessions run independently on separate machines — there's no reason to wait between them.
+- **Use Ask Devin while sessions run.** Ask Devin questions about the codebases to build context. By the time you finish exploring, PRs will be ready for review.
+- **Leave PR comments to steer Devin.** After Devin opens a PR, leave a comment and Devin will wake up and address it — this is the core feedback loop.
 - **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item, accept it — this is how teams build a shared context layer that compounds over time.
 
 ## Table of Contents
 
 - [Agenda](#agenda)
-- [Lab 1 — Mainframe UI Modernization: Angular Frontend for CardDemo](#lab-1--mainframe-ui-modernization-angular-frontend-for-carddemo-20-min)
-- [Lab 2 — Banking Feature Development: Account Statements](#lab-2--banking-feature-development-account-statements-20-min)
-- [Lab 3 — Vulnerability Remediation with SonarQube](#lab-3--vulnerability-remediation-with-sonarqube-20-min)
+- [Lab 1 — Mainframe UI Modernization](#lab-1--mainframe-ui-modernization-angular-frontend-for-carddemo)
+- [Lab 2 — Banking Feature Development](#lab-2--banking-feature-development-account-statements)
+- [Lab 3 — Security Remediation](#lab-3--security-remediation)
+- [Stretch Goals: Full-Scope Prompts](#stretch-goals-full-scope-prompts)
 - [Repos Required](#repos-required)
 - [Workshop Key Takeaways](#workshop-key-takeaways)
 
@@ -49,34 +49,260 @@ A few tips to maximize your hands-on time:
 
 ## Agenda
 
-| Time | Activity | Lab |
-|------|----------|-----|
-| 0:00 | Welcome, Devin overview, platform walkthrough | — |
-| 0:10 | **Lab 1:** Mainframe UI Modernization | Lab 1 |
-| 0:30 | **Lab 2:** Banking Feature Development | Lab 2 |
-| 0:50 | **Lab 3:** Vulnerability Remediation | Lab 3 |
-| 1:10 | Wrap-up, showcase results, Q&A | — |
+| Time | Activity |
+|------|----------|
+| 0:00–0:05 | Welcome, Devin overview, platform walkthrough |
+| 0:05–0:10 | **Kick off all 3 sessions** (paste prompts) |
+| 0:10–0:20 | Ask Devin exploration + DeepWiki (sessions running) |
+| 0:20–0:35 | Review first PR(s) arriving — leave comments |
+| 0:35–0:50 | Review remaining PRs — watch Devin respond to feedback |
+| 0:50–1:00 | Wrap-up, showcase stretch-goal prompts, Q&A |
 
-> **Tip:** Kick off each lab's Devin session immediately, then use Ask
-> Devin or DeepWiki while Devin works. By the time you finish exploring,
-> Devin will have a PR ready for review.
+> **Why parallel?** In production, teams run 10–50 Devin sessions
+> concurrently across different workstreams. This workshop mirrors
+> that workflow — kick off, context-switch, review when ready.
 
 ---
 
 <a id="lab-1"></a>
 
-## Lab 1 — Mainframe UI Modernization: Angular Frontend for CardDemo (20 min)
+## Lab 1 — Mainframe UI Modernization: Angular Frontend for CardDemo
 
-**Value driver:** *Devin reads COBOL copybook record layouts and 3270 screen definitions from a mainframe credit card application and generates a modern Angular frontend — replacing decades-old terminal screens with a responsive web UI in a single session.*
+**Value driver:** *Devin reads COBOL copybook record layouts and 3270 screen definitions from a mainframe credit card application and generates modern TypeScript interfaces — showing how PIC clauses, COMP-3 packed decimals, and FILLER fields map to clean typed models.*
 
 - **Repository:** [aws-mainframe-modernization-carddemo](https://github.com/Cognition-Partner-Workshops/aws-mainframe-modernization-carddemo)
 - **Module:** [COBOL System Understanding](../../../modules/migration-modernization/cobol-system-understanding.md)
 
-The CardDemo application is a real mainframe credit card management system with 29 COBOL programs, 30 copybooks defining record layouts (accounts, customers, cards, transactions), and 17 BMS screen maps for 3270 terminal interactions. The COBOL programs handle account viewing/updating, credit card management, transaction processing, bill payments, and user administration — all through green-screen terminal interfaces.
-
-In this lab, Devin analyzes the COBOL data structures and screen definitions, then generates a complete Angular application that provides the same functionality through a modern web interface.
+The CardDemo application is a real mainframe credit card management system with 29 COBOL programs, 30 copybooks defining record layouts (accounts, customers, cards, transactions), and 17 BMS screen maps for 3270 terminal interactions.
 
 ### Paste into Devin
+
+```
+Analyze the mainframe CardDemo application in
+aws-mainframe-modernization-carddemo and generate modern
+TypeScript models from the COBOL data structures.
+
+**Step 1 — Extract the data model:** Read the COBOL
+copybooks in `app/cpy/` to understand the domain entities:
+- `CVACT01Y.cpy` — Account record (balance, credit limit,
+  dates, status)
+- `CUSTREC.cpy` — Customer record (name, address, SSN,
+  FICO score, DOB)
+- `CVACT02Y.cpy` — Card record (card number, CVV, expiry,
+  embossed name, status)
+- `CVACT03Y.cpy` — Card cross-reference (card ↔ customer
+  ↔ account mapping)
+
+**Step 2 — Map the screens:** Read 3–4 BMS screen maps in
+`app/bms/` (start with `COSGN00.bms`, `COACTVW.bms`, and
+`COCRDLI.bms`) to understand the 3270 terminal layouts
+and field positions.
+
+**Step 3 — Generate a frontend starter:** Create a new
+`frontend/` directory with:
+
+1. **TypeScript interfaces** (`frontend/src/models/`) —
+   one interface per copybook record, mapping COBOL PIC
+   clauses to TypeScript types (PIC X → string,
+   COMP-3 → number, etc.). Include JSDoc comments
+   showing the original COBOL field definition.
+2. **Mock data** (`frontend/src/data/mock-accounts.ts`) —
+   derive 5–10 sample records from the ASCII feed files
+   in `app/data/ASCII/` (acctdata.txt, custdata.txt,
+   carddata.txt)
+3. **One Angular component** — an Account List page
+   (`frontend/src/app/accounts/`) using Angular Material
+   table that imports and displays the mock account data
+4. **Minimal Angular setup** — `package.json`,
+   `angular.json`, app module, and routing so the
+   component is reachable at `/accounts`
+
+Include a `MODERNIZATION_NOTES.md` at the repo root
+documenting:
+- Field-level mapping from COBOL copybook → TypeScript
+- BMS screen → future Angular component mapping table
+- Data type conversion rules used
+```
+
+### While Devin works: try Ask Devin
+
+- *"What are the main business entities in the CardDemo COBOL copybooks? How do they relate to each other?"*
+- *"How many screens does the CardDemo online application have? What functions does each screen provide?"*
+- *"What data types does COBOL use in the copybooks? How would you map COMP-3 to a modern language?"*
+
+### Review the PR
+
+When Devin opens a PR:
+- Do the TypeScript interfaces accurately reflect the COBOL copybook field definitions?
+- Are PIC clauses correctly mapped (PIC X(30) → string, COMP-3 → number, PIC 9(2) → number)?
+- Does the MODERNIZATION_NOTES.md provide a clear traceable mapping?
+- **Leave a comment** asking Devin to add a second component — e.g., "Add a Credit Card List component using the card interface and mock data"
+
+### Key Takeaways
+
+- **"From green screen to typed models in minutes"** — Devin reverse-engineers mainframe data structures and generates clean TypeScript interfaces with full traceability
+- **"Data model extraction is automated"** — COBOL copybooks with PIC clauses, COMP-3 packed decimals, and FILLER fields become clean TypeScript types with documented conversion rules
+- **"The mapping is documented"** — MODERNIZATION_NOTES.md creates a traceable link between legacy COBOL and modern code, critical for migration governance
+
+---
+
+<a id="lab-2"></a>
+
+## Lab 2 — Banking Feature Development: Account Statements
+
+**Value driver:** *Devin analyzes an existing banking microservices codebase, understands the architecture and conventions, then builds a new API endpoint that fits seamlessly into the existing system — following the same patterns, annotations, and package structure.*
+
+- **Repository:** [ts-java-spring-boot-internet-banking](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking)
+- **Module:** [New Feature Development](../../../modules/application-development/new-feature-development.md)
+
+This is a Java 21 / Spring Boot 3.2.4 banking application with 6 microservices: core-banking, fund-transfer, user-service, utility-payment, API gateway, and service registry. It uses Keycloak for authentication, RabbitMQ for messaging, and Zipkin for distributed tracing.
+
+### Paste into Devin
+
+```
+Add a transaction history endpoint to
+ts-java-spring-boot-internet-banking. This is a Java 21 /
+Spring Boot 3.2.4 banking microservices application using
+Gradle, Spring Data JPA, and Lombok.
+
+First, analyze how the existing services are structured —
+look at core-banking-service's controllers, services,
+repositories, DTOs, and entities. Follow the same patterns
+exactly.
+
+Build the following in core-banking-service:
+
+1. **DTO:** Create `TransactionHistoryDto` in the existing
+   DTO package — include transaction ID, amount, type
+   (FUND_TRANSFER or UTILITY_PAYMENT), reference number,
+   and the existing `transactionDateTime` field. Use
+   Lombok `@Data`/`@Builder` matching existing DTO style.
+
+2. **Repository query:** Add a method to the existing
+   `TransactionRepository` that finds transactions by
+   account number (check `TransactionEntity` for the
+   correct field name), ordered by most recent first.
+
+3. **Service method:** Add a `getTransactionHistory`
+   method to `TransactionService` that retrieves
+   transactions for an account and maps entities to the
+   DTO.
+
+4. **Controller endpoint:** Add
+   `GET /api/v1/account/{accountNumber}/transactions`
+   to the existing controller. Return a list of
+   `TransactionHistoryDto`. Include `@Operation` and
+   `@Tag` annotations matching the existing style.
+
+5. **One unit test:** Add a test for the service method
+   following the pattern in `TransactionServiceTest`.
+
+Follow existing code conventions: Lombok `@Data`/
+`@Builder` for DTOs, `@Getter`/`@Setter`/`@Builder`
+for entities, the existing package structure under
+`com.javatodev.finance`.
+```
+
+### While Devin works: try Ask Devin
+
+- *"What communication patterns do the banking microservices use? How does fund-transfer-service talk to core-banking-service?"*
+- *"What database schema does core-banking-service use? What tables and relationships exist?"*
+- *"What annotations and patterns does the existing TransactionController use?"*
+
+### Review the PR
+
+When Devin opens a PR:
+- Does the new endpoint follow the existing code conventions (package structure, DTO style, annotations)?
+- Is the repository query correct for the actual entity field names?
+- **Leave a comment** asking Devin to add pagination — e.g., "Add `page` and `size` query params with Spring Data Pageable support"
+
+### Key Takeaways
+
+- **"Devin learns your patterns first"** — before writing a single line, Devin analyzes the existing codebase to understand architecture, conventions, and coding style
+- **"Pattern-following, not boilerplate"** — the generated code uses the same annotations, package structure, and naming as the rest of the codebase
+- **"The PR feedback loop is the workflow"** — reviewing and commenting on the PR is how you steer Devin, just like working with a team member
+
+---
+
+<a id="lab-3"></a>
+
+## Lab 3 — Security Remediation
+
+**Value driver:** *Devin identifies vulnerable dependencies, upgrades them, fixes any breaking API changes introduced by the upgrade, verifies tests pass, and documents the security impact — turning version bumps into verified, documented remediation.*
+
+- **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
+- **Module:** [Remediate Vulnerabilities](../../../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../../../modules/security/shift-left-security.md)
+
+This is a Spring Boot 2.6.3 / Java 11 application with known vulnerable dependencies. The outdated Spring Boot version (2.6.3) carries Spring4Shell and related CVEs, transitive SnakeYAML vulnerabilities, and sqlite-jdbc 3.36.0.3 has known exploits.
+
+### Paste into Devin
+
+```
+Perform a targeted security remediation on
+uc-cve-remediation-regulatory-compliance. This is a Spring
+Boot 2.6.3 / Java 11 application with known vulnerable
+dependencies.
+
+1. **Identify vulnerabilities:** Review `build.gradle` and
+   identify the outdated dependencies. The key ones are:
+   - Spring Boot 2.6.3 (Spring4Shell, multiple CVEs)
+   - SnakeYAML (transitive via Spring Boot — known RCE:
+     CVE-2022-1471)
+   - sqlite-jdbc 3.36.0.3 (multiple CVEs)
+   Document what you find in a brief `SECURITY_TRIAGE.md`.
+
+2. **Upgrade Spring Boot:** Upgrade from 2.6.3 to the
+   latest 2.7.x in `build.gradle`. Note: upgrading to
+   3.x requires Java 17+ — stay on 2.7.x for this lab.
+
+3. **Fix breaking changes:** Spring Boot 2.7 deprecates
+   `WebSecurityConfigurerAdapter`. Migrate the security
+   config to use `SecurityFilterChain` @Bean method
+   instead. Fix any other compilation errors.
+
+4. **Override transitive vulnerabilities:** Add version
+   overrides in `build.gradle` for:
+   - SnakeYAML → 2.0+ (fixes CVE-2022-1471)
+   - sqlite-jdbc → 3.42.0.1+ (fixes known CVEs)
+
+5. **Verify:** Run `./gradlew test` to confirm all tests
+   pass after upgrades. Create `SECURITY_REMEDIATION.md`
+   documenting: which dependencies were upgraded, which
+   CVEs are resolved, and the before/after versions.
+```
+
+### While Devin works: try Ask Devin
+
+- *"What are the known CVEs in Spring Boot 2.6.3? Which ones are CRITICAL severity?"*
+- *"What's the safest upgrade path for Spring Boot 2.6.3 — should we go to 2.7.x or jump to 3.x?"*
+- *"What is CVE-2022-1471 (SnakeYAML) and why is it dangerous?"*
+
+### Review the PR
+
+When Devin opens a PR:
+- Are the dependency upgrades safe? Do existing tests still pass?
+- Was the SecurityFilterChain migration done correctly?
+- Does the remediation document accurately list resolved CVEs?
+- **Leave a comment** asking Devin to add a CI check — e.g., "Add a GitHub Actions workflow that runs OWASP dependency-check on PRs"
+
+### Key Takeaways
+
+- **"Upgrade + fix + verify in one session"** — Devin doesn't just bump versions; it fixes the breaking API changes and runs tests to verify nothing regressed
+- **"Evidence-based remediation"** — the triage and remediation documents provide auditable evidence for compliance teams
+- **"The PR comment drives iteration"** — asking for a CI workflow in a review comment shows how Devin responds to feedback with follow-up commits
+
+---
+
+<a id="stretch-goals"></a>
+
+## Stretch Goals: Full-Scope Prompts
+
+The workshop prompts above are scoped for ~10-minute execution so you see results during the session. Below are comprehensive versions of each lab that produce larger deliverables (60–90 min execution). Try these after the workshop to see the full capability.
+
+<details>
+<summary><strong>Lab 1 Full Scope: Complete Angular Application</strong></summary>
+
+Generates a complete 10-component Angular Material application with full routing, responsive layout, mock data services, and login flow — replacing the entire 3270 terminal interface.
 
 ```
 Analyze the mainframe CardDemo application in
@@ -144,40 +370,12 @@ from COBOL copybook fields to TypeScript interfaces and
 from BMS screens to Angular components.
 ```
 
-### While Devin works: try Ask Devin
+</details>
 
-- *"What are the main business entities in the CardDemo COBOL copybooks? How do they relate to each other?"*
-- *"How many screens does the CardDemo online application have? What functions does each screen provide?"*
+<details>
+<summary><strong>Lab 2 Full Scope: Complete Account Statement Feature</strong></summary>
 
-### Review the PR
-
-When Devin opens a PR:
-- Does the TypeScript interface match the COBOL copybook field definitions?
-- Are all the mainframe screens represented in the Angular routing?
-- **Leave a comment** asking Devin to add a specific enhancement — e.g., "Add a card activation/deactivation toggle to the credit card detail view"
-
-### Key Takeaways
-
-- **"From green screen to web app in one session"** — Devin reverse-engineers mainframe data structures and screen flows, then generates a modern Angular frontend that preserves the same business functionality
-- **"Data model extraction is automated"** — COBOL copybooks with PIC clauses, COMP-3 packed decimals, and FILLER fields are translated into clean TypeScript interfaces
-- **"The mapping is documented"** — the modernization notes create a traceable link between legacy COBOL and modern Angular, which is critical for migration governance
-
----
-
-<a id="lab-2"></a>
-
-## Lab 2 — Banking Feature Development: Account Statements (20 min)
-
-**Value driver:** *Devin analyzes an existing banking microservices codebase, understands the architecture and conventions, then builds a complete new feature — API endpoints, service logic, DTOs, and tests — that fits seamlessly into the existing system.*
-
-- **Repository:** [ts-java-spring-boot-internet-banking](https://github.com/Cognition-Partner-Workshops/ts-java-spring-boot-internet-banking)
-- **Module:** [New Feature Development](../../../modules/application-development/new-feature-development.md)
-
-This is a Java 21 / Spring Boot 3.2.4 banking application with 6 microservices: core-banking, fund-transfer, user-service, utility-payment, API gateway, and service registry. It uses Keycloak for authentication, RabbitMQ for messaging, and Zipkin for distributed tracing.
-
-The existing API supports account lookup, fund transfers, and utility payments — but has no account statement or transaction history feature. Participants will have Devin build this missing capability end-to-end.
-
-### Paste into Devin
+Builds a full account statement feature with Flyway schema migration, two API endpoints, monthly summary aggregation, comprehensive tests, and OpenAPI documentation.
 
 ```
 Add an account statement and transaction history feature
@@ -248,38 +446,12 @@ for entities, the existing package structure under
 `com.javatodev.finance`.
 ```
 
-### While Devin works: try Ask Devin
+</details>
 
-- *"What communication patterns do the banking microservices use? How does fund-transfer-service talk to core-banking-service?"*
-- *"What database schema does core-banking-service use? What tables and relationships exist?"*
+<details>
+<summary><strong>Lab 3 Full Scope: Comprehensive Security Audit + CI Gating</strong></summary>
 
-### Review the PR
-
-When Devin opens a PR:
-- Does the new feature follow the existing code conventions (package structure, DTO style, error handling)?
-- Are the API contracts well-designed for a banking application?
-- **Leave a comment** asking Devin to add CSV/PDF export for the account statement — watch Devin respond and push a follow-up commit
-
-### Key Takeaways
-
-- **"Devin learns your patterns first"** — before writing a single line, Devin analyzes the existing codebase to understand architecture, conventions, and coding style
-- **"Full-stack feature in one session"** — from API design through service logic, persistence, validation, and tests — following the codebase's established patterns
-- **"The PR feedback loop is the workflow"** — reviewing and commenting on the PR is how you steer Devin, just like working with a team member
-
----
-
-<a id="lab-3"></a>
-
-## Lab 3 — Vulnerability Remediation with SonarQube (20 min)
-
-**Value driver:** *Devin runs SonarQube analysis, interprets the findings, remediates the critical vulnerabilities, and re-scans to verify — turning a security backlog into remediated code with evidence.*
-
-- **Repository:** [uc-cve-remediation-regulatory-compliance](https://github.com/Cognition-Partner-Workshops/uc-cve-remediation-regulatory-compliance)
-- **Module:** [Remediate Vulnerabilities](../../../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../../../modules/security/shift-left-security.md)
-
-This is a Spring Boot 2.6.3 / Java 11 application with known vulnerable dependencies and pre-configured SonarQube and OWASP Dependency-Check Gradle plugins. The repo includes a `docker-compose.sonarqube.yml` for local SonarQube setup. The combination of an outdated Spring Boot version (2.6.3), transitive SnakeYAML vulnerabilities, and sqlite-jdbc 3.36.0.3 creates a realistic vulnerability landscape for remediation.
-
-### Paste into Devin
+Performs full OWASP Dependency-Check scan, SonarQube analysis, comprehensive triage, multi-dependency remediation, before/after verification, and adds CI gating workflow.
 
 ```
 Perform a comprehensive security remediation on
@@ -342,23 +514,7 @@ dependencies and pre-configured security scanning tools.
    any CRITICAL severity CVEs are found.
 ```
 
-### While Devin works: try Ask Devin
-
-- *"What are the known CVEs in the Spring Boot 2.6.3 dependency tree? Which ones are CRITICAL?"*
-- *"What's the safest upgrade path for Spring Boot 2.6.3 — should we go to 2.7.x first or jump to 3.x?"*
-
-### Review the PR
-
-When Devin opens a PR:
-- Are the dependency upgrades safe? Do the existing tests still pass?
-- Does the triage document accurately describe the vulnerabilities?
-- **Leave a comment** asking Devin to add a pre-commit hook for secrets detection using gitleaks
-
-### Key Takeaways
-
-- **"Scan, triage, fix, verify"** — Devin follows the complete security remediation lifecycle, not just blindly upgrading versions
-- **"Evidence-based remediation"** — before/after scan results provide auditable evidence for compliance teams
-- **"CI gating prevents regression"** — the added workflow ensures new vulnerabilities are caught before merge, shifting security left
+</details>
 
 ---
 
@@ -378,7 +534,8 @@ The following repos must be available in the workshop org:
 
 ## Workshop Key Takeaways
 
-- **"Modernization is more than rewriting code"** — Lab 1 shows Devin extracting business knowledge locked in COBOL copybooks and 3270 screens, then using that understanding to generate a modern UI. The legacy system is the specification.
+- **"Modernization is more than rewriting code"** — Lab 1 shows Devin extracting business knowledge locked in COBOL copybooks and 3270 screens, then using that understanding to generate modern typed models. The legacy system is the specification.
 - **"Devin follows your conventions"** — Lab 2 demonstrates that Devin reads existing patterns before implementing, producing code that fits the codebase — not generic boilerplate.
-- **"Security remediation at speed"** — Lab 3 turns a vulnerability backlog into remediated code with auditable evidence in a single session, using the scan → triage → fix → verify → gate workflow.
-- **"Asynchronous by design"** — all three labs run in parallel. While reviewing Lab 1's PR, Lab 2 and Lab 3 are already working. This mirrors how teams use Devin in production — multiple sessions running concurrently across different workstreams.
+- **"Security remediation at speed"** — Lab 3 turns a vulnerability backlog into remediated code with passing tests in a single session, handling the breaking changes that make manual upgrades tedious.
+- **"Asynchronous by design"** — all three labs run in parallel. While reviewing one PR, the others are still working. This mirrors how teams use Devin in production — multiple sessions running concurrently across different workstreams.
+- **"The PR is the interface"** — every lab ends with reviewing a PR and leaving a comment. This is the real workflow: Devin proposes, you review, you steer with feedback, Devin iterates.
