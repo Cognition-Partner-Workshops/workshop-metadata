@@ -70,8 +70,14 @@ warehouse, and a PAT that can use the warehouse and create catalogs/schemas/jobs
 
 | | Code | Data |
 |---|---|---|
-| **Before** | `main` branch + the SAS estate | `banking_analytics.raw.*` (durable; never overwritten) |
-| **After** | the demo branch (full models + PySpark + IaC + CD) | `banking_analytics.<NS>_staging / _intermediate / _marts / _curated` (per-run, disposable) |
+| **Before** | `main`: the **banking** domain already migrated (Phase 1), plus the tooling, reconciliation harness, seeder, and the conversion playbook. The SAS estate lives in `ts-sas-legacy-analytics`. | `banking_analytics.raw.*` (durable; never overwritten) |
+| **After** | a PR branch with the **regulatory + insurance** programs converted live (dbt models + their reconciliation controls + the PySpark job + IaC/CD) | `banking_analytics.<NS>_staging / _intermediate / _marts / _curated` (per-run, disposable) |
+
+The **before** state is deliberately a *partial* migration: the banking programs
+(`load_customer_accounts`, `daily_transaction_processing`, `credit_risk_scoring`)
+are already on `main` with a working reconciliation control, so the harness and
+playbook are in place. What Devin converts **live** is the next wave — the
+regulatory and insurance programs that are *not* yet on `main`.
 
 The verification loop sits between them: every converted model is built into a
 namespace and checked by reconciliation controls before it is trusted. The before
@@ -158,10 +164,10 @@ many times in parallel instead of once in series.
 
 | Session | SAS program | Target |
 |---|---|---|
-| 1 | `Programs/Banking/load_customer_accounts.sas` | `stg_cust_accounts` + `int_account_metrics` |
-| 2 | `Programs/Banking/daily_transaction_processing.sas` | `stg_daily_transactions` + `mart_daily_transactions` |
-| 3 | `Programs/Banking/monthly_regulatory_reporting.sas` | `mart_regulatory_rwa` + `mart_delinquency_aging` |
-| 4 | `Programs/Insurance/claims_processing.sas` | PySpark `claims_processing` (procedural, multi-output) |
+| 1 | `Programs/Banking/monthly_regulatory_reporting.sas` | `mart_regulatory_rwa` + `mart_delinquency_aging` (the Act 2 worked example) |
+| 2 | `Programs/Insurance/claims_processing.sas` | `stg_claims` + `int_claims_adjudication` (dbt) **and** the PySpark `claims_processing` job (procedural, multi-output) |
+| 3 | `Programs/Insurance/policy_valuation.sas` | `int_policy_valuation` + `mart_loss_ratios` |
+| 4 | `Programs/Reports/customer_profitability.sas` | `mart_customer_pnl` |
 
 Each session uses its own namespace (`NS=session1`, …) so the live builds never
 collide.
