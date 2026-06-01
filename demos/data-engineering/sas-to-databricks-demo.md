@@ -7,9 +7,17 @@ programmatic reconciliation, catch a real divergence and fix it, then fan the
 work out across many programs in parallel. The second half runs the produced
 artifact end to end (before/after, IaC, CD) and reverts — safe to repeat.
 
-The commands and prompts here are kept **identical** to the runbook in the code
-repo: [`uc-data-migration-sas-to-databricks/docs/DEMO_RUNBOOK.md`](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks/blob/main/docs/DEMO_RUNBOOK.md).
-If you change one, change the other.
+This is the presenter thread. The reusable conversion procedure it drives is a
+Devin Playbook whose source lives in the code repo at
+[`uc-data-migration-sas-to-databricks/.workshop/playbooks/sas-to-databricks-conversion.devin.md`](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks/blob/main/.workshop/playbooks/sas-to-databricks-conversion.devin.md).
+
+> **Facilitator prerequisite:** before the demo, copy that playbook file's
+> contents into your Devin organization (Settings → Playbooks → *Create a new
+> Playbook*) so the prompts below can invoke it as `!convert-sas-to-databricks`.
+> The repo-specific commands are auto-loaded from the repo's Skill
+> (`.agents/skills/sas-to-databricks-conversion/SKILL.md`); see the
+> [Playbooks](https://docs.devin.ai/product-guides/creating-playbooks) and
+> [Skills](https://docs.devin.ai/product-guides/skills) docs.
 
 ## Table of Contents
 
@@ -61,7 +69,7 @@ warehouse, and a PAT that can use the warehouse and create catalogs/schemas/jobs
 ## Repositories
 
 - [ts-sas-legacy-analytics](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-analytics) — the legacy SAS estate (banking/insurance programs, macros, formats, batch orchestration). Read-only reference for the "before".
-- [uc-data-migration-sas-to-databricks](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks) — the dbt + Databricks target: models, reconciliation harness, seeder, PySpark job, Asset Bundle (IaC), CI/CD, the conversion playbook, and the demo runbook.
+- [uc-data-migration-sas-to-databricks](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks) — the dbt + Databricks target: models, reconciliation harness, seeder, PySpark job, Asset Bundle (IaC), CI/CD, the conversion playbook source (`.workshop/playbooks/`), and the repo Skill (`.agents/skills/`).
 
 ---
 
@@ -70,7 +78,7 @@ warehouse, and a PAT that can use the warehouse and create catalogs/schemas/jobs
 
 | | Code | Data |
 |---|---|---|
-| **Before** | `main`: the **banking** domain already migrated (Phase 1), plus the tooling, reconciliation harness, seeder, and the conversion playbook. The SAS estate lives in `ts-sas-legacy-analytics`. | `banking_analytics.raw.*` (durable; never overwritten) |
+| **Before** | `main`: the **banking** domain already migrated (Phase 1), plus the tooling, reconciliation harness, seeder, the conversion playbook source (`.workshop/playbooks/`), and the repo Skill. The SAS estate lives in `ts-sas-legacy-analytics`. | `banking_analytics.raw.*` (durable; never overwritten) |
 | **After** | a PR branch with the **regulatory + insurance** programs converted live (dbt models + their reconciliation controls + the PySpark job + IaC/CD) | `banking_analytics.<NS>_staging / _intermediate / _marts / _curated` (per-run, disposable) |
 
 The **before** state is deliberately a *partial* migration: the banking programs
@@ -122,16 +130,15 @@ workspace, runs the controls, catches a divergence, fixes it, and produces a PR
 with the reconciliation report.
 
 ```
-Convert the SAS program Programs/Banking/monthly_regulatory_reporting.sas in
-the ts-sas-legacy-analytics estate into dbt models on Databricks, following
-docs/CONVERSION_PLAYBOOK.md in uc-data-migration-sas-to-databricks.
+!convert-sas-to-databricks
 
-- Treat the SAS source as the source of truth: reproduce its logic exactly,
-  including any quirks, and flag (do not silently fix) anything that looks wrong.
-- Add reconciliation controls: completeness, a control total, and a parity check
-  for every CASE/mapping in the program.
-- Build into the dev namespace and run dbt build plus the reconciliation report
-  until everything is green, and include the reconciliation report.
+Convert the SAS program Programs/Banking/monthly_regulatory_reporting.sas in
+the ts-sas-legacy-analytics estate into dbt models on Databricks, writing to
+uc-data-migration-sas-to-databricks.
+
+- SAS program: Programs/Banking/monthly_regulatory_reporting.sas
+- Target model(s): mart_regulatory_rwa + mart_delinquency_aging
+- Namespace: dev
 ```
 
 **The verification beat (the real bug).** The SAS CASE maps `LOC` (line of
@@ -152,8 +159,9 @@ make reconcile NS=dev
 ```
 
 The point: "looks reasonable" review would have shipped 0.75; the parity check
-against the source did not. The full write-up is in the code repo at
-`docs/CONVERSION_PLAYBOOK.md` → *Worked example: the LOC risk-weight divergence*.
+against the source did not. The full write-up is in the playbook at
+`.workshop/playbooks/sas-to-databricks-conversion.devin.md` → *Worked example:
+the LOC risk-weight divergence*.
 
 <a id="act-3"></a>
 ### Act 3 — Fan out in parallel
@@ -183,16 +191,16 @@ Act as the orchestrator for a SAS->Databricks migration across multiple
 programs, using child Devin sessions to parallelize the work.
 
 Repos: read Cognition-Partner-Workshops/ts-sas-legacy-analytics (the SAS
-source), write Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks
-(follow docs/CONVERSION_PLAYBOOK.md).
+source), write Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks.
 
 Spawn one child Devin session per program below. Give each child both repos, its
-own namespace (NS=child1, child2, ...), and this conversion contract: treat the
-SAS source as the source of truth and reproduce its logic exactly; flag (do not
-silently fix) anything that looks wrong; add reconciliation controls
-(completeness, a control total, and a parity check for every CASE/mapping); and
-build with `make demo-up NS=...` and `make reconcile NS=...` until everything is
-green, with the reconciliation report included.
+own namespace (NS=child1, child2, ...), and tell it to follow the
+!convert-sas-to-databricks playbook (the repo's Skill supplies the
+`make demo-up NS=...` / `make reconcile NS=...` mechanics): treat the SAS source
+as the source of truth and reproduce its logic exactly; flag (do not silently
+fix) anything that looks wrong; add reconciliation controls (completeness, a
+control total, and a parity check for every CASE/mapping); and build until
+everything is green, with the reconciliation report included.
 
 Programs:
 1. Programs/Banking/monthly_regulatory_reporting.sas
@@ -225,8 +233,8 @@ The gates that make every PR trustworthy:
   a reconciliation-report job that publishes the report as a build artifact.
 - **Reconciliation controls** (`dbt_project/tests/reconcile_*.sql` +
   `verify/reconcile.py`): completeness, control totals, source-parity mappings,
-  cross-engine referential integrity — documented as a contract in
-  `docs/CONVERSION_PLAYBOOK.md`.
+  cross-engine referential integrity — documented as a contract in the
+  `!convert-sas-to-databricks` playbook and the repo's Skill.
 - **Devin Review**: an automated reviewer on every PR.
 
 A conversion is "done" when the source-parity controls are green, in CI, on the
@@ -337,5 +345,6 @@ by deploying and running it live in a Databricks workspace. The same Context Loo
 (source analysis → target mapping → produce PR → programmatic verification → human
 review → refine) described in
 [`modules/data-engineering/sas-migration-analysis.md`](../../modules/data-engineering/sas-migration-analysis.md)
-applies here, with the conversion procedure codified in the code repo's
-`docs/CONVERSION_PLAYBOOK.md`.
+applies here, with the conversion procedure codified as the
+`!convert-sas-to-databricks` Devin Playbook (source in the code repo at
+`.workshop/playbooks/sas-to-databricks-conversion.devin.md`).
