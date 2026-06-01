@@ -24,6 +24,7 @@ repo's Skill (`.agents/skills/sas-to-databricks-conversion/SKILL.md`).
   - [Act 3 — Fan out in parallel](#act-3)
   - [Act 4 — Confidence = programmatic verification](#act-4)
 - [Part 2 — Run the Produced Artifact](#part-2)
+- [Confirming Completion in Databricks](#confirm-databricks)
 - [Concurrent Runs](#concurrent)
 - [Warehouse Sizing Note](#warehouse)
 - [Key Takeaways](#key-takeaways)
@@ -283,6 +284,60 @@ The pipeline is a Databricks Asset Bundle (`databricks.yml` +
 `main`, trigger the GitHub Actions **deploy bundle** workflow manually
 (Actions → Run workflow → pick target + namespace). On a real merge to `main` the
 same workflow deploys automatically.
+
+---
+
+<a id="confirm-databricks"></a>
+## Confirming Completion in Databricks
+
+The migration milestone is complete when four things are true and visible in the
+workspace: the converted models are **materialized** in Unity Catalog, the
+**reconciliation controls are green** (parity proven against the SAS source), the
+orchestrated **Workflow runs end to end** as IaC, and the **before is untouched**
+next to the after. Walk the workspace UI in that order to show the work is done.
+
+**1. Catalog Explorer — the models exist (after), the source is intact (before).**
+Open **Catalog** → `banking_analytics`. Show the durable `raw` schema (the
+"before" — `cust_accounts`, transactions, claims) sitting unchanged next to the
+freshly built `<NS>_marts` / `<NS>_curated` schemas (the "after"). The converted
+marts are populated tables with row counts and a column schema:
+
+```sql
+SELECT count(*) FROM banking_analytics.raw.cust_accounts;            -- before (durable)
+SELECT count(*) FROM banking_analytics.dev_marts.mart_regulatory_rwa; -- after (built live)
+```
+
+**2. The source-parity beat — the number ties out to SAS.** Run the regulatory
+mart grouped by account type and show `LOC` sitting at `risk_weight = 1.00`,
+matching the SAS source (not the plausible-but-wrong 0.75). This is the
+"verification caught a wrong conversion" proof, visible as data:
+
+```sql
+SELECT account_type, risk_weight, n_accounts, total_exposure, rwa
+FROM banking_analytics.dev_marts.mart_regulatory_rwa ORDER BY account_type;
+```
+
+**3. The reconciliation report — every control PASS.** Show the report produced
+by `make reconcile NS=dev` (also published as a CI build artifact on the PR):
+each control — completeness, control totals, and per-mapping parity — reports
+`PASS`. A green report is the definition of "done"; the code merely running is
+not.
+
+**4. Workflows — the pipeline runs end to end as IaC.** Open **Workflows** →
+`daily_banking_pipeline` (the deployed Asset Bundle job) and show the most recent
+run's task graph all green: `dbt_staging → intermediate → marts → test`, with the
+PySpark `claims_processing` task running in parallel. This proves the converted
+estate runs as an orchestrated, scheduled pipeline — not just ad-hoc queries.
+
+**5. Query History — proof it executed live.** Open the SQL warehouse's **Query
+History** to show the `dbt build` statements that just ran against the workspace,
+with durations. This confirms the conversion was built and verified live, here,
+during the session.
+
+For a multi-program or fan-out run, repeat step 1 across the per-session
+namespaces (`session1_marts`, `child1_marts`, …) to show several converted
+programs landing independently and all reconciling green — the milestone achieved
+in parallel.
 
 ---
 
