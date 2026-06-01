@@ -140,7 +140,7 @@ When Devin opens a PR:
 
 ### Target Outcomes (any of these count)
 
-- `docs/API_CONTRACT.md` documenting every REST endpoint the Angular app consumes
+- `docs/API_CONTRACT.md` documenting the REST endpoints the Angular app consumes
 - Migration test suite in `react-frontend/src/__tests__/` with MSW handlers
 - React 18+ app in `react-frontend/` with Vite + TypeScript
 - All major pages migrated (owners, pets, visits, vets, specialties)
