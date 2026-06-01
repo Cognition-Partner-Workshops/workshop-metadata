@@ -290,11 +290,12 @@ same workflow deploys automatically.
 <a id="confirm-databricks"></a>
 ## Confirming Completion in Databricks
 
-The migration milestone is complete when four things are true and visible in the
+The migration milestone is complete when five things are true and visible in the
 workspace: the converted models are **materialized** in Unity Catalog, the
 **reconciliation controls are green** (parity proven against the SAS source), the
-orchestrated **Workflow runs end to end** as IaC, and the **before is untouched**
-next to the after. Walk the workspace UI in that order to show the work is done.
+orchestrated **Workflow runs end to end** as IaC, the **before is untouched**
+next to the after, and you can **prove it ran live**. Walk the workspace UI in
+that order to show the work is done.
 
 **1. Catalog Explorer — the models exist (after), the source is intact (before).**
 Open **Catalog** → `banking_analytics`. Show the durable `raw` schema (the
