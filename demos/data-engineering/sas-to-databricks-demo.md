@@ -172,6 +172,49 @@ many times in parallel instead of once in series.
 Each session uses its own namespace (`NS=session1`, …) so the live builds never
 collide.
 
+#### Parallelize from a single session (parent → child)
+
+Instead of launching each session by hand, run one **orchestrator** session that
+spawns a child Devin session per program and monitors them — one agent fanning
+itself out across the wave. Paste:
+
+```
+Act as the orchestrator for a SAS->Databricks migration across multiple
+programs, using child Devin sessions to parallelize the work.
+
+Repos: read Cognition-Partner-Workshops/ts-sas-legacy-analytics (the SAS
+source), write Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks
+(follow docs/CONVERSION_PLAYBOOK.md).
+
+Spawn one child Devin session per program below. Give each child both repos, its
+own namespace (NS=child1, child2, ...), and this conversion contract: treat the
+SAS source as the source of truth and reproduce its logic exactly; flag (do not
+silently fix) anything that looks wrong; add reconciliation controls
+(completeness, a control total, and a parity check for every CASE/mapping); and
+build with `make demo-up NS=...` and `make reconcile NS=...` until everything is
+green, with the reconciliation report included.
+
+Programs:
+1. Programs/Banking/monthly_regulatory_reporting.sas
+   -> mart_regulatory_rwa + mart_delinquency_aging
+2. Programs/Insurance/claims_processing.sas
+   -> stg_claims + int_claims_adjudication (dbt) AND a PySpark job
+      src/pyspark/claims_processing.py
+3. Programs/Insurance/policy_valuation.sas
+   -> int_policy_valuation + mart_loss_ratios
+4. Programs/Reports/customer_profitability.sas -> mart_customer_pnl
+
+After launching, monitor the child sessions until each program is converted with
+a green reconciliation report. Then summarize the results and call out any
+source-parity divergences the children caught (e.g. a risk-weight mapping that
+did not match the SAS source).
+```
+
+The children inherit the organization's Databricks secrets, and each writes to
+its own namespace (`child1`, `child2`, …) so the parallel builds never collide.
+This is the same verified conversion loop as a single session — run many times at
+once, from one parent.
+
 <a id="act-4"></a>
 ### Act 4 — Confidence = programmatic verification
 
