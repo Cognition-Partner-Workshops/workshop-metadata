@@ -1,9 +1,11 @@
 # SAS → dbt/Databricks — End-to-End Migration Demo
 
-A single linear demo that tells the SAS → dbt/Databricks migration story end to
-end against a real Databricks workspace: seed the "before" data, build the
-"after" with dbt, show the PySpark alternative, deploy it as IaC, run it, and
-revert — safe to repeat.
+A single linear demo that shows Devin migrating a SAS estate to runnable
+dbt/Databricks code with **verifiable confidence**: orient over the legacy
+estate, convert one program live, prove parity with the source through
+programmatic reconciliation, catch a real divergence and fix it, then fan the
+work out across many programs in parallel. The second half runs the produced
+artifact end to end (before/after, IaC, CD) and reverts — safe to repeat.
 
 The commands and prompts here are kept **identical** to the runbook in the code
 repo: [`uc-data-migration-sas-to-databricks/docs/DEMO_RUNBOOK.md`](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks/blob/main/docs/DEMO_RUNBOOK.md).
@@ -13,16 +15,13 @@ If you change one, change the other.
 
 - [Quick Start](#quick-start)
 - [Repositories](#repositories)
-- [The Before / After Model](#before-after)
-- [Demo Script](#demo-script)
-  - [Setup (once)](#setup)
-  - [Step 1 — Show the Before](#step-1)
-  - [Step 2 — Build the After (dbt)](#step-2)
-  - [Step 3 — Query Before vs After](#step-3)
-  - [Step 4 — PySpark Alternative](#step-4)
-  - [Step 5 — IaC + CD Deploy](#step-5)
-  - [Step 6 — Run the Workflow](#step-6)
-  - [Step 7 — Revert / Reset](#step-7)
+- [Before, After, and the Verification Loop](#before-after)
+- [Part 1 — Devin Does the Migration](#part-1)
+  - [Act 1 — Orient over the SAS estate](#act-1)
+  - [Act 2 — Convert one program live, with verification](#act-2)
+  - [Act 3 — Fan out in parallel](#act-3)
+  - [Act 4 — Confidence = programmatic verification](#act-4)
+- [Part 2 — Run the Produced Artifact](#part-2)
 - [Concurrent Runs](#concurrent)
 - [Warehouse Sizing Note](#warehouse)
 - [Key Takeaways](#key-takeaways)
@@ -41,14 +40,15 @@ export DATABRICKS_HOST="https://<workspace>.cloud.databricks.com"
 export DATABRICKS_HTTP_PATH="/sql/1.0/warehouses/<warehouse_id>"
 export DATABRICKS_TOKEN="dapi..."
 
-pip install -r requirements.txt -r seed/requirements.txt
+pip install -r requirements.txt -r seed/requirements.txt -r verify/requirements.txt
 cd dbt_project && dbt deps && cd ..
 
 make seed                 # before: raw source data
-make demo-up NS=dev       # after: dbt build (13 models + 43 tests)
+make demo-up   NS=dev     # after: dbt build (13 models + schema + reconciliation tests)
+make reconcile NS=dev     # source -> target reconciliation report
 make deploy               # IaC: bundle deploy
-make run-job TARGET=dev   # run deployed Workflow (dbt + PySpark)
-make destroy TARGET=dev   # revert deploy
+make run-job   TARGET=dev # run deployed Workflow (dbt + PySpark)
+make destroy   TARGET=dev # revert deploy
 make demo-down NS=dev     # drop after-state schemas (raw untouched)
 ```
 
@@ -61,83 +61,155 @@ warehouse, and a PAT that can use the warehouse and create catalogs/schemas/jobs
 ## Repositories
 
 - [ts-sas-legacy-analytics](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-analytics) — the legacy SAS estate (banking/insurance programs, macros, formats, batch orchestration). Read-only reference for the "before".
-- [uc-data-migration-sas-to-databricks](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks) — the dbt + Databricks target: models, seeder, PySpark job, Asset Bundle (IaC), CI/CD, and the demo runbook.
+- [uc-data-migration-sas-to-databricks](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks) — the dbt + Databricks target: models, reconciliation harness, seeder, PySpark job, Asset Bundle (IaC), CI/CD, the conversion playbook, and the demo runbook.
 
 ---
 
 <a id="before-after"></a>
-## The Before / After Model
+## Before, After, and the Verification Loop
 
 | | Code | Data |
 |---|---|---|
 | **Before** | `main` branch + the SAS estate | `banking_analytics.raw.*` (durable; never overwritten) |
 | **After** | the demo branch (full models + PySpark + IaC + CD) | `banking_analytics.<NS>_staging / _intermediate / _marts / _curated` (per-run, disposable) |
 
-The before state is durable; the after state is namespaced and disposable. That
-is what makes this safe to repeat and safe to run concurrently.
+The verification loop sits between them: every converted model is built into a
+namespace and checked by reconciliation controls before it is trusted. The before
+state is durable; the after state is namespaced and disposable — which is what
+makes this safe to repeat and safe to run concurrently.
+
+> **On "parity":** there is no live SAS runtime in this environment, so parity
+> means source → target reconciliation against the SAS code as the source of
+> truth (control totals, row counts, mapping parity, referential integrity) plus
+> dbt tests — a deterministic contract, not a byte-for-byte SAS-vs-Databricks
+> output diff.
 
 ---
 
-<a id="demo-script"></a>
-## Demo Script
+<a id="part-1"></a>
+## Part 1 — Devin Does the Migration
 
-<a id="setup"></a>
-### Setup (once)
+<a id="act-1"></a>
+### Act 1 — Orient over the SAS estate
+
+Open the SAS estate and ask Devin to explain it. With DeepWiki over the repo,
+Devin typically maps an unfamiliar estate in minutes (coverage depends on repo
+structure).
+
+```
+Using the ts-sas-legacy-analytics repo, give me a map of the SAS estate:
+the banking and insurance programs, what each one reads and writes, the
+LIBNAMEs, the macros and PROC FORMATs they depend on, and which programs are
+set-based (good for dbt) vs procedural/multi-output (better as PySpark).
+```
+
+Expected: a tour of `Programs/Banking/*`, `Programs/Insurance/*`, the `Macro/`
+and `Formats/` dependencies, and the Control-M-style `BatchJobs/` wrappers — with
+a dbt-vs-PySpark recommendation per program.
+
+<a id="act-2"></a>
+### Act 2 — Convert one program live, with verification
+
+The core beat. Paste the playbook prompt for one program. Devin reads the SAS,
+writes the dbt model plus reconciliation controls, builds against the live
+workspace, runs the controls, catches a divergence, fixes it, and produces a PR
+with the reconciliation report.
+
+```
+Convert the SAS program Programs/Banking/monthly_regulatory_reporting.sas in
+the ts-sas-legacy-analytics estate into dbt models on Databricks, following
+docs/CONVERSION_PLAYBOOK.md in uc-data-migration-sas-to-databricks.
+
+- Treat the SAS source as the source of truth: reproduce its logic exactly,
+  including any quirks, and flag (do not silently fix) anything that looks wrong.
+- Add reconciliation controls: completeness, a control total, and a parity check
+  for every CASE/mapping in the program.
+- Build into the dev namespace and run dbt build plus the reconciliation report
+  until everything is green, and include the reconciliation report.
+```
+
+**The verification beat (the real bug).** The SAS CASE maps `LOC` (line of
+credit) → risk weight **1.00**. A plausible-looking conversion maps `LOC` → 0.75
+to match the other revolving-credit products — which diverges from the source and
+silently overstates capital relief. The parity control catches it:
 
 ```bash
-export DATABRICKS_HOST="https://<workspace>.cloud.databricks.com"
-export DATABRICKS_HTTP_PATH="/sql/1.0/warehouses/<warehouse_id>"
-export DATABRICKS_TOKEN="dapi..."
-
-git checkout <demo-branch>
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt -r seed/requirements.txt
-cd dbt_project && dbt deps && cd ..
-databricks current-user me        # confirm connectivity
-make seed                         # seed before-state raw data (idempotent)
+make reconcile NS=dev
+#   rwa_risk_weight_parity | FAIL | LOC=0.75 (source expects 1.00)
 ```
 
-<a id="step-1"></a>
-### Step 1 — Show the Before
-
-Confirm the raw inputs exist in Unity Catalog:
-
-```sql
-SHOW TABLES IN banking_analytics.raw;
-SELECT * FROM banking_analytics.raw.cust_accounts LIMIT 10;
-SELECT * FROM banking_analytics.raw.claims        LIMIT 10;
-```
-
-For contrast, open one SAS source, e.g.
-`ts-sas-legacy-analytics/Programs/Insurance/claims_processing.sas`.
-
-<a id="step-2"></a>
-### Step 2 — Build the After (dbt)
+Restore `LOC` → 1.00 (source-faithful), re-run, and the report goes green:
 
 ```bash
-make demo-up NS=dev
+make reconcile NS=dev
+#   rwa_risk_weight_parity | PASS | all account_types match the SAS risk-weight mapping
 ```
 
-You'll get `PASS=56 WARN=0 ERROR=0` — 13 models (3 staging views, 3 intermediate
-tables, 7 marts) + 43 data tests. A few of the translations on display: SAS
-IF/THEN → `CASE`, PROC FORMAT → Jinja macros, WOE scorecard → nested `CASE` +
-`exp()`, multi-source `MERGE BY` → multi-`ref()` `JOIN`.
+The point: "looks reasonable" review would have shipped 0.75; the parity check
+against the source did not. The full write-up is in the code repo at
+`docs/CONVERSION_PLAYBOOK.md` → *Worked example: the LOC risk-weight divergence*.
 
-<a id="step-3"></a>
-### Step 3 — Query Before vs After
+<a id="act-3"></a>
+### Act 3 — Fan out in parallel
+
+Conversions are independent, so launch a Devin session per program. Each follows
+the same playbook and produces its own verified PR — the same review bar applied
+many times in parallel instead of once in series.
+
+| Session | SAS program | Target |
+|---|---|---|
+| 1 | `Programs/Banking/load_customer_accounts.sas` | `stg_cust_accounts` + `int_account_metrics` |
+| 2 | `Programs/Banking/daily_transaction_processing.sas` | `stg_daily_transactions` + `mart_daily_transactions` |
+| 3 | `Programs/Banking/monthly_regulatory_reporting.sas` | `mart_regulatory_rwa` + `mart_delinquency_aging` |
+| 4 | `Programs/Insurance/claims_processing.sas` | PySpark `claims_processing` (procedural, multi-output) |
+
+Each session uses its own namespace (`NS=session1`, …) so the live builds never
+collide.
+
+<a id="act-4"></a>
+### Act 4 — Confidence = programmatic verification
+
+The gates that make every PR trustworthy:
+
+- **CI** (`.github/workflows/dbt_ci.yml`): sqlfluff lint → `dbt parse` →
+  `dbt test` (schema **and** reconciliation tests against the live workspace) →
+  a reconciliation-report job that publishes the report as a build artifact.
+- **Reconciliation controls** (`dbt_project/tests/reconcile_*.sql` +
+  `verify/reconcile.py`): completeness, control totals, source-parity mappings,
+  cross-engine referential integrity — documented as a contract in
+  `docs/CONVERSION_PLAYBOOK.md`.
+- **Devin Review**: an automated reviewer on every PR.
+
+A conversion is "done" when the source-parity controls are green, in CI, on the
+PR — not when the code merely runs.
+
+---
+
+<a id="part-2"></a>
+## Part 2 — Run the Produced Artifact
+
+Show the converted estate running end to end, with a repeatable before/after.
+
+```bash
+make demo-up   NS=dev     # seed (idempotent) + dbt build into dev_* schemas
+make reconcile NS=dev     # all controls PASS
+```
+
+`dbt build` ends `PASS=104 ERROR=0` (13 models + schema tests + reconciliation
+tests). Query the before and after side by side:
 
 ```sql
 SELECT count(*) FROM banking_analytics.raw.cust_accounts;            -- before
 SELECT count(*) FROM banking_analytics.dev_marts.mart_risk_scores;  -- after
 SELECT * FROM banking_analytics.dev_marts.mart_customer_pnl ORDER BY net_profit DESC LIMIT 20;
-SELECT policy_type, agg_loss_ratio, agg_combined_ratio FROM banking_analytics.dev_marts.mart_loss_ratios;
+
+-- LOC sits at risk_weight = 1.00, matching the SAS source
+SELECT account_type, risk_weight, n_accounts, total_exposure, rwa
+FROM banking_analytics.dev_marts.mart_regulatory_rwa ORDER BY account_type;
 ```
 
-<a id="step-4"></a>
-### Step 4 — PySpark Alternative
-
-The procedural, multi-output `claims_processing.sas` becomes a custom PySpark
-job (`src/pyspark/claims_processing.py`) — the alternative to dbt:
+The procedural, multi-output `claims_processing.sas` becomes a custom PySpark job
+(`src/pyspark/claims_processing.py`) — the alternative to dbt:
 
 ```sql
 SELECT * FROM banking_analytics.dev_curated.claims_register     LIMIT 20;
@@ -145,49 +217,34 @@ SELECT * FROM banking_analytics.dev_curated.fraud_alerts;
 SELECT * FROM banking_analytics.dev_curated.claims_review_queue;
 ```
 
-<a id="step-5"></a>
-### Step 5 — IaC + CD Deploy
+Deploy as IaC, run the Workflow, then revert — `main` and the raw data are never
+touched:
 
 ```bash
-make deploy               # databricks bundle deploy -t dev (schedule paused)
+make deploy               # databricks bundle deploy -t dev (schedule paused, per-user)
+make run-job   TARGET=dev # DAG: dbt_staging -> intermediate -> marts -> test, + pyspark in parallel
+make destroy   TARGET=dev # remove the deployed job (revert CD)
+make demo-down NS=dev     # drop dev_* output schemas (raw data untouched)
 ```
 
 The pipeline is a Databricks Asset Bundle (`databricks.yml` +
 `resources/daily_banking_pipeline.job.yml`). To show CD without merging to
 `main`, trigger the GitHub Actions **deploy bundle** workflow manually
-(Actions → Run workflow → pick target + namespace). On a real merge to `main`
-the same workflow deploys automatically.
-
-<a id="step-6"></a>
-### Step 6 — Run the Workflow
-
-```bash
-make run-job TARGET=dev
-```
-
-The DAG runs `dbt_staging → dbt_intermediate → dbt_marts → dbt_test` with
-`pyspark_claims_processing` in parallel, ending `TERMINATED SUCCESS`.
-
-<a id="step-7"></a>
-### Step 7 — Revert / Reset
-
-```bash
-make destroy TARGET=dev   # remove the deployed job (revert CD)
-make demo-down NS=dev     # drop dev_* output schemas (raw data untouched)
-```
-
-`main` is never modified and the raw "before" data is intact — ready to run again.
+(Actions → Run workflow → pick target + namespace). On a real merge to `main` the
+same workflow deploys automatically.
 
 ---
 
 <a id="concurrent"></a>
 ## Concurrent Runs
 
-Each output schema is namespaced, so multiple runs coexist with no collisions:
+Each output schema is namespaced, so multiple runs — and the parallel fan-out in
+Act 3 — coexist with no collisions:
 
 ```bash
 make demo-up   NS=alice
 make demo-up   NS=run2
+make reconcile NS=alice
 make demo-down NS=alice
 ```
 
@@ -212,10 +269,11 @@ wall-clock (~3–4 min) is mostly serverless cold-start.
 <a id="key-takeaways"></a>
 ## Key Takeaways
 
-- A SAS estate can be migrated to a **working, tested** dbt project on Databricks — not just a paper mapping. The before→after is queryable side by side in Unity Catalog.
-- dbt covers the set-based transforms; a custom **PySpark** job is the right tool for procedural, multi-output SAS programs. Both paths side by side frame the migration choice honestly.
-- **IaC + CI/CD** (Databricks Asset Bundles + GitHub Actions) replace hand-promoted SAS packages with version-controlled, reviewable, automated deployment.
-- Namespaced outputs + a one-command revert make the whole story **safe to repeat** and **safe to run concurrently** without touching the durable source data.
+- The value on display is **Devin doing the migration**: reading an unfamiliar SAS estate, converting programs off a reusable playbook, and proving each conversion against the source — not just a finished artifact to run.
+- **Confidence comes from programmatic verification.** Reconciliation controls (completeness, control totals, source-parity mappings) gate every build and CI run, and the demo shows a real divergence (LOC risk weight 0.75 vs the source's 1.00) being caught and fixed. "Looks reasonable" review would have missed it.
+- The **SAS source is the source of truth**: conversions reproduce legacy logic faithfully (quirks flagged, not silently "fixed"); remediation is a separate, deliberate decision.
+- Conversions are **independent and parallelizable** — multiple Devin sessions convert multiple programs at once, each producing its own verified PR. The playbook keeps every run consistent.
+- dbt covers set-based transforms; a custom **PySpark** job fits procedural, multi-output programs. **IaC + CI/CD** (Asset Bundles + GitHub Actions) replace hand-promoted SAS packages, and namespaced outputs + one-command revert make the whole story safe to repeat and run concurrently.
 
 ---
 
@@ -224,9 +282,11 @@ wall-clock (~3–4 min) is mostly serverless cold-start.
 
 This reference solution was built by Devin working from the SAS source estate and
 the partially-built dbt target: it analyzed the SAS programs, built the missing
-insurance/regulatory models, generated synthetic data, authored the Asset Bundle
-and CD workflow, and validated the whole pipeline by deploying and running it live
-in a Databricks workspace. The same Context Loop (source analysis → target
-mapping → produce PR → human review → refine) described in
+insurance/regulatory models, generated synthetic data, authored the reconciliation
+harness, the Asset Bundle, and the CD workflow, and validated the whole pipeline
+by deploying and running it live in a Databricks workspace. The same Context Loop
+(source analysis → target mapping → produce PR → programmatic verification → human
+review → refine) described in
 [`modules/data-engineering/sas-migration-analysis.md`](../../modules/data-engineering/sas-migration-analysis.md)
-applies here.
+applies here, with the conversion procedure codified in the code repo's
+`docs/CONVERSION_PLAYBOOK.md`.
