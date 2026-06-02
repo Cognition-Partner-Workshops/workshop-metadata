@@ -7,7 +7,7 @@ microservices system, then fan out parallel Devin Cloud sessions to execute —
 each producing its own PR independently.
 
 **Application:** [OtterWorks](https://github.com/Cognition-Partner-Workshops/otterworks)
-— 11 microservices in 8 languages (Go, Java, Rust, Python, Node.js, Kotlin,
+— 11 microservices in 9 languages (Go, Java, Rust, Python, Node.js, Kotlin,
 Scala, Ruby, C#) with React and Angular frontends.
 
 ## Table of Contents
@@ -196,7 +196,7 @@ this sequentially would take 11× longer.
 ## Alternative Cross-Cutting Tasks
 
 These tasks follow the same "plan locally → execute in parallel" pattern.
-Substitute based on audience interest or time constraints.
+Try any of these instead of (or in addition to) the RFC 7807 task above.
 
 ### Add Request Correlation IDs
 
@@ -254,6 +254,6 @@ which need migration. Generate per-service Devin prompts.
    Devin Local, kicks off cloud sessions, and reviews the resulting PRs. No
    context-switching between tools.
 
-5. **Polyglot is the point** — OtterWorks uses 8 languages deliberately. A
-   human would context-switch between Go, Rust, Python, Java, Kotlin, Scala,
-   Ruby, and C#. Devin handles each natively in parallel.
+5. **Polyglot is the point** — OtterWorks uses 9 languages deliberately. A
+   human would context-switch between Go, Rust, Python, Java, Node.js, Kotlin,
+   Scala, Ruby, and C#. Devin handles each natively in parallel.
