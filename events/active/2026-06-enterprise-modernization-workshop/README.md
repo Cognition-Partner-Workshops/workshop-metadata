@@ -529,7 +529,7 @@ Track your progress on the [Devin Features Appendix](../../../modules/devin-feat
 | PR feedback loop (comment → iterate) | All labs |
 | Ask Devin research | All labs |
 | DeepWiki exploration | All labs |
-| Parent-child session orchestration | Lab 1 (parallel test + migration children) |
+| Parent-child session orchestration | Labs 1, 3 |
 | Parallel sessions | Labs 1+2 overlap, Lab 4 dual sessions |
 | Knowledge items | Lab 3 (extraction patterns), Lab 4 (feature patterns) |
 | GitHub Issue creation | Lab 4 |
