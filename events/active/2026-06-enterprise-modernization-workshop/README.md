@@ -62,14 +62,13 @@ Already comfortable with Devin basics? Jump straight to the labs:
 | Time | Activity | Lab |
 |------|----------|-----|
 | 0:00 | Welcome, Devin overview, platform walkthrough | — |
-| 0:15 | **Lab 1:** Angular to React UI Migration | [Lab 1](#lab-1--angular-to-react-ui-migration-15-min) |
-| 0:30 | **Lab 2:** Security Vulnerabilities Remediation | [Lab 2](#lab-2--security-vulnerabilities-remediation-15-min) |
-| 0:45 | **Lab 3:** Monolith-to-Microservices Extraction | [Lab 3](#lab-3--monolith-to-microservices-extraction-15-min) |
-| 1:00 | **Lab 4:** New Product Development (Ideas to Deployment) | [Lab 4](#lab-4--new-product-development-ideas-to-deployment-10-min) |
-| 1:10 | Review PRs, leave comments, iterate with Devin | — |
+| 0:15 | **Kick off Labs 1–4** — paste all prompts back-to-back (~8 min) | [Labs 1](#lab-1--angular-to-react-ui-migration-15-min)–[4](#lab-4--new-product-development-ideas-to-deployment-10-min) |
+| 0:23 | **While Devin works:** Ask Devin prompts + DeepWiki exploration | — |
+| 0:40 | **Review PRs**, leave comments, iterate with Devin | — |
+| 1:10 | Continue reviewing + second-round PR comments | — |
 | 1:40 | Wrap-up, showcase results, Q&A | — |
 
-> **Timing note:** Each lab has a "Paste into Devin" step (~2 min) and a "While Devin works" section with Ask Devin prompts. Kick off all four labs back-to-back, then use the dedicated review block (1:10–1:40) to review PRs, leave comments, and watch Devin iterate. By wrap-up, most participants will have 3–4 PRs to showcase.
+> **Timing note:** Kick off all four labs in the first 8 minutes — each is a copy-paste prompt (~2 min each). While Devin works on all four simultaneously, use Ask Devin to explore the codebases. PRs start arriving around 0:25–0:35. The bulk of hands-on time (0:40–1:40) is spent reviewing PRs, leaving comments, and watching Devin iterate. By wrap-up, most participants will have 3–4 PRs to showcase.
 
 ---
 
@@ -114,7 +113,7 @@ and visits.
 3. **When both children finish:** Merge both PRs into a
    combined branch. Run the tests from Child A against
    the React app from Child B. Report which tests pass
-   and which fail.
+   and which fail — do not attempt to fix failing tests.
 ```
 
 ### While Devin works: try Ask Devin
@@ -220,12 +219,12 @@ When Devin opens a PR:
 <a id="lab-3"></a>
 ## Lab 3 — Monolith-to-Microservices Extraction (15 min)
 
-**Value driver:** *Devin analyzes a monolith's domain boundaries, extracts a bounded context into a standalone service, and wires up cross-service communication — using parallel child sessions to document the analysis and build the service simultaneously.*
+**Value driver:** *Devin analyzes a monolith's domain boundaries, documents extraction decisions, extracts a bounded context into a standalone service, and wires up cross-service communication — all in a single session.*
 
 - **Repository:** [uc-spring-boot-upgrade-microservice-extraction](https://github.com/Cognition-Partner-Workshops/uc-spring-boot-upgrade-microservice-extraction)
 - **Modules:** [Containerization & Microservice Extraction](../../../modules/migration-modernization/containerization-microservice-extraction.md)
 
-This is a Spring Boot 2.6.3 / Java 11 monolith implementing the RealWorld blogging platform (Conduit) with 4 domain contexts: articles/tags, comments, favorites, and users/profiles. It has REST and GraphQL (DGS) APIs, MyBatis persistence with SQLite, Flyway migrations, 27 test files with an 80% JaCoCo coverage gate, and a Next.js frontend. Participants will ask Devin to analyze domain boundaries and extract a bounded context using parallel child sessions — one for the architecture decision document and one for the extraction itself.
+This is a Spring Boot 2.6.3 / Java 11 monolith implementing the RealWorld blogging platform (Conduit) with 4 domain contexts: articles/tags, comments, favorites, and users/profiles. It has REST and GraphQL (DGS) APIs, MyBatis persistence with SQLite, Flyway migrations, 27 test files with an 80% JaCoCo coverage gate, and a Next.js frontend. Participants will ask Devin to analyze domain boundaries, document extraction decisions, and extract a bounded context into a standalone service.
 
 ### Paste into Devin
 
@@ -233,37 +232,27 @@ This is a Spring Boot 2.6.3 / Java 11 monolith implementing the RealWorld bloggi
 Extract the Article bounded context from
 uc-spring-boot-upgrade-microservice-extraction — a Spring
 Boot 2.6.3 monolith with REST and GraphQL APIs, MyBatis
-persistence, and a Next.js frontend. Use parallel child
-sessions to document and extract simultaneously.
+persistence, and a Next.js frontend.
 
 1. **Read the codebase:** Identify the 4 bounded contexts
    (articles/tags, comments, favorites, users/profiles)
-   and their coupling points. Commit your analysis to a
-   new branch.
+   and their coupling points.
 
-2. **Spin up two child sessions in parallel:**
+2. **Document extraction decisions:** Create
+   docs/EXTRACTION_DECISIONS.md documenting: which domain
+   objects move to the Article service (articles, tags,
+   comments, favorites), what stays (users/profiles),
+   coupling points between domains, and the cross-service
+   communication strategy.
 
-   Child A — "In uc-spring-boot-upgrade-microservice-
-   extraction, create docs/EXTRACTION_DECISIONS.md
-   documenting: which domain objects move to the Article
-   service (articles, tags, comments, favorites), what
-   stays (users/profiles), coupling points between
-   domains, and the cross-service communication strategy."
-
-   Child B — "In uc-spring-boot-upgrade-microservice-
-   extraction, extract the Article bounded context into
-   article-service/ — a standalone Spring Boot service
-   with its own build configuration, database migrations,
-   and MyBatis persistence. Include articles, tags,
-   comments, and favorites. Replace direct User domain
-   calls with a REST client and DTOs. ./gradlew build
-   must pass for both services. Do not attempt to fix
-   pre-existing CI thresholds (e.g., JaCoCo coverage
-   gates)."
-
-3. **When both children finish:** Verify existing tests in
-   the main app still pass after extraction. Report
-   results.
+3. **Extract:** Create article-service/ — a standalone
+   Spring Boot service with its own build configuration,
+   database migrations, and MyBatis persistence. Include
+   articles, tags, comments, and favorites. Replace direct
+   User domain calls with a REST client and DTOs.
+   ./gradlew build must pass for both services. Do not
+   attempt to fix pre-existing CI thresholds (e.g., JaCoCo
+   coverage gates).
 ```
 
 ### While Devin works: try Ask Devin
@@ -274,7 +263,7 @@ sessions to document and extract simultaneously.
 
 ### Review the PR
 
-When Devin opens PRs (you may see up to 3 — analysis doc, extraction, combined):
+When Devin opens a PR:
 - Does `EXTRACTION_DECISIONS.md` clearly justify which domain objects moved and which stayed?
 - Does the article-service have its own independent build that compiles?
 - Is cross-service communication implemented via REST client (not shared database queries)?
@@ -283,8 +272,7 @@ When Devin opens PRs (you may see up to 3 — analysis doc, extraction, combined
 
 ### Key Takeaways
 
-- **"Domain analysis before decomposition"** — Devin reads the monolith, identifies bounded contexts, and documents extraction decisions before cutting any code
-- **"Parallel child sessions"** — one child documents the architecture while another builds the service, mirroring how teams split analysis and implementation work
+- **"Analysis before extraction"** — Devin reads the monolith, identifies bounded contexts, and writes a reviewable extraction decisions document before cutting any code
 - **"Existing tests as a safety net"** — the monolith's test suite verifies that extraction didn't break functionality
 - **"Service contracts, not shared databases"** — the extracted service communicates via REST DTOs, not direct database access — the right pattern for real microservices
 - **"Containerization via PR feedback"** — attendees ask Devin to add Docker Compose as a follow-up, showing iterative architecture work through PR comments
@@ -529,7 +517,7 @@ Track your progress on the [Devin Features Appendix](../../../modules/devin-feat
 | PR feedback loop (comment → iterate) | All labs |
 | Ask Devin research | All labs |
 | DeepWiki exploration | All labs |
-| Parent-child session orchestration | Labs 1, 3 |
+| Parent-child session orchestration | Lab 1 (parallel test + migration children) |
 | Parallel sessions | Labs 1+2 overlap, Lab 4 dual sessions |
 | Knowledge items | Lab 3 (extraction patterns), Lab 4 (feature patterns) |
 | GitHub Issue creation | Lab 4 |
