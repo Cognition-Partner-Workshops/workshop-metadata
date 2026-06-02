@@ -526,7 +526,7 @@ Track your progress on the [Devin Features Appendix](../../../modules/devin-feat
 | Test-driven migration (TDD: red → green) | Lab 1 |
 | Code generation (full-stack) | Labs 1, 4 |
 | Dependency management | Lab 2 |
-| SAST/SCA tool execution | Lab 2 |
+| SAST/SCA tool execution (via PR comment) | Lab 2 |
 | Domain boundary analysis | Lab 3 |
 | Microservice extraction | Lab 3 |
 | Build & test verification | All labs |
