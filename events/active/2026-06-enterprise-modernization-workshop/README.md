@@ -93,26 +93,26 @@ using a test-driven approach with parallel child sessions.
    documenting each REST endpoint: HTTP method, URL pattern,
    request/response shapes, and error handling. Base URL is
    http://localhost:9966/petclinic/api/. Commit this to a
-   new branch and open a PR.
+   new branch.
 
 2. **Spin up two child sessions in parallel:**
 
    Child A — "In petclinic-angular, create React Testing
    Library + MSW tests in react-frontend/src/__tests__/
    validating owner CRUD, pet management, visit creation,
-   and vet listing against docs/API_CONTRACT.md. Open a PR."
+   and vet listing against docs/API_CONTRACT.md."
 
    Child B — "In petclinic-angular, migrate the Angular
    frontend to React 18+/TypeScript/Vite in react-frontend/.
    Preserve routing, form validation, error handling.
    npm run build must pass. Document gaps in
-   docs/MIGRATION_NOTES.md. Open a PR."
+   docs/MIGRATION_NOTES.md."
 
 3. **When both children finish:** Merge both PRs into a
    combined branch. Run the tests from Child A against
    the React app from Child B. Iterate until all tests
    pass — fix the React components to satisfy each failing
-   test. Open a final PR with the verified migration.
+   test.
 ```
 
 ### While Devin works: try Ask Devin
