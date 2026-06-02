@@ -35,6 +35,7 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **C10** | SAS Migration | [`scottbass/SAS`](https://github.com/scottbass/SAS) | `ts-sas-legacy-analytics`, `uc-data-migration-sas-to-snowflake`, `uc-data-migration-sas-to-databricks` | Enterprise SAS analytics estate (banking/insurance programs, macros, formats, batch orchestration) paired with Snowflake validation toolkit and dbt/Databricks target architecture. |
 | **C11** | OrderManager Monolith-to-Microservices | *original* | `platform-engineering-shared-services`, `ordermanager-monolith`, `ordermanager-iac`, `ordermanager-microservices` | Platform standard + .NET/Angular monolith + service IaC + microservices landing repo for decomposition demos. Platform repo provides the shared EKS/ArgoCD/monitoring infrastructure; monolith is the source; microservices repo receives all decomposed services and service-level IaC. |
 | **C12** | Oracle Forms HRMS Modernization | *original* | `ts-plsql-oracle-forms-hrms`, `uc-legacy-modernization-oracle-forms-to-java` | Legacy Oracle Forms/PL/SQL HRMS application paired with Java/Spring Boot migration artifacts, test harness, and architecture documentation. Legacy repo is the static analysis target; use-case repo holds migration planning, target code, and equivalence tests. |
+| **C13** | Sybase ASE → SQL Server Migration | *original* | `ts-tsql-sybase-legacy-db`, `uc-db-migration-sybase-to-sqlserver` | Sybase ASE 16 loan servicing database (stored procedures, views, triggers, functions, schema DDL) paired with SQL Server migration target, reconciliation harness, conversion playbook, synthetic data seeder, and CI/CD pipeline. |
 
 ---
 
@@ -130,6 +131,16 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | — |
 | **Cluster** | C10 |
 | **Challenges** | [SAS Migration Analysis](../modules/data-engineering/sas-migration-analysis.md) |
+
+### uc-db-migration-sybase-to-sqlserver
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/uc-db-migration-sybase-to-sqlserver |
+| **Description** | Sybase ASE to SQL Server migration target — converted T-SQL (namespace-isolated), reconciliation harness (completeness, control totals, business-rule parity), deterministic synthetic data seeder, conversion playbook, demo runbook, and GitHub Actions CI/CD pipeline. |
+| **Tech Stack** | T-SQL, Python, pyodbc, sqlfluff, GitHub Actions |
+| **License** | Unlicense |
+| **Cluster** | C13 |
+| **Challenges** | [Sybase to SQL Server Demo](../demos/data-engineering/sybase-to-sqlserver-demo.md) |
 
 ### uc-data-migration-airflow
 | | |
@@ -274,6 +285,16 @@ Some repos are intentionally duplicated from the same upstream source so that di
 | **License** | Unlicense |
 | **Cluster** | C10 |
 | **Challenges** | [SAS to Python/Snowflake](../modules/data-engineering/sas-to-python-snowflake.md), [SAS Migration Analysis](../modules/data-engineering/sas-migration-analysis.md) |
+
+### ts-tsql-sybase-legacy-db
+| | |
+|---|---|
+| **URL** | https://github.com/Cognition-Partner-Workshops/ts-tsql-sybase-legacy-db |
+| **Description** | Legacy Sybase ASE 16 loan servicing database — 7 tables, 12 stored procedures (Servicing, Reporting, Batch, CRUD), 3 views with Sybase-specific `*=` outer joins and `COMPUTE BY`, 2 triggers, 3 scalar functions, batch scripts, and `isql` connection config. |
+| **Tech Stack** | Sybase ASE T-SQL |
+| **License** | Unlicense |
+| **Cluster** | C13 |
+| **Challenges** | [Sybase to SQL Server Demo](../demos/data-engineering/sybase-to-sqlserver-demo.md) |
 
 ### ts-java-selenium-testng
 | | |
