@@ -144,7 +144,7 @@ including legacy data shapes.
 <a id="phase-3"></a>
 ## Phase 3 — Security Remediation: Event-Driven at Scale
 
-The enterprise runs a polyglot microservices platform — 11 backend services in
+The enterprise runs a polyglot microservices platform — 10 backend services in
 Go, Rust, Python, Java, Kotlin, Scala, Ruby, C#, and Node.js, plus two
 frontends. Security findings pile up across 9 languages. No single engineer
 owns the full stack.
@@ -163,7 +163,7 @@ https://sonarcloud.io/project/overview?id=Cognition-Partner-Workshops_otterworks
 | Security Hotspots | 51 | CSRF disabled, recursive COPY in Dockerfiles, ReDoS-prone regex |
 | Bugs | 24 | Logic errors across services |
 | Code Smells | 434 | Maintainability issues |
-| Lines of Code | 33,857 | Across 11 backend services + 2 frontends |
+| Lines of Code | 33,857 | Across 10 backend services + 2 frontends |
 
 Manually triaging and fixing these across 9 languages is a multi-day effort
 for an engineering team. Devin handles it as a background agent.
