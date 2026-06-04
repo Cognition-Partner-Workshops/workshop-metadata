@@ -11,7 +11,6 @@ the entire estate is modern, tested, and secured in CI.
 <a id="toc"></a>
 ## Table of Contents
 
-- [The Story](#the-story)
 - [Phase 1 — Data Pipelines: SAS → dbt/Databricks](#phase-1)
   - [Orient over the SAS estate](#phase-1-orient)
   - [Convert one program live](#phase-1-convert)
@@ -38,34 +37,6 @@ the entire estate is modern, tested, and secured in CI.
   - [Scale with child sessions](#phase-4-scale)
 - [The Pattern](#the-pattern)
 - [Key Takeaways](#key-takeaways)
-
----
-
-<a id="the-story"></a>
-## The Story
-
-An enterprise runs on four legacy layers stacked together:
-
-| Layer | Legacy | Modern Target |
-|-------|--------|---------------|
-| **Data pipelines** | SAS programs (banking, insurance, regulatory reporting) | dbt models on Databricks with PySpark for procedural logic |
-| **Database** | Sybase ASE stored procedures (loan servicing) | SQL Server T-SQL with namespace isolation |
-| **APIs** | MuleSoft Mule 4 XML flows (employee services) | Spring Boot 3.x REST controllers with OpenAPI contracts |
-| **Security posture** | Manual triage across a polyglot monorepo | Event-driven SAST with dual scanners and autonomous remediation |
-
-Each layer has its own legacy artifacts, its own conversion challenges, and its
-own definition of "done." But the approach is identical every time:
-
-1. **Orient** — Devin maps the unfamiliar estate
-2. **Convert one** — live, on camera, against the real target
-3. **Verify** — programmatic controls catch a real divergence
-4. **Fix** — the source of truth wins; silent "fixes" are not allowed
-5. **Fan out** — child sessions convert the rest in parallel
-6. **Run** — the produced artifact works end to end
-
-The demo threads through all four layers in order, building a cumulative case
-that the same pattern — playbook-driven conversion with programmatic
-verification — works regardless of the technology being migrated.
 
 ---
 
@@ -636,7 +607,7 @@ The **source of truth** is always the legacy system. Conversions reproduce
 legacy logic faithfully; quirks are flagged, not silently "fixed." Remediation
 is a separate, deliberate decision.
 
-The **playbook** makes every run consistent. Whether one human launches a
+The **playbook** promotes run-to-run consistency. Whether one human launches a
 session or an orchestrator spawns 10 child sessions, the same procedure and the
 same verification bar apply.
 
