@@ -109,9 +109,11 @@ Watch Devin:
 
 Once the PR is open, leave a review comment:
 
-> *"Add validation for the project dates — start date should not be in the
-> past, and add status transition rules (completed projects cannot be set
-> back to active)."*
+```
+Add validation for the project dates — start date should not be in the
+past, and add status transition rules (completed projects cannot be set
+back to active).
+```
 
 Devin reads the comment, implements the validation, pushes a follow-up
 commit, and the CI re-runs. This is the collaboration model: the engineer
@@ -292,7 +294,7 @@ the upgrade.
 Devin:
 1. Reads the Gradle build, identifies Spring Boot 2.6.3, Java 11
 2. Updates the Spring Boot starter to 3.x, switches to Java 17
-3. Performs the `javax` → `jakarta` namespace migration across all source files
+3. Performs the `javax` → `jakarta` namespace migration across the source files
 4. Updates MyBatis, Flyway, and other dependencies for compatibility
 5. Fixes breaking changes in the REST layer
 6. Runs `./gradlew build` and iterates until green
@@ -380,7 +382,7 @@ Devin:
 4. Generates JUnit parity tests comparing Java output against known COBOL
    behavior
 5. Opens a PR with the Java code, tests, and migration notes documenting
-   every translation decision
+   the key translation decisions
 
 ### The verification beat
 
@@ -416,8 +418,8 @@ Devin sessions to parallelize the work.
 Spawn one child session per program below. Give each
 child the repo and tell it to: analyze the COBOL source,
 map data structures to Java equivalents, translate the
-business logic, generate JUnit parity tests, and open
-a PR with migration notes.
+business logic, generate JUnit parity tests, and include
+migration notes.
 
 Programs:
 1. app/cbl/CBACT01C.cbl — Account file batch processing
