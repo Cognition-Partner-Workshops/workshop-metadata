@@ -519,4 +519,4 @@ platform:
   standards. Playbooks encode proven methodologies. Environment blueprints
   boot sessions ready to build. MCP integrations connect to Jira, Datadog,
   Confluence. Each configuration is a one-time investment that benefits
-  every future session across the organization.
+  future sessions across the organization.
