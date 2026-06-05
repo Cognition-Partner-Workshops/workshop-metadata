@@ -148,7 +148,7 @@ JUnit tests for the new endpoint.
 Devin reads the existing Spring Data JPA patterns, the legacy CDW-style
 tables (all-VARCHAR, cryptic column names like `BORR_FST_NM`, `LN_CURR_BAL`),
 and the column mappings — then implements the endpoint following the same
-conventions. The point: Devin adapts to whatever codebase conventions exist,
+conventions. The point: Devin adapts to the codebase conventions it finds,
 including legacy data shapes.
 
 ---
@@ -505,7 +505,7 @@ platform:
 <a id="key-takeaways"></a>
 ## Key Takeaways
 
-- **Devin operates across the full SDLC** — from feature development on
+- **Devin operates across multiple SDLC phases** — from feature development on
   modern stacks (React, Angular, Spring Boot, Node.js) to security
   remediation across 9 languages to mainframe modernization. The same
   platform, the same collaboration model, applied to different domains.
