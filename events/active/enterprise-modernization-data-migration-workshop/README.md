@@ -278,7 +278,7 @@ When Devin opens PRs (you may see 2 — one per repo):
 ### Key Takeaways
 
 - **"Non-invasive analysis"** — Devin reads SAS macro source files and SAS7BDAT datasets to understand transformation logic — no SAS license, no running SAS environment needed
-- **"Construct-level mapping"** — every SAS pattern (PROC TRANSPOSE, BY-group processing, macro variable resolution) maps to a documented Python equivalent
+- **"Construct-level mapping"** — targeted SAS patterns (PROC TRANSPOSE, BY-group processing, macro variable resolution) map to documented Python equivalents
 - **"SAS date handling"** — SAS stores dates as days since January 1, 1960 — Devin handles this conversion to standard date types automatically
 - **"Parallel conversion potential"** — with 90+ macros, a child-session pattern can convert groups of related macros in parallel
 
@@ -435,7 +435,7 @@ artifacts:
 
 - **Repositories:** [ts-sas-legacy-analytics](https://github.com/Cognition-Partner-Workshops/ts-sas-legacy-analytics) + [uc-data-migration-sas-to-databricks](https://github.com/Cognition-Partner-Workshops/uc-data-migration-sas-to-databricks)
 - **Module:** [SAS Migration Analysis](../../../modules/data-engineering/sas-migration-analysis.md)
-- **Shows:** Devin performing comprehensive estate discovery on a SAS codebase and mapping constructs to dbt/Databricks equivalents
+- **Shows:** Devin performing broad estate discovery on a SAS codebase and mapping constructs to dbt/Databricks equivalents
 
 #### Paste into Devin
 
@@ -532,7 +532,7 @@ A few things to be aware of as you work through the labs:
 - **Lab 1 (Security):** The OWASP Dependency-Check scan takes 2–5 minutes to download the NVD database on first run. Subsequent scans are faster. The repo uses Gradle 8.10 and OWASP plugin 11.1.1.
 - **Lab 2 (COBOL→Java):** The repo has no build system (COBOL is compiled on mainframes) — Devin will create a Java project structure from scratch. There is no single "right answer" — different participants will produce different migrations.
 - **Lab 3 (SAS→Snowflake):** This is a non-invasive analysis — no SAS license or Snowflake account is needed. Devin reads source files and sample datasets statically. Two separate sessions (A and B) target different repos.
-- **Lab 4 (Microservice Extraction):** The monolith has an 80% JaCoCo coverage gate that may fail after extraction. The prompt instructs Devin to skip JaCoCo verification (`-x jacocoTestCoverageVerification`) rather than fight the threshold.
+- **Lab 4 (Microservice Extraction):** The monolith has an 80% JaCoCo coverage gate that may fail after extraction. The prompt instructs Devin not to attempt fixing pre-existing CI thresholds (e.g., JaCoCo coverage gates).
 - **Each lab uses a different repository.** You'll work across five separate codebases (Lab 3 uses two repos) rather than a single unified application.
 
 ---
