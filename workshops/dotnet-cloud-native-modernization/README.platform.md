@@ -115,7 +115,7 @@ and quickapp-iac for Helm chart patterns. Deliverables:
     (monolith + order-service + PostgreSQL),
 (5) Monolith refactored to use HTTP client,
 (6) Integration smoke test.
-Push to both repos and create PRs.
+Push to both repos.
 ```
 
 The cloud session appears in your Agent Command Center. Continue exploring locally or move to Step 3 while Cloud works.
@@ -218,8 +218,7 @@ Reproduce by running the notification-service and POSTing to
 "totalAmount":149.99,
 "placedAt":"2026-03-17T12:00:00Z"}.
 Open the preview URL — the total shows $1.50 instead of $149.99.
-Find the root cause, fix it, take before/after screenshots, and
-open a PR.
+Find the root cause, fix it, and take before/after screenshots.
 ```
 
 #### Step 3: Monitor in the Agent Command Center
