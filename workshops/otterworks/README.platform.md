@@ -119,19 +119,35 @@ Spend a few minutes exploring the web app and admin dashboard. This gives you a 
 
 OtterWorks is a large polyglot codebase. Before jumping into a lab, spend 10 minutes using **Cascade or Devin Local** in Desktop to explore the repo and build a mental model. Open a local agent session in your OtterWorks Space and try these prompts:
 
-> **"What does OtterWorks do? Describe the high-level architecture — what are the services, what language is each one written in, and how do they connect?"**
+```
+What does OtterWorks do? Describe the high-level architecture
+— what are the services, what language is each one written in,
+and how do they connect?
+```
 
 This gives you the map. You will learn that there is an API gateway (Go) routing to backend services, two frontends, and infrastructure like PostgreSQL, Redis, MeiliSearch, and DynamoDB via LocalStack.
 
-> **"Walk me through what happens when a user creates a document. Which services are involved and what does the request flow look like?"**
+```
+Walk me through what happens when a user creates a document.
+Which services are involved and what does the request flow
+look like?
+```
 
 This grounds the architecture in a concrete flow. You will see the api-gateway route the request to the document-service (Python/FastAPI), which writes to DynamoDB and publishes an event to SNS. The collab-service (Node.js) picks up the event for real-time sync, and the search-service (Python/Flask) indexes it in MeiliSearch.
 
-> **"What observability tools does OtterWorks use? Where are the Grafana dashboards, Prometheus alerts, and Jaeger tracing configured?"**
+```
+What observability tools does OtterWorks use? Where are the
+Grafana dashboards, Prometheus alerts, and Jaeger tracing
+configured?
+```
 
 This is especially useful if you are planning Track B (Incident Response), but helps everyone understand how the system is monitored.
 
-> **"What parts of this codebase look like they need work? Are there legacy scripts, outdated dependencies, incomplete docs, or known issues?"**
+```
+What parts of this codebase look like they need work? Are there
+legacy scripts, outdated dependencies, incomplete docs, or
+known issues?
+```
 
 This is the discovery prompt. Devin will surface the ETL legacy scripts, the outdated report-service, the incomplete runbooks, the planted security vulnerabilities, and the drifting API contracts — which are exactly the problems the labs address.
 
