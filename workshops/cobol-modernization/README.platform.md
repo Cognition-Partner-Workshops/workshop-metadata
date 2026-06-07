@@ -344,7 +344,7 @@ Participants who finish early or want to go deeper may attempt:
 
 ## Devin Features Checklist
 
-Encourage participants to track their progress on the [Devin Features Appendix](../../modules/devin-features/README.md) throughout the session. Key activities for this track:
+Track your progress on the [Devin Features Appendix](../../modules/devin-features/README.md) throughout the session. Key activities for this track:
 
 - [ ] Create a Space in Devin Desktop for the workshop
 - [ ] Use Cascade or Devin Local for codebase exploration (Labs 1, 2)
