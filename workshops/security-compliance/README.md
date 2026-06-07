@@ -1,5 +1,7 @@
 # Workshop: Security & Compliance
 
+**Other variants:** [Desktop + Cloud](README.platform.md)
+
 ## Overview
 
 | | |
@@ -8,6 +10,12 @@
 | **Duration** | 1-2 hours |
 | **Audience** | Security engineers, DevSecOps teams, compliance-focused developers |
 | **Key Modules** | [Upgrade Dependencies](../../modules/security/upgrade-dependencies.md), [Remediate Vulnerabilities](../../modules/security/remediate-vulnerabilities.md), [Shift Left Security](../../modules/security/shift-left-security.md), [Security Antipatterns](../../modules/security/security-antipatterns.md), [Secrets Management & Detection](../../modules/security/secrets-management-detection.md), [Event-Driven SAST Remediation](../../modules/security/event-driven-sast-remediation.md), [Mass Security Backlog Remediation](../../modules/security/mass-security-backlog-remediation.md) |
+
+## Platform Context
+
+This workshop uses **Devin Cloud** via the web app ([app.devin.ai](https://app.devin.ai)). You will paste prompts into the Devin web interface, Devin works autonomously on a cloud VM, and you review the resulting pull requests on GitHub.
+
+> **Tip:** These same labs can be run from **Devin Desktop** — where you can delegate tasks to Cloud, review PRs with one-click checkout, and monitor sessions in the Agent Command Center. See [README.platform.md](README.platform.md) for the Desktop + Cloud variant. You can also use **Devin CLI** (`cli.devin.ai`) for quick local exploration before sending tasks to Cloud.
 
 ## Workshop Narrative
 
@@ -23,6 +31,7 @@ A few tips to maximize your hands-on time:
 - **Use Ask Devin to refine requirements.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem before Devin executes.
 - **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item, accept it — this is how teams build a shared context layer that compounds over time.
 - **Leave PR comments to steer Devin.** After Devin opens a PR, you can leave comments and Devin will wake up and address them — this is the core feedback loop.
+- **Track parallel sessions.** If you kick off multiple labs simultaneously, use Devin Desktop's Agent Command Center to see a Kanban view of all your running sessions — what's in progress, what's blocked, and what's ready for review.
 
 ## Table of Contents
 
@@ -64,6 +73,10 @@ Open the repo's DeepWiki page. Try adding SBOM generation, GitHub Actions securi
 
 **Target Outcomes:** OWASP report with CVEs remediated, SBOM generated, CI gating workflow, remediation documentation
 
+> **Desktop tip:** The PRs Devin opens in this lab can be reviewed directly in Devin Desktop with one-click checkout — no manual `git fetch` required.
+
+> **CLI alternative:** The Ask Devin research steps above can also be done locally with `devin` in your terminal for faster iteration.
+
 ---
 
 ### Lab 2 — Shift-Left Security & SAST
@@ -94,6 +107,8 @@ Open the repo's DeepWiki page. Try adding SonarQube scanning (the repo has a pre
 - Ask Devin to add severity thresholds or exclusion lists for known false positives
 
 **Target Outcomes:** CI security scanning workflow, pre-commit hooks, SAST integration
+
+> **Desktop tip:** Use the Agent Command Center in Devin Desktop to monitor all your running sessions on a single Kanban board.
 
 ## Repos Required
 
