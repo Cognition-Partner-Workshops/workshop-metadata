@@ -158,6 +158,8 @@ Review the uc-volume-anomaly-detection codebase. The seasonal detector currently
 
 #### Step 2: Research with Ask Devin
 
+> **CLI alternative:** This exploration step can also be done locally with `devin` in your terminal for faster iteration.
+
 - *"What additional detection strategies beyond z-score and seasonal would improve accuracy?"*
 - *"How should the recommendation engine prioritize multiple simultaneous anomalies?"*
 
@@ -168,8 +170,6 @@ Open the repo's DeepWiki page. Try adding CLI entrypoints, EWMA detectors, visua
 #### Step 4 (Optional): Review & Give Feedback
 
 Review the time-of-day mode. Ask Devin to add CLI processing or alternative detection strategies.
-
-> **CLI alternative:** This exploration step can also be done locally with `devin` in your terminal for faster iteration.
 
 **Target Outcomes:** Time-of-day detection mode, additional detection strategies, CLI entrypoint
 
