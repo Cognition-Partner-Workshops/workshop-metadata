@@ -484,7 +484,7 @@ Track C demonstrates Devin as a maintenance engineer. Participants will set up a
 Send the upgrade task to Cloud:
 
 ```
-Check all dependencies in uc-cve-remediation-regulatory-compliance for available minor and patch version updates. Upgrade each dependency to the latest minor version (do not jump major versions). Run `./gradlew build` and `./gradlew test` to verify the build still passes after each upgrade. If any upgrade breaks the build, revert that specific upgrade and document it.md` listing what was upgraded, from which version to which version, and any upgrades that were skipped (with reasons). Title the PR "chore: weekly dependency version bump".
+Check all dependencies in uc-cve-remediation-regulatory-compliance for available minor and patch version updates. Upgrade each dependency to the latest minor version (do not jump major versions). Run `./gradlew build` and `./gradlew test` to verify the build still passes after each upgrade. If any upgrade breaks the build, revert that specific upgrade and document why. Create a `DEPENDENCY_UPDATES.md` listing what was upgraded, from which version to which version, and any upgrades that were skipped (with reasons). Title the PR "chore: weekly dependency version bump".
 ```
 
 #### Step 2: Research locally while Cloud upgrades
@@ -502,7 +502,7 @@ Monitor upgrade progress in the **Agent Command Center** — especially useful w
 Once you're happy with the output from step 1, turn it into a recurring task:
 
 ```
-Create a Devin scheduled session that runs weekly on Monday mornings against uc-cve-remediation-regulatory-compliance. The schedule should use this prompt: "Check all dependencies for available minor and patch version updates. Upgrade to the latest minor versions. Run the full test suite and build to verify nothing is broken. If any upgrade breaks the build, revert that specific upgrade and note it.md."
+Create a Devin scheduled session that runs weekly on Monday mornings against uc-cve-remediation-regulatory-compliance. The schedule should use this prompt: "Check all dependencies for available minor and patch version updates. Upgrade to the latest minor versions. Run the full test suite and build to verify nothing is broken. If any upgrade breaks the build, revert that specific upgrade and note it in a DEPENDENCY_UPDATES.md."
 ```
 
 #### Step 4 (Optional): Extend to Multiple Repos
@@ -510,7 +510,7 @@ Create a Devin scheduled session that runs weekly on Monday mornings against uc-
 Try running the same pattern for **timesheet-app** with an npm-flavored prompt:
 
 ```
-Check all npm dependencies in timesheet-app for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works.md`.
+Check all npm dependencies in timesheet-app for available minor and patch version updates. Run `npm update` to upgrade to latest minor versions. Run `npm test` and `npm run build` to verify everything still works. Document the changes in a `DEPENDENCY_UPDATES.md`.
 ```
 
 Use the **Agent Command Center** in Desktop to track both upgrade sessions side by side on the Kanban board.
