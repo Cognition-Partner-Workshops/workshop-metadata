@@ -39,7 +39,7 @@ Every lab then follows a four-step Desktop workflow:
 
 A few tips to maximize your hands-on time:
 
-- **Create one Space per lab.** This keeps sessions, PRs, and files organized. Each Space inherits your project context automatically.
+- **Use your workshop Space for all labs.** Keep sessions, PRs, and files in the single Space you created during setup — this gives you one unified view of the entire workshop.
 - **Use Cascade for research first.** Before delegating to Cloud, use Cascade or Devin Local to explore the codebase and refine the requirements — better requirements produce better results.
 - **Delegate early, review later.** Cloud agents work autonomously while you move on. Use the Agent Command Center to see at a glance what is in flight, blocked, or ready for review.
 - **Leave PR comments to steer Devin.** After Devin Cloud opens a PR, leave comments directly in Desktop. Devin wakes up and iterates on your feedback.
