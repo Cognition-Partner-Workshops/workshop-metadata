@@ -1,5 +1,7 @@
 # Workshop: Data Source Migration
 
+**Other variants:** [Desktop + Cloud](README.platform.md)
+
 ## Overview
 
 | | |
@@ -8,6 +10,12 @@
 | **Duration** | 1-2 hours |
 | **Audience** | Database engineers, backend developers, data migration teams |
 | **Key Modules** | [Data Source Migration](../../modules/data-engineering/data-source-migration.md) |
+
+## Platform Context
+
+This workshop uses **Devin Cloud** via the web app ([app.devin.ai](https://app.devin.ai)). You will paste prompts into the Devin web interface, and Devin will work autonomously on a cloud VM — producing pull requests that you review, comment on, and iterate.
+
+> **Tip:** Prefer a local-first workflow? Devin Desktop lets you delegate these same tasks to Cloud from your IDE, review PRs with one-click checkout, and monitor sessions on a Kanban board. See the [Desktop + Cloud variant](README.platform.md) for that delivery.
 
 ## Workshop Narrative
 
@@ -23,6 +31,7 @@ A few tips to maximize your hands-on time:
 - **Use Ask Devin to refine requirements.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem before Devin executes.
 - **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item, accept it — this is how teams build a shared context layer that compounds over time.
 - **Leave PR comments to steer Devin.** After Devin opens a PR, you can leave comments and Devin will wake up and address them — this is the core feedback loop.
+- **Track parallel sessions.** If you run multiple labs simultaneously, use Devin Desktop's Agent Command Center to see the status of each session on a single Kanban board.
 
 ## Table of Contents
 
@@ -53,11 +62,15 @@ Part 2 — Reconnect the app: Update LoanService.java to use modern repositories
 Create a `TESTING_REPORT.md` documenting what tests were added and what they validate.
 ```
 
+> **Desktop tip:** The PRs Devin opens in this lab can be reviewed directly in Devin Desktop with one-click checkout — no manual `git fetch` required.
+
 #### Step 2: Research with Ask Devin
 
 - *"What are the riskiest data type conversions — VARCHAR dates to LocalDate, amounts to BigDecimal? What edge cases could cause data loss?"*
 - *"How should we validate that no records were lost or corrupted? What reconciliation checks should we run?"*
 - *"What's the best way to implement a dual-read feature flag for safe rollout?"*
+
+> **CLI alternative:** This exploration step can also be done locally with `devin` in your terminal for faster iteration.
 
 #### Step 3 (Optional): Read the DeepWiki
 
@@ -66,6 +79,8 @@ Open the repo's DeepWiki page to understand the domain model and API contracts. 
 #### Step 4 (Optional): Review & Give Feedback
 
 Focus on the testing story: data transformation correctness, reconciliation tests, golden-file validation, and app reconnection completeness.
+
+> **Desktop tip:** Use the Agent Command Center in Devin Desktop to monitor all your running sessions on a single Kanban board.
 
 **Target Outcomes:** Modern JPA entities, data migration service, rewired service layer, golden-file validation, reconciliation tests, testing report
 
