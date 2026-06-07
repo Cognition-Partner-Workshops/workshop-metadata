@@ -88,7 +88,11 @@ devin
 
 Start with exploration — ask Devin to analyze coverage:
 
-*"Analyze the current test coverage. Run the existing tests and generate a coverage report. What are the top 5 modules with the lowest test coverage? What testing patterns does the codebase use?"*
+```
+Analyze the current test coverage. Run the existing tests and generate a
+coverage report. What are the top 5 modules with the lowest test coverage?
+What testing patterns does the codebase use?
+```
 
 #### Step 2: Generate tests interactively
 
@@ -123,7 +127,10 @@ for error handling, empty inputs, and boundary conditions.
 
 Spawn subagents to generate tests across multiple modules simultaneously:
 
-*"Use subagents to generate tests for each of the 5 modules in parallel. Each subagent should handle one module's test file."*
+```
+Use subagents to generate tests for each of the 5 modules in parallel.
+Each subagent should handle one module's test file.
+```
 
 #### Step 4: Review and iterate locally
 
@@ -289,11 +296,17 @@ Focus on: (1) Conditional mutations, (2) Return value mutations,
 
 Review the mutation report and iterate:
 
-*"Focus on the conditional mutations first — those reveal the most dangerous test gaps. Kill the top 5 survivors with meaningful behavior-level assertions."*
+```
+Focus on the conditional mutations first — those reveal the most dangerous
+test gaps. Kill the top 5 survivors with meaningful behavior-level assertions.
+```
 
 Run mutation testing again to verify improvement:
 
-*"Re-run mutation testing on the Articles package. Show me the before/after mutation scores."*
+```
+Re-run mutation testing on the Articles package. Show me the before/after
+mutation scores.
+```
 
 - **Key Takeaways:**
   - **"Coverage ≠ quality"** — a test can execute a line without actually verifying its behavior. Mutation testing exposes this gap
@@ -331,7 +344,11 @@ devin
 
 Start by running the application locally:
 
-*"Set up and run timesheet-app locally (backend on port 3001, frontend on port 5173). Then tell me the main user workflows that would benefit from E2E tests."*
+```
+Set up and run timesheet-app locally (backend on port 3001, frontend on
+port 5173). Then tell me the main user workflows that would benefit from
+E2E tests.
+```
 
 #### Step 2: Generate E2E tests
 
@@ -525,7 +542,11 @@ minutes, (4) Measure p50, p95, and p99 response times. Document findings in
 
 Review the performance report and iterate:
 
-*"The p95 is too high on the report endpoint. Analyze the query — is there a missing index or N+1 problem? Fix it and re-run the load test to show improvement."*
+```
+The p95 is too high on the report endpoint. Analyze the query — is there a
+missing index or N+1 problem? Fix it and re-run the load test to show
+improvement.
+```
 
 ```bash
 k6 run load-test.js
