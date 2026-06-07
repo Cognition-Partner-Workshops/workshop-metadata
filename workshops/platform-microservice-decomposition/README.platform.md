@@ -1,6 +1,6 @@
-# Workshop: Platform-Conformant Microservice Decomposition
+# Workshop: Platform-Conformant Microservice Decomposition (Desktop + Cloud)
 
-**Other variants:** [Desktop + Cloud](README.platform.md)
+**Other variants:** [Cloud only](README.md)
 
 ## Overview
 
@@ -9,13 +9,14 @@
 | **Focus** | Monolith-to-microservices decomposition with IaC conformance on Kubernetes |
 | **Duration** | 1.5–2 hours (75 min lab + 15 min review/discussion) |
 | **Audience** | DevOps, platform engineering, solution architects |
+| **Delivery Surface** | Devin Desktop + Devin Cloud |
 | **Key Modules** | [Platform-Conformant Microservice Decomposition](../../modules/cloud-infrastructure/platform-conformant-microservice-decomposition.md) |
 
 ## Platform Context
 
-This workshop uses **Devin Cloud** via the Devin web app ([app.devin.ai](https://app.devin.ai)). You will create sessions in the browser, paste prompts, and review the PRs Devin opens — all interaction happens through the web interface.
+This workshop uses **Devin Desktop + Devin Cloud**. You will use Desktop as your primary interface — exploring code locally, delegating tasks to Cloud, and reviewing results without leaving the editor. Cloud sessions handle the heavy autonomous work (multi-repo decomposition, IaC generation) while you monitor progress from the Agent Command Center.
 
-> **Tip:** Prefer a local-first workflow? This same workshop can be run from **Devin Desktop** (IDE + Agent Command Center) where you delegate tasks to Cloud and review PRs without leaving the editor. See the [Desktop + Cloud variant](README.platform.md) for that delivery. You can also use **Devin CLI** in your terminal for the exploration phases.
+> **Tip:** If you prefer the browser-only experience, see the [Cloud only variant](README.md). The lab structure and content are identical — only the workflow steps differ.
 
 ## Workshop Narrative
 
@@ -23,17 +24,28 @@ Decomposing a monolith is not just about extracting code — the new service mus
 
 **What makes this workshop unique:** The extracted service must conform to organizational platform standards — namespace placement, network policies, resource quotas, monitoring integration, and GitOps deployment. This mirrors real enterprise decomposition work where "it compiles" is not enough; the service must be deployable and observable within the platform.
 
+## Desktop + Cloud Workflow
+
+This variant replaces the browser-based "paste prompt into the web app" pattern with the Desktop workflow:
+
+1. **Create a Space** in Devin Desktop for this workshop — group sessions, PRs, and files in one view
+2. **Explore locally** with Cascade or Devin Local for code discovery and requirement refinement
+3. **Delegate to Cloud** — send implementation tasks to Devin Cloud from Desktop with one click
+4. **Monitor in the Agent Command Center** — track cloud sessions on the Kanban board by status (working, waiting for review, completed)
+5. **Review PRs in-editor** — one-click checkout of Devin's PRs directly in the editor, no browser switching
+
 ## Getting the Most from This Workshop
 
-> **Devin works asynchronously on its own machine.** Once you paste a prompt and kick off a session, Devin runs independently — you don't need to watch it. Move on to the next lab, explore Ask Devin, or grab coffee while it works. You'll get notified when it opens a PR.
+> **Devin Cloud works asynchronously on its own VM.** Once you delegate a task from Desktop, the cloud agent runs independently. Continue local exploration, review other PRs, or start additional sessions — you'll see updates in the Agent Command Center.
 
 A few tips to maximize your hands-on time:
 
-- **Start sessions early, review later.** Kick off the session first, then use the wait time for Ask Devin research or reading DeepWiki — Devin keeps working in the background.
-- **Use Ask Devin to refine requirements.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem before Devin executes.
-- **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item, accept it — this is how teams build a shared context layer that compounds over time.
-- **Leave PR comments to steer Devin.** After Devin opens a PR, you can leave comments and Devin will wake up and address them — this is the core feedback loop.
-- **Track parallel sessions from the Agent Command Center.** If you're using Devin Desktop, the Kanban board gives you a single view of sessions across status (working, waiting for review, completed). This is especially useful during Phase 4 if you launch multiple decomposition sessions.
+- **Delegate early, review later.** Send the decomposition task to Cloud first, then use Cascade or Devin Local for requirement research while Cloud works.
+- **Use Cascade to refine requirements.** Run Cascade locally in Desktop to analyze the monolith's domain boundaries before delegating the extraction to Cloud — better requirements produce better output.
+- **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item, accept it — this is how teams build a shared context layer that compounds over time. Knowledge is shared across local and cloud agents.
+- **Review PRs with one-click checkout.** When Devin Cloud opens a PR, click it in the Agent Command Center to check out the branch in your editor instantly — no manual `git fetch`.
+- **Use the Agent Command Center for parallel work.** The Kanban board shows sessions by status. During Phase 4, you can launch multiple decomposition sessions and track them from a single view.
+- **Mix agents for different tasks.** Use Devin Local for fast code exploration, delegate long-running implementations to Cloud. ACP allows multiple agents to run in Desktop simultaneously.
 
 ## Table of Contents
 
@@ -54,10 +66,10 @@ A single lab with four phases:
 
 | Time | Phase | Activity |
 |------|-------|----------|
-| 0:00 | **Setup** | Verify repos on Devin machine, create participant branch |
-| 0:05 | **Phase 1 — Launch** | Submit decomposition prompt, Devin starts working |
-| 0:10 | **Phase 2 — Explore** | Use AskDevin and DeepWiki while Devin works |
-| 0:35 | **Phase 3 — Review** | Review PRs, leave feedback comments, watch Devin iterate |
+| 0:00 | **Setup** | Create a Space in Desktop, verify repos, create participant branch |
+| 0:05 | **Phase 1 — Launch** | Delegate decomposition to Cloud from Desktop |
+| 0:10 | **Phase 2 — Explore** | Use Cascade/Devin Local and DeepWiki while Cloud works |
+| 0:35 | **Phase 3 — Review** | Review PRs in-editor, leave feedback, watch Devin iterate |
 | 0:60 | **Phase 4 — Extend** | Bonus challenges (extract another service, add tracing) |
 | 1:15 | **Wrap-up** | Discussion, compare results across participants |
 
@@ -77,16 +89,22 @@ Each participant works on a dedicated branch: **`workshop-<participant>`** (e.g.
 ### Participant Requirements
 
 - [ ] Devin account on partner-workshops.devinenterprise.com
+- [ ] Devin Desktop installed ([desktop.devin.ai](https://desktop.devin.ai))
 - [ ] GitHub access to `Cognition-Partner-Workshops` org (for PR review)
-- [ ] Browser (Chrome recommended)
 
 ---
 
 ## Lab Walkthrough
 
+### Setup — Create a Space (2 min)
+
+1. Open Devin Desktop
+2. Create a new **Space** for this workshop (e.g., "Microservice Decomposition")
+3. The Space will collect sessions, PRs, and related files as you work through the lab
+
 ### Phase 1 — Launch the Decomposition (5 min)
 
-Create a new Devin session and paste the following prompt. Replace `<participant>` with your name (e.g., `workshop-alice`):
+From your Space in Devin Desktop, delegate the following task to **Devin Cloud**. Replace `<participant>` with your name (e.g., `workshop-alice`):
 
 ```
 Decompose the Inventory module from ordermanager-monolith into a standalone microservice.
@@ -111,19 +129,23 @@ Push the monolith refactoring changes to ordermanager-monolith on branch worksho
 Build and test both services locally to verify they work together.
 ```
 
-**What to expect:** Devin will read all four repos, analyze the domain boundaries, create a task plan, and begin extracting the Inventory module. This typically takes 10–15 minutes to produce initial PRs.
+**How to delegate:** In Desktop, open a new session in your Space and paste the prompt. Select "Devin Cloud" as the execution target to send it to a cloud VM for autonomous execution.
 
-> **Desktop tip:** Use the Agent Command Center in Devin Desktop to monitor this session alongside any other running sessions on a single Kanban board.
+**What to expect:** The cloud session appears in your Agent Command Center. Devin will read all four repos, analyze the domain boundaries, create a task plan, and begin extracting the Inventory module. This typically takes 10–15 minutes to produce initial PRs.
 
 ### Phase 2 — Explore While Devin Works (25 min)
 
-While Devin is working autonomously, use these features to deepen your understanding:
+While the cloud agent works autonomously, use Desktop's local capabilities to deepen your understanding:
 
-#### AskDevin
+#### Cascade / Devin Local (in Desktop)
+
+Open a Cascade or Devin Local session in your Space and explore the codebase interactively:
 
 - *"Analyze the domain boundaries in ordermanager-monolith. Which modules are tightly coupled and which have clean boundaries? What shared code exists between the Inventory module and other modules?"*
 - *"Look at the Helm chart in ordermanager-iac and the namespace provisioning in platform-engineering-shared-services. What Kubernetes resources does a new microservice need to conform to the platform standard?"*
 - *"What's the best HTTP client pattern in .NET 8 for service-to-service communication? Should we use IHttpClientFactory with typed clients or Refit?"*
+
+> **Why local exploration?** Cascade and Devin Local run against your local files — responses are faster and more interactive than a cloud session. Use them for research and discovery; delegate implementation to Cloud.
 
 #### DeepWiki
 
@@ -133,22 +155,24 @@ Open each repo's DeepWiki page to understand the architecture:
 2. **platform-engineering-shared-services** — Understand the namespace provisioning pattern, network policy defaults, and monitoring setup. This defines what the new service must conform to.
 3. **ordermanager-iac** — Understand the Helm chart structure, Dockerfile build stages, ArgoCD application configuration, and CI/CD pipeline. The new service's IaC should mirror these patterns.
 
-> **CLI alternative:** The AskDevin exploration steps above can also be done locally with `devin` in your terminal for faster iteration — ask the same questions and get answers grounded in your local file system.
+#### Monitor Cloud Progress in the Agent Command Center
 
-#### Monitor Devin's Progress
-
-Watch the session as Devin works. Key milestones to look for:
+Check the Kanban board in Desktop to track your cloud session's progress. Key milestones:
 - Devin reads all four repos and identifies the Inventory bounded context
 - Devin creates the new .NET 8 Web API project structure
 - Devin generates the Helm chart, Dockerfile, and ArgoCD manifests
 - Devin refactors the monolith to use an HTTP client
 - Devin runs tests and creates PRs
 
+The session card moves from "Working" to "Waiting for Review" when PRs are ready.
+
 ### Phase 3 — Review PRs and Give Feedback (25 min)
 
-Once Devin creates PRs, review them on GitHub:
+When Devin's cloud session creates PRs, they appear in your Space and on the Agent Command Center. Use **one-click checkout** to review them directly in the editor.
 
-> **Desktop tip:** The PRs Devin opens in this lab can be reviewed directly in Devin Desktop with one-click checkout — no manual `git fetch` required.
+#### One-Click Checkout
+
+Click the PR in your Agent Command Center or Space → Desktop checks out the branch in your editor. No manual `git fetch`, no browser switching. You can browse the full diff, run tests locally, and leave inline comments — all from Desktop.
 
 #### Review the Monolith PR
 
@@ -184,21 +208,23 @@ ordermanager-microservices/
 
 #### Leave Feedback Comments
 
-Try leaving one of these PR comments and watch Devin respond:
+Leave a PR comment from Desktop and watch Devin respond:
 
 - *"Add circuit breaker and retry logic to the InventoryServiceClient using Polly"*
 - *"The Helm chart is missing a PodDisruptionBudget — add one with minAvailable: 1"*
 - *"Add integration tests that verify the HTTP communication between the monolith and inventory-service"*
 
-**What to expect:** Devin will read the comment, understand the request, implement the change, and push a new commit to the PR. This feedback loop typically takes 3–5 minutes per comment.
+**What to expect:** Devin Cloud reads the comment, implements the change, and pushes a new commit. The session moves back to "Working" in the Agent Command Center, then returns to "Waiting for Review" when done. This feedback loop typically takes 3–5 minutes per comment.
 
 ### Phase 4 — Bonus Challenges (15 min)
 
-If time permits, extend the session with these follow-up prompts:
+If time permits, delegate additional tasks to Cloud from Desktop. Each task creates a new cloud session visible in the Agent Command Center — you can track them in parallel on the Kanban board:
 
 - *"Extract the Customers module next, following the same pattern you used for Inventory. Add it to ordermanager-microservices on the same workshop branch with its own Helm chart and ArgoCD manifests."*
 - *"Add OpenTelemetry distributed tracing to both the monolith and inventory-service so we can trace requests across the HTTP boundary."*
 - *"Create a Grafana dashboard JSON that shows inventory-service request rate, error rate, and p95 latency using the ServiceMonitor metrics."*
+
+> **Multiple agents in parallel:** Each bonus challenge can run as a separate cloud session. The Agent Command Center shows them side by side — no tab switching required. ACP enables Desktop to orchestrate multiple cloud agents concurrently.
 
 ---
 
@@ -220,20 +246,25 @@ If time permits, extend the session with these follow-up prompts:
 - Service communication patterns (HTTP client replacing in-process calls)
 - How to use context repositories to guide Devin's architectural decisions
 - The difference between platform-level infrastructure and service-level infrastructure
+- **How to use Desktop as a control plane** — delegating to Cloud, monitoring sessions, and reviewing PRs without leaving the editor
+- **How the Agent Command Center provides team-wide visibility** across multiple parallel cloud sessions
 
 ## Devin Features Exercised
 
 | Feature | Where Used |
 |---------|-----------|
-| Multi-repo context awareness | Phase 1 — Devin reads 4 repos simultaneously |
+| Devin Desktop Spaces | Setup — organize the workshop context |
+| Cascade / Devin Local | Phase 2 — local code exploration and research |
+| Delegate to Cloud | Phase 1 — send decomposition task to cloud agent |
+| Agent Command Center | Phases 1–4 — Kanban view of session status |
+| Multi-repo context awareness | Phase 1 — cloud agent reads 4 repos simultaneously |
 | Architectural analysis | Phase 1 — domain boundary identification |
 | Code extraction and refactoring | Phase 1 — .NET and Angular code |
 | IaC generation | Phase 1 — Helm, Dockerfile, ArgoCD, GitHub Actions |
-| Unit testing | Phase 1 — Devin writes and runs tests |
-| PR creation | Phase 1 — PRs in both repos |
-| AskDevin | Phase 2 — pre-session architectural planning |
-| DeepWiki | Phase 2 — codebase exploration across repos |
-| PR comment feedback loop | Phase 3 — iterate on Devin's output |
+| One-click PR checkout | Phase 3 — review PRs in-editor |
+| PR comment feedback loop | Phase 3 — iterate on Devin's output from Desktop |
+| Parallel cloud sessions | Phase 4 — multiple agents tracked on Kanban board |
+| ACP (Agent Client Protocol) | Throughout — multiple agents in a single Desktop |
 
 ---
 
@@ -257,11 +288,32 @@ The platform team owns the platform-level infrastructure. Each service team owns
 | `platform-engineering-shared-services` | Context — defines what the platform expects | No — read-only reference |
 | `ordermanager-iac` | Context — provides IaC patterns to follow | No — read-only reference |
 
+### Desktop + Cloud Workflow Summary
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    YOUR DESKTOP WORKFLOW                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  1. Create Space          2. Explore Locally                     │
+│     (organize context)       (Cascade / Devin Local)             │
+│                                                                  │
+│  3. Delegate to Cloud     4. Monitor on Kanban                   │
+│     (one click)              (Agent Command Center)              │
+│                                                                  │
+│  5. Review in Editor      6. Comment → Iterate                   │
+│     (one-click checkout)     (Devin Cloud responds)              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
 ## Key Takeaways
 
-- **"Code extraction + IaC generation in one session"** — Devin handles both the code and the infrastructure
+- **"Code extraction + IaC generation in one session"** — Devin Cloud handles both the code and the infrastructure autonomously
 - **"Platform conformance by reading existing patterns"** — Devin reads the platform standard repos and generates conformant artifacts
 - **"Multi-repo coordination"** — Devin works across 4 repos simultaneously
+- **"Desktop as your control plane"** — Delegate, monitor, and review without leaving the editor. The Agent Command Center gives team-wide visibility into parallel sessions
+- **"Local + Cloud synergy"** — Use Cascade for fast exploration, delegate heavy implementation to Cloud. ACP enables mixing agents in a single environment
 
 ---
 
