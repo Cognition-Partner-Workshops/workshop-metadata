@@ -31,7 +31,8 @@ A few tips to maximize your hands-on time:
 - **Use Ask Devin to refine requirements.** The better-defined a task is, the better Devin's output. Ask Devin helps you think through the problem before Devin executes.
 - **Build up Devin's knowledge as you go.** When Devin suggests a Knowledge item, accept it — this is how teams build a shared context layer that compounds over time.
 - **Leave PR comments to steer Devin.** After Devin opens a PR, you can leave comments and Devin will wake up and address them — this is the core feedback loop.
-- **Track parallel sessions.** If you run multiple labs simultaneously, use Devin Desktop's Agent Command Center to see the status of each session on a single Kanban board.
+
+> **Desktop tip:** If you run multiple labs simultaneously, use Devin Desktop's Agent Command Center to see the status of each session on a single Kanban board.
 
 ## Table of Contents
 
