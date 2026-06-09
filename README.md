@@ -21,6 +21,8 @@ workshop-metadata/
 ├── events/            ← event-specific agendas and customizations
 ├── catalog/           ← reference inventory of all available repositories
 └── shared/
+    ├── general-themes/       ← how Devin works: architecture, patterns, collaboration
+    ├── product-features/     ← feature tours for Cloud, Desktop, and CLI
     └── runtime-resources.md  ← how to run apps locally if needed
 ```
 
