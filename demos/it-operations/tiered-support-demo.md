@@ -253,8 +253,7 @@ with the label "incident":
    dashboards for the error pattern.
 3. Identify the root cause in the service source code.
 4. Implement a fix and run the affected service's tests.
-5. Push to a branch and open a PR linking back to the
-   incident issue.
+5. Link the resulting PR back to the incident issue.
 
 Cap at 3 invocations per hour. Set an ACU limit of 50
 per session.
