@@ -108,7 +108,7 @@ code shows.
 **Phase output:** A discovery package that the solution architect uses to
 define the target architecture and the engagement lead uses to scope the
 statement of work. What previously took 2-3 weeks of manual code archaeology
-compresses to days — Devin processes every file in the estate, not a sample.
+compresses to days — Devin typically processes the full file estate rather than a sample.
 
 > **Scale pattern:** For multi-application portfolios, spawn a child agent per
 > application. Each child produces the same discovery artifact set. The parent
@@ -275,8 +275,7 @@ implementation effort.
 > conversion phase in ~2 weeks of Devin execution + human review.
 >
 > The SI team's effort shifts from implementation to review, architecture,
-> and client communication — higher-value activities that justify
-> professional services rates.
+> and client communication.
 
 ---
 
@@ -438,7 +437,7 @@ For the SI firm, this means:
   evidence — not promises — that each component works correctly in the
   target architecture.
 
-- **The shared context layer is the SI's competitive advantage.** Playbooks,
+- **The shared context layer compounds across engagements.** Playbooks,
   Knowledge notes, and Environment blueprints encode the methodology once
   and apply it consistently across every conversion. This is how a 5-person
   SI team delivers what would traditionally require 15.
