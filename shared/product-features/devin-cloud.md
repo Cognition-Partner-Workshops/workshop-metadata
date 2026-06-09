@@ -175,7 +175,7 @@ Each session has:
 ## Integrations
 
 ### Git Providers
-- GitHub, GitLab, Bitbucket (cloud and self-hosted)
+- GitHub, GitLab, Bitbucket, Azure DevOps (cloud and self-hosted)
 - Org-level connections — all sessions inherit access
 - PR creation, branch management, CI monitoring built-in
 

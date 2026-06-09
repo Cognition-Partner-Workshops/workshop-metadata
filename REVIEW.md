@@ -39,6 +39,11 @@ This repo contains **attendee-facing** workshop content (modules, workshops, eve
 - **Automation narrative** — Modules should include discussion of webhook-driven automation, scheduled sessions, and child sessions for scale where applicable.
 - **Shared context layer** — Knowledge notes, DeepWiki, MCP integrations, and playbooks should be referenced where relevant.
 
+### Product Naming (Medium Priority)
+
+- **Devin Local, not Cascade** — The local agentic assistant in Devin Desktop has been rebranded from "Cascade" to "Devin Local." Flag any use of "Cascade" as a standalone product name. Acceptable: "Devin Local (formerly Cascade)" for first-mention context. Do not use "Cascade" without the rebrand qualifier.
+- **AGENTS.md, not Rules** — Devin Desktop's always-on instructions mechanism should be described as `AGENTS.md`, not "Rules." The `AGENTS.md` convention is shared across Cloud, Desktop, and CLI. Flag references to "Rules" as a distinct feature when `AGENTS.md` is the correct term.
+
 ### Technical Accuracy (Medium Priority)
 
 - **File paths must exist** — Every file path referenced in a prompt should exist on the referenced repo's main branch.

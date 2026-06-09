@@ -1,12 +1,12 @@
 # Devin Desktop — Feature Tour
 
-Devin Desktop is the AI-powered IDE (built on Windsurf) that brings agentic coding directly into your editor. It combines real-time code intelligence, an autonomous local agent (Cascade), and seamless delegation to Devin Cloud — all in one window.
+Devin Desktop is the AI-powered IDE (built on Windsurf) that brings agentic coding directly into your editor. It combines real-time code intelligence, an autonomous local agent (Devin Local, formerly Cascade), and seamless delegation to Devin Cloud — all in one window.
 
 <a id="toc"></a>
 ## Table of Contents
 
 - [Core Experience](#core-experience)
-- [Cascade — The Agentic Assistant](#cascade)
+- [Devin Local — The Agentic Assistant](#devin-local)
 - [Autocomplete](#autocomplete)
 - [Context Awareness](#context-awareness)
 - [Cloud Delegation](#cloud-delegation)
@@ -22,7 +22,7 @@ Devin Desktop is the AI-powered IDE (built on Windsurf) that brings agentic codi
 | Aspect | Detail |
 |--------|--------|
 | Foundation | Full-featured IDE based on VS Code architecture |
-| AI Layer | Cascade (agentic assistant) + in-house autocomplete |
+| AI Layer | Devin Local (agentic assistant, formerly Cascade) + in-house autocomplete |
 | Execution | Local — works on your filesystem and environment |
 | Cloud bridge | Delegate tasks to Devin Cloud directly from the IDE |
 | Platforms | macOS, Windows, Linux |
@@ -31,16 +31,16 @@ Devin Desktop is where you spend your day coding. The AI layer augments your wor
 
 ---
 
-<a id="cascade"></a>
-## Cascade — The Agentic Assistant
+<a id="devin-local"></a>
+## Devin Local — The Agentic Assistant
 
-Cascade is the agentic AI assistant built into Devin Desktop. Open it with `Cmd/Ctrl+L`.
+Devin Local (formerly Cascade) is the agentic AI assistant built into Devin Desktop. Open it with `Cmd/Ctrl+L`.
 
 ### Modes
 
 | Mode | Purpose |
 |------|---------|
-| **Code** | Cascade creates and modifies files in your workspace |
+| **Code** | Devin Local creates and modifies files in your workspace |
 | **Chat** | Optimized for questions — no file modifications, but can propose code to accept |
 
 ### Key Capabilities
@@ -55,9 +55,9 @@ Cascade is the agentic AI assistant built into Devin Desktop. Open it with `Cmd/
 | Web and Docs search | Search the internet and documentation sites for reference material |
 | Linter integration | Reads your linter output and fixes issues automatically |
 | Explain and Fix | Highlight an error → one-click fix with explanation |
-| Send Problems to Cascade | Route editor diagnostics directly into a Cascade conversation |
-| Auto-Continue | Cascade automatically resumes if it hits a tool-call limit |
-| Queued messages | Queue follow-up prompts while Cascade works on the current one |
+| Send Problems to Devin Local | Route editor diagnostics directly into a Devin Local conversation |
+| Auto-Continue | Devin Local automatically resumes if it hits a tool-call limit |
+| Queued messages | Queue follow-up prompts while Devin Local works on the current one |
 
 ### Workflows
 - Automate repetitive multi-step tasks (formatting, refactoring patterns, code generation)
@@ -67,17 +67,13 @@ Cascade is the agentic AI assistant built into Devin Desktop. Open it with `Cmd/
 - Structured multi-step procedures for complex tasks
 - Similar to Devin Cloud playbooks but for the local agent
 
-### App Deploys
-- One-click deployment of web applications directly from the IDE
-- Supports React, Vue, Svelte, and more
-
 ### Arena Mode
 - Run multiple models on the same prompt simultaneously
 - Compare outputs side-by-side to pick the best result
 
 ### Worktrees
 - Work on multiple branches simultaneously in separate worktrees
-- Each worktree gets its own Cascade context
+- Each worktree gets its own Devin Local context
 
 ---
 
@@ -93,7 +89,7 @@ Cascade is the agentic AI assistant built into Devin Desktop. Open it with `Cmd/
 | Speed settings | Configurable — Fast mode available on Pro/Teams/Enterprise |
 | Context | Reads surrounding code, imports, and project structure |
 
-Autocomplete works alongside Cascade — completions appear inline as you type, independent of any active Cascade conversation.
+Autocomplete works alongside Devin Local — completions appear inline as you type, independent of any active Devin Local conversation.
 
 ---
 
@@ -102,17 +98,16 @@ Autocomplete works alongside Cascade — completions appear inline as you type, 
 
 ### Indexing
 - **Local indexing** — RAG-based retrieval over your workspace files
-- **Remote indexing** — Index remote repositories for cross-repo context
 - **Fast Context** — Lightweight context retrieval for speed-critical completions
 
 ### DeepWiki
 - Access auto-generated architecture documentation for indexed repos
-- Get AI-powered explanations of unfamiliar code and dependencies
+- Symbol-level navigation and AI-powered explanations of unfamiliar code and dependencies
 
-### Memories and Rules
-- Persistent context that carries across Cascade conversations
-- Rules: always-on instructions (similar to AGENTS.md for the local agent)
-- Memories: learned context Cascade retains between sessions
+### Memories and AGENTS.md
+- Persistent context that carries across Devin Local conversations
+- `AGENTS.md` files in repos provide always-on instructions — same convention as Devin Cloud, portable across surfaces
+- Memories: learned context Devin Local retains between sessions
 
 ### .codeiumignore
 - Exclude files/directories from AI processing
@@ -129,13 +124,13 @@ Autocomplete works alongside Cascade — completions appear inline as you type, 
 
 Devin Cloud is built directly into Devin Desktop:
 
-1. Work on a plan locally with Cascade
+1. Work on a plan locally with Devin Local
 2. Click to delegate the implementation to Devin Cloud
-3. Devin spins up its own VM and works autonomously
+3. Devin Cloud spins up its own VM and works autonomously
 4. Review the resulting PR without leaving the IDE
 
 ### Agent Command Center
-- Kanban view of all your agents — both local Cascade sessions and Devin Cloud sessions
+- Kanban view of all your agents — both local Devin Local sessions and Devin Cloud sessions
 - Monitor progress, switch between tasks, manage workload
 
 ### Spaces
@@ -148,13 +143,13 @@ Devin Cloud is built directly into Devin Desktop:
 ## Extensibility
 
 ### MCP (Model Context Protocol)
-- Connect external tool servers to Cascade
+- Connect external tool servers to Devin Local
 - Same marketplace integrations available in Devin Cloud (Jira, Datadog, etc.)
 - Configure per-workspace or globally
 
 ### Hooks
 - Execute custom shell commands at key lifecycle points (pre/post actions)
-- Automate project-specific workflows triggered by Cascade actions
+- Automate project-specific workflows triggered by Devin Local actions
 
 ### Agent Client Protocol (ACP)
 - Run third-party agents inside Devin Desktop
