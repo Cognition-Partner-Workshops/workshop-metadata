@@ -26,7 +26,7 @@ The universal closed-loop approach for event-driven security remediation:
 ```
 Scanner detects vulnerabilities
         ↓
-CI workflow / webhook triggers Devin via v3 API
+Devin Automation triggers a remediation session
         ↓
 Devin triages findings, applies fixes per service/language
         ↓
@@ -40,8 +40,9 @@ Escalation: after N attempts, open an issue for human review
 1. **Scanner detects vulnerabilities** — dependency CVEs, code quality
    issues, SAST findings, license violations.
 
-2. **CI workflow or webhook triggers Devin** — for event-driven pipelines,
-   this runs in Cloud. For interactive triage, you start Devin from the CLI.
+2. **Devin Automation triggers a remediation session** — for event-driven
+   pipelines, a [Devin Automation](https://docs.devin.ai/product-guides/automations)
+   fires in Cloud. For interactive triage, you start Devin from the CLI.
 
 3. **Devin triages findings, applies fixes** — Devin reads the scan output,
    identifies the correct manifest files, and applies fixes per language.
@@ -50,14 +51,21 @@ Escalation: after N attempts, open an issue for human review
    If findings are resolved, CI goes green.
 
 5. **Escalation policy** — after a configurable number of attempts, the
-   workflow opens a GitHub Issue for human review.
+   automation's invocation limit stops firing. The final session opens a
+   GitHub Issue for human review.
 
-### Bot-loop prevention
+### Automation safeguards
 
-- **Author check** — skip PRs authored by `devin-ai-integration[bot]`
-- **Attempt counter** — stop after `MAX_FIX_ATTEMPTS`
-- **Concurrency groups** — prevent duplicate sessions
-- **One-time remediation** — comment-based check for `check_run` scanners
+[Devin Automations](https://docs.devin.ai/product-guides/automations)
+include built-in controls:
+
+- **Invocation limit** — cap how many times the automation fires per time
+  window to prevent runaway loops
+- **ACU limit** — set a maximum compute budget per session
+- **Trigger conditions** — filter which events fire the automation (e.g.,
+  only `conclusion = failure`, only specific repos)
+- **Network policy** — restrict which external hosts automation sessions
+  can reach
 
 ---
 
@@ -105,34 +113,25 @@ devin
 Then within the session:
 
 ```
-/handoff Create a GitHub Actions workflow called
-  sast-auto-remediate.yml on the <repo-name> repo that:
-
-  1. Triggers on pull_request events (opened, synchronize)
-     for branches other than those authored by
-     devin-ai-integration[bot].
-
-  2. Runs a security scan using <scanner-name> targeting
-     HIGH and CRITICAL severity findings.
-
-  3. Parses the scan output and posts a PR comment
-     summarizing findings by service/directory.
-
-  4. If findings exist and fewer than 2 fix attempts
-     have been made, calls the Devin v3 API to create a
-     remediation session on the same branch.
-
-  5. If findings persist after 2 attempts, opens a
-     GitHub Issue labeled "security" and
-     "needs-human-review".
-
-  Include bot-loop prevention (author check + attempt
-  counter) and concurrency groups.
+/handoff Remediate all HIGH and CRITICAL Trivy findings
+  on the Cognition-Partner-Workshops/otterworks repo.
+  Triage findings by service directory. For each finding,
+  apply the fix (dependency upgrade or code change) in the
+  correct manifest or source file. Run each affected
+  service's tests before pushing. Group related fixes per
+  service into single PRs.
 ```
 
 The `/handoff` command packages the conversation context and creates a
-Cloud session. The CLI prints the session URL; the pipeline runs
+Cloud session. The CLI prints the session URL; the remediation runs
 autonomously from there.
+
+For the full event-driven pipeline — where scans automatically trigger
+remediation on every PR — set up a
+[Devin Automation](https://docs.devin.ai/product-guides/automations) in
+the Devin web app. Configure a GitHub `check_run` trigger on otterworks
+and Devin starts a remediation session each time the scanner reports
+findings.
 
 ### Burn down an existing backlog
 
@@ -140,7 +139,7 @@ For repos with an existing vulnerability backlog, combine CLI triage with
 Cloud remediation:
 
 ```
-devin -- Review the Trivy scan results for <repo-name>.
+devin -- Review the Trivy scan results for otterworks.
   Create a SECURITY_BACKLOG.md listing all CRITICAL and
   HIGH findings organized by service directory.
 ```
@@ -148,7 +147,7 @@ devin -- Review the Trivy scan results for <repo-name>.
 Once the triage is complete, hand off bulk remediation to Cloud:
 
 ```
-/handoff Using the SECURITY_BACKLOG.md in <repo-name>,
+/handoff Using the SECURITY_BACKLOG.md in otterworks,
   fix all HIGH and CRITICAL findings. Group related
   fixes per service into single PRs. Run each service's
   tests before pushing. Skip findings in test files.
@@ -164,7 +163,8 @@ session spawn children. Start a session and hand off:
 
 ```
 /handoff You are coordinating a security remediation
-  across the <repo-name> repository.
+  across the Cognition-Partner-Workshops/otterworks
+  repository.
 
   Run the security scan and capture the output. Create a
   SECURITY_BACKLOG.md listing all CRITICAL and HIGH
@@ -220,7 +220,7 @@ and handles failures or escalations.
 
 2. **Scanner-agnostic architecture** — the pattern works with most scanners
    that produce parseable output. Run the scan locally, pass findings to
-   Devin, or let CI trigger via the v3 API.
+   Devin, or let a Devin Automation trigger on CI events.
 
 3. **Terminal-native workflow** — no browser required for triage. Start
    Devin in your project directory and work interactively.
@@ -228,8 +228,8 @@ and handles failures or escalations.
 4. **Closed-loop verification** — CI re-scans after every fix. Verify
    locally with the CLI for spot checks.
 
-5. **Guardrails built in** — bot-loop prevention, concurrency groups,
-   attempt counters, and human escalation.
+5. **Safeguards built in** — automation invocation limits, ACU caps,
+   trigger conditions, and human escalation after max attempts.
 
 6. **Cloud handoff for scale** — event-driven pipelines, scheduled scans,
    and child session fan-out all run in Cloud. The CLI is your on-ramp
