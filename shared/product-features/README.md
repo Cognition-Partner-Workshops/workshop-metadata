@@ -22,7 +22,7 @@ A guided tour of Devin's three product surfaces — what each one does, when to 
 │  agent on     │  cloud delegation     │  cloud delegation   │
 │  its own VM   │                       │                     │
 └───────┬───────┴───────────┬───────────┴──────────┬──────────┘
-        │                   │                      ╎ *
+        │                   │                      │
         └───────────────────┼──────────────────────┘
                             │
               Shared context and natural integration points

@@ -22,7 +22,7 @@ Devin Desktop is the AI-powered IDE (built on Windsurf) that brings agentic codi
 | Aspect | Detail |
 |--------|--------|
 | Foundation | Full-featured IDE based on VS Code architecture |
-| AI Layer | Devin Local (agentic assistant, formerly Cascade) + in-house autocomplete |
+| AI Layer | Devin Local (agentic assistant) + in-house autocomplete |
 | Execution | Local — works on your filesystem and environment |
 | Cloud bridge | Delegate tasks to Devin Cloud directly from the IDE |
 | Platforms | macOS, Windows, Linux |
@@ -34,7 +34,7 @@ Devin Desktop is where you spend your day coding. The AI layer augments your wor
 <a id="devin-local"></a>
 ## Devin Local — The Agentic Assistant
 
-Devin Local (formerly Cascade) is the agentic AI assistant built into Devin Desktop. Open it with `Cmd/Ctrl+L`.
+Devin Local is the agentic AI assistant built into Devin Desktop. Open it with `Cmd/Ctrl+L`.
 
 ### Modes
 
