@@ -268,14 +268,10 @@ verified by the contract test suite and CI pipeline. Tech leads review the
 PRs — minutes of review effort per component instead of hours of
 implementation effort.
 
-> **Velocity math:** If each conversion takes Devin ~2 hours and a human
-> reviewer ~20 minutes, and you run 10 child agents in parallel, the
-> engagement converts 10 components per cycle. A 50-component migration that
-> would take a 5-person team 10 weeks of implementation completes its
-> conversion phase in ~2 weeks of Devin execution + human review.
->
-> The SI team's effort shifts from implementation to review, architecture,
-> and client communication.
+> **Parallel conversion:** Run multiple child agents simultaneously, each
+> converting a different component from the migration sequence. The team's
+> effort shifts from implementation to review — tech leads verify PRs
+> while the next batch of conversions is already in progress.
 
 ---
 
@@ -401,8 +397,9 @@ The investment in each phase pays forward into subsequent phases:
 The **shared context layer** — Knowledge notes encoding standards, Playbooks
 encoding methodology, MCP integrations connecting tools, Environment
 blueprints pre-configuring build environments — is a one-time investment that
-compounds across every conversion session. The 50th conversion runs faster
-than the 1st because the agent has accumulated context from the preceding 49.
+compounds across conversion sessions. The 50th conversion typically runs
+faster than the 1st because the agent has accumulated context from
+preceding runs.
 
 For the SI firm, this means:
 - **Faster delivery** — the engagement timeline compresses because conversion
@@ -411,8 +408,8 @@ For the SI firm, this means:
   architecture and client communication, not bulk implementation
 - **Repeatable methodology** — the playbooks and scaffolds transfer to the
   next engagement, reducing ramp-up time
-- **Demonstrable quality** — every conversion has a PR, a test suite, and a
-  validation report. The audit trail is automatic
+- **Demonstrable quality** — conversions typically produce a PR, a test
+  suite, and a validation report. The audit trail is automatic
 
 ---
 
@@ -438,7 +435,7 @@ For the SI firm, this means:
 
 - **The shared context layer compounds across engagements.** Playbooks,
   Knowledge notes, and Environment blueprints encode the methodology once
-  and apply it consistently across every conversion — reducing ramp-up
+  and apply them consistently across conversions — reducing ramp-up
   time when the same patterns apply to new codebases.
 
 - **Human judgment stays where it matters.** Architects make technology
