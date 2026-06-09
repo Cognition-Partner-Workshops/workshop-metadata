@@ -41,7 +41,7 @@ This repo contains **attendee-facing** workshop content (modules, workshops, eve
 
 ### Product Naming (Medium Priority)
 
-- **Devin Local, not Cascade** — The local agentic assistant in Devin Desktop has been rebranded from "Cascade" to "Devin Local." Flag any use of "Cascade" as a standalone product name. Acceptable: "Devin Local (formerly Cascade)" for first-mention context. Do not use "Cascade" without the rebrand qualifier.
+- **Devin Local, not Cascade** — Devin Local is the successor to Cascade in Devin Desktop, with an improved model harness and subagent support. Cascade still exists but is on a deprecation path. Flag any use of "Cascade" as the current product name. Acceptable: "Devin Local (successor to Cascade)" for first-mention context to orient readers familiar with the older product.
 - **AGENTS.md, not Rules** — Devin Desktop's always-on instructions mechanism should be described as `AGENTS.md`, not "Rules." The `AGENTS.md` convention is shared across Cloud, Desktop, and CLI. Flag references to "Rules" as a distinct feature when `AGENTS.md` is the correct term.
 
 ### Technical Accuracy (Medium Priority)

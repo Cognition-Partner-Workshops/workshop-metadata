@@ -1,6 +1,6 @@
 # Devin Desktop — Feature Tour
 
-Devin Desktop is the AI-powered IDE (built on Windsurf) that brings agentic coding directly into your editor. It combines real-time code intelligence, an autonomous local agent (Devin Local, formerly Cascade), and seamless delegation to Devin Cloud — all in one window.
+Devin Desktop is the AI-powered IDE (built on Windsurf) that brings agentic coding directly into your editor. It combines real-time code intelligence, an autonomous local agent (Devin Local, successor to Cascade), and seamless delegation to Devin Cloud — all in one window.
 
 <a id="toc"></a>
 ## Table of Contents
