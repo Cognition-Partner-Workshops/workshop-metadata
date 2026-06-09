@@ -408,8 +408,8 @@ than the 1st because the agent has accumulated context from the preceding 49.
 For the SI firm, this means:
 - **Faster delivery** — the engagement timeline compresses because conversion
   is parallelized and verification is automated
-- **Higher margins** — senior staff spend time on architecture and client
-  communication, not bulk implementation
+- **Senior focus shifts** — architects and tech leads spend time on
+  architecture and client communication, not bulk implementation
 - **Repeatable methodology** — the playbooks and scaffolds transfer to the
   next engagement, reducing ramp-up time
 - **Demonstrable quality** — every conversion has a PR, a test suite, and a
@@ -439,8 +439,8 @@ For the SI firm, this means:
 
 - **The shared context layer compounds across engagements.** Playbooks,
   Knowledge notes, and Environment blueprints encode the methodology once
-  and apply it consistently across every conversion. This is how a 5-person
-  SI team delivers what would traditionally require 15.
+  and apply it consistently across every conversion — reducing ramp-up
+  time when the same patterns apply to new codebases.
 
 - **Human judgment stays where it matters.** Architects make technology
   decisions. Tech leads review edge cases. The engagement lead manages
