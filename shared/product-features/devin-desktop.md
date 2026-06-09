@@ -27,7 +27,7 @@ Devin Desktop is the AI-powered IDE (built on Windsurf) that brings agentic codi
 | Cloud bridge | Delegate tasks to Devin Cloud directly from the IDE |
 | Platforms | macOS, Windows, Linux |
 
-Devin Desktop is where you spend your day coding. The AI layer augments every interaction — suggesting completions, running multi-step tasks, answering questions, and handing off heavy work to the cloud.
+Devin Desktop is where you spend your day coding. The AI layer augments your workflow throughout — suggesting completions, running multi-step tasks, answering questions, and handing off heavy work to the cloud.
 
 ---
 

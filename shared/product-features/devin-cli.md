@@ -187,7 +187,7 @@ Devin CLI connects to Devin Cloud for tasks that benefit from autonomous executi
 
 - Hand off long-running tasks to a cloud VM
 - Fire-and-forget work while you continue locally
-- Same Knowledge, Secrets, and Git connections available in both environments
+- Cloud sessions use the same Knowledge, Secrets, and Git connections as any Devin Cloud session
 
 > **Note:** Devin CLI does not yet support Knowledge, Playbooks, or Secrets retrieval from your Devin Cloud account directly. These are actively being added.
 

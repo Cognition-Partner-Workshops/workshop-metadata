@@ -33,4 +33,4 @@ A guided tour of Devin's three product surfaces — what each one does, when to 
 - **Devin Desktop** is for interactive pair programming with an AI that sees your editor context in real time
 - **Devin CLI** is for developers who live in the terminal — same agent capabilities, no GUI required
 
-All three share the same organizational context layer (Knowledge, Secrets, Git connections) and can delegate work to Devin Cloud sessions.
+Devin Cloud and Devin Desktop share the same organizational context layer (Knowledge, Secrets, Git connections). Devin CLI shares Git connections and can delegate to Cloud sessions that use the full context layer.
