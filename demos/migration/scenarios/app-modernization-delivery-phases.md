@@ -296,7 +296,7 @@ continuously from Phase 4 onward — it is not a big-bang gate at the end.
 
 **What Devin does:**
 
-Devin runs validation campaigns — systematic, exhaustive checks that would
+Devin runs validation campaigns — systematic, thorough checks that would
 be prohibitively time-consuming to execute manually.
 
 ```
@@ -324,7 +324,7 @@ value, test command to reproduce.
 **Phase output:** A validation report the engagement lead can present to the
 client — evidence-backed, not anecdotal. Discrepancies are flagged early and
 tracked to resolution. The SI team demonstrates rigor because the validation
-is exhaustive, not sampled.
+is thorough, not sampled.
 
 > **Continuous validation:** Configure a Devin Automation to run the
 > validation suite on every PR merge to `main`. The validation report
