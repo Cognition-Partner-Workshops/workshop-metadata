@@ -26,7 +26,7 @@ The universal closed-loop approach for event-driven security remediation:
 ```
 Scanner detects vulnerabilities
         ↓
-CI workflow / webhook triggers Devin via v3 API
+Devin Automation triggers a remediation session
         ↓
 Devin triages findings, applies fixes per service/language
         ↓
@@ -41,10 +41,14 @@ Escalation: after N attempts, open an issue for human review
    SAST findings, license violations. The scanner runs as part of CI (on
    `pull_request`, `push`, or `check_run` events) or on a schedule.
 
-2. **CI workflow or webhook triggers Devin** — a GitHub Actions job (or
-   equivalent) calls the Devin v3 API with the scan results and a remediation
-   prompt. The prompt includes the branch, the scanner output, and
-   instructions scoped to the repo's language and package manager.
+2. **Devin Automation triggers a remediation session** — a
+   [Devin Automation](https://docs.devin.ai/product-guides/automations)
+   fires on the event you configure: a GitHub `check_run` failure, a PR
+   comment, a new GitHub Issue, a webhook from an external scanner, or a
+   schedule. You define the trigger and conditions once; Devin starts a
+   Cloud session automatically each time the event fires, with the scan
+   output and a remediation prompt scoped to the repo's language and
+   package manager.
 
 3. **Devin triages findings, applies fixes** — Devin reads the scan output,
    identifies the correct manifest files (`package.json`, `Gemfile`,
@@ -56,70 +60,79 @@ Escalation: after N attempts, open an issue for human review
    The scanner re-runs. If findings are resolved, CI goes green and the PR
    is ready to merge. If findings persist, the loop repeats.
 
-5. **Escalation policy** — after a configurable number of attempts
-   (`MAX_FIX_ATTEMPTS`), the workflow stops calling Devin and opens a GitHub
-   Issue labeled `security` and `needs-human-review`. The right humans get
-   notified; Devin does not loop forever.
+5. **Escalation policy** — after a configurable number of attempts, the
+   automation's invocation limit stops firing new sessions. The final
+   session opens a GitHub Issue labeled `security` and
+   `needs-human-review`. The right humans get notified; Devin does not
+   loop forever.
 
-### Bot-loop prevention
+### Automation safeguards
 
-Every event-driven pipeline needs guardrails:
+[Devin Automations](https://docs.devin.ai/product-guides/automations)
+include built-in controls:
 
-- **Author check** — skip PRs authored by `devin-ai-integration[bot]` to
-  prevent self-triggering
-- **Attempt counter** — track Devin's commits on the branch and stop after
-  the configured maximum
-- **Concurrency groups** — prevent duplicate sessions from spawning on the
-  same PR
-- **One-time remediation** — for scanners like SonarCloud that fire
-  `check_run` events, use a comment-based check to prevent re-triggering
+- **Invocation limit** — cap how many times the automation fires per time
+  window (e.g., at most 10 per hour) to prevent runaway loops
+- **ACU limit** — set a maximum compute budget per session to prevent
+  runaway remediation
+- **Trigger conditions** — filter which events fire the automation (e.g.,
+  only `conclusion = failure`, only specific repos or branches)
+- **Network policy** — restrict which external hosts automation sessions
+  can reach
 
 ---
 
 <a id="running-it-live"></a>
 ## Running It Live
 
-### Set up the event-driven pipeline
+### Set up the scanner in CI
 
-Paste this into Devin to create a scanner-agnostic remediation workflow on
-any repository:
+Paste this into Devin to create a scanner workflow on the otterworks repo:
 
 ```
-Create a GitHub Actions workflow called
-sast-auto-remediate.yml on the <repo-name> repo that:
+Create a GitHub Actions workflow called security-scan.yml
+on the Cognition-Partner-Workshops/otterworks repo that:
 
-1. Triggers on pull_request events (opened, synchronize)
-   for branches other than those authored by
-   devin-ai-integration[bot].
-
-2. Runs a security scan using <scanner-name> (e.g.,
-   Trivy, Semgrep, or Snyk) targeting HIGH and CRITICAL
-   severity findings.
-
-3. Parses the scan output and posts a PR comment
-   summarizing findings by service/directory.
-
-4. If findings exist and fewer than 2 fix attempts have
-   been made, calls the Devin v3 API to create a
-   remediation session on the same branch with a prompt
-   scoped to the repo's languages and package managers.
-
-5. If findings persist after 2 attempts, opens a GitHub
-   Issue labeled "security" and "needs-human-review"
-   with the full findings summary.
-
-The workflow should include bot-loop prevention
-(author check + attempt counter) and concurrency groups
-to prevent duplicate sessions.
+1. Triggers on pull_request events (opened, synchronize).
+2. Runs a Trivy scan targeting HIGH and CRITICAL severity
+   findings.
+3. Reports results as a GitHub check run.
+4. Posts a PR comment summarizing findings by service
+   directory.
 ```
+
+### Create the Devin Automation
+
+Navigate to **Automations** in the Devin web app. Describe what you want
+in the chat input:
+
+```
+When a security scan check run fails on
+Cognition-Partner-Workshops/otterworks, start a Devin
+session that:
+
+1. Reads the scan findings attached to the check run.
+2. Triages HIGH and CRITICAL findings by service directory.
+3. Applies fixes — dependency upgrades or code changes —
+   in the correct manifest or source file.
+4. Runs each affected service's tests.
+5. Pushes the fix to the same branch.
+
+Cap at 2 invocations per PR. Set an ACU limit of 50 per
+session.
+```
+
+The automation fires each time the scanner reports findings. Devin handles
+remediation automatically — no custom CI job needed to call the API.
 
 ### Trigger the pipeline
 
-Open a PR as a human author on the target repo. Watch the CI checks tab:
+Open a PR as a human author on the otterworks repo. Watch the CI checks
+tab:
 
-1. The scan job runs and finds vulnerabilities
+1. The scan workflow runs and finds vulnerabilities
 2. The findings are posted as a PR comment
-3. The Devin API is called — a remediation session starts
+3. The Devin Automation fires — a remediation session starts
 4. Devin pushes a fix commit, triggering a re-scan
 5. If findings are resolved, CI goes green
 
@@ -128,7 +141,7 @@ Open a PR as a human author on the target repo. Watch the CI checks tab:
 For repos with an existing vulnerability backlog, paste this prompt:
 
 ```
-Review the security scan results for <repo-name>.
+Review the security scan results for otterworks.
 Triage all HIGH and CRITICAL findings by severity.
 For each finding:
 
@@ -155,7 +168,7 @@ remediation.
 
 ```
 You are coordinating a security remediation across the
-<repo-name> repository.
+Cognition-Partner-Workshops/otterworks repository.
 
 Run the security scan and capture the output. Create a
 SECURITY_BACKLOG.md listing all CRITICAL and HIGH
@@ -190,10 +203,10 @@ The closed loop is the core value of event-driven security remediation:
 3. **Bounded iterations** — the attempt counter ensures the loop terminates.
    After the configured maximum, the workflow escalates to humans.
 
-4. **Dual-scanner support** — different scanners can run in parallel on the
-   same PR. Trivy catches dependency CVEs instantly; SonarCloud catches
-   code-level issues after analysis. Both route to Devin through the same
-   v3 API.
+4. **Custom automation triggers** — you define what fires the automation:
+   a scan check run, a PR comment, a new GitHub Issue, or a webhook from
+   an external scanner. Aggregate signal in your trigger layer; the
+   automation kicks off Devin with full context each time.
 
 5. **Audit trail** — every scan result, Devin session link, and escalation
    issue is recorded in the PR timeline. The full remediation history is
@@ -210,7 +223,7 @@ The closed loop is the core value of event-driven security remediation:
 
 2. **Scanner-agnostic architecture** — the pattern works with most scanners
    that produce parseable output or GitHub `check_run` events. Swap the
-   scan step; the Devin API integration and escalation logic stay the same.
+   scan step; the Devin Automation and escalation logic stay the same.
 
 3. **Polyglot at scale** — one pipeline handles multiple languages. Devin
    reads the correct manifest and runs the right test command for each
@@ -219,8 +232,8 @@ The closed loop is the core value of event-driven security remediation:
 4. **Closed-loop verification** — the same CI that found the problem
    re-scans after Devin's fix. No manual verification step.
 
-5. **Guardrails built in** — bot-loop prevention, concurrency groups,
-   attempt counters, and human escalation after max attempts.
+5. **Safeguards built in** — automation invocation limits, ACU caps,
+   trigger conditions, and human escalation after max attempts.
 
 6. **Team-based operation** — the pipeline, knowledge, and playbooks are
    shared across the organization. One engineer sets up the workflow; every

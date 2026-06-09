@@ -27,7 +27,7 @@ The universal closed-loop approach for event-driven security remediation:
 ```
 Scanner detects vulnerabilities
         ↓
-CI workflow / webhook triggers Devin via v3 API
+Devin Automation triggers a remediation session
         ↓
 Devin triages findings, applies fixes per service/language
         ↓
@@ -42,9 +42,11 @@ Escalation: after N attempts, open an issue for human review
    issues, SAST findings, license violations. The scanner runs as part of
    CI or on a schedule.
 
-2. **CI workflow or webhook triggers Devin** — a GitHub Actions job calls
-   the Devin v3 API with the scan results and a remediation prompt. The
-   Cloud session runs on its own VM.
+2. **Devin Automation triggers a remediation session** — a
+   [Devin Automation](https://docs.devin.ai/product-guides/automations)
+   fires on the event you configure: a GitHub `check_run` failure, a PR
+   comment, a new GitHub Issue, a webhook, or a schedule. The Cloud
+   session runs on its own VM.
 
 3. **Devin triages findings, applies fixes** — Devin reads the scan output,
    identifies the correct manifest files, upgrades vulnerable dependencies
@@ -54,50 +56,67 @@ Escalation: after N attempts, open an issue for human review
    If findings are resolved, CI goes green.
 
 5. **Escalation policy** — after a configurable number of attempts, the
-   workflow opens a GitHub Issue for human review.
+   automation's invocation limit stops firing new sessions. The final
+   session opens a GitHub Issue for human review.
 
-### Bot-loop prevention
+### Automation safeguards
 
-- **Author check** — skip PRs authored by `devin-ai-integration[bot]`
-- **Attempt counter** — stop after `MAX_FIX_ATTEMPTS`
-- **Concurrency groups** — prevent duplicate sessions
-- **One-time remediation** — comment-based check for `check_run` scanners
+[Devin Automations](https://docs.devin.ai/product-guides/automations)
+include built-in controls:
+
+- **Invocation limit** — cap how many times the automation fires per time
+  window to prevent runaway loops
+- **ACU limit** — set a maximum compute budget per session
+- **Trigger conditions** — filter which events fire the automation (e.g.,
+  only `conclusion = failure`, only specific repos)
+- **Network policy** — restrict which external hosts automation sessions
+  can reach
 
 ---
 
 <a id="running-it-live"></a>
 ## Running It Live from Desktop
 
-### Delegate the pipeline setup to Cloud
+### Set up the scanner from Desktop
 
 Open Devin Desktop and create a new session. Paste the prompt below, then
 delegate to Cloud — the Cloud agent runs on its own VM while you continue
 working locally.
 
 ```
-Create a GitHub Actions workflow called
-sast-auto-remediate.yml on the <repo-name> repo that:
+Create a GitHub Actions workflow called security-scan.yml
+on the Cognition-Partner-Workshops/otterworks repo that:
 
-1. Triggers on pull_request events (opened, synchronize)
-   for branches other than those authored by
-   devin-ai-integration[bot].
-
-2. Runs a security scan using <scanner-name> targeting
-   HIGH and CRITICAL severity findings.
-
-3. Parses the scan output and posts a PR comment
-   summarizing findings by service/directory.
-
-4. If findings exist and fewer than 2 fix attempts have
-   been made, calls the Devin v3 API to create a
-   remediation session on the same branch.
-
-5. If findings persist after 2 attempts, opens a GitHub
-   Issue labeled "security" and "needs-human-review".
-
-Include bot-loop prevention (author check + attempt
-counter) and concurrency groups.
+1. Triggers on pull_request events (opened, synchronize).
+2. Runs a Trivy scan targeting HIGH and CRITICAL severity
+   findings.
+3. Reports results as a GitHub check run.
+4. Posts a PR comment summarizing findings by service
+   directory.
 ```
+
+### Create the Devin Automation
+
+Navigate to **Automations** in the Devin web app. Describe what you want
+in the chat input:
+
+```
+When a security scan check run fails on
+Cognition-Partner-Workshops/otterworks, start a Devin
+session that:
+
+1. Reads the scan findings attached to the check run.
+2. Triages HIGH and CRITICAL findings by service directory.
+3. Applies fixes in the correct manifest or source file.
+4. Runs each affected service's tests.
+5. Pushes the fix to the same branch.
+
+Cap at 2 invocations per PR. Set an ACU limit of 50 per
+session.
+```
+
+The automation fires each time the scanner reports findings. Devin handles
+remediation automatically.
 
 ### Monitor in the Agent Command Center
 
@@ -129,7 +148,7 @@ locally:
 Create a session in Desktop with this prompt, then delegate to Cloud:
 
 ```
-Review the security scan results for <repo-name>.
+Review the security scan results for otterworks.
 Triage all HIGH and CRITICAL findings by severity.
 For each finding:
 
@@ -156,7 +175,7 @@ service.
 
 ```
 You are coordinating a security remediation across the
-<repo-name> repository.
+Cognition-Partner-Workshops/otterworks repository.
 
 Run the security scan and capture the output. Create a
 SECURITY_BACKLOG.md listing all CRITICAL and HIGH
@@ -205,8 +224,8 @@ as separate cards. Use Spaces to group them into a single view for tracking.
    with one-click checkout in your editor.
 
 2. **Scanner-agnostic architecture** — the pattern works with most scanners
-   that produce parseable output. Swap the scan step; the Devin API
-   integration stays the same.
+   that produce parseable output. Swap the scan step; the Devin Automation
+   stays the same.
 
 3. **Spaces for organization** — group related remediation sessions into
    Spaces for a unified view of your security sprint.
@@ -214,8 +233,8 @@ as separate cards. Use Spaces to group them into a single view for tracking.
 4. **Closed-loop verification** — CI re-scans after every fix. No manual
    verification step.
 
-5. **Guardrails built in** — bot-loop prevention, concurrency groups,
-   attempt counters, and human escalation.
+5. **Safeguards built in** — automation invocation limits, ACU caps,
+   trigger conditions, and human escalation after max attempts.
 
 6. **Team-based operation** — pipelines, knowledge, and playbooks are
    shared across the organization. Desktop gives every team member
