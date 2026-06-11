@@ -85,7 +85,7 @@ Parent Agent
 **Why this works:**
 - The PR is a familiar, auditable artifact that fits existing workflows
 - Multiple team members can contribute feedback to the same session
-- Devin hibernates between interactions — no wasted compute while waiting for review
+- Devin sleeps between interactions — no wasted compute while waiting for review
 - The merge decision always belongs to a human
 
 ## Pattern 5: Toolchain-Agnostic Stubs

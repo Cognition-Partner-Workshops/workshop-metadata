@@ -314,7 +314,7 @@ Migration analysis is not a single-pass operation. Devin uses programmatically a
 | **③ Cross-ref** | **Git repo** (second repo) | `dbt_project/models/`, `macros/`, `docs/SAS_TO_DBT_MIGRATION_MAP.md` | Maps each SAS program to its dbt equivalent; identifies gaps |
 | **④ External** | **MCP servers** (Jira, Confluence, ADO) | Migration tickets, data dictionaries, existing analysis docs | Enriches the assessment with business context — e.g., which programs are business-critical vs. candidates for retirement |
 | **⑤ Produce** | **Git** (push + PR) | Opens PR with assessment artifacts | Creates the review artifact that humans inspect |
-| **⑥ Review** | **PR comments** (Devin monitors) | Human feedback | Devin resumes from hibernation, reads comments, addresses each one |
+| **⑥ Review** | **PR comments** (Devin monitors) | Human feedback | Devin resumes from sleep, reads comments, addresses each one |
 | **⑦ Refine** | **All of the above** | Re-reads source code with new understanding | Each cycle adds accuracy |
 
 ---

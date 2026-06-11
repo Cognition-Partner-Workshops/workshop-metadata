@@ -37,7 +37,7 @@ Multiple team members can interact with the same Devin session through PR commen
 - Devin reads both comments, addresses both requests in subsequent commits
 - Both reviewers see Devin's response and can continue the conversation
 
-This works because Devin monitors its PRs for new comments. When any comment arrives, Devin resumes from its hibernated state and responds with its full conversation context retained — no re-reading from scratch. The session persists across the entire lifecycle of the task with no context loss between interactions.
+This works because Devin monitors its PRs for new comments. When any comment arrives, Devin resumes from its saved state and responds with its full conversation context retained — no re-reading from scratch. The session persists across the entire lifecycle of the task with no context loss between interactions.
 
 ## CI Check Monitoring
 
@@ -51,19 +51,26 @@ Devin actively monitors CI pipeline results after pushing code:
 
 This creates a tight feedback loop where Devin iterates toward a green build without human intervention for straightforward failures.
 
-## Hibernation and Resume
+## Sleep, Resume, and VM Persistence
 
-Devin sessions manage compute resources efficiently:
+Devin sessions manage compute resources efficiently through full VM state serialization — not stateless restarts:
 
 - **Active work** — Devin is running on its VM, executing tasks, building code, running tests
 - **Waiting for feedback** — After opening a PR or asking a question, Devin enters a monitoring state
-- **Hibernation** — After inactivity, Devin snapshots its VM state and releases compute. The session appears idle but all context is preserved
-- **Resume** — When new input arrives (PR comment, CI result, user message), Devin restores its VM from the snapshot and continues exactly where it left off
+- **Sleep** — After inactivity, Devin serializes the **entire VM state** — running processes, filesystem, environment variables, installed packages, build caches, open files, shell history — and releases compute resources. The session appears idle but every byte of state is preserved
+- **Resume** — When new input arrives (PR comment, CI result, user message), Devin restores its VM from the serialized state and continues exactly where it left off. No re-cloning repos, no re-installing dependencies, no re-building artifacts. The session resumes mid-thought
+
+**Why full VM persistence matters (vs. stateless restart):**
+- **Build cache preservation** — Compiled artifacts, downloaded dependencies, and intermediate build outputs survive across sleep cycles. A resumed session does not pay the cold-start cost of a fresh environment
+- **Multi-day workflows are natural** — A migration task that requires three rounds of human review over a week keeps its accumulated state through every cycle. The VM wakes, processes feedback, pushes changes, and goes back to sleep — without ever starting from scratch
+- **Complex environment state persists** — Running databases, Docker containers, started dev servers, configured VPN connections, and in-progress test suites survive sleep. When Devin resumes, the environment is exactly as it was left
+- **No context reconstruction** — Stateless agents must re-read the repo, re-parse the conversation, and re-derive their plan on every invocation. Devin's VM persistence means the agent resumes with its full working memory intact — the code is already open, the plan is already in progress, the test is already halfway through
 
 **What this means for users:**
 - You do not need to respond immediately. Devin waits patiently and resumes when you are ready
 - Sessions do not consume resources while waiting. Cost is proportional to active work time
 - Long-running tasks (multi-day code reviews, back-and-forth iterations) are natural. The session persists across the entire lifecycle
+- A different team member can pick up the conversation. The VM state does not depend on who responds — any reviewer's comment triggers the same seamless resume
 
 ## Working with Existing Tools
 
